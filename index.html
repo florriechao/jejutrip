@@ -1,0 +1,1351 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>濟州 6 天 5 夜 · 2027/10/23–10/28</title>
+<style>
+:root{
+  --bg:#FEFEFE; --surface:#FAFBFC; --border:#E5E7EB;
+  --text:#111827; --text2:#374151; --mute:#6B7280;
+  --blue:#185FA5; --blue-bg:#E6F1FB; --blue-deep:#0C447C;
+  --orange:#EA6C1F; --orange-bg:#FEF3E7; --orange-deep:#7C2D12; --orange-mid:#C2410C;
+  --code:#F3F4F6; --warn-bg:#FEF3C7; --warn-bd:#F59E0B; --warn-tx:#78350F;
+  --alt-bg:#FFFBEB; --alt-bd:#F0C88A; --alt-tx:#B45309;
+  --wear:#92400E; --dash:#F0C88A;
+  --unsure-bg:#F3F4F6; --unsure-bd:#9CA3AF; --unsure-tx:#4B5563;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#0A0E1A; --surface:#151A28; --border:#2A3142;
+    --text:#F3F4F6; --text2:#D1D5DB; --mute:#9CA3AF;
+    --blue:#85B7EB; --blue-bg:#0C447C; --blue-deep:#B5D4F4;
+    --orange:#FAB772; --orange-bg:#3A2812; --orange-deep:#FBD5B5; --orange-mid:#FAB772;
+    --code:#1F2432; --warn-bg:#422906; --warn-bd:#F59E0B; --warn-tx:#FBBF24;
+    --alt-bg:#2A2410; --alt-bd:#78350F; --alt-tx:#FAC775;
+    --unsure-bg:#1F2432; --unsure-bd:#6B7280; --unsure-tx:#9CA3AF;
+    --wear:#F0C88A; --dash:#78350F;
+  }
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang TC","Noto Sans TC",sans-serif;
+  line-height:1.6;color:var(--text);background:var(--bg);max-width:640px;margin:0 auto}
+header{padding:22px 16px 8px}
+h1{font-size:22px;font-weight:500;margin:0 0 4px}
+.sub{font-size:12px;color:var(--mute);margin:0}
+nav{position:sticky;top:0;z-index:90;background:var(--bg);padding:10px 12px;
+  border-bottom:.5px solid var(--border);display:flex;gap:6px;overflow-x:auto;-webkit-overflow-scrolling:touch}
+nav button{flex-shrink:0;padding:6px 12px;border:.5px solid var(--border);border-radius:20px;
+  background:var(--surface);color:var(--text);font-size:12px;cursor:pointer;font-family:inherit;white-space:nowrap}
+nav button.on{background:var(--blue);color:var(--bg);border-color:var(--blue)}
+.day{padding:20px 12px 4px}
+.dlabel{font-size:10px;color:var(--orange);letter-spacing:2px;margin:0 0 2px;font-weight:500}
+.dtitle{font-size:19px;font-weight:600;margin:0 0 2px}
+.dregion{font-size:12px;color:var(--mute);margin:0 0 10px}
+.depart{background:var(--orange-bg);border-left:3px solid var(--orange);padding:12px 14px;
+  margin:0 12px 14px;border-radius:0 8px 8px 0}
+.dtime{font-size:16px;font-weight:600;margin:0 0 4px}
+.dnote{font-size:12px;color:var(--warn-tx);margin:0 0 6px}
+.dwear{font-size:11.5px;color:var(--wear);margin:0;padding-top:6px;border-top:.5px dashed var(--dash)}
+.card{background:var(--surface);border:.5px solid var(--border);border-radius:12px;padding:14px;margin:0 12px 8px}
+.ctime{font-size:11px;color:var(--blue);font-weight:600;margin:0 0 3px}
+.cname{font-size:15px;font-weight:500;margin:0 0 6px}
+.tag{display:inline-block;font-size:10px;padding:2px 7px;border-radius:4px;background:var(--blue-bg);
+  color:var(--blue-deep);margin:0 4px 6px 0;font-weight:500}
+.tag.o{background:var(--orange-bg);color:var(--orange)}
+.geo{display:inline-block;font-size:10px;padding:2px 7px;border-radius:4px;background:var(--unsure-bg);
+  color:var(--unsure-tx);margin:0 4px 6px 0}
+.cdesc{font-size:13px;color:var(--text2);margin:6px 0}
+.dish{font-size:12.5px;color:var(--orange-deep);margin:6px 0}
+.dlab{font-size:9px;letter-spacing:1px;color:var(--orange-mid);font-weight:600;display:block;margin-bottom:2px}
+.info{font-size:11.5px;color:var(--text2);margin:6px 0 0;padding:8px 10px;background:var(--code);border-radius:6px}
+.info div{padding:1px 0}
+.info a,.list a,.ckwrap a{color:var(--blue);word-break:break-all}
+.drive{font-size:11px;color:var(--orange);padding:4px 12px;font-family:ui-monospace,Menlo,monospace;font-weight:500}
+.alt{background:var(--alt-bg);border:1px dashed var(--alt-bd);border-radius:12px;padding:12px 14px;margin:0 12px 8px}
+.altlab{font-size:10px;color:var(--alt-tx);letter-spacing:1px;font-weight:600;margin:0 0 4px}
+.unsure{background:var(--unsure-bg);border-left:3px solid var(--unsure-bd);padding:8px 10px;margin:6px 0 0;border-radius:0 6px 6px 0;font-size:11px;color:var(--unsure-tx)}
+.sect{font-size:14px;font-weight:500;margin:20px 12px 8px;padding-top:10px;border-top:.5px solid var(--border)}
+.subsect{font-size:12px;font-weight:500;margin:12px 12px 6px;color:var(--mute)}
+.list{list-style:none;padding:0;margin:0 12px 6px}
+.list li{padding:7px 0;border-bottom:.5px solid var(--border);font-size:12.5px;color:var(--text2)}
+.list li:last-child{border-bottom:none}
+.list strong{color:var(--text);font-weight:500}
+.list a{color:var(--blue)}
+.warn{background:var(--warn-bg);border-left:3px solid var(--warn-bd);padding:8px 12px;margin:6px 12px;
+  border-radius:0 6px 6px 0;font-size:11.5px;color:var(--warn-tx)}
+table{width:100%;border-collapse:collapse;font-size:11.5px;word-break:keep-all}
+th{text-align:left;padding:6px 5px;border-bottom:1px solid var(--border);color:var(--blue-deep);font-weight:600;font-size:10px;white-space:nowrap}
+td{padding:7px 5px;border-bottom:.5px solid var(--border);color:var(--text2);vertical-align:top;word-break:keep-all}
+.num{text-align:right;white-space:nowrap}
+.tp{color:var(--orange);font-size:10px;display:block}
+.total{background:var(--blue-bg);border-radius:10px;padding:12px 14px;margin:0 12px 10px;font-size:13px;color:var(--blue-deep);line-height:1.8}
+.total div{padding:2px 0}
+.total .tot-h{font-size:13.5px;font-weight:700;color:var(--blue-deep)}
+.tablewrap{overflow-x:auto;margin:0 12px 12px;-webkit-overflow-scrolling:touch;border:.5px solid var(--border);border-radius:10px}
+.tablewrap table{margin:0;width:100%;min-width:460px}
+.tablewrap td,.tablewrap th{white-space:nowrap}
+.tablewrap td.wrap-ok,.tablewrap th.wrap-ok{white-space:normal;word-break:keep-all}
+.grouphead{background:var(--blue-bg);color:var(--blue-deep);font-weight:600;font-size:12px;padding:7px 8px!important;white-space:normal!important;word-break:keep-all}
+.plat-cell{font-size:11px}
+.plat-cell a{white-space:nowrap;display:inline-block}
+.pay2{line-height:1.35}
+.critical{background:var(--orange-mid);color:#fff;border-radius:10px;padding:12px 14px;margin:0 12px 10px;font-size:12.5px;line-height:1.7}
+.critical strong{display:block;font-size:13px;margin-bottom:4px}
+.ckwrap{background:var(--surface);border:.5px solid var(--border);border-radius:10px;padding:10px 12px;margin:0 12px 8px;display:flex;gap:10px;align-items:flex-start}
+.ckwrap input[type=checkbox]{width:20px;height:20px;flex-shrink:0;margin-top:1px;accent-color:var(--blue)}
+.cklabel{flex:1;font-size:12.5px;color:var(--text2)}
+.cklabel b{color:var(--text);font-weight:500;display:block;font-size:13px;margin-bottom:2px}
+.cktip{font-size:11px;color:var(--mute);margin-top:2px;display:block}
+.ckwrap.crit{background:var(--orange-mid);border-color:var(--orange-mid)}
+.ckwrap.crit .cklabel,.ckwrap.crit .cklabel b,.ckwrap.crit .cktip{color:#fff}
+.ckwrap.crit input[type=checkbox]{accent-color:#fff}
+.fxbar{background:var(--code);border-radius:10px;padding:10px 12px;margin:0 12px 10px;font-size:12px;color:var(--text2)}
+.fxbar b{color:var(--blue-deep)}
+.fxbar .fxrow{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:6px}
+.fxbar input.rateinput{width:90px;padding:5px 6px;border:.5px solid var(--border);border-radius:6px;background:var(--bg);color:var(--text);font-size:16px}
+.sectrow{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:20px 12px 8px;flex-wrap:wrap}
+.sectrow .sect{margin:0;padding:0;border:none;flex:1;color:var(--blue-deep);font-weight:700}
+.subsect{font-size:13px;font-weight:700;margin:12px 12px 6px;color:var(--blue-deep)}
+.sect{color:var(--blue-deep);font-weight:700}
+.btn{background:var(--blue);color:#fff;border:none;border-radius:8px;padding:6px 12px;font-size:11.5px;cursor:pointer;font-family:inherit;white-space:nowrap}
+.btn.ghost{background:var(--surface);color:var(--orange);border:1px solid var(--orange);font-weight:600}
+.pricein{width:88px;padding:5px 6px;border:.5px solid var(--border);border-radius:6px;background:var(--bg);color:var(--text);font-size:16px;text-align:right;-webkit-appearance:none}
+.pricein.actual{width:88px}
+.curpre{font-size:11.5px;color:var(--text2);white-space:nowrap}
+.twdconv{font-size:10px;color:var(--mute);display:block;margin-top:2px;white-space:nowrap}
+.bestrow td{font-weight:700}
+.bestbadge{font-size:9px;background:var(--blue-bg);color:var(--blue-deep);padding:1px 5px;border-radius:4px;margin-left:4px;font-weight:600;white-space:nowrap}
+.fillstat{font-size:11px;color:var(--mute);margin-top:4px}
+.cmp-cheap{color:#1D8A4C;font-weight:700}
+.cmp-mid{color:var(--blue-deep);font-weight:700}
+.cmp-expensive{color:var(--warn-tx);font-weight:700}
+footer{padding:24px 12px;text-align:center;font-size:11px;color:var(--mute)}
+section{display:none}
+section.on{display:block}
+</style>
+</head>
+<body>
+
+<header>
+<h1>濟州 6 天 5 夜</h1>
+<p class="sub">2027/10/23 六 · 10/28 四 · 2 人自駕 · 樂天 KONA 4WD</p>
+</header>
+
+<nav>
+<button class="on" data-t="d1">Day 1</button>
+<button data-t="d2">Day 2</button>
+<button data-t="d3">Day 3</button>
+<button data-t="d4">Day 4</button>
+<button data-t="d5">Day 5</button>
+<button data-t="d6">Day 6</button>
+<button data-t="quick">快速表</button>
+<button data-t="check">別白跑</button>
+</nav>
+
+<section id="d1" class="on">
+<div class="day">
+<p class="dlabel">DAY 1 · 10/23 六</p>
+<h2 class="dtitle">落地解憂日</h2>
+<p class="dregion">北 → 西北（涯月）→ 東部（城山）</p>
+</div>
+<div class="depart">
+<p class="dtime">🛏️ 02:30 起床 · 🚪 04:00 出發</p>
+<p class="dwear">👕 薄長袖+薄外套（台北凌晨涼、濟州15–18°C）· 好走的鞋</p>
+</div>
+
+<div class="card">
+<p class="ctime">06:40 起飛</p>
+<h3 class="cname">虎航 IT654 · 桃園 → 濟州</h3>
+<p class="cdesc">09:35 降落 · 入境+領行李+走接駁+等車+接駁車程共約 55 分</p>
+<div class="warn">⚠️ 2027 班表需重新確認週六是否有飛，日期時間以此為暫定基準</div>
+</div>
+
+<div class="drive">🚗 10:30 出發（辦理租車）</div>
+
+<div class="card">
+<p class="ctime">10:30–11:00</p>
+<h3 class="cname">樂天租車 롯데렌터카</h3>
+<span class="tag">🚗 移動</span><span class="geo">📍 <a href="https://map.naver.com/p/search/%EB%A1%AF%EB%8D%B0%EB%A0%8C%ED%84%B0%EC%B9%B4%20%EC%A0%9C%EC%A3%BC%EC%98%A4%ED%86%A0%ED%95%98%EC%9A%B0%EC%8A%A4" target="_blank" rel="noopener">Naver Map</a></span>
+<p class="cdesc">Hyundai KONA 4WD · 辦理30分（含驗車拍照）</p>
+<div class="info">
+<div>價格：約₩585,000（6天全險0自付，依4天報價₩390,200等比例估算，需重新報價確認）· <a href="https://www.lotterentacar.net/hp/chn/reservation/index.do?LANG=chn" target="_blank" rel="noopener">lotterentacar.net</a></div>
+<div>停車：機場租車園區內，停車付款方式查不到</div>
+<div>停留：30 分</div>
+</div>
+</div>
+
+<div class="drive">🚗 11:00 出發 · 開車 35 分</div>
+
+<div class="card">
+<p class="ctime">11:35</p>
+<h3 class="cname">Haejigae Cafe 해지개카페</h3>
+<span class="tag">🥐 早午餐</span><span class="tag o">4.8⭐ 2,302則</span><span class="geo">📍 <a href="https://map.naver.com/p/search/%ED%95%B4%EC%A7%80%EA%B0%9C%EC%B9%B4%ED%8E%98" target="_blank" rel="noopener">Naver Map</a></span>
+<div class="dish"><span class="dlab">推薦</span>鹽麵包 소금빵 · 黑芝麻拿鐵 · 巧克力草莓鹽可頌</div>
+<div class="warn">⚠️ 週六尖峰，麵包常提早賣完</div>
+<div class="info">
+<div>付款：現場刷卡／現金</div>
+<div>餐費：2 人約 ₩25,000</div>
+<div>停車：免費（停車付款方式以此為準，未查到收費資訊）</div>
+<div>營業：每天 09:00–21:00（最後點餐20:20）</div>
+<div>停留：1.5 小時（11:35–13:05）</div>
+<div>IG：<a href="https://www.instagram.com/haejigae_jeju/" target="_blank" rel="noopener">instagram.com/haejigae_jeju</a></div>
+</div>
+</div>
+
+<div class="alt">
+<p class="altlab">☕ 備案 · 步行 2 分鐘</p>
+<h3 class="cname">MENUHA 메누하</h3>
+<span class="geo">📍 <a href="https://map.naver.com/p/search/%EB%A9%94%EB%88%84%ED%95%98" target="_blank" rel="noopener">Naver Map</a></span>
+<p class="cdesc">4.6⭐ · 濟州黑豬肉漢堡 · 09:30–18:00</p>
+</div>
+
+<div class="drive">🚗 13:05 出發 · 開車 90 分</div>
+
+<div class="card">
+<p class="ctime">14:35 抵達</p>
+<h3 class="cname">Playce Camp Jeju 플레이스캠프 제주</h3>
+<span class="tag">🛌 入住</span><span class="geo">📍 <a href="https://map.naver.com/p/search/%ED%94%8C%EB%A0%88%EC%9D%B4%EC%8A%A4%EC%BA%A0%ED%94%84%20%EC%A0%9C%EC%A3%BC" target="_blank" rel="noopener">Naver Map</a></span>
+<p class="cdesc">工業風設計複合園區</p>
+<div class="info">
+<div>附設：위로餐廳、도렐咖啡廳、스피닝울프酒吧（皆可用餐）· 24小時GS25便利商店</div>
+<div>報到：15:00起（14:35抵達後於大廳等候約25分）</div>
+<div>訂房：ezTravel · 約NT$1,108+/晚 · <a href="https://www.eztravel.com.tw" target="_blank" rel="noopener">eztravel.com.tw</a></div>
+<div>停車：園區內，停車付款方式查不到</div>
+</div>
+</div>
+
+<div class="card">
+<p class="ctime">15:00</p>
+<h3 class="cname">休息</h3>
+<span class="tag">🛌 耍廢</span>
+<p class="cdesc">補眠、整理行李</p>
+</div>
+
+<div class="card">
+<p class="ctime">18:00</p>
+<h3 class="cname">園區內晚餐</h3>
+<span class="tag">🍽️ 晚餐</span>
+<p class="cdesc">위로餐廳或스피닝울프酒吧皆可直接解決，簡單吃也可去GS25 · 金額未定</p>
+</div>
+</section>
+
+<section id="d2">
+<div class="day">
+<p class="dlabel">DAY 2 · 10/24 日</p>
+<h2 class="dtitle">和平海女行</h2>
+<p class="dregion">北中 → 函德 → 具坐</p>
+</div>
+<div class="depart">
+<p class="dtime">🛏️ 06:30 起床 · 🚪 08:00 出發</p>
+<p class="dwear">👕 洋蔥式：薄長袖+保暖外套 · 好走的鞋（숨비소리길步道）· 帶水壺</p>
+</div>
+
+<div class="drive">🚗 08:00 出發 · 開車 60 分</div>
+
+<div class="card">
+<p class="ctime">09:00</p>
+<h3 class="cname">濟州4.3和平紀念館 제주4·3평화기념관</h3>
+<span class="tag">🏛️ 智慧</span><span class="geo">📍 <a href="https://map.naver.com/p/search/%EC%A0%9C%EC%A3%BC4%C2%B73%ED%8F%89%ED%99%94%EA%B8%B0%EB%85%90%EA%B4%80" target="_blank" rel="noopener">Naver Map</a></span>
+<div class="info">
+<div>門票：免費</div>
+<div>停車：免費，停車付款方式查不到是否有其他收費區</div>
+<div>營業：09:00–18:00（17:00停止入場；每月第一、第三個週一公休，遇國定假日順延至下一個非假日）</div>
+<div>停留：2.5 小時（09:00–11:30）</div>
+</div>
+<div class="unsure">中文導覽：常設展提供中文字幕解說影片，官網另有中文版摺頁資料可下載 · <a href="https://jeju43peace.or.kr/kor/sub05_02_01_05.do" target="_blank" rel="noopener">解說影片</a> · <a href="https://jeju43peace.or.kr/kor/sub01_01_01.do" target="_blank" rel="noopener">中文資料</a></div>
+</div>
+
+<div class="drive">🚗 11:30 出發 · 開車 30 分</div>
+
+<div class="card">
+<p class="ctime">12:00</p>
+<h3 class="cname">函德鯖魚生菜包飯 함덕고등어쌈밥</h3>
+<span class="tag">🐟 韓式</span><span class="tag o">4.8⭐ 363則</span><span class="geo">📍 <a href="https://map.naver.com/p/search/%ED%95%A8%EB%8D%95%EA%B3%A0%EB%93%B1%EC%96%B4%EC%8C%88%EB%B0%A5" target="_blank" rel="noopener">Naver Map</a></span>
+<div class="dish"><span class="dlab">推薦</span>烤鯖魚生菜包飯（招牌）</div>
+<div class="info">
+<div>付款：現場刷卡／現金</div>
+<div>餐費：2 人約 ₩40,000</div>
+<div>停車：查不到</div>
+<div>停留：1.5 小時（12:00–13:30）</div>
+</div>
+</div>
+
+<div class="drive">🚗 13:30 出發 · 開車 30 分</div>
+
+<div class="card">
+<p class="ctime">14:00</p>
+<h3 class="cname">海女博物館 해녀박물관 + 海女呼吸路 숨비소리길</h3>
+<span class="tag">🏛️ 智慧</span><span class="geo">📍 <a href="https://map.naver.com/p/search/%ED%95%B4%EB%85%80%EB%B0%95%EB%AC%BC%EA%B4%80" target="_blank" rel="noopener">Naver Map</a></span>
+<p class="cdesc">路線：해녀박물관(起點)→면수동 밭담路(田埂路)→별방진(登城牆眺望하도리海景，折返點)→原路走回해녀박물관，精華來回段約2.2公里，含拍照約1–1.5小時</p>
+<div class="info">
+<div>門票：約₩1,100/人，僅現場售票</div>
+<div>停車：免費</div>
+<div>營業：09:00–18:00（售票至17:10；週一、1月1日、春節、秋夕公休）</div>
+<div>停留：2 小時（14:00–16:00）</div>
+</div>
+<div class="unsure">中文導覽：查不到官方是否提供固定形式（真人時段／語音／App／QR）中文導覽，建議現場向服務台確認</div>
+</div>
+
+<div class="drive">🚗 16:00 出發 · 開車 60 分</div>
+
+<div class="card">
+<p class="ctime">17:00</p>
+<h3 class="cname">帶魚王 城山店 갈치왕 성산점</h3>
+<span class="tag o">4.94⭐ 3K則</span><span class="geo">📍 <a href="https://map.naver.com/p/search/%EA%B0%88%EC%B9%98%EC%99%95%20%EC%84%B1%EC%82%B0%EC%A0%90" target="_blank" rel="noopener">Naver Map</a></span>
+<div class="dish"><span class="dlab">推薦</span>整尾烤白帶魚定食 · 白帶魚燉湯</div>
+<div class="info">
+<div>付款：現場刷卡／現金 · 現場候位或Naver預約</div>
+<div>餐費：2 人約 ₩70,000</div>
+<div>停車：查不到</div>
+<div>營業：10:00–21:00（休息15:30–17:00；最後點餐20:00；每週四公休）</div>
+<div>停留：1 小時20分（17:00–18:20）</div>
+</div>
+</div>
+
+<div class="drive">🚗 18:20 出發 · 開車 10 分 回 Playce Camp</div>
+</section>
+
+<section id="d3">
+<div class="day">
+<p class="dlabel">DAY 3 · 10/25 一</p>
+<h2 class="dtitle">日出探海日</h2>
+<p class="dregion">東部（城山）→ 西南（中文）</p>
+</div>
+<div class="depart">
+<p class="dtime">🛏️ 08:10 起床 · 🚪 09:40 出發</p>
+<p class="dwear">👕 洋蔥式 · 球鞋必備（爬30分鐘階梯）· 今晚換飯店，行李先收好放車上</p>
+</div>
+
+<div class="drive">🚗 09:40 出發 · 開車約 20 分</div>
+
+<div class="card">
+<p class="ctime">10:00</p>
+<h3 class="cname">城山日出峰 성산일출봉</h3>
+<span class="tag">🥾 體力活</span><span class="geo">📍 <a href="https://map.naver.com/p/search/%EC%84%B1%EC%82%B0%EC%9D%BC%EC%B6%9C%EB%B4%89" target="_blank" rel="noopener">Naver Map</a></span>
+<div class="info">
+<div>門票：₩5,000/人，僅現場售票</div>
+<div>付款：現場刷卡／現金</div>
+<div>停車：免費</div>
+<div>營業：10月 05:00–19:00（售票至18:00；每月第一個週一公休）</div>
+<div>停留：1.5 小時（10:00–11:30）</div>
+</div>
+</div>
+
+<div class="drive">🚶 11:30 出發 · 步行約 2 分</div>
+
+<div class="card">
+<p class="ctime">11:30</p>
+<h3 class="cname">Aurum Noodle 어우름제주고기국수 성산본점</h3>
+<span class="tag">🍜 韓式麵</span><span class="tag o">4.7⭐ 452則</span><span class="geo">📍 <a href="https://map.naver.com/p/search/%EC%96%B4%EC%9A%B0%EB%A6%84%EC%A0%9C%EC%A3%BC%EA%B3%A0%EA%B8%B0%EA%B5%AD%EC%88%98%20%EC%84%B1%EC%82%B0%EB%B3%B8%EC%A0%90" target="_blank" rel="noopener">Naver Map</a></span>
+<div class="dish"><span class="dlab">推薦</span>濟州傳統豬肉刀切麵（고기국수）</div>
+<div class="info">
+<div>付款：現場刷卡／現金 · 現場候位</div>
+<div>餐費：2 人約 ₩24,000</div>
+<div>營業：每天 08:00–19:00</div>
+<div>停留：1 小時（11:30–12:30）</div>
+</div>
+</div>
+
+<div class="drive">🚗 12:30 出發 · 開車約 15 分</div>
+
+<div class="card">
+<p class="ctime">12:50 入場</p>
+<h3 class="cname">Aquaplanet 濟州 아쿠아플라넷 제주</h3>
+<span class="tag">🐟 智慧</span><span class="geo">📍 <a href="https://map.naver.com/p/search/%EC%95%84%EC%BF%A0%EC%95%84%ED%94%8C%EB%9D%BC%EB%84%B7%20%EC%A0%9C%EC%A3%BC" target="_blank" rel="noopener">Naver Map</a></span>
+<p class="cdesc">12:50–15:20 參觀水族館，海洋劇場 13:10 或海女表演 14:20 擇一觀賞，其餘時間逛水族館</p>
+<div class="tablewrap">
+<table>
+<tr><th>付款</th><th>平台</th><th>方案</th><th>金額</th></tr>
+<tr><td>線上</td><td><a href="https://tw.trip.com/travel-guide/attraction/seogwipo/aqua-planet-jeju-10570794?curr=TWD&locale=zh-TW" target="_blank" rel="noopener">Trip.com</a></td><td>綜合票</td><td>NT$659／人</td></tr>
+<tr><td>線上</td><td><a href="https://www.klook.com/zh-TW/activity/1959-aqua-planet-jeju/" target="_blank" rel="noopener">Klook</a></td><td>綜合票</td><td>NT$790–794／人</td></tr>
+<tr><td>線上</td><td><a href="https://www.kkday.com/zh-tw/product/3592-aqua-planet-jeju-aquarium-ticket-non-korean" target="_blank" rel="noopener">KKday</a></td><td>綜合票</td><td>NT$794／人</td></tr>
+</table>
+</div>
+<div class="info">
+<div>停車：免費（官方確認）</div>
+<div>營業：09:30–18:00（17:00停止售票、17:30停止入場，全年無休）</div>
+<div>停留：2.5 小時（12:50–15:20）</div>
+</div>
+<div class="unsure">中文導覽：查不到官方是否提供中文語音導覽或中文解說，建議現場詢問（諮詢電話 1833-7001）</div>
+<div class="warn">⚠️ 以下為目前官方場次，2027 年可能調整，出發前請重新確認：<a href="https://m.aquaplanet.co.kr/jeju/program/timetable_jeju.do" target="_blank" rel="noopener">Aquaplanet 濟州官方節目時刻表</a><br>海洋劇場（約40分）：11:10／13:10／15:00／17:00<br>海女表演（約10分）：10:30／12:20／14:20／16:20</div>
+</div>
+
+<div class="drive">🚗 15:30 出發 · 開車約 80 分</div>
+
+<div class="card">
+<p class="ctime">16:50</p>
+<h3 class="cname">Dullegil 둘레길（環林道 西歸浦 Jungmun總店）</h3>
+<span class="tag">🍝 西日融合</span><span class="tag o">4.87⭐ 12K則</span><span class="geo">📍 <a href="https://map.naver.com/p/search/%EB%91%98%EB%A0%88%EA%B8%B8%20%EC%84%9C%EA%B7%80%ED%8F%AC%20%EC%A4%91%EB%AC%B8%EB%B3%B8%EC%A0%90" target="_blank" rel="noopener">Naver Map</a></span>
+<div class="dish"><span class="dlab">推薦</span>炸豬排+烤魚義大利麵 · 蛋包飯</div>
+<div class="info">
+<div>付款：現場刷卡／現金 · 現場候位</div>
+<div>餐費：2 人約 ₩40,000</div>
+<div>停車：免費</div>
+<div>營業：每天 10:00–15:00、16:30–21:30</div>
+<div>停留：1.5 小時（16:50–18:20）</div>
+</div>
+</div>
+
+<div class="drive">🚗 18:20 出發 · 開車 15 分</div>
+
+<div class="card">
+<p class="ctime">18:35</p>
+<h3 class="cname">士嘉堡酒店 Hotel Scarboro</h3>
+<span class="tag">🛌 入住</span><span class="geo">📍 <a href="https://map.naver.com/p/search/%ED%98%B8%ED%85%94%20%EC%8A%A4%EC%B9%B4%EB%B8%8C%EB%A1%9C" target="_blank" rel="noopener">Naver Map</a></span>
+</div>
+</section>
+
+<section id="d4">
+<div class="day">
+<p class="dlabel">DAY 4 · 10/26 二</p>
+<h2 class="dtitle">花丘飛翔日</h2>
+<p class="dregion">西南（中文）</p>
+</div>
+<div class="depart">
+<p class="dtime">🛏️ 07:15 起床 · 🚪 08:40 出發</p>
+<p class="dwear">👕 滑翔傘換洗衣物：一套乾淨衣物+大浴巾+防水袋 · 舊鞋（會濕）</p>
+</div>
+
+<div class="drive">🚗 08:40 出發 · 開車 20 分</div>
+
+<div class="card">
+<p class="ctime">09:00</p>
+<h3 class="cname">山茶花之丘 카멜리아힐</h3>
+<span class="tag">📸 靜態</span><span class="tag o">粉紅芒草最盛期</span><span class="geo">📍 <a href="https://map.naver.com/p/search/%EC%B9%B4%EB%A9%9C%EB%A6%AC%EC%95%84%ED%9E%90" target="_blank" rel="noopener">Naver Map</a></span>
+<div class="tablewrap">
+<table>
+<tr><th>付款</th><th>平台</th><th>方案</th><th>金額</th></tr>
+<tr><td>線上</td><td><a href="https://tw.trip.com/travel-guide/attraction/seogwipo/camellia-hill-botanical-garden-90374?curr=TWD&locale=zh-TW" target="_blank" rel="noopener">Trip.com</a></td><td>成人票</td><td>NT$197／人</td></tr>
+<tr><td>線上</td><td><a href="https://www.klook.com/zh-TW/activity/142804-camellia-hill-admission-ticket-in-jeju/" target="_blank" rel="noopener">Klook</a></td><td>成人票</td><td>NT$230–231／人</td></tr>
+<tr><td>線上</td><td><a href="https://www.kkday.com/zh-tw/product/13862-jeju-camelia-hill-ticket-south-korea" target="_blank" rel="noopener">KKday</a></td><td>成人票</td><td>NT$232／人</td></tr>
+<tr><td>現場</td><td>—</td><td>成人票</td><td>₩10,000／人</td></tr>
+</table>
+</div>
+<div class="info">
+<div>停車：免費（官方確認）</div>
+<div>營業：10月 08:30–18:30（售票至17:30）</div>
+<div>停留：2 小時（09:00–11:00）</div>
+</div>
+</div>
+
+<div class="drive">🚗 11:00 出發 · 開車 30 分</div>
+
+<div class="card">
+<p class="ctime">11:30</p>
+<h3 class="cname">Bake Make Roast</h3>
+<span class="tag">🥯 貝果</span><span class="geo">📍 <a href="https://map.naver.com/p/search/Bake%20Make%20Roast%20%EC%A0%9C%EC%A3%BC" target="_blank" rel="noopener">Naver Map</a></span>
+<div class="dish"><span class="dlab">推薦</span>羅勒培根貝果三明治 · 燕麥奶拿鐵</div>
+<div class="info">
+<div>付款：現場刷卡 · 現場候位</div>
+<div>餐費：2 人約 ₩25,000</div>
+<div>營業：每天 08:00–17:00</div>
+<div>停留：1 小時20分（11:30–12:50，較原先縮短，確保下一站JEJU JET能提前30分報到）</div>
+</div>
+</div>
+
+<div class="drive">🚗 12:50 出發 · 開車 20 分</div>
+
+<div class="card">
+<p class="ctime">13:10 報到</p>
+<h3 class="cname">JEJU JET 滑翔傘 제주제트 파라세일링</h3>
+<span class="tag">💦 動態</span><span class="geo">📍 <a href="https://map.naver.com/p/search/%EC%A0%9C%EC%A3%BC%EC%A0%9C%ED%8A%B8%20%ED%8C%8C%EB%9D%BC%EC%84%B8%EC%9D%BC%EB%A7%81" target="_blank" rel="noopener">Naver Map</a></span>
+<p class="cdesc">13:40場次 · 需提前30分報到（官方規定），不接觸海水</p>
+<div class="tablewrap">
+<table>
+<tr><th>付款</th><th>平台</th><th>方案</th><th>金額</th></tr>
+<tr><td>線上</td><td><a href="https://tw.trip.com/things-to-do/detail/112298573?language=TW&locale=zh-TW&curr=TWD" target="_blank" rel="noopener">Trip.com</a></td><td>滑翔傘</td><td>NT$1,210／人</td></tr>
+<tr><td>線上</td><td><a href="https://www.kkday.com/zh-tw/product/765128" target="_blank" rel="noopener">KKday</a></td><td>滑翔傘</td><td>NT$1,273／人</td></tr>
+<tr><td>—</td><td>Klook</td><td>—</td><td>無販售</td></tr>
+</table>
+</div>
+<div class="info">
+<div>停車：免費</div>
+<div>場次：含09:30/10:20/11:10/12:50/<strong>13:40</strong>/15:20/16:10/17:00</div>
+<div>停留：約 50 分（13:40–14:30）</div>
+</div>
+</div>
+
+<div class="drive">🕐 14:30–14:50 換裝</div>
+
+<div class="drive">🚗 14:50 出發 · 開車 15 分</div>
+
+<div class="card">
+<p class="ctime">15:05</p>
+<h3 class="cname">濟州實彈射擊場 제주실탄사격장</h3>
+<span class="tag">🎯 動態</span><span class="geo">📍 <a href="https://map.naver.com/p/search/%EC%A0%9C%EC%A3%BC%EC%8B%A4%ED%83%84%EC%82%AC%EA%B2%A9%EC%9E%A5" target="_blank" rel="noopener">Naver Map</a></span>
+<p class="cdesc">中文觀光區附近 · 실탄（實彈）12發，14歲以上需帶身分證明</p>
+<div class="tablewrap">
+<table>
+<tr><th>付款</th><th>平台</th><th>方案</th><th>金額</th></tr>
+<tr><td>線上</td><td><a href="https://tw.trip.com/travel-guide/attraction/seogwipo/jeju-shooting-range-24240608/?curr=TWD&locale=zh-TW" target="_blank" rel="noopener">Trip.com</a></td><td>12發</td><td>NT$512／人</td></tr>
+<tr><td>線上</td><td><a href="https://www.klook.com/zh-TW/activity/201335-jeju-real-gun-shooting-range-experience/" target="_blank" rel="noopener">Klook</a></td><td>12發</td><td>NT$806／人</td></tr>
+<tr><td>線上</td><td><a href="https://www.kkday.com/zh-tw/product/765416" target="_blank" rel="noopener">KKday</a></td><td>12發</td><td>NT$861／人</td></tr>
+<tr><td>現場</td><td>—</td><td>12發</td><td>₩35,000／人</td></tr>
+</table>
+</div>
+<div class="info">
+<div>停車：免費</div>
+<div>營業：每天 10:00–19:00（入場截止18:30）</div>
+<div>停留：45 分（15:05–15:50）</div>
+</div>
+<div class="warn">⚠️ 現場候位人多，Klook買家評價曾提到已預約仍等候1.5小時，建議預留寬裕時間</div>
+</div>
+
+<div class="drive">🚗 收拾整理緩衝 15:50–16:30（40分）· 16:30 出發 · 開車 10 分</div>
+
+<div class="card">
+<p class="ctime">16:40 抵達 · 17:30 預約</p>
+<h3 class="cname">熟成到 中文店 숙성도 중문점</h3>
+<span class="tag">🥩 烤黑豬</span><span class="geo">📍 <a href="https://map.naver.com/p/search/%EC%88%99%EC%84%B1%EB%8F%84%20%EC%A4%91%EB%AC%B8%EC%A0%90" target="_blank" rel="noopener">Naver Map</a></span>
+<p class="cdesc">16:40提早抵達，附近逛逛，預留CatchTable緩衝避免遲到取消</p>
+<div class="dish"><span class="dlab">推薦</span>帶骨里脊 뼈등심 · 帶骨頸肉 뼈목살（限量80份）</div>
+<div class="info">
+<div>訂位：CatchTable Global App</div>
+<div>付款：訂金線上 ₩30,000（共同非每人）· 現場餘額刷卡／現金 約₩60,000</div>
+<div>停車：免費</div>
+<div>營業：每天 11:30–22:00</div>
+<div>停留：1.5 小時（17:30–19:00）</div>
+</div>
+</div>
+
+<div class="drive">🚗 19:00 出發 · 開車 20 分 回士嘉堡</div>
+</section>
+
+<section id="d5">
+<div class="day">
+<p class="dlabel">DAY 5 · 10/27 三</p>
+<h2 class="dtitle">茶山海戀曲</h2>
+<p class="dregion">西南 · 涯月騎馬</p>
+</div>
+<div class="depart">
+<p class="dtime">🛏️ 07:15 起床 · 🚪 08:40 出發</p>
+<p class="dwear">👕 薄毛衣+風衣 · 好走的鞋（走神聖窟階梯）· 騎馬建議長褲</p>
+</div>
+
+<div class="drive">🚗 08:40 出發 · 開車 20 分</div>
+
+<div class="card">
+<p class="ctime">09:00</p>
+<h3 class="cname">龍頭海岸 용머리해안</h3>
+<span class="tag">🚶 靜態</span><span class="geo">📍 <a href="https://map.naver.com/p/search/%EC%9A%A9%EB%A8%B8%EB%A6%AC%ED%95%B4%EC%95%88" target="_blank" rel="noopener">Naver Map</a></span>
+<div class="info">
+<div>門票：₩2,000/人，僅現場售票</div>
+<div>付款：現場刷卡／現金</div>
+<div>停車：免費（附近公營停車場，官方及多篇資料確認）</div>
+<div>營業：10月 08:30–17:30（依潮汐每日調整）</div>
+<div>停留：1 小時（09:00–10:00）</div>
+</div>
+<div class="warn">出發前用 IG @6sot_official 確認當日開放時段</div>
+</div>
+
+<div class="alt">
+<p class="altlab">⛅ 潮汐不開放時的同時段替代</p>
+<h3 class="cname">沙溪海邊 사계해변</h3>
+<span class="geo">📍 <a href="https://map.naver.com/p/search/%EC%82%AC%EA%B3%84%ED%95%B4%EB%B3%80" target="_blank" rel="noopener">Naver Map</a></span>
+<p class="cdesc">旁邊、免費、不受潮汐影響</p>
+</div>
+
+<div class="drive">🚗 10:00 出發 · 步行 5 分</div>
+
+<div class="card">
+<p class="ctime">10:05</p>
+<h3 class="cname">山房山 산방산</h3>
+<span class="tag">🥾 體力活</span><span class="geo">📍 <a href="https://map.naver.com/p/search/%EC%82%B0%EB%B0%A9%EC%82%B0" target="_blank" rel="noopener">Naver Map</a></span>
+<div class="info">
+<div>門票：₩1,000/人，僅現場售票</div>
+<div>付款：現場刷卡／現金</div>
+<div>停車：免費</div>
+<div>營業：09:00–17:50（全年無休）</div>
+<div>停留：55 分（10:05–11:00）</div>
+</div>
+</div>
+
+<div class="drive">🚗 11:00 出發 · 開車 25 分</div>
+
+<div class="card">
+<p class="ctime">11:25</p>
+<h3 class="cname">雪綠茶博物館 TEA TERRACE by O'sulloc</h3>
+<span class="tag">🍵 靜態</span><span class="geo">📍 <a href="https://map.naver.com/p/search/%EC%98%A4%EC%84%A4%EB%A1%9D%20%ED%8B%B0%ED%95%98%EC%9A%B0%EC%8A%A4%20%EC%A0%9C%EC%A3%BC" target="_blank" rel="noopener">Naver Map</a></span>
+<div class="dish"><span class="dlab">推薦</span>熱抹茶麵 · 冷抹茶麵 · 抹茶拌麵</div>
+<div class="info">
+<div>門票：免門票</div>
+<div>付款：現場刷卡／現金</div>
+<div>餐費：2 人約 ₩30,000</div>
+<div>停車：免費</div>
+<div>營業：每天 09:00–19:00（茶座至18:00，實際依季節微調）</div>
+<div>停留：2 小時35分（11:25–14:00，含用餐＋逛博物館及茶園）</div>
+</div>
+<div class="unsure">中文導覽：查不到是否提供中文語音導覽、App導覽或中文展示說明，僅確認付費體驗「티스톤」有英文導覽手冊</div>
+</div>
+
+<div class="drive">🚗 14:00 出發 · 開車 40 分</div>
+
+<div class="card">
+<p class="ctime">14:40</p>
+<h3 class="cname">濟州騎馬公園 제주승마공원</h3>
+<span class="tag">🐴 動態</span><span class="geo">📍 <a href="https://map.naver.com/p/search/%EC%A0%9C%EC%A3%BC%EC%8A%B9%EB%A7%88%EA%B3%B5%EC%9B%90" target="_blank" rel="noopener">Naver Map</a></span>
+<div class="info">
+<div>方案：숲길B 30分林道騎乘</div>
+<div>金額：₩66,000/人（2人₩132,000）</div>
+<div>付款：現場，付款方式查不到（僅確認飼料體驗需現金）</div>
+<div>停車：免費（官方確認空間寬敞）</div>
+<div>營業：每天 09:30–16:30，中午12:30–13:30休息（<strong>週二公休</strong>）</div>
+<div>停留：1 小時（14:40–15:40）</div>
+</div>
+</div>
+
+<div class="drive">🚗 15:40 出發 · 開車 50 分（不回士嘉堡休息，直接前往晚餐）</div>
+
+<div class="card">
+<p class="ctime">16:30 抵達 · 17:00 預約</p>
+<h3 class="cname">Zen Hideaway 젠하이드어웨이 제주점</h3>
+<span class="tag">🍕 泰義式</span><span class="tag o">🌅 海景</span><span class="geo">📍 <a href="https://map.naver.com/p/search/%EC%A0%A0%ED%95%98%EC%9D%B4%EB%93%9C%EC%96%B4%EC%9B%A8%EC%9D%B4%20%EC%A0%9C%EC%A3%BC%EC%A0%90" target="_blank" rel="noopener">Naver Map</a></span>
+<p class="cdesc">16:30提早抵達，先看海景等候，17:00正式入座用餐</p>
+<div class="dish"><span class="dlab">推薦</span>濟州柑橘披薩（不辣）· 鮑魚脆飯義大利麵（微辣）</div>
+<div class="info">
+<div>付款：現場刷卡／現金 · Naver預約或現場候位</div>
+<div>餐費：2 人約 ₩51,000–70,000</div>
+<div>停車：免費</div>
+<div>營業：每天 11:00–21:00</div>
+<div>停留：2 小時（17:00–19:00）</div>
+</div>
+</div>
+
+<div class="drive">🚗 19:00 出發 · 開車 15 分</div>
+
+<div class="card">
+<p class="ctime">19:15</p>
+<h3 class="cname">加油站 주유소</h3>
+<span class="tag">⛽ 補給</span>
+<p class="cdesc">晚餐後加油，為明天Day6一早直接還車做準備</p>
+<div class="info"><div>自助加油 · 選Gasoline/가솔린 · 加滿 · 約 ₩70,000 · 付款方式查不到（一般自助加油站多可刷卡，建議備現金以防萬一）</div></div>
+</div>
+
+<div class="drive">🚗 開車 15 分 回士嘉堡</div>
+</section>
+
+<section id="d6">
+<div class="day">
+<p class="dlabel">DAY 6 · 10/28 四</p>
+<h2 class="dtitle">滿載而歸途</h2>
+<p class="dregion">西南 → 北</p>
+</div>
+<div class="depart">
+<p class="dtime">🛏️ 05:30 起床 · 整理行李＋梳洗 · 🚪 07:30 出發</p>
+<p class="dwear">👕 最舒服的機上服 · 手邊放護照/駕照/機票</p>
+</div>
+
+<div class="warn">回程航班為 10:50 起飛（依2026同期參考，2027確切時刻出發前需重查）。以此推算：07:30出發已足夠，樂天06:00–23:00營業，還車無時間衝突。</div>
+
+<div class="drive">🚗 07:30 出發 · 開車約 55 分</div>
+
+<div class="card">
+<p class="ctime">08:25</p>
+<h3 class="cname">樂天租車 롯데렌터카 還車</h3>
+<span class="tag">🚗 移動</span><span class="geo">📍 <a href="https://map.naver.com/p/search/%EB%A1%AF%EB%8D%B0%EB%A0%8C%ED%84%B0%EC%B9%B4%20%EC%A0%9C%EC%A3%BC%EC%98%A4%ED%86%A0%ED%95%98%EC%9A%B0%EC%8A%A4" target="_blank" rel="noopener">Naver Map</a></span>
+<p class="cdesc">驗車、確認油量、結清費用</p>
+<div class="info"><div>停留：20 分（08:25–08:45）</div></div>
+</div>
+
+<div class="drive">🚌 08:45 出發 · 接駁約 10 分</div>
+
+<div class="card">
+<p class="ctime">08:55</p>
+<h3 class="cname">濟州機場 報到</h3>
+<span class="tag">✈️ 移動</span><span class="geo">📍 <a href="https://map.naver.com/p/search/%EC%A0%9C%EC%A3%BC%EA%B5%AD%EC%A0%9C%EA%B3%B5%ED%95%AD" target="_blank" rel="noopener">Naver Map</a></span>
+<p class="cdesc">距10:50起飛約1小時55分，國際線報到緩衝足夠但不算寬裕，建議一到機場直接辦理報到、不逗留</p>
+</div>
+
+<div class="card">
+<p class="ctime">10:50 起飛</p>
+<h3 class="cname">虎航 · 濟州 → 桃園</h3>
+<p class="cdesc">約2小時20分航程，預計12:10抵達桃園</p>
+<div class="warn">⚠️ 2027 班表需重新確認，此處採用2026同期回程時刻（10:50起飛）評估</div>
+</div>
+</section>
+
+<section id="quick">
+<div class="day">
+<p class="dlabel">快速表</p>
+<h2 class="dtitle">餐食 & 費用</h2>
+</div>
+
+<p class="sect">🍽️ 每日餐食</p>
+<div class="tablewrap">
+<table>
+<tr><th>日</th><th class="wrap-ok">午餐</th><th class="wrap-ok">晚餐</th></tr>
+<tr><td>D1</td><td class="wrap-ok">Haejigae<span class="tp">咖啡輕食</span></td><td class="wrap-ok">飯店周邊<span class="tp">簡單吃</span></td></tr>
+<tr><td>D2</td><td class="wrap-ok">函德鯖魚<span class="tp">韓式</span></td><td class="wrap-ok">帶魚王<span class="tp">烤白帶魚</span></td></tr>
+<tr><td>D3</td><td class="wrap-ok">Aurum Noodle<span class="tp">豬肉刀切麵</span></td><td class="wrap-ok">Dullegil<span class="tp">西日融合</span></td></tr>
+<tr><td>D4</td><td class="wrap-ok">Bake Make Roast<span class="tp">貝果</span></td><td class="wrap-ok">熟成到<span class="tp">烤黑豬</span></td></tr>
+<tr><td>D5</td><td class="wrap-ok">TEA TERRACE<span class="tp">抹茶麵</span></td><td class="wrap-ok">Zen Hideaway<span class="tp">泰義式</span></td></tr>
+</table>
+</div>
+
+<div class="sectrow">
+<p class="sect">💰 費用重點</p>
+</div>
+
+<div class="fxbar" id="fxbar">
+<div id="syncStatus" class="fillstat" style="margin-bottom:4px">🔄 連線中…</div>
+<div><b>匯率</b>：1 KRW = NT$ <input type="text" inputmode="decimal" class="rateinput" id="fxManualInput" value="0.0227"></div>
+<div class="fillstat">修改後所有韓元金額、台幣換算與總額會即時更新</div>
+</div>
+<div class="warn">⚠️ 線上票價為目前參考值，2027年價格及販售平台請於出發前重查</div>
+
+<div class="sectrow">
+<p class="subsect" style="margin:0">景點 · 展館</p>
+<button class="btn ghost" id="resetAttractions" type="button">↺ 恢復原始價格</button>
+</div>
+<div id="attractionTableWrap"></div>
+<div class="unsure">停車費：已查核之城山日出峰、龍頭海岸、山房山、Aquaplanet、山茶花之丘、濟州騎馬公園皆為免費停車；其餘店家停車付款方式查不到，未列入本表金額</div>
+
+<div class="total" id="attractionSummary"></div>
+
+<div class="sectrow">
+<p class="subsect" style="margin:0">餐食（2人）</p>
+<button class="btn ghost" id="clearMealActuals" type="button">清除實際金額</button>
+</div>
+<div id="mealTableWrap"></div>
+
+<div class="total" id="mealSummary"></div>
+
+<div class="total" id="grandSummary"></div>
+
+<p class="sect">💵 現金 & WOWPASS</p>
+<ul class="list">
+<li>景點門票、餐廳大多可刷卡，濟州騎馬公園飼料體驗等少數現場加購項目確認僅收現金</li>
+<li>建議帶 ₩50,000–100,000 緩衝</li>
+<li>WOWPASS濟州機場不提供現金兌換，建議台灣先換韓元</li>
+</ul>
+</section>
+
+<section id="check">
+<div class="day">
+<p class="dlabel">別白跑清單</p>
+<h2 class="dtitle">出發前 & 現場注意</h2>
+</div>
+
+<p class="sect">🎫 出發前預約 Checklist</p>
+
+<div class="ckwrap">
+<input type="checkbox" id="ck1">
+<label class="cklabel" for="ck1"><b>班機日期／時間</b><a href="https://www.skyscanner.com.tw" target="_blank" rel="noopener">Skyscanner</a><span class="cktip">確認週六去、週四回早班班機</span></label>
+</div>
+<div class="ckwrap">
+<input type="checkbox" id="ck2">
+<label class="cklabel" for="ck2"><b>樂天車款／價格</b><a href="https://www.lotterentacar.net/hp/chn/reservation/index.do?LANG=chn" target="_blank" rel="noopener">Lotte Rent-a-Car</a><span class="cktip">全險0自付</span></label>
+</div>
+<div class="ckwrap">
+<input type="checkbox" id="ck3">
+<label class="cklabel" for="ck3"><b>飯店／房型／價格</b><a href="https://www.eztravel.com.tw" target="_blank" rel="noopener">ezTravel</a><span class="cktip">確認一晚房價落在NT$1,000–2,500</span></label>
+</div>
+<div class="ckwrap">
+<input type="checkbox" id="ck4">
+<label class="cklabel" for="ck4"><b>Aqua Planet 線上票</b><a href="https://tw.trip.com/travel-guide/attraction/seogwipo/aqua-planet-jeju-10570794?curr=TWD&locale=zh-TW" target="_blank" rel="noopener">Trip.com</a> · <a href="https://www.klook.com/zh-TW/activity/1959-aqua-planet-jeju/" target="_blank" rel="noopener">Klook</a> · <a href="https://www.kkday.com/zh-tw/product/3592-aqua-planet-jeju-aquarium-ticket-non-korean" target="_blank" rel="noopener">KKday</a></label>
+</div>
+<div class="ckwrap">
+<input type="checkbox" id="ck5">
+<label class="cklabel" for="ck5"><b>山茶花之丘線上票</b><a href="https://tw.trip.com/travel-guide/attraction/seogwipo/camellia-hill-botanical-garden-90374?curr=TWD&locale=zh-TW" target="_blank" rel="noopener">Trip.com</a> · <a href="https://www.klook.com/zh-TW/activity/142804-camellia-hill-admission-ticket-in-jeju/" target="_blank" rel="noopener">Klook</a> · <a href="https://www.kkday.com/zh-tw/product/13862-jeju-camelia-hill-ticket-south-korea" target="_blank" rel="noopener">KKday</a></label>
+</div>
+<div class="ckwrap">
+<input type="checkbox" id="ck6">
+<label class="cklabel" for="ck6"><b>JEJU JET 預約場次</b><a href="https://tw.trip.com/things-to-do/detail/112298573?language=TW&locale=zh-TW&curr=TWD" target="_blank" rel="noopener">Trip.com</a> · <a href="https://www.kkday.com/zh-tw/product/765128" target="_blank" rel="noopener">KKday</a><span class="cktip">13:40場次，提前30分報到</span></label>
+</div>
+<div class="ckwrap">
+<input type="checkbox" id="ck7">
+<label class="cklabel" for="ck7"><b>濟州實彈射擊線上票</b><a href="https://tw.trip.com/travel-guide/attraction/seogwipo/jeju-shooting-range-24240608/?curr=TWD&locale=zh-TW" target="_blank" rel="noopener">Trip.com</a> · <a href="https://www.klook.com/zh-TW/activity/201335-jeju-real-gun-shooting-range-experience/" target="_blank" rel="noopener">Klook</a> · <a href="https://www.kkday.com/zh-tw/product/765416" target="_blank" rel="noopener">KKday</a></label>
+</div>
+<div class="ckwrap">
+<input type="checkbox" id="ck8">
+<label class="cklabel" for="ck8"><b>D4晚餐－熟成到訂位</b>CatchTable Global App<span class="cktip">訂金共₩30,000</span></label>
+</div>
+<div class="ckwrap">
+<input type="checkbox" id="ck9">
+<label class="cklabel" for="ck9"><b>D5晚餐－Zen Hideaway訂位</b>Naver Map或現場候位</label>
+</div>
+
+<p class="sect">🎒 務必攜帶 Checklist</p>
+
+<div class="ckwrap crit">
+<input type="checkbox" id="pk1">
+<label class="cklabel" for="pk1"><b>護照正本</b><span class="cktip">手機照片、掃描檔或PDF不等於證件正本</span></label>
+</div>
+<div class="ckwrap crit">
+<input type="checkbox" id="pk2">
+<label class="cklabel" for="pk2"><b>國際駕照正本</b><span class="cktip">手機照片、掃描檔或PDF不等於證件正本</span></label>
+</div>
+<div class="ckwrap crit">
+<input type="checkbox" id="pk3">
+<label class="cklabel" for="pk3"><b>台灣駕照正本</b><span class="cktip">手機照片、掃描檔或PDF不等於證件正本</span></label>
+</div>
+<div class="ckwrap crit">
+<input type="checkbox" id="pk4">
+<label class="cklabel" for="pk4"><b>主駕駛本人信用卡</b><span class="cktip">租車與押金皆需本人卡片</span></label>
+</div>
+<div class="ckwrap">
+<input type="checkbox" id="pk5">
+<label class="cklabel" for="pk5"><b>必要韓元現金</b><span class="cktip">濟州騎馬公園飼料體驗等現場加購項目確認僅收現金，建議備₩50,000–100,000</span></label>
+</div>
+
+<p class="sect">🔍 行前查詢</p>
+<ul class="list">
+<li>查詢 K-ETA 是否免申請 · <a href="https://www.k-eta.go.kr/portal/newapply/index.do" target="_blank" rel="noopener">k-eta.go.kr</a></li>
+<li>若無有效K-ETA，入境3天前需填 e-Arrival Card · <a href="https://www.e-arrivalcard.go.kr/portal/main/index.do" target="_blank" rel="noopener">e-arrivalcard.go.kr</a></li>
+<li>濟州機場重新申請 SeS</li>
+<li>Aqua Planet 2027場次 · <a href="https://m.aquaplanet.co.kr/jeju/program/timetable_jeju.do" target="_blank" rel="noopener">官方時刻表</a></li>
+<li>龍頭海岸潮汐：當天查看 <a href="https://www.instagram.com/6sot_official/" target="_blank" rel="noopener">IG @6sot_official</a></li>
+<li>確認2027班機日期及時間：週六出發、週四早班回程</li>
+</ul>
+
+<p class="sect">🩹 男友乾癬保養</p>
+<ul class="list">
+<li>保濕乳液隨身攜帶</li>
+<li>滑翔傘不接觸海水，安全</li>
+</ul>
+</section>
+
+<footer>2027/10/23 - 10/28 · 濟州 6 天 5 夜</footer>
+
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
+<script>
+document.querySelectorAll('nav button').forEach(function(b){
+  b.addEventListener('click',function(){
+    document.querySelectorAll('section').forEach(function(s){s.classList.remove('on')});
+    document.getElementById(b.dataset.t).classList.add('on');
+    document.querySelectorAll('nav button').forEach(function(n){n.classList.remove('on')});
+    b.classList.add('on');
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+});
+
+/* ===================== 費用計算系統（Firestore 雲端同步版） ===================== */
+(function(){
+
+/* =========================================================================
+   【設定步驟｜Firebase 雲端同步】
+   1. 開 https://console.firebase.google.com/ 用你的 Google 帳號登入
+   2. 「新增專案」→ 專案名稱隨意（例如 jeju-trip-2027）→ 可關閉 Google Analytics（不需要）
+   3. 建好專案後，左上角齒輪「專案設定」→ 往下滑「你的應用程式」→ 點 </> (網頁) 圖示
+   4. 應用程式暱稱隨意 → 註冊 → 會出現一段 firebaseConfig，把裡面的內容複製貼到下面
+      （不用勾 Firebase Hosting，因為你已經要用 GitHub Pages 了）
+   5. 左側選單「Firestore Database」→「建立資料庫」→ 位置隨意（asia-east1 離台灣近）
+      → 選「以測試模式啟動」也可以，但測試模式 30 天後會自動鎖住，
+      建議改成下面這組規則（Firestore「規則」分頁貼上，右上角發布）：
+
+      rules_version = '2';
+      service cloud.firestore {
+        match /databases/{database}/documents {
+          match /jeju2027/shared {
+            allow read, write: if true;
+          }
+        }
+      }
+
+      ⚠️ 這組規則沒有登入驗證，等於「知道網址的人都能改」。
+      對兩人共用的行程規劃來說風險低（沒人會亂猜到你的網址），
+      但要知道這個限制，不是企業級的安全設定。
+   6. 把下面 firebaseConfig 的內容換成你自己複製的那組，存檔、重新部署到 GitHub Pages
+   7. 你跟男友兩支手機打開同一個網址，各自改價格，應該幾秒內就會互相同步
+   ========================================================================= */
+var firebaseConfig = {
+  apiKey: "AIzaSyD4sdLjY3uc5JNHFEDkijlOXhlGhQIAzH0",
+  authDomain: "jejutrip-f5156.firebaseapp.com",
+  projectId: "jejutrip-f5156",
+  storageBucket: "jejutrip-f5156.firebasestorage.app",
+  messagingSenderId: "802660322862",
+  appId: "1:802660322862:web:b3efae5d17f66ba69259bf",
+  measurementId: "G-VKECEMMPWD"
+};
+
+var LS_FX = 'jeju2027_fx_v2';
+var LS_ATTR = 'jeju2027_attr_prices';
+var LS_MEAL = 'jeju2027_meal_actuals';
+var LS_CK = 'jeju2027_checklist';
+
+/* ---- 景點資料 ---- */
+var attractions = [
+  {id:'jeju43', day:'D2', name:'濟州4·3和平紀念館', short:'和平紀念館', opts:[
+    {k:'a', platform:'現場', link:null, pay:'—', plan:'常設展', cur:'FREE', price:0}
+  ]},
+  {id:'haenyeo', day:'D2', name:'海女博物館', short:'海女博物館', opts:[
+    {k:'a', platform:'現場', link:null, pay:'刷卡／現金', plan:'成人票', cur:'KRW', price:1100}
+  ]},
+  {id:'seongsan', day:'D3', name:'城山日出峰', short:'城山日出峰', opts:[
+    {k:'a', platform:'現場', link:null, pay:'刷卡／現金', plan:'成人票', cur:'KRW', price:5000}
+  ]},
+  {id:'aqua', day:'D3', name:'Aquaplanet 濟州', short:'水族館', opts:[
+    {k:'a', platform:'Trip.com', link:'https://tw.trip.com/travel-guide/attraction/seogwipo/aqua-planet-jeju-10570794?curr=TWD&locale=zh-TW', pay:'線上', plan:'綜合票', cur:'TWD', price:659},
+    {k:'b', platform:'Klook', link:'https://www.klook.com/zh-TW/activity/1959-aqua-planet-jeju/', pay:'線上', plan:'綜合票', cur:'TWD', price:790},
+    {k:'c', platform:'KKday', link:'https://www.kkday.com/zh-tw/product/3592-aqua-planet-jeju-aquarium-ticket-non-korean', pay:'線上', plan:'綜合票', cur:'TWD', price:794}
+  ]},
+  {id:'camellia', day:'D4', name:'山茶花之丘', short:'山茶花之丘', opts:[
+    {k:'a', platform:'Trip.com', link:'https://tw.trip.com/travel-guide/attraction/seogwipo/camellia-hill-botanical-garden-90374?curr=TWD&locale=zh-TW', pay:'線上', plan:'成人票', cur:'TWD', price:197},
+    {k:'b', platform:'Klook', link:'https://www.klook.com/zh-TW/activity/142804-camellia-hill-admission-ticket-in-jeju/', pay:'線上', plan:'成人票', cur:'TWD', price:230},
+    {k:'c', platform:'KKday', link:'https://www.kkday.com/zh-tw/product/13862-jeju-camelia-hill-ticket-south-korea', pay:'線上', plan:'成人票', cur:'TWD', price:232},
+    {k:'d', platform:'現場', link:null, pay:'刷卡／現金', plan:'成人票', cur:'KRW', price:10000}
+  ]},
+  {id:'jejujet', day:'D4', name:'JEJU JET 滑翔傘', short:'滑翔傘', opts:[
+    {k:'a', platform:'Trip.com', link:'https://tw.trip.com/things-to-do/detail/112298573?language=TW&locale=zh-TW&curr=TWD', pay:'線上', plan:'滑翔傘', cur:'TWD', price:1210},
+    {k:'b', platform:'KKday', link:'https://www.kkday.com/zh-tw/product/765128', pay:'線上', plan:'滑翔傘', cur:'TWD', price:1273}
+  ]},
+  {id:'shooting', day:'D4', name:'濟州實彈射擊', short:'實彈射擊', opts:[
+    {k:'a', platform:'Trip.com', link:'https://tw.trip.com/travel-guide/attraction/seogwipo/jeju-shooting-range-24240608/?curr=TWD&locale=zh-TW', pay:'線上', plan:'12發', cur:'TWD', price:512},
+    {k:'b', platform:'Klook', link:'https://www.klook.com/zh-TW/activity/201335-jeju-real-gun-shooting-range-experience/', pay:'線上', plan:'12發', cur:'TWD', price:806},
+    {k:'c', platform:'KKday', link:'https://www.kkday.com/zh-tw/product/765416', pay:'線上', plan:'12發', cur:'TWD', price:861},
+    {k:'d', platform:'現場', link:null, pay:'刷卡／現金', plan:'12發', cur:'KRW', price:35000}
+  ]},
+  {id:'yongdu', day:'D5', name:'龍頭海岸', short:'龍頭海岸', opts:[
+    {k:'a', platform:'現場', link:null, pay:'刷卡／現金', plan:'成人票', cur:'KRW', price:2000}
+  ]},
+  {id:'sanbang', day:'D5', name:'山房山', short:'山房山', opts:[
+    {k:'a', platform:'現場', link:null, pay:'刷卡／現金', plan:'成人票', cur:'KRW', price:1000}
+  ]},
+  {id:'osulloc', day:'D5', name:'OSULLOC 雪綠茶博物館', short:'雪綠茶<br>博物館', opts:[
+    {k:'a', platform:'現場', link:null, pay:'—', plan:'入館', cur:'FREE', price:0}
+  ]},
+  {id:'horse', day:'D5', name:'濟州騎馬公園', short:'騎馬公園', opts:[
+    {k:'a', platform:'現場', link:null, pay:'刷卡／現金', plan:'30分騎乘', cur:'KRW', price:66000}
+  ]}
+];
+
+/* ---- 餐食資料 ---- */
+var meals = [
+  {id:'haejigae', day:'D1', name:'Haejigae', pay:'刷卡／現金', platform:'現場', plan:'—', estMin:25000, estMax:25000},
+  {id:'d1dinner', day:'D1', name:'園區內晚餐', pay:'刷卡／現金', platform:'現場', plan:'—', undetermined:true},
+  {id:'hamdeok', day:'D2', name:'函德鯖魚<br>生菜包飯', pay:'刷卡／現金', platform:'現場', plan:'—', estMin:40000, estMax:40000},
+  {id:'galchi', day:'D2', name:'帶魚王', pay:'刷卡／現金', platform:'現場', plan:'—', estMin:70000, estMax:70000},
+  {id:'aurum', day:'D3', name:'Aurum<br>Noodle', pay:'刷卡／現金', platform:'現場', plan:'—', estMin:24000, estMax:24000},
+  {id:'dullegil', day:'D3', name:'Dullegil', pay:'刷卡／現金', platform:'現場', plan:'—', estMin:40000, estMax:40000},
+  {id:'bake', day:'D4', name:'Bake Make<br>Roast', pay:'刷卡', platform:'現場', plan:'—', estMin:25000, estMax:25000},
+  {id:'sukseong_dep', day:'D4', name:'熟成到<br>（訂金）', pay:'線上', platform:'CatchTable', plan:'訂金', estMin:30000, estMax:30000, isDeposit:true},
+  {id:'sukseong_bal', day:'D4', name:'熟成到<br>（餘額）', pay:'刷卡／現金', platform:'現場', plan:'餘額', estMin:60000, estMax:60000},
+  {id:'tea', day:'D5', name:'TEA<br>TERRACE', pay:'刷卡／現金', platform:'現場', plan:'—', estMin:30000, estMax:30000},
+  {id:'zen', day:'D5', name:'Zen<br>Hideaway', pay:'刷卡／現金', platform:'現場', plan:'—', estMin:51000, estMax:70000}
+];
+
+/* ---- 狀態 ---- */
+var fx = {rate:0.0227};
+var attrPrices = {};
+var mealActuals = {};
+var checklist = {};
+var db=null, docRef=null, firestoreReady=false;
+
+function fmtTWD(n){ if(!isFinite(n)) n=0; return 'NT$'+Math.round(n).toLocaleString('en-US'); }
+function fmtKRW(n){ if(!isFinite(n)) n=0; return '₩'+Math.round(n).toLocaleString('en-US'); }
+function krw2twd(krw){ return krw * fx.rate; }
+function payHTML(pay){ return pay.indexOf('／')>=0 ? pay.split('／').join('<br>') : pay; }
+
+/* ---- localStorage：離線快取／未設定雲端時的備援 ---- */
+function lsLoadAll(){
+  try{ var s=JSON.parse(localStorage.getItem(LS_FX)||'null'); if(s && s.rate>0) fx=s; }catch(e){}
+  try{ attrPrices = JSON.parse(localStorage.getItem(LS_ATTR)||'{}'); }catch(e){ attrPrices={}; }
+  try{ mealActuals = JSON.parse(localStorage.getItem(LS_MEAL)||'{}'); }catch(e){ mealActuals={}; }
+  try{ checklist = JSON.parse(localStorage.getItem(LS_CK)||'{}'); }catch(e){ checklist={}; }
+}
+function lsSaveFx(){ localStorage.setItem(LS_FX, JSON.stringify(fx)); }
+function lsSaveAttr(){ localStorage.setItem(LS_ATTR, JSON.stringify(attrPrices)); }
+function lsSaveMeal(){ localStorage.setItem(LS_MEAL, JSON.stringify(mealActuals)); }
+function lsSaveCk(){ localStorage.setItem(LS_CK, JSON.stringify(checklist)); }
+
+/* ---- Firestore：雲端同步 ---- */
+function firebaseConfigured(){
+  return firebaseConfig && firebaseConfig.apiKey && firebaseConfig.apiKey.indexOf('YOUR_')!==0;
+}
+function setStatus(state){
+  var el = document.getElementById('syncStatus');
+  if(!el) return;
+  if(state==='online') el.textContent = '☁️ 已連接雲端同步，雙方裝置會即時共用';
+  else if(state==='connecting') el.textContent = '🔄 連線中…';
+  else if(state==='offline') el.textContent = '⚠️ 尚未設定雲端同步，資料只存在此裝置（設定方式見程式碼開頭註解）';
+  else if(state==='error') el.textContent = '⚠️ 雲端連線失敗，資料暫存本機，稍後重新整理再試';
+}
+var writeTimers = {};
+function debounceWrite(field, value){
+  if(!firestoreReady) return;
+  clearTimeout(writeTimers[field]);
+  writeTimers[field] = setTimeout(function(){
+    var update = {};
+    update[field] = value;
+    docRef.set(update, {merge:true}).catch(function(e){ console.error('write failed', e); setStatus('error'); });
+  }, 600);
+}
+function writeChecklistNow(){
+  if(!firestoreReady) return;
+  docRef.set({checklist:checklist}, {merge:true}).catch(function(e){ console.error(e); setStatus('error'); });
+}
+
+function getAttrPrice(itemId, optKey, origPrice){
+  var key = itemId+'_'+optKey;
+  return attrPrices.hasOwnProperty(key) ? attrPrices[key] : origPrice;
+}
+function twdOf(cur, price){
+  if(cur==='FREE') return 0;
+  if(cur==='TWD') return price;
+  return krw2twd(price);
+}
+
+/* ---- 建立景點表格（只建一次 DOM） ---- */
+function buildAttractionTable(){
+  var wrap = document.getElementById('attractionTableWrap');
+  var html = '<div class="tablewrap"><table><tr><th>付款方式</th><th>平台</th><th>方案</th><th>金額（每人）</th></tr>';
+  attractions.forEach(function(item){
+    html += '<tr><td colspan="4" class="grouphead">'+item.day+'｜'+item.short+'</td></tr>';
+    item.opts.forEach(function(o){
+      var curVal = getAttrPrice(item.id, o.k, o.price);
+      html += '<tr data-row="'+item.id+'_'+o.k+'" data-item="'+item.id+'">';
+      html += '<td class="pay2">'+payHTML(o.pay)+'</td>';
+      html += '<td class="plat-cell">'+(o.link ? '<a href="'+o.link+'" target="_blank" rel="noopener">'+o.platform+'</a>' : o.platform)+'</td>';
+      html += '<td>'+o.plan+'</td>';
+      if(o.cur==='FREE'){
+        html += '<td>免費</td>';
+      } else if(o.cur==='TWD'){
+        html += '<td><span class="curpre">NT$</span> <input type="text" inputmode="numeric" pattern="[0-9]*" class="pricein" data-item="'+item.id+'" data-opt="'+o.k+'" data-cur="TWD" value="'+curVal+'"><span class="bestbadge" data-badge="'+item.id+'_'+o.k+'" style="display:none">最低</span></td>';
+      } else {
+        html += '<td><span class="curpre">₩</span> <input type="text" inputmode="numeric" pattern="[0-9]*" class="pricein" data-item="'+item.id+'" data-opt="'+o.k+'" data-cur="KRW" value="'+curVal+'"><span class="bestbadge" data-badge="'+item.id+'_'+o.k+'" style="display:none">最低</span><span class="twdconv" data-conv="'+item.id+'_'+o.k+'">≈ '+fmtTWD(krw2twd(curVal))+'</span></td>';
+      }
+      html += '</tr>';
+    });
+  });
+  html += '</table></div>';
+  wrap.innerHTML = html;
+
+  wrap.querySelectorAll('input.pricein').forEach(function(inp){
+    inp.addEventListener('input', function(){
+      var v = inp.value.replace(/[^0-9]/g,'');
+      if(v !== inp.value) inp.value = v;
+      var num = v==='' ? 0 : parseInt(v,10);
+      attrPrices[inp.dataset.item+'_'+inp.dataset.opt] = num;
+      lsSaveAttr();
+      debounceWrite('attrPrices', attrPrices);
+      var key = inp.dataset.item+'_'+inp.dataset.opt;
+      if(inp.dataset.cur==='KRW'){
+        var conv = wrap.querySelector('[data-conv="'+key+'"]');
+        if(conv) conv.textContent = '≈ '+fmtTWD(krw2twd(num));
+      }
+      updateGroupBest(inp.dataset.item);
+      renderAttractionSummary();
+      renderGrandSummary();
+    });
+  });
+}
+
+function updateGroupBest(itemId){
+  var item = attractions.filter(function(a){return a.id===itemId;})[0];
+  if(!item || item.opts.length<2) return;
+  var vals = item.opts.map(function(o){
+    if(o.cur==='FREE') return null;
+    return twdOf(o.cur, getAttrPrice(item.id,o.k,o.price));
+  });
+  var priced = vals.filter(function(v){return v!==null;});
+  if(!priced.length) return;
+  var min = Math.min.apply(null, priced);
+  item.opts.forEach(function(o){
+    var row = document.querySelector('[data-row="'+item.id+'_'+o.k+'"]');
+    var badge = document.querySelector('[data-badge="'+item.id+'_'+o.k+'"]');
+    if(!row) return;
+    var v = o.cur==='FREE' ? null : twdOf(o.cur, getAttrPrice(item.id,o.k,o.price));
+    var isBest = v!==null && Math.abs(v-min)<0.5;
+    row.classList.toggle('bestrow', isBest);
+    if(badge) badge.style.display = isBest ? 'inline-block' : 'none';
+  });
+}
+function updateAllGroupBest(){
+  attractions.forEach(function(item){ updateGroupBest(item.id); });
+}
+
+function renderAttractionSummary(){
+  var onlinePer=0, onsitePerKRW=0;
+  attractions.forEach(function(item){
+    var onlineOpts = item.opts.filter(function(o){return o.pay==='線上';});
+    var onsiteOpts = item.opts.filter(function(o){return o.pay==='現場' && o.cur!=='FREE';});
+    if(onlineOpts.length){
+      var vals = onlineOpts.map(function(o){ return twdOf(o.cur, getAttrPrice(item.id,o.k,o.price)); });
+      onlinePer += Math.min.apply(null, vals);
+    } else if(onsiteOpts.length){
+      onsiteOpts.forEach(function(o){ onsitePerKRW += getAttrPrice(item.id,o.k,o.price); });
+    }
+  });
+  var onsitePerTWD = krw2twd(onsitePerKRW);
+  var totalPer = onlinePer + onsitePerTWD;
+  var html = '<div class="tot-h">景點・活動費用（2人）</div>';
+  html += '<div style="margin-top:6px"><strong>線上訂票：</strong></div>';
+  html += '<div>1人 '+fmtTWD(onlinePer)+'</div>';
+  html += '<div>2人 '+fmtTWD(onlinePer*2)+'</div>';
+  html += '<div style="margin-top:6px"><strong>現場付款：</strong></div>';
+  html += '<div>1人 '+fmtKRW(onsitePerKRW)+' ≈ '+fmtTWD(onsitePerTWD)+'</div>';
+  html += '<div>2人 '+fmtKRW(onsitePerKRW*2)+' ≈ '+fmtTWD(onsitePerTWD*2)+'</div>';
+  html += '<div style="margin-top:6px"><strong>景點活動合計：</strong></div>';
+  html += '<div>1人 ≈ '+fmtTWD(totalPer)+'</div>';
+  html += '<div>2人 ≈ '+fmtTWD(totalPer*2)+'</div>';
+  document.getElementById('attractionSummary').innerHTML = html;
+}
+
+/* ---- 建立餐食表格（只建一次 DOM） ---- */
+function buildMealTable(){
+  var wrap = document.getElementById('mealTableWrap');
+  var html = '<div class="tablewrap"><table><tr><th>日</th><th class="wrap-ok">項目</th><th>付款</th><th>平台</th><th>方案</th><th>預估（2人）</th><th>實際（2人）</th></tr>';
+  meals.forEach(function(m){
+    var estText;
+    if(m.undetermined) estText = '未定';
+    else if(m.estMin===m.estMax) estText = fmtKRW(m.estMin);
+    else estText = fmtKRW(m.estMin)+'–'+fmtKRW(m.estMax);
+    var actualVal = mealActuals.hasOwnProperty(m.id) ? mealActuals[m.id] : '';
+    html += '<tr><td>'+m.day+'</td><td class="wrap-ok">'+m.name+'</td><td class="pay2">'+payHTML(m.pay)+'</td><td class="plat-cell">'+m.platform+'</td><td>'+m.plan+'</td>';
+    html += '<td>'+estText+'</td>';
+    html += '<td><span class="curpre">₩</span> <input type="text" inputmode="numeric" pattern="[0-9]*" class="pricein actual" data-meal="'+m.id+'" placeholder="未填" value="'+actualVal+'">';
+    html += '<span class="twdconv mealconv" data-mconv="'+m.id+'">'+(actualVal!==''?'≈ '+fmtTWD(krw2twd(actualVal)):'未填')+'</span>';
+    html += '</td></tr>';
+  });
+  html += '</table></div>';
+  wrap.innerHTML = html;
+
+  wrap.querySelectorAll('input.pricein.actual').forEach(function(inp){
+    inp.addEventListener('input', function(){
+      var v = inp.value.replace(/[^0-9]/g,'');
+      if(v !== inp.value) inp.value = v;
+      var id = inp.dataset.meal;
+      var conv = wrap.querySelector('[data-mconv="'+id+'"]');
+      if(v===''){
+        delete mealActuals[id];
+        if(conv) conv.textContent = '未填';
+      } else {
+        var num = parseInt(v,10);
+        mealActuals[id] = num;
+        if(conv) conv.textContent = '≈ '+fmtTWD(krw2twd(num));
+      }
+      lsSaveMeal();
+      debounceWrite('mealActuals', mealActuals);
+      renderMealSummary();
+      renderGrandSummary();
+    });
+  });
+}
+
+function renderMealSummary(){
+  var estMinSum=0, estMaxSum=0, filled=0, total=0, actualSum=0;
+  meals.forEach(function(m){
+    if(m.undetermined) return;
+    estMinSum += m.estMin; estMaxSum += m.estMax;
+    total++;
+    if(mealActuals.hasOwnProperty(m.id)){ filled++; actualSum += mealActuals[m.id]; }
+  });
+  var d1 = mealActuals.hasOwnProperty('d1dinner');
+  total++;
+  if(d1){ actualSum += mealActuals['d1dinner']; filled++; }
+
+  var html = '<div class="tot-h">預估餐費總額（2人）</div>';
+  html += '<div>'+(estMinSum===estMaxSum? fmtKRW(estMinSum) : fmtKRW(estMinSum)+'–'+fmtKRW(estMaxSum))+' ≈ '+fmtTWD(krw2twd(estMinSum))+'–'+fmtTWD(krw2twd(estMaxSum))+'</div>';
+  html += '<div class="tot-h" style="margin-top:8px">實際餐費總額（2人）</div>';
+  html += '<div class="fillstat">已填寫 '+filled+' ／ 總共 '+total+' 筆</div>';
+  if(filled < total){
+    html += '<div>目前已知實際支出：'+fmtKRW(actualSum)+' ≈ '+fmtTWD(krw2twd(actualSum))+'</div>';
+    html += '<div class="fillstat">尚有未填寫項目，完整實際總額待全部填完才會顯示比較結果</div>';
+  } else {
+    html += '<div>'+fmtKRW(actualSum)+' ≈ '+fmtTWD(krw2twd(actualSum))+'</div>';
+    html += '<div class="tot-h" style="margin-top:8px">預估與實際比較</div>';
+    var cls, verdict;
+    if(actualSum < estMinSum){ cls='cmp-cheap'; verdict='比預估便宜'; }
+    else if(actualSum > estMaxSum){ cls='cmp-expensive'; verdict='比預估昂貴'; }
+    else { cls='cmp-mid'; verdict='落在原預估範圍內'; }
+    html += '<div class="'+cls+'">'+verdict+'</div>';
+    var refDiff = actualSum < estMinSum ? (actualSum-estMinSum) : (actualSum > estMaxSum ? (actualSum-estMaxSum) : 0);
+    html += '<div>差額：'+(refDiff>=0?'+':'')+fmtKRW(refDiff)+' ≈ '+(refDiff>=0?'+':'')+fmtTWD(krw2twd(refDiff))+'</div>';
+  }
+  document.getElementById('mealSummary').innerHTML = html;
+}
+
+function renderGrandSummary(){
+  var onlinePer=0, onsitePerKRW=0;
+  attractions.forEach(function(item){
+    var onlineOpts = item.opts.filter(function(o){return o.pay==='線上';});
+    var onsiteOpts = item.opts.filter(function(o){return o.pay==='現場' && o.cur!=='FREE';});
+    if(onlineOpts.length){
+      var vals = onlineOpts.map(function(o){ return twdOf(o.cur, getAttrPrice(item.id,o.k,o.price)); });
+      onlinePer += Math.min.apply(null, vals);
+    } else if(onsiteOpts.length){
+      onsiteOpts.forEach(function(o){ onsitePerKRW += getAttrPrice(item.id,o.k,o.price); });
+    }
+  });
+  var attractionTotal2 = (onlinePer + krw2twd(onsitePerKRW)) * 2;
+
+  var estMinSum=0, estMaxSum=0;
+  meals.forEach(function(m){ if(!m.undetermined){ estMinSum+=m.estMin; estMaxSum+=m.estMax; } });
+  var mealMin = krw2twd(estMinSum), mealMax = krw2twd(estMaxSum);
+
+  var grandMin = attractionTotal2 + mealMin;
+  var grandMax = attractionTotal2 + mealMax;
+
+  var html = '<div class="tot-h">目前已知總額（2人）</div>';
+  html += '<div>景點活動：≈ '+fmtTWD(attractionTotal2)+'</div>';
+  html += '<div>餐食預估：≈ '+fmtTWD(mealMin)+'–'+fmtTWD(mealMax)+'</div>';
+  html += '<div style="margin-top:6px" class="tot-h">合計：≈ '+fmtTWD(grandMin)+'–'+fmtTWD(grandMax)+'</div>';
+  html += '<div class="fillstat" style="margin-top:6px">已包含：所有景點門票／體驗＋餐食預估（熟成到訂金與現場餘額各算一次，不重複）</div>';
+  html += '<div class="fillstat">未包含：樂天租車、飯店住宿、加油、D1園區內晚餐（金額未定）</div>';
+  document.getElementById('grandSummary').innerHTML = html;
+}
+
+/* ---- 遠端資料同步進畫面（不打斷正在輸入的欄位） ---- */
+function applyAttrInputValues(){
+  document.querySelectorAll('input.pricein[data-item]').forEach(function(inp){
+    if(document.activeElement === inp) return;
+    var itemId = inp.dataset.item, optKey = inp.dataset.opt;
+    var item = attractions.filter(function(a){return a.id===itemId;})[0];
+    if(!item) return;
+    var opt = item.opts.filter(function(o){return o.k===optKey;})[0];
+    if(!opt) return;
+    var val = getAttrPrice(itemId, optKey, opt.price);
+    inp.value = val;
+    if(opt.cur==='KRW'){
+      var conv = document.querySelector('[data-conv="'+itemId+'_'+optKey+'"]');
+      if(conv) conv.textContent = '≈ '+fmtTWD(krw2twd(val));
+    }
+  });
+}
+function applyMealInputValues(){
+  document.querySelectorAll('input.pricein.actual[data-meal]').forEach(function(inp){
+    if(document.activeElement === inp) return;
+    var id = inp.dataset.meal;
+    var val = mealActuals.hasOwnProperty(id) ? mealActuals[id] : '';
+    inp.value = val;
+    var conv = document.querySelector('[data-mconv="'+id+'"]');
+    if(conv) conv.textContent = val!==''? '≈ '+fmtTWD(krw2twd(val)) : '未填';
+  });
+}
+function applyChecklistValues(){
+  document.querySelectorAll('.ckwrap input[type=checkbox]').forEach(function(cb){
+    if(document.activeElement === cb) return;
+    cb.checked = !!checklist[cb.id];
+  });
+}
+function applyFxValue(){
+  var fxInp = document.getElementById('fxManualInput');
+  if(document.activeElement !== fxInp) fxInp.value = fx.rate;
+}
+function syncUIFromState(){
+  applyAttrInputValues();
+  updateAllGroupBest();
+  renderAttractionSummary();
+  applyMealInputValues();
+  renderMealSummary();
+  applyFxValue();
+  renderGrandSummary();
+  applyChecklistValues();
+}
+
+/* ---- Checklist 勾選：綁定＋雲端寫入 ---- */
+function bindChecklist(){
+  document.querySelectorAll('.ckwrap input[type=checkbox]').forEach(function(cb){
+    cb.checked = !!checklist[cb.id];
+    cb.addEventListener('change', function(){
+      checklist[cb.id] = cb.checked;
+      lsSaveCk();
+      if(firestoreReady) writeChecklistNow();
+    });
+  });
+}
+
+/* ---- 啟動流程 ---- */
+function afterInitialLoad(){
+  buildAttractionTable();
+  updateAllGroupBest();
+  renderAttractionSummary();
+  buildMealTable();
+  renderMealSummary();
+  document.getElementById('fxManualInput').value = fx.rate;
+  renderGrandSummary();
+  bindChecklist();
+}
+
+document.getElementById('resetAttractions').addEventListener('click', function(){
+  attrPrices = {};
+  lsSaveAttr();
+  debounceWrite('attrPrices', attrPrices);
+  buildAttractionTable();
+  updateAllGroupBest();
+  renderAttractionSummary();
+  renderGrandSummary();
+});
+document.getElementById('clearMealActuals').addEventListener('click', function(){
+  mealActuals = {};
+  lsSaveMeal();
+  debounceWrite('mealActuals', mealActuals);
+  buildMealTable();
+  renderMealSummary();
+  renderGrandSummary();
+});
+document.getElementById('fxManualInput').addEventListener('input', function(){
+  var raw = this.value.replace(/[^0-9.]/g,'');
+  if(raw !== this.value) this.value = raw;
+  var v = parseFloat(raw);
+  if(v>0){
+    fx = {rate:v};
+    lsSaveFx();
+    debounceWrite('fxRate', v);
+    document.querySelectorAll('.twdconv[data-conv]').forEach(function(span){
+      var key = span.dataset.conv;
+      var input = document.querySelector('input.pricein[data-item="'+key.split('_')[0]+'"][data-opt="'+key.split('_')[1]+'"]');
+      if(input){
+        var vv = input.value===''?0:parseInt(input.value.replace(/[^0-9]/g,''),10);
+        span.textContent = '≈ '+fmtTWD(krw2twd(vv));
+      }
+    });
+    applyMealInputValues();
+    updateAllGroupBest();
+    renderAttractionSummary();
+    renderMealSummary();
+    renderGrandSummary();
+  }
+});
+
+lsLoadAll();
+
+if(firebaseConfigured() && typeof firebase !== 'undefined'){
+  try{
+    firebase.initializeApp(firebaseConfig);
+    db = firebase.firestore();
+    docRef = db.collection('jeju2027').doc('shared');
+    firestoreReady = true;
+    setStatus('connecting');
+    docRef.get().then(function(doc){
+      if(doc.exists){
+        var d = doc.data();
+        if(d.attrPrices) attrPrices = d.attrPrices;
+        if(d.mealActuals) mealActuals = d.mealActuals;
+        if(typeof d.fxRate === 'number') fx = {rate:d.fxRate};
+        if(d.checklist) checklist = d.checklist;
+      } else {
+        docRef.set({attrPrices:attrPrices, mealActuals:mealActuals, fxRate:fx.rate, checklist:checklist}, {merge:true});
+      }
+      setStatus('online');
+      afterInitialLoad();
+      docRef.onSnapshot(function(snap){
+        if(!snap.exists) return;
+        var d = snap.data();
+        if(d.attrPrices) attrPrices = d.attrPrices;
+        if(d.mealActuals) mealActuals = d.mealActuals;
+        if(typeof d.fxRate === 'number') fx = {rate:d.fxRate};
+        if(d.checklist) checklist = d.checklist;
+        syncUIFromState();
+      }, function(err){ console.error(err); setStatus('error'); });
+    }).catch(function(e){
+      console.error(e); setStatus('error'); afterInitialLoad();
+    });
+  }catch(e){
+    console.error('Firebase init failed', e);
+    firestoreReady = false;
+    setStatus('offline');
+    afterInitialLoad();
+  }
+} else {
+  setStatus('offline');
+  afterInitialLoad();
+}
+
+})();
+
+</script>
+</body>
+</html>
