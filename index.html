@@ -33,11 +33,21 @@ body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang 
 header{padding:22px 16px 8px}
 h1{font-size:22px;font-weight:500;margin:0 0 4px}
 .sub{font-size:12px;color:var(--mute);margin:0}
-nav{position:sticky;top:0;z-index:90;background:var(--bg);padding:10px 12px;
-  border-bottom:.5px solid var(--border);display:flex;gap:6px;overflow-x:auto;-webkit-overflow-scrolling:touch}
-nav button{flex-shrink:0;padding:6px 12px;border:.5px solid var(--border);border-radius:20px;
-  background:var(--surface);color:var(--text);font-size:12px;cursor:pointer;font-family:inherit;white-space:nowrap}
-nav button.on{background:var(--blue);color:var(--bg);border-color:var(--blue)}
+html,body{overflow-x:hidden;width:100%}
+.nav1{position:sticky;top:0;z-index:92;width:100%;background:var(--bg);
+  display:grid;grid-template-columns:repeat(3,1fr);border-bottom:.5px solid var(--border)}
+.nav1 button{padding:11px 4px;border:none;border-bottom:3px solid transparent;background:transparent;
+  color:var(--text2);font-size:15px;font-weight:600;cursor:pointer;font-family:inherit;white-space:nowrap}
+.nav1 button.on{color:var(--blue-deep);border-bottom-color:var(--blue);background:var(--blue-bg)}
+.nav2{position:sticky;top:44px;z-index:91;width:100%;background:var(--bg);border-bottom:.5px solid var(--border)}
+.nav2-row{display:none;width:100%}
+.nav2-row.on{display:grid}
+.nav2-row[data-forl1="daily"]{grid-template-columns:repeat(6,1fr)}
+.nav2-row[data-forl1="cost"]{grid-template-columns:repeat(3,1fr)}
+.nav2-row[data-forl1="notes"]{grid-template-columns:repeat(4,1fr)}
+.nav2-row button{padding:8px 2px;border:none;border-bottom:2px solid transparent;background:transparent;
+  color:var(--blue-deep);font-size:12px;cursor:pointer;font-family:inherit;white-space:nowrap}
+.nav2-row button.on{background:var(--blue-bg);border-bottom-color:var(--blue);font-weight:600}
 .day{padding:20px 12px 4px}
 .dlabel{font-size:10px;color:var(--orange);letter-spacing:2px;margin:0 0 2px;font-weight:500}
 .dtitle{font-size:19px;font-weight:600;margin:0 0 2px}
@@ -74,22 +84,27 @@ nav button.on{background:var(--blue);color:var(--bg);border-color:var(--blue)}
 .list a{color:var(--blue)}
 .warn{background:var(--warn-bg);border-left:3px solid var(--warn-bd);padding:8px 12px;margin:6px 12px;
   border-radius:0 6px 6px 0;font-size:11.5px;color:var(--warn-tx)}
-table{width:100%;border-collapse:collapse;font-size:11.5px;word-break:keep-all}
-th{text-align:left;padding:6px 5px;border-bottom:1px solid var(--border);color:var(--blue-deep);font-weight:600;font-size:10px;white-space:nowrap}
-td{padding:7px 5px;border-bottom:.5px solid var(--border);color:var(--text2);vertical-align:top;word-break:keep-all}
-.num{text-align:right;white-space:nowrap}
+table{width:100%;border-collapse:collapse;font-size:11.5px;word-break:keep-all;table-layout:fixed}
+th{text-align:left;padding:6px 4px;border-bottom:1px solid var(--border);color:var(--blue-deep);font-weight:600;font-size:10px;white-space:normal;word-break:keep-all;overflow-wrap:break-word}
+td{padding:7px 4px;border-bottom:.5px solid var(--border);color:var(--text2);vertical-align:top;word-break:keep-all;overflow-wrap:break-word;white-space:normal}
+.num{text-align:right}
 .tp{color:var(--orange);font-size:10px;display:block}
 .total{background:var(--blue-bg);border-radius:10px;padding:12px 14px;margin:0 12px 10px;font-size:13px;color:var(--blue-deep);line-height:1.8}
 .total div{padding:2px 0}
 .total .tot-h{font-size:13.5px;font-weight:700;color:var(--blue-deep)}
-.tablewrap{overflow-x:auto;margin:0 12px 12px;-webkit-overflow-scrolling:touch;border:.5px solid var(--border);border-radius:10px}
-.tablewrap table{margin:0;width:100%;min-width:460px}
-.tablewrap td,.tablewrap th{white-space:nowrap}
-.tablewrap td.wrap-ok,.tablewrap th.wrap-ok{white-space:normal;word-break:keep-all}
-.grouphead{background:var(--blue-bg);color:var(--blue-deep);font-weight:600;font-size:12px;padding:7px 8px!important;white-space:normal!important;word-break:keep-all}
+.tablewrap{width:100%;margin:0 12px 12px;border:.5px solid var(--border);border-radius:10px;overflow-x:hidden;box-sizing:border-box}
+.tablewrap table{margin:0;width:100%;min-width:0;table-layout:fixed}
+.tablewrap td,.tablewrap th{white-space:normal;word-break:keep-all;overflow-wrap:break-word}
+.daytable td,.daytable th{word-break:keep-all}
+.daytable col.c-day{width:13%}
+.daytable col.c-meal{width:43.5%}
+.grouphead{background:var(--code);color:var(--text);font-weight:700;font-size:11.5px;padding:6px 8px!important;white-space:normal!important;word-break:keep-all}
+.sumrow td{color:var(--orange-mid);font-weight:600;font-size:12px}
+.sumrow.grand td{color:var(--warn-tx);font-weight:700;font-size:13px;border-top:1px solid var(--border)}
 .plat-cell{font-size:11px}
-.plat-cell a{white-space:nowrap;display:inline-block}
+.plat-cell a{white-space:nowrap;word-break:keep-all}
 .pay2{line-height:1.35}
+.pricewrap{display:inline-flex;align-items:center;gap:2px;white-space:nowrap;flex-wrap:wrap}
 .critical{background:var(--orange-mid);color:#fff;border-radius:10px;padding:12px 14px;margin:0 12px 10px;font-size:12.5px;line-height:1.7}
 .critical strong{display:block;font-size:13px;margin-bottom:4px}
 .ckwrap{background:var(--surface);border:.5px solid var(--border);border-radius:10px;padding:10px 12px;margin:0 12px 8px;display:flex;gap:10px;align-items:flex-start}
@@ -110,13 +125,15 @@ td{padding:7px 5px;border-bottom:.5px solid var(--border);color:var(--text2);ver
 .sect{color:var(--blue-deep);font-weight:700}
 .btn{background:var(--blue);color:#fff;border:none;border-radius:8px;padding:6px 12px;font-size:11.5px;cursor:pointer;font-family:inherit;white-space:nowrap}
 .btn.ghost{background:var(--surface);color:var(--orange);border:1px solid var(--orange);font-weight:600}
-.pricein{width:88px;padding:5px 6px;border:.5px solid var(--border);border-radius:6px;background:var(--bg);color:var(--text);font-size:16px;text-align:right;-webkit-appearance:none}
-.pricein.actual{width:88px}
+.pricein{width:62px;padding:5px 4px;border:.5px solid var(--border);border-radius:6px;background:var(--bg);color:var(--text);font-size:16px;font-weight:700;text-align:right;-webkit-appearance:none;-moz-appearance:textfield}
+.pricein::-webkit-outer-spin-button,.pricein::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.pricein.actual{width:62px}
 .curpre{font-size:11.5px;color:var(--text2);white-space:nowrap}
 .twdconv{font-size:10px;color:var(--mute);display:block;margin-top:2px;white-space:nowrap}
 .bestrow td{font-weight:700}
 .bestbadge{font-size:9px;background:var(--blue-bg);color:var(--blue-deep);padding:1px 5px;border-radius:4px;margin-left:4px;font-weight:600;white-space:nowrap}
 .fillstat{font-size:11px;color:var(--mute);margin-top:4px}
+.dim{opacity:.6}
 .cmp-cheap{color:#1D8A4C;font-weight:700}
 .cmp-mid{color:var(--blue-deep);font-weight:700}
 .cmp-expensive{color:var(--warn-tx);font-weight:700}
@@ -132,16 +149,32 @@ section.on{display:block}
 <p class="sub">2027/10/23 六 · 10/28 四 · 2 人自駕 · 樂天 KONA 4WD</p>
 </header>
 
-<nav>
-<button class="on" data-t="d1">Day 1</button>
-<button data-t="d2">Day 2</button>
-<button data-t="d3">Day 3</button>
-<button data-t="d4">Day 4</button>
-<button data-t="d5">Day 5</button>
-<button data-t="d6">Day 6</button>
-<button data-t="quick">快速表</button>
-<button data-t="check">別白跑</button>
+<nav class="nav1">
+<button class="on" data-l1="daily">每日行程</button>
+<button data-l1="cost">旅遊費用</button>
+<button data-l1="notes">注意事項</button>
 </nav>
+<div class="nav2">
+<div class="nav2-row on" data-forl1="daily">
+<button class="on" data-t="d1">D1</button>
+<button data-t="d2">D2</button>
+<button data-t="d3">D3</button>
+<button data-t="d4">D4</button>
+<button data-t="d5">D5</button>
+<button data-t="d6">D6</button>
+</div>
+<div class="nav2-row" data-forl1="cost">
+<button class="on" data-t="cost-flight">機票飯店</button>
+<button data-t="cost-attractions">景點活動</button>
+<button data-t="cost-meals">餐食</button>
+</div>
+<div class="nav2-row" data-forl1="notes">
+<button class="on" data-t="notes-reserve">行前預定</button>
+<button data-t="notes-bring">務必攜帶</button>
+<button data-t="notes-check">行前查詢</button>
+<button data-t="notes-other">其他</button>
+</div>
+</div>
 
 <section id="d1" class="on">
 <div class="day">
@@ -605,7 +638,7 @@ section.on{display:block}
 <div class="dish"><span class="dlab">推薦</span>濟州柑橘披薩（不辣）· 鮑魚脆飯義大利麵（微辣）</div>
 <div class="info">
 <div>付款：現場刷卡／現金 · Naver預約或現場候位</div>
-<div>餐費：2 人約 ₩51,000–70,000</div>
+<div>餐費：2 人約 ₩60,000</div>
 <div>停車：免費</div>
 <div>營業：每天 11:00–21:00</div>
 <div>停留：2 小時（17:00–19:00）</div>
@@ -665,69 +698,64 @@ section.on{display:block}
 </div>
 </section>
 
-<section id="quick">
+<section id="cost-flight">
 <div class="day">
-<p class="dlabel">快速表</p>
-<h2 class="dtitle">餐食 & 費用</h2>
+<p class="dlabel">旅遊費用</p>
+<h2 class="dtitle">機票 · 飯店 · 租車</h2>
 </div>
+<div class="warn">⚠️ 機票、士嘉堡飯店價格尚未確定，出發前請重新查詢並填入實際金額</div>
+<div id="bigTicketTableWrap"></div>
+</section>
 
-<p class="sect">🍽️ 每日餐食</p>
+<section id="cost-attractions">
+<div class="day">
+<p class="dlabel">旅遊費用</p>
+<h2 class="dtitle">景點 · 活動</h2>
+</div>
+<div class="fxbar" id="fxbar">
+<div id="syncStatus" class="fillstat" style="margin-bottom:4px"></div>
+<div><b>匯率</b>：1 KRW = NT$ <input type="text" inputmode="decimal" class="rateinput" id="fxManualInput" value="0.0227"></div>
+</div>
+<div class="warn">⚠️ 線上票價為目前參考值，2027年價格及販售平台請於出發前重查</div>
+<div class="sectrow">
+<p class="subsect" style="margin:0">景點・展館金額（每人）</p>
+<button class="btn ghost" id="resetAttractions" type="button">↺ 恢復原始價格</button>
+</div>
+<div id="attractionTableWrap"></div>
+</section>
+
+<section id="cost-meals">
+<div class="day">
+<p class="dlabel">旅遊費用</p>
+<h2 class="dtitle">餐食</h2>
+</div>
+<p class="sect">🍽️ 每日餐食總覽</p>
 <div class="tablewrap">
-<table>
-<tr><th>日</th><th class="wrap-ok">午餐</th><th class="wrap-ok">晚餐</th></tr>
-<tr><td>D1</td><td class="wrap-ok">Haejigae<span class="tp">咖啡輕食</span></td><td class="wrap-ok">飯店周邊<span class="tp">簡單吃</span></td></tr>
-<tr><td>D2</td><td class="wrap-ok">函德鯖魚<span class="tp">韓式</span></td><td class="wrap-ok">帶魚王<span class="tp">烤白帶魚</span></td></tr>
-<tr><td>D3</td><td class="wrap-ok">Aurum Noodle<span class="tp">豬肉刀切麵</span></td><td class="wrap-ok">Dullegil<span class="tp">西日融合</span></td></tr>
-<tr><td>D4</td><td class="wrap-ok">Bake Make Roast<span class="tp">貝果</span></td><td class="wrap-ok">熟成到<span class="tp">烤黑豬</span></td></tr>
-<tr><td>D5</td><td class="wrap-ok">TEA TERRACE<span class="tp">抹茶麵</span></td><td class="wrap-ok">Zen Hideaway<span class="tp">泰義式</span></td></tr>
+<table class="daytable">
+<colgroup><col class="c-day"><col class="c-meal"><col class="c-meal"></colgroup>
+<tr><th>日</th><th>午餐</th><th>晚餐</th></tr>
+<tr><td>D1</td><td>Haejigae<span class="tp">咖啡輕食</span></td><td>飯店周邊<span class="tp">簡單吃</span></td></tr>
+<tr><td>D2</td><td>函德鯖魚<span class="tp">韓式</span></td><td>帶魚王<span class="tp">烤白帶魚</span></td></tr>
+<tr><td>D3</td><td>Aurum Noodle<span class="tp">豬肉刀切麵</span></td><td>Dullegil<span class="tp">西日融合</span></td></tr>
+<tr><td>D4</td><td>Bake Make<br>Roast<span class="tp">貝果</span></td><td>熟成到<span class="tp">烤黑豬</span></td></tr>
+<tr><td>D5</td><td>TEA TERRACE<span class="tp">抹茶麵</span></td><td>Zen Hideaway<span class="tp">泰義式</span></td></tr>
 </table>
 </div>
 
 <div class="sectrow">
-<p class="sect">💰 費用重點</p>
-</div>
-
-<div class="fxbar" id="fxbar">
-<div id="syncStatus" class="fillstat" style="margin-bottom:4px">🔄 連線中…</div>
-<div><b>匯率</b>：1 KRW = NT$ <input type="text" inputmode="decimal" class="rateinput" id="fxManualInput" value="0.0227"></div>
-<div class="fillstat">修改後所有韓元金額、台幣換算與總額會即時更新</div>
-</div>
-<div class="warn">⚠️ 線上票價為目前參考值，2027年價格及販售平台請於出發前重查</div>
-
-<div class="sectrow">
-<p class="subsect" style="margin:0">景點 · 展館</p>
-<button class="btn ghost" id="resetAttractions" type="button">↺ 恢復原始價格</button>
-</div>
-<div id="attractionTableWrap"></div>
-<div class="unsure">停車費：已查核之城山日出峰、龍頭海岸、山房山、Aquaplanet、山茶花之丘、濟州騎馬公園皆為免費停車；其餘店家停車付款方式查不到，未列入本表金額</div>
-
-<div class="total" id="attractionSummary"></div>
-
-<div class="sectrow">
-<p class="subsect" style="margin:0">餐食（2人）</p>
+<p class="subsect" style="margin:0">餐食金額（2人）</p>
 <button class="btn ghost" id="clearMealActuals" type="button">清除實際金額</button>
 </div>
 <div id="mealTableWrap"></div>
 
-<div class="total" id="mealSummary"></div>
-
 <div class="total" id="grandSummary"></div>
-
-<p class="sect">💵 現金 & WOWPASS</p>
-<ul class="list">
-<li>景點門票、餐廳大多可刷卡，濟州騎馬公園飼料體驗等少數現場加購項目確認僅收現金</li>
-<li>建議帶 ₩50,000–100,000 緩衝</li>
-<li>WOWPASS濟州機場不提供現金兌換，建議台灣先換韓元</li>
-</ul>
 </section>
 
-<section id="check">
+<section id="notes-reserve">
 <div class="day">
-<p class="dlabel">別白跑清單</p>
-<h2 class="dtitle">出發前 & 現場注意</h2>
+<p class="dlabel">注意事項</p>
+<h2 class="dtitle">行前預定 Checklist</h2>
 </div>
-
-<p class="sect">🎫 出發前預約 Checklist</p>
 
 <div class="ckwrap">
 <input type="checkbox" id="ck1">
@@ -765,8 +793,13 @@ section.on{display:block}
 <input type="checkbox" id="ck9">
 <label class="cklabel" for="ck9"><b>D5晚餐－Zen Hideaway訂位</b>Naver Map或現場候位</label>
 </div>
+</section>
 
-<p class="sect">🎒 務必攜帶 Checklist</p>
+<section id="notes-bring">
+<div class="day">
+<p class="dlabel">注意事項</p>
+<h2 class="dtitle">務必攜帶 Checklist</h2>
+</div>
 
 <div class="ckwrap crit">
 <input type="checkbox" id="pk1">
@@ -788,8 +821,13 @@ section.on{display:block}
 <input type="checkbox" id="pk5">
 <label class="cklabel" for="pk5"><b>必要韓元現金</b><span class="cktip">濟州騎馬公園飼料體驗等現場加購項目確認僅收現金，建議備₩50,000–100,000</span></label>
 </div>
+</section>
 
-<p class="sect">🔍 行前查詢</p>
+<section id="notes-check">
+<div class="day">
+<p class="dlabel">注意事項</p>
+<h2 class="dtitle">行前查詢</h2>
+</div>
 <ul class="list">
 <li>查詢 K-ETA 是否免申請 · <a href="https://www.k-eta.go.kr/portal/newapply/index.do" target="_blank" rel="noopener">k-eta.go.kr</a></li>
 <li>若無有效K-ETA，入境3天前需填 e-Arrival Card · <a href="https://www.e-arrivalcard.go.kr/portal/main/index.do" target="_blank" rel="noopener">e-arrivalcard.go.kr</a></li>
@@ -798,7 +836,18 @@ section.on{display:block}
 <li>龍頭海岸潮汐：當天查看 <a href="https://www.instagram.com/6sot_official/" target="_blank" rel="noopener">IG @6sot_official</a></li>
 <li>確認2027班機日期及時間：週六出發、週四早班回程</li>
 </ul>
+</section>
 
+<section id="notes-other">
+<div class="day">
+<p class="dlabel">注意事項</p>
+<h2 class="dtitle">其他</h2>
+</div>
+<p class="sect">💵 現金 & WOWPASS</p>
+<ul class="list">
+<li>景點門票、餐廳大多可刷卡，濟州騎馬公園飼料體驗等少數現場加購項目確認僅收現金</li>
+<li>WOWPASS濟州機場不提供現金兌換，建議台灣先換韓元</li>
+</ul>
 <p class="sect">🩹 男友乾癬保養</p>
 <ul class="list">
 <li>保濕乳液隨身攜帶</li>
@@ -806,19 +855,37 @@ section.on{display:block}
 </ul>
 </section>
 
-<footer>2027/10/23 - 10/28 · 濟州 6 天 5 夜</footer>
+<footer>2027/10/23–10/28 · 濟州 6 天 5 夜</footer>
 
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
 <script>
-document.querySelectorAll('nav button').forEach(function(b){
-  b.addEventListener('click',function(){
-    document.querySelectorAll('section').forEach(function(s){s.classList.remove('on')});
-    document.getElementById(b.dataset.t).classList.add('on');
-    document.querySelectorAll('nav button').forEach(function(n){n.classList.remove('on')});
-    b.classList.add('on');
-    window.scrollTo({top:0,behavior:'smooth'});
-  });
+function showSection(id){
+  document.querySelectorAll('section').forEach(function(s){s.classList.remove('on');});
+  var target = document.getElementById(id);
+  if(target) target.classList.add('on');
+}
+function activateL2(btn){
+  var row = btn.closest('.nav2-row');
+  row.querySelectorAll('button').forEach(function(b){b.classList.remove('on');});
+  btn.classList.add('on');
+  showSection(btn.dataset.t);
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function activateL1(l1Btn){
+  document.querySelectorAll('.nav1 button').forEach(function(b){b.classList.remove('on');});
+  l1Btn.classList.add('on');
+  document.querySelectorAll('.nav2-row').forEach(function(r){r.classList.remove('on');});
+  var row = document.querySelector('.nav2-row[data-forl1="'+l1Btn.dataset.l1+'"]');
+  row.classList.add('on');
+  var firstBtn = row.querySelector('button.on') || row.querySelector('button');
+  activateL2(firstBtn);
+}
+document.querySelectorAll('.nav1 button').forEach(function(b){
+  b.addEventListener('click', function(){ activateL1(b); });
+});
+document.querySelectorAll('.nav2-row button').forEach(function(b){
+  b.addEventListener('click', function(){ activateL2(b); });
 });
 
 /* ===================== 費用計算系統（Firestore 雲端同步版） ===================== */
@@ -864,6 +931,7 @@ var LS_FX = 'jeju2027_fx_v2';
 var LS_ATTR = 'jeju2027_attr_prices';
 var LS_MEAL = 'jeju2027_meal_actuals';
 var LS_CK = 'jeju2027_checklist';
+var LS_BIG = 'jeju2027_big_actuals';
 
 /* ---- 景點資料 ---- */
 var attractions = [
@@ -903,7 +971,7 @@ var attractions = [
   {id:'sanbang', day:'D5', name:'山房山', short:'山房山', opts:[
     {k:'a', platform:'現場', link:null, pay:'刷卡／現金', plan:'成人票', cur:'KRW', price:1000}
   ]},
-  {id:'osulloc', day:'D5', name:'OSULLOC 雪綠茶博物館', short:'雪綠茶<br>博物館', opts:[
+  {id:'osulloc', day:'D5', name:'OSULLOC 雪綠茶博物館', short:'雪綠茶博物館', opts:[
     {k:'a', platform:'現場', link:null, pay:'—', plan:'入館', cur:'FREE', price:0}
   ]},
   {id:'horse', day:'D5', name:'濟州騎馬公園', short:'騎馬公園', opts:[
@@ -923,13 +991,23 @@ var meals = [
   {id:'sukseong_dep', day:'D4', name:'熟成到<br>（訂金）', pay:'線上', platform:'CatchTable', plan:'訂金', estMin:30000, estMax:30000, isDeposit:true},
   {id:'sukseong_bal', day:'D4', name:'熟成到<br>（餘額）', pay:'刷卡／現金', platform:'現場', plan:'餘額', estMin:60000, estMax:60000},
   {id:'tea', day:'D5', name:'TEA<br>TERRACE', pay:'刷卡／現金', platform:'現場', plan:'—', estMin:30000, estMax:30000},
-  {id:'zen', day:'D5', name:'Zen<br>Hideaway', pay:'刷卡／現金', platform:'現場', plan:'—', estMin:51000, estMax:70000}
+  {id:'zen', day:'D5', name:'Zen<br>Hideaway', pay:'刷卡／現金', platform:'現場', plan:'—', estMin:60000, estMax:60000}
+];
+
+/* ---- 機票・飯店・租車資料 ---- */
+var bigTickets = [
+  {id:'flight_go', name:'去程機票<br>IT654', cur:'TWD', est:null},
+  {id:'flight_back', name:'回程機票', cur:'TWD', est:null},
+  {id:'rental', name:'樂天租車<br>6天全險', cur:'KRW', est:585000},
+  {id:'playcecamp', name:'Playce Camp<br>2晚', cur:'TWD', est:2216},
+  {id:'scarboro', name:'士嘉堡酒店<br>3晚', cur:'TWD', est:null}
 ];
 
 /* ---- 狀態 ---- */
 var fx = {rate:0.0227};
 var attrPrices = {};
 var mealActuals = {};
+var bigActuals = {};
 var checklist = {};
 var db=null, docRef=null, firestoreReady=false;
 
@@ -943,11 +1021,13 @@ function lsLoadAll(){
   try{ var s=JSON.parse(localStorage.getItem(LS_FX)||'null'); if(s && s.rate>0) fx=s; }catch(e){}
   try{ attrPrices = JSON.parse(localStorage.getItem(LS_ATTR)||'{}'); }catch(e){ attrPrices={}; }
   try{ mealActuals = JSON.parse(localStorage.getItem(LS_MEAL)||'{}'); }catch(e){ mealActuals={}; }
+  try{ bigActuals = JSON.parse(localStorage.getItem(LS_BIG)||'{}'); }catch(e){ bigActuals={}; }
   try{ checklist = JSON.parse(localStorage.getItem(LS_CK)||'{}'); }catch(e){ checklist={}; }
 }
 function lsSaveFx(){ localStorage.setItem(LS_FX, JSON.stringify(fx)); }
 function lsSaveAttr(){ localStorage.setItem(LS_ATTR, JSON.stringify(attrPrices)); }
 function lsSaveMeal(){ localStorage.setItem(LS_MEAL, JSON.stringify(mealActuals)); }
+function lsSaveBig(){ localStorage.setItem(LS_BIG, JSON.stringify(bigActuals)); }
 function lsSaveCk(){ localStorage.setItem(LS_CK, JSON.stringify(checklist)); }
 
 /* ---- Firestore：雲端同步 ---- */
@@ -957,9 +1037,9 @@ function firebaseConfigured(){
 function setStatus(state){
   var el = document.getElementById('syncStatus');
   if(!el) return;
-  if(state==='online') el.textContent = '☁️ 已連接雲端同步，雙方裝置會即時共用';
+  if(state==='online') el.textContent = '';
   else if(state==='connecting') el.textContent = '🔄 連線中…';
-  else if(state==='offline') el.textContent = '⚠️ 尚未設定雲端同步，資料只存在此裝置（設定方式見程式碼開頭註解）';
+  else if(state==='offline') el.textContent = '⚠️ 尚未設定雲端同步，資料只存在此裝置';
   else if(state==='error') el.textContent = '⚠️ 雲端連線失敗，資料暫存本機，稍後重新整理再試';
 }
 var writeTimers = {};
@@ -990,7 +1070,9 @@ function twdOf(cur, price){
 /* ---- 建立景點表格（只建一次 DOM） ---- */
 function buildAttractionTable(){
   var wrap = document.getElementById('attractionTableWrap');
-  var html = '<div class="tablewrap"><table><tr><th>付款方式</th><th>平台</th><th>方案</th><th>金額（每人）</th></tr>';
+  var html = '<div class="tablewrap"><table>';
+  html += '<colgroup><col style="width:19%"><col style="width:27%"><col style="width:20%"><col style="width:34%"></colgroup>';
+  html += '<tr><th>付款方式</th><th>平台</th><th>方案</th><th>金額（每人）</th></tr>';
   attractions.forEach(function(item){
     html += '<tr><td colspan="4" class="grouphead">'+item.day+'｜'+item.short+'</td></tr>';
     item.opts.forEach(function(o){
@@ -1002,13 +1084,16 @@ function buildAttractionTable(){
       if(o.cur==='FREE'){
         html += '<td>免費</td>';
       } else if(o.cur==='TWD'){
-        html += '<td><span class="curpre">NT$</span> <input type="text" inputmode="numeric" pattern="[0-9]*" class="pricein" data-item="'+item.id+'" data-opt="'+o.k+'" data-cur="TWD" value="'+curVal+'"><span class="bestbadge" data-badge="'+item.id+'_'+o.k+'" style="display:none">最低</span></td>';
+        html += '<td><span class="pricewrap"><span class="curpre">NT$</span><input type="text" inputmode="numeric" pattern="[0-9]*" class="pricein" data-item="'+item.id+'" data-opt="'+o.k+'" data-cur="TWD" value="'+curVal+'"></span><span class="bestbadge" data-badge="'+item.id+'_'+o.k+'" style="display:none">最低</span></td>';
       } else {
-        html += '<td><span class="curpre">₩</span> <input type="text" inputmode="numeric" pattern="[0-9]*" class="pricein" data-item="'+item.id+'" data-opt="'+o.k+'" data-cur="KRW" value="'+curVal+'"><span class="bestbadge" data-badge="'+item.id+'_'+o.k+'" style="display:none">最低</span><span class="twdconv" data-conv="'+item.id+'_'+o.k+'">≈ '+fmtTWD(krw2twd(curVal))+'</span></td>';
+        html += '<td><span class="pricewrap"><span class="curpre">₩</span><input type="text" inputmode="numeric" pattern="[0-9]*" class="pricein" data-item="'+item.id+'" data-opt="'+o.k+'" data-cur="KRW" value="'+curVal+'"></span><span class="bestbadge" data-badge="'+item.id+'_'+o.k+'" style="display:none">最低</span><span class="twdconv" data-conv="'+item.id+'_'+o.k+'">≈ '+fmtTWD(krw2twd(curVal))+'</span></td>';
       }
       html += '</tr>';
     });
   });
+  html += '<tr class="sumrow"><td colspan="3">線上付款（2人）</td><td class="num" id="attrOnlineVal"></td></tr>';
+  html += '<tr class="sumrow"><td colspan="3">現場付款（2人）</td><td class="num" id="attrOnsiteVal"></td></tr>';
+  html += '<tr class="sumrow grand"><td colspan="3">景點活動合計</td><td class="num" id="attrGrandVal"></td></tr>';
   html += '</table></div>';
   wrap.innerHTML = html;
 
@@ -1016,14 +1101,17 @@ function buildAttractionTable(){
     inp.addEventListener('input', function(){
       var v = inp.value.replace(/[^0-9]/g,'');
       if(v !== inp.value) inp.value = v;
-      var num = v==='' ? 0 : parseInt(v,10);
-      attrPrices[inp.dataset.item+'_'+inp.dataset.opt] = num;
+      var key = inp.dataset.item+'_'+inp.dataset.opt;
+      if(v===''){
+        delete attrPrices[key];
+      } else {
+        attrPrices[key] = parseInt(v,10);
+      }
       lsSaveAttr();
       debounceWrite('attrPrices', attrPrices);
-      var key = inp.dataset.item+'_'+inp.dataset.opt;
       if(inp.dataset.cur==='KRW'){
         var conv = wrap.querySelector('[data-conv="'+key+'"]');
-        if(conv) conv.textContent = '≈ '+fmtTWD(krw2twd(num));
+        if(conv) conv.textContent = '≈ '+fmtTWD(krw2twd(v===''?0:parseInt(v,10)));
       }
       updateGroupBest(inp.dataset.item);
       renderAttractionSummary();
@@ -1056,11 +1144,11 @@ function updateAllGroupBest(){
   attractions.forEach(function(item){ updateGroupBest(item.id); });
 }
 
-function renderAttractionSummary(){
+function computeAttractionTotals(){
   var onlinePer=0, onsitePerKRW=0;
   attractions.forEach(function(item){
     var onlineOpts = item.opts.filter(function(o){return o.pay==='線上';});
-    var onsiteOpts = item.opts.filter(function(o){return o.pay==='現場' && o.cur!=='FREE';});
+    var onsiteOpts = item.opts.filter(function(o){return o.platform==='現場' && o.cur!=='FREE';});
     if(onlineOpts.length){
       var vals = onlineOpts.map(function(o){ return twdOf(o.cur, getAttrPrice(item.id,o.k,o.price)); });
       onlinePer += Math.min.apply(null, vals);
@@ -1069,36 +1157,38 @@ function renderAttractionSummary(){
     }
   });
   var onsitePerTWD = krw2twd(onsitePerKRW);
-  var totalPer = onlinePer + onsitePerTWD;
-  var html = '<div class="tot-h">景點・活動費用（2人）</div>';
-  html += '<div style="margin-top:6px"><strong>線上訂票：</strong></div>';
-  html += '<div>1人 '+fmtTWD(onlinePer)+'</div>';
-  html += '<div>2人 '+fmtTWD(onlinePer*2)+'</div>';
-  html += '<div style="margin-top:6px"><strong>現場付款：</strong></div>';
-  html += '<div>1人 '+fmtKRW(onsitePerKRW)+' ≈ '+fmtTWD(onsitePerTWD)+'</div>';
-  html += '<div>2人 '+fmtKRW(onsitePerKRW*2)+' ≈ '+fmtTWD(onsitePerTWD*2)+'</div>';
-  html += '<div style="margin-top:6px"><strong>景點活動合計：</strong></div>';
-  html += '<div>1人 ≈ '+fmtTWD(totalPer)+'</div>';
-  html += '<div>2人 ≈ '+fmtTWD(totalPer*2)+'</div>';
-  document.getElementById('attractionSummary').innerHTML = html;
+  return {onlinePer:onlinePer, onsitePerKRW:onsitePerKRW, onsitePerTWD:onsitePerTWD, totalPer:onlinePer+onsitePerTWD};
+}
+function renderAttractionSummary(){
+  var t = computeAttractionTotals();
+  var onlineEl = document.getElementById('attrOnlineVal');
+  var onsiteEl = document.getElementById('attrOnsiteVal');
+  var grandEl = document.getElementById('attrGrandVal');
+  if(onlineEl) onlineEl.textContent = fmtTWD(t.onlinePer*2);
+  if(onsiteEl) onsiteEl.textContent = fmtKRW(t.onsitePerKRW*2)+' ≈ '+fmtTWD(t.onsitePerTWD*2);
+  if(grandEl) grandEl.textContent = '≈ '+fmtTWD(t.totalPer*2);
 }
 
 /* ---- 建立餐食表格（只建一次 DOM） ---- */
+function mealPayText(m){
+  return m.platform==='現場' ? payHTML(m.pay) : m.platform+'<br>'+m.pay;
+}
 function buildMealTable(){
   var wrap = document.getElementById('mealTableWrap');
-  var html = '<div class="tablewrap"><table><tr><th>日</th><th class="wrap-ok">項目</th><th>付款</th><th>平台</th><th>方案</th><th>預估（2人）</th><th>實際（2人）</th></tr>';
+  var html = '<div class="tablewrap"><table>';
+  html += '<colgroup><col style="width:10%"><col style="width:24%"><col style="width:20%"><col style="width:23%"><col style="width:23%"></colgroup>';
+  html += '<tr><th>日</th><th>項目</th><th>付款方式</th><th>預估<br>（2人）</th><th>實際<br>（2人）</th></tr>';
   meals.forEach(function(m){
-    var estText;
-    if(m.undetermined) estText = '未定';
-    else if(m.estMin===m.estMax) estText = fmtKRW(m.estMin);
-    else estText = fmtKRW(m.estMin)+'–'+fmtKRW(m.estMax);
+    var estText = m.undetermined ? '未定' : fmtKRW(m.estMin);
     var actualVal = mealActuals.hasOwnProperty(m.id) ? mealActuals[m.id] : '';
-    html += '<tr><td>'+m.day+'</td><td class="wrap-ok">'+m.name+'</td><td class="pay2">'+payHTML(m.pay)+'</td><td class="plat-cell">'+m.platform+'</td><td>'+m.plan+'</td>';
+    html += '<tr><td>'+m.day+'</td><td>'+m.name+'</td><td class="pay2">'+mealPayText(m)+'</td>';
     html += '<td>'+estText+'</td>';
-    html += '<td><span class="curpre">₩</span> <input type="text" inputmode="numeric" pattern="[0-9]*" class="pricein actual" data-meal="'+m.id+'" placeholder="未填" value="'+actualVal+'">';
+    html += '<td><span class="pricewrap"><span class="curpre">₩</span><input type="text" inputmode="numeric" pattern="[0-9]*" class="pricein actual" data-meal="'+m.id+'" placeholder="未填" value="'+actualVal+'"></span>';
     html += '<span class="twdconv mealconv" data-mconv="'+m.id+'">'+(actualVal!==''?'≈ '+fmtTWD(krw2twd(actualVal)):'未填')+'</span>';
     html += '</td></tr>';
   });
+  html += '<tr class="sumrow"><td colspan="4">預估餐費（2人）</td><td class="num" id="mealEstVal"></td></tr>';
+  html += '<tr class="sumrow grand"><td colspan="4">實際餐費（2人）</td><td class="num" id="mealActVal"></td></tr>';
   html += '</table></div>';
   wrap.innerHTML = html;
 
@@ -1124,67 +1214,89 @@ function buildMealTable(){
   });
 }
 
-function renderMealSummary(){
-  var estMinSum=0, estMaxSum=0, filled=0, total=0, actualSum=0;
+function computeMealTotals(){
+  var estSum=0, filled=0, total=0, actualSum=0;
   meals.forEach(function(m){
-    if(m.undetermined) return;
-    estMinSum += m.estMin; estMaxSum += m.estMax;
     total++;
+    if(!m.undetermined) estSum += m.estMin;
     if(mealActuals.hasOwnProperty(m.id)){ filled++; actualSum += mealActuals[m.id]; }
   });
-  var d1 = mealActuals.hasOwnProperty('d1dinner');
-  total++;
-  if(d1){ actualSum += mealActuals['d1dinner']; filled++; }
-
-  var html = '<div class="tot-h">預估餐費總額（2人）</div>';
-  html += '<div>'+(estMinSum===estMaxSum? fmtKRW(estMinSum) : fmtKRW(estMinSum)+'–'+fmtKRW(estMaxSum))+' ≈ '+fmtTWD(krw2twd(estMinSum))+'–'+fmtTWD(krw2twd(estMaxSum))+'</div>';
-  html += '<div class="tot-h" style="margin-top:8px">實際餐費總額（2人）</div>';
-  html += '<div class="fillstat">已填寫 '+filled+' ／ 總共 '+total+' 筆</div>';
-  if(filled < total){
-    html += '<div>目前已知實際支出：'+fmtKRW(actualSum)+' ≈ '+fmtTWD(krw2twd(actualSum))+'</div>';
-    html += '<div class="fillstat">尚有未填寫項目，完整實際總額待全部填完才會顯示比較結果</div>';
-  } else {
-    html += '<div>'+fmtKRW(actualSum)+' ≈ '+fmtTWD(krw2twd(actualSum))+'</div>';
-    html += '<div class="tot-h" style="margin-top:8px">預估與實際比較</div>';
-    var cls, verdict;
-    if(actualSum < estMinSum){ cls='cmp-cheap'; verdict='比預估便宜'; }
-    else if(actualSum > estMaxSum){ cls='cmp-expensive'; verdict='比預估昂貴'; }
-    else { cls='cmp-mid'; verdict='落在原預估範圍內'; }
-    html += '<div class="'+cls+'">'+verdict+'</div>';
-    var refDiff = actualSum < estMinSum ? (actualSum-estMinSum) : (actualSum > estMaxSum ? (actualSum-estMaxSum) : 0);
-    html += '<div>差額：'+(refDiff>=0?'+':'')+fmtKRW(refDiff)+' ≈ '+(refDiff>=0?'+':'')+fmtTWD(krw2twd(refDiff))+'</div>';
+  return {estSum:estSum, actualSum:actualSum, filled:filled, total:total};
+}
+function renderMealSummary(){
+  var t = computeMealTotals();
+  var estEl = document.getElementById('mealEstVal');
+  var actEl = document.getElementById('mealActVal');
+  if(estEl) estEl.textContent = fmtKRW(t.estSum)+' ≈ '+fmtTWD(krw2twd(t.estSum));
+  if(actEl){
+    actEl.innerHTML = fmtKRW(t.actualSum)+' ≈ '+fmtTWD(krw2twd(t.actualSum))+'<span class="fillstat">已填 '+t.filled+'／'+t.total+' 筆</span>';
   }
-  document.getElementById('mealSummary').innerHTML = html;
 }
 
-function renderGrandSummary(){
-  var onlinePer=0, onsitePerKRW=0;
-  attractions.forEach(function(item){
-    var onlineOpts = item.opts.filter(function(o){return o.pay==='線上';});
-    var onsiteOpts = item.opts.filter(function(o){return o.pay==='現場' && o.cur!=='FREE';});
-    if(onlineOpts.length){
-      var vals = onlineOpts.map(function(o){ return twdOf(o.cur, getAttrPrice(item.id,o.k,o.price)); });
-      onlinePer += Math.min.apply(null, vals);
-    } else if(onsiteOpts.length){
-      onsiteOpts.forEach(function(o){ onsitePerKRW += getAttrPrice(item.id,o.k,o.price); });
-    }
+function computeBigTotals(){
+  var estSum=0, estKnown=0, actualSum=0, actualFilled=0, total=bigTickets.length;
+  bigTickets.forEach(function(b){
+    if(b.est!==null){ estSum += twdOf(b.cur,b.est); estKnown++; }
+    if(bigActuals.hasOwnProperty(b.id)){ actualSum += twdOf(b.cur,bigActuals[b.id]); actualFilled++; }
   });
-  var attractionTotal2 = (onlinePer + krw2twd(onsitePerKRW)) * 2;
+  return {estSum:estSum, estKnown:estKnown, actualSum:actualSum, actualFilled:actualFilled, total:total};
+}
+function renderGrandSummary(){
+  var a = computeAttractionTotals();
+  var m = computeMealTotals();
+  var b = computeBigTotals();
+  var attractionTotal2 = a.totalPer*2;
 
-  var estMinSum=0, estMaxSum=0;
-  meals.forEach(function(m){ if(!m.undetermined){ estMinSum+=m.estMin; estMaxSum+=m.estMax; } });
-  var mealMin = krw2twd(estMinSum), mealMax = krw2twd(estMaxSum);
+  var estTotal = b.estSum + attractionTotal2 + krw2twd(m.estSum);
+  var actualTotal = b.actualSum + attractionTotal2 + krw2twd(m.actualSum);
+  var totalPieces = b.total + m.total;
+  var filledPieces = b.actualFilled + m.filled;
+  var complete = filledPieces >= totalPieces;
 
-  var grandMin = attractionTotal2 + mealMin;
-  var grandMax = attractionTotal2 + mealMax;
-
-  var html = '<div class="tot-h">目前已知總額（2人）</div>';
-  html += '<div>景點活動：≈ '+fmtTWD(attractionTotal2)+'</div>';
-  html += '<div>餐食預估：≈ '+fmtTWD(mealMin)+'–'+fmtTWD(mealMax)+'</div>';
-  html += '<div style="margin-top:6px" class="tot-h">合計：≈ '+fmtTWD(grandMin)+'–'+fmtTWD(grandMax)+'</div>';
-  html += '<div class="fillstat" style="margin-top:6px">已包含：所有景點門票／體驗＋餐食預估（熟成到訂金與現場餘額各算一次，不重複）</div>';
-  html += '<div class="fillstat">未包含：樂天租車、飯店住宿、加油、D1園區內晚餐（金額未定）</div>';
+  var html = '<div class="tot-h">總合計（2人）</div>';
+  html += '<div>旅遊預估總費用　≈ '+fmtTWD(estTotal)+'</div>';
+  html += '<div class="'+(complete?'':'dim')+'">旅遊實際總費用　≈ '+fmtTWD(actualTotal)+'</div>';
+  html += '<div class="fillstat">目前已填寫 '+filledPieces+'／'+totalPieces+' 筆</div>';
   document.getElementById('grandSummary').innerHTML = html;
+}
+
+/* ---- 建立機票・飯店・租車表格 ---- */
+function bigEstText(b){
+  return b.est===null ? '未定' : (b.cur==='KRW' ? fmtKRW(b.est)+' ≈ '+fmtTWD(krw2twd(b.est)) : fmtTWD(b.est));
+}
+function buildBigTicketTable(){
+  var wrap = document.getElementById('bigTicketTableWrap');
+  var html = '<div class="tablewrap"><table>';
+  html += '<colgroup><col style="width:34%"><col style="width:33%"><col style="width:33%"></colgroup>';
+  html += '<tr><th>項目</th><th>預估金額</th><th>實際金額</th></tr>';
+  bigTickets.forEach(function(b){
+    var actualVal = bigActuals.hasOwnProperty(b.id) ? bigActuals[b.id] : '';
+    html += '<tr><td>'+b.name+'</td><td>'+bigEstText(b)+'</td>';
+    html += '<td><span class="pricewrap"><span class="curpre">'+(b.cur==='KRW'?'₩':'NT$')+'</span><input type="text" inputmode="numeric" pattern="[0-9]*" class="pricein actual" data-big="'+b.id+'" data-cur="'+b.cur+'" placeholder="未填" value="'+actualVal+'"></span>';
+    html += '<span class="twdconv" data-bconv="'+b.id+'">'+(actualVal!==''&&b.cur==='KRW' ? '≈ '+fmtTWD(krw2twd(actualVal)) : '')+'</span></td></tr>';
+  });
+  html += '</table></div>';
+  wrap.innerHTML = html;
+
+  wrap.querySelectorAll('input.pricein.actual[data-big]').forEach(function(inp){
+    inp.addEventListener('input', function(){
+      var v = inp.value.replace(/[^0-9]/g,'');
+      if(v !== inp.value) inp.value = v;
+      var id = inp.dataset.big;
+      var conv = wrap.querySelector('[data-bconv="'+id+'"]');
+      if(v===''){
+        delete bigActuals[id];
+        if(conv) conv.textContent = '';
+      } else {
+        var num = parseInt(v,10);
+        bigActuals[id] = num;
+        if(conv) conv.textContent = inp.dataset.cur==='KRW' ? '≈ '+fmtTWD(krw2twd(num)) : '';
+      }
+      lsSaveBig();
+      debounceWrite('bigActuals', bigActuals);
+      renderGrandSummary();
+    });
+  });
 }
 
 /* ---- 遠端資料同步進畫面（不打斷正在輸入的欄位） ---- */
@@ -1214,6 +1326,16 @@ function applyMealInputValues(){
     if(conv) conv.textContent = val!==''? '≈ '+fmtTWD(krw2twd(val)) : '未填';
   });
 }
+function applyBigInputValues(){
+  document.querySelectorAll('input.pricein.actual[data-big]').forEach(function(inp){
+    if(document.activeElement === inp) return;
+    var id = inp.dataset.big;
+    var val = bigActuals.hasOwnProperty(id) ? bigActuals[id] : '';
+    inp.value = val;
+    var conv = document.querySelector('[data-bconv="'+id+'"]');
+    if(conv) conv.textContent = (val!=='' && inp.dataset.cur==='KRW') ? '≈ '+fmtTWD(krw2twd(val)) : '';
+  });
+}
 function applyChecklistValues(){
   document.querySelectorAll('.ckwrap input[type=checkbox]').forEach(function(cb){
     if(document.activeElement === cb) return;
@@ -1230,6 +1352,7 @@ function syncUIFromState(){
   renderAttractionSummary();
   applyMealInputValues();
   renderMealSummary();
+  applyBigInputValues();
   applyFxValue();
   renderGrandSummary();
   applyChecklistValues();
@@ -1254,6 +1377,7 @@ function afterInitialLoad(){
   renderAttractionSummary();
   buildMealTable();
   renderMealSummary();
+  buildBigTicketTable();
   document.getElementById('fxManualInput').value = fx.rate;
   renderGrandSummary();
   bindChecklist();
@@ -1293,6 +1417,7 @@ document.getElementById('fxManualInput').addEventListener('input', function(){
       }
     });
     applyMealInputValues();
+    applyBigInputValues();
     updateAllGroupBest();
     renderAttractionSummary();
     renderMealSummary();
@@ -1314,10 +1439,11 @@ if(firebaseConfigured() && typeof firebase !== 'undefined'){
         var d = doc.data();
         if(d.attrPrices) attrPrices = d.attrPrices;
         if(d.mealActuals) mealActuals = d.mealActuals;
+        if(d.bigActuals) bigActuals = d.bigActuals;
         if(typeof d.fxRate === 'number') fx = {rate:d.fxRate};
         if(d.checklist) checklist = d.checklist;
       } else {
-        docRef.set({attrPrices:attrPrices, mealActuals:mealActuals, fxRate:fx.rate, checklist:checklist}, {merge:true});
+        docRef.set({attrPrices:attrPrices, mealActuals:mealActuals, bigActuals:bigActuals, fxRate:fx.rate, checklist:checklist}, {merge:true});
       }
       setStatus('online');
       afterInitialLoad();
@@ -1326,6 +1452,7 @@ if(firebaseConfigured() && typeof firebase !== 'undefined'){
         var d = snap.data();
         if(d.attrPrices) attrPrices = d.attrPrices;
         if(d.mealActuals) mealActuals = d.mealActuals;
+        if(d.bigActuals) bigActuals = d.bigActuals;
         if(typeof d.fxRate === 'number') fx = {rate:d.fxRate};
         if(d.checklist) checklist = d.checklist;
         syncUIFromState();
