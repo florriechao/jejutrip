@@ -2,144 +2,176 @@
 <html lang="zh-Hant">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>濟州 6 天 5 夜 · 2027/10/23–10/28</title>
 <style>
 :root{
-  --bg:#FEFEFE; --surface:#FAFBFC; --border:#E5E7EB;
-  --text:#111827; --text2:#374151; --mute:#6B7280;
-  --blue:#185FA5; --blue-bg:#E6F1FB; --blue-deep:#0C447C;
-  --orange:#EA6C1F; --orange-bg:#FEF3E7; --orange-deep:#7C2D12; --orange-mid:#C2410C;
-  --code:#F3F4F6; --warn-bg:#FEF3C7; --warn-bd:#F59E0B; --warn-tx:#78350F;
-  --alt-bg:#FFFBEB; --alt-bd:#F0C88A; --alt-tx:#B45309;
-  --wear:#92400E; --dash:#F0C88A;
-  --unsure-bg:#F3F4F6; --unsure-bd:#9CA3AF; --unsure-tx:#4B5563;
+  --bg:#DCE8E8; --surface:rgba(255,255,255,.68); --surface-solid:#F1F5F4;
+  --border:rgba(94,139,126,.22); --border-glass:rgba(255,255,255,.75);
+  --text:#2F3E46; --text2:#3E4F56; --mute:#687B7F;
+  --blue:#5E8B7E; --blue-bg:rgba(94,139,126,.14); --blue-deep:#3F6358;
+  --secondary:#A7C7E7; --secondary-bg:rgba(167,199,231,.18);
+  --orange:#F47A35; --orange-bg:rgba(244,122,53,.16); --orange-deep:#B85A22; --orange-mid:#D96A2B;
+  --code:rgba(255,255,255,.55); --warn-bg:rgba(244,122,53,.12); --warn-bd:#F47A35; --warn-tx:#8A4A22;
+  --alt-bg:rgba(235,174,183,.22); --alt-bd:#EBAEB7; --alt-tx:#9C5560;
+  --wear:#8A4A22; --dash:rgba(244,122,53,.4);
+  --unsure-bg:rgba(104,123,127,.10); --unsure-bd:#A7C7E7; --unsure-tx:#687B7F;
+  --pink:#EBAEB7;
 }
 @media (prefers-color-scheme: dark){
   :root{
-    --bg:#0A0E1A; --surface:#151A28; --border:#2A3142;
-    --text:#F3F4F6; --text2:#D1D5DB; --mute:#9CA3AF;
-    --blue:#85B7EB; --blue-bg:#0C447C; --blue-deep:#B5D4F4;
-    --orange:#FAB772; --orange-bg:#3A2812; --orange-deep:#FBD5B5; --orange-mid:#FAB772;
-    --code:#1F2432; --warn-bg:#422906; --warn-bd:#F59E0B; --warn-tx:#FBBF24;
-    --alt-bg:#2A2410; --alt-bd:#78350F; --alt-tx:#FAC775;
-    --unsure-bg:#1F2432; --unsure-bd:#6B7280; --unsure-tx:#9CA3AF;
-    --wear:#F0C88A; --dash:#78350F;
+    --bg:#1B2422; --surface:rgba(38,50,48,.72); --surface-solid:#26322F;
+    --border:rgba(167,199,231,.16); --border-glass:rgba(255,255,255,.10);
+    --text:#E7EEEC; --text2:#C7D4D1; --mute:#93A5A2;
+    --blue:#8FB8A9; --blue-bg:rgba(143,184,169,.16); --blue-deep:#BFDBCD;
+    --secondary:#7FA6CC; --secondary-bg:rgba(127,166,204,.16);
+    --orange:#FF9A5C; --orange-bg:rgba(255,154,92,.16); --orange-deep:#FFC9A3; --orange-mid:#FFB07E;
+    --code:rgba(255,255,255,.06); --warn-bg:rgba(255,154,92,.14); --warn-bd:#FF9A5C; --warn-tx:#FFC9A3;
+    --alt-bg:rgba(235,174,183,.14); --alt-bd:#D998A3; --alt-tx:#F0C3CA;
+    --unsure-bg:rgba(255,255,255,.05); --unsure-bd:#7FA6CC; --unsure-tx:#93A5A2;
+    --wear:#FFC9A3; --dash:rgba(255,154,92,.4);
   }
 }
 *{box-sizing:border-box}
-body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang TC","Noto Sans TC",sans-serif;
-  line-height:1.6;color:var(--text);background:var(--bg);max-width:640px;margin:0 auto}
-header{padding:22px 16px 8px}
-h1{font-size:22px;font-weight:500;margin:0 0 4px}
-.sub{font-size:12px;color:var(--mute);margin:0}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Noto Sans TC","Segoe UI",Inter,system-ui,sans-serif;
+  line-height:1.6;color:var(--text);background:var(--bg);max-width:640px;margin:0 auto;-webkit-text-size-adjust:100%}
+header{padding:18px 16px 6px}
+h1{font-size:19px;font-weight:600;margin:0 0 3px;color:var(--text)}
+.sub{font-size:11.5px;color:var(--mute);margin:0}
 html,body{overflow-x:hidden;width:100%}
-.nav1{position:sticky;top:0;z-index:92;width:100%;background:var(--bg);
-  display:grid;grid-template-columns:repeat(3,1fr);border-bottom:.5px solid var(--border)}
-.nav1 button{padding:11px 4px;border:none;border-bottom:3px solid transparent;background:transparent;
-  color:var(--text2);font-size:15px;font-weight:600;cursor:pointer;font-family:inherit;white-space:nowrap}
-.nav1 button.on{color:var(--blue-deep);border-bottom-color:var(--blue);background:var(--blue-bg)}
-.nav2{position:sticky;top:44px;z-index:91;width:100%;background:var(--bg);border-bottom:.5px solid var(--border)}
-.nav2-row{display:none;width:100%}
+
+.nav1{position:sticky;top:0;z-index:93;width:100%;
+  background:rgba(220,232,232,.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  display:grid;grid-template-columns:repeat(3,1fr);gap:6px;padding:8px 10px;
+  border-bottom:.5px solid var(--border-glass)}
+.nav1 button{padding:9px 4px;border:none;border-radius:999px;background:transparent;
+  color:var(--text2);font-size:13.5px;font-weight:600;cursor:pointer;font-family:inherit;white-space:nowrap}
+.nav1 button.on{background:var(--orange-bg);color:var(--orange)}
+.nav2{position:sticky;top:43px;z-index:92;width:100%;
+  background:rgba(220,232,232,.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  padding:6px 10px;border-bottom:.5px solid var(--border-glass)}
+.nav2-row{display:none;width:100%;gap:5px}
 .nav2-row.on{display:grid}
 .nav2-row[data-forl1="daily"]{grid-template-columns:repeat(6,1fr)}
 .nav2-row[data-forl1="cost"]{grid-template-columns:repeat(3,1fr)}
 .nav2-row[data-forl1="notes"]{grid-template-columns:repeat(4,1fr)}
-.nav2-row button{padding:8px 2px;border:none;border-bottom:2px solid transparent;background:transparent;
-  color:var(--blue-deep);font-size:12px;cursor:pointer;font-family:inherit;white-space:nowrap}
-.nav2-row button.on{background:var(--blue-bg);border-bottom-color:var(--blue);font-weight:600}
-.day{padding:20px 12px 4px}
-.dlabel{font-size:10px;color:var(--orange);letter-spacing:2px;margin:0 0 2px;font-weight:500}
-.dtitle{font-size:19px;font-weight:600;margin:0 0 2px}
-.dregion{font-size:12px;color:var(--mute);margin:0 0 10px}
+.nav2-row button{padding:7px 2px;border:none;border-radius:11px;background:rgba(255,255,255,.45);
+  color:var(--text2);font-size:11.5px;font-weight:500;cursor:pointer;font-family:inherit;white-space:nowrap}
+.nav2-row button.on{background:var(--orange);color:#fff;font-weight:700}
+
+.ttb{position:sticky;top:85px;z-index:91;width:100%;
+  background:rgba(255,255,255,.55);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  padding:6px 14px;border-bottom:.5px solid var(--border-glass);
+  display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;
+  font-size:11px}
+.ttb-label{color:var(--mute);font-weight:600;white-space:nowrap}
+.ttb-vals{display:flex;gap:10px;flex-wrap:wrap}
+.ttb-est{color:var(--blue-deep);font-weight:700}
+.ttb-act{color:var(--orange-deep);font-weight:700}
+
+.day{padding:18px 12px 4px}
+.dlabel{font-size:10px;color:var(--orange);letter-spacing:2px;margin:0 0 2px;font-weight:600}
+.dtitle{font-size:18px;font-weight:700;margin:0 0 2px;color:var(--text)}
+.dregion{font-size:11.5px;color:var(--mute);margin:0 0 10px}
 .depart{background:var(--orange-bg);border-left:3px solid var(--orange);padding:12px 14px;
-  margin:0 12px 14px;border-radius:0 8px 8px 0}
-.dtime{font-size:16px;font-weight:600;margin:0 0 4px}
-.dnote{font-size:12px;color:var(--warn-tx);margin:0 0 6px}
-.dwear{font-size:11.5px;color:var(--wear);margin:0;padding-top:6px;border-top:.5px dashed var(--dash)}
-.card{background:var(--surface);border:.5px solid var(--border);border-radius:12px;padding:14px;margin:0 12px 8px}
-.ctime{font-size:11px;color:var(--blue);font-weight:600;margin:0 0 3px}
-.cname{font-size:15px;font-weight:500;margin:0 0 6px}
-.tag{display:inline-block;font-size:10px;padding:2px 7px;border-radius:4px;background:var(--blue-bg);
-  color:var(--blue-deep);margin:0 4px 6px 0;font-weight:500}
-.tag.o{background:var(--orange-bg);color:var(--orange)}
-.geo{display:inline-block;font-size:10px;padding:2px 7px;border-radius:4px;background:var(--unsure-bg);
-  color:var(--unsure-tx);margin:0 4px 6px 0}
-.cdesc{font-size:13px;color:var(--text2);margin:6px 0}
-.dish{font-size:12.5px;color:var(--orange-deep);margin:6px 0}
-.dlab{font-size:9px;letter-spacing:1px;color:var(--orange-mid);font-weight:600;display:block;margin-bottom:2px}
-.info{font-size:11.5px;color:var(--text2);margin:6px 0 0;padding:8px 10px;background:var(--code);border-radius:6px}
+  margin:0 12px 14px;border-radius:0 12px 12px 0}
+.dtime{font-size:15px;font-weight:700;margin:0 0 4px;color:var(--text)}
+.dnote{font-size:11.5px;color:var(--warn-tx);margin:0 0 6px}
+.dwear{font-size:11px;color:var(--wear);margin:0;padding-top:6px;border-top:.5px dashed var(--dash)}
+.card{background:var(--surface);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  border:1px solid var(--border-glass);box-shadow:0 2px 10px rgba(47,62,70,.06);
+  border-radius:14px;padding:14px;margin:0 12px 8px}
+.ctime{font-size:11px;color:var(--blue);font-weight:700;margin:0 0 3px}
+.cname{font-size:14.5px;font-weight:600;margin:0 0 6px;color:var(--text)}
+.tag{display:inline-block;font-size:10px;padding:2px 7px;border-radius:6px;background:var(--blue-bg);
+  color:var(--blue-deep);margin:0 4px 6px 0;font-weight:600}
+.tag.o{background:var(--orange-bg);color:var(--orange-deep)}
+.geo{display:inline-block;font-size:10px;padding:2px 7px;border-radius:6px;background:var(--secondary-bg);
+  color:var(--blue-deep);margin:0 4px 6px 0}
+.geo a{color:var(--blue-deep);font-weight:600}
+.cdesc{font-size:12.5px;color:var(--text2);margin:6px 0}
+.dish{font-size:12px;color:var(--orange-deep);margin:6px 0}
+.dlab{font-size:9px;letter-spacing:1px;color:var(--orange-mid);font-weight:700;display:block;margin-bottom:2px}
+.info{font-size:11.5px;color:var(--text2);margin:6px 0 0;padding:8px 10px;background:var(--code);border-radius:8px}
 .info div{padding:1px 0}
-.info a,.list a,.ckwrap a{color:var(--blue);word-break:break-all}
-.drive{font-size:11px;color:var(--orange);padding:4px 12px;font-family:ui-monospace,Menlo,monospace;font-weight:500}
-.alt{background:var(--alt-bg);border:1px dashed var(--alt-bd);border-radius:12px;padding:12px 14px;margin:0 12px 8px}
-.altlab{font-size:10px;color:var(--alt-tx);letter-spacing:1px;font-weight:600;margin:0 0 4px}
-.unsure{background:var(--unsure-bg);border-left:3px solid var(--unsure-bd);padding:8px 10px;margin:6px 0 0;border-radius:0 6px 6px 0;font-size:11px;color:var(--unsure-tx)}
-.sect{font-size:14px;font-weight:500;margin:20px 12px 8px;padding-top:10px;border-top:.5px solid var(--border)}
-.subsect{font-size:12px;font-weight:500;margin:12px 12px 6px;color:var(--mute)}
+.info a,.list a,.ckwrap a{color:var(--blue-deep);word-break:break-all;font-weight:600}
+.drive{font-size:11px;color:var(--blue-deep);padding:4px 12px;font-family:ui-monospace,Menlo,monospace;font-weight:600}
+.alt{background:var(--alt-bg);border:1px dashed var(--alt-bd);border-radius:14px;padding:12px 14px;margin:0 12px 8px}
+.altlab{font-size:10px;color:var(--alt-tx);letter-spacing:1px;font-weight:700;margin:0 0 4px}
+.unsure{background:var(--unsure-bg);border-left:3px solid var(--unsure-bd);padding:8px 10px;margin:6px 0 0;border-radius:0 8px 8px 0;font-size:11px;color:var(--unsure-tx)}
+.sect{font-size:13.5px;font-weight:700;margin:20px 12px 8px;padding-top:10px;border-top:.5px solid var(--border);color:var(--blue-deep)}
+.subsect{font-size:12.5px;font-weight:700;margin:12px 12px 6px;color:var(--blue-deep)}
 .list{list-style:none;padding:0;margin:0 12px 6px}
-.list li{padding:7px 0;border-bottom:.5px solid var(--border);font-size:12.5px;color:var(--text2)}
+.list li{padding:7px 0;border-bottom:.5px solid var(--border);font-size:12px;color:var(--text2)}
 .list li:last-child{border-bottom:none}
-.list strong{color:var(--text);font-weight:500}
-.list a{color:var(--blue)}
+.list strong{color:var(--text);font-weight:600}
+.list a{color:var(--blue-deep)}
 .warn{background:var(--warn-bg);border-left:3px solid var(--warn-bd);padding:8px 12px;margin:6px 12px;
-  border-radius:0 6px 6px 0;font-size:11.5px;color:var(--warn-tx)}
+  border-radius:0 8px 8px 0;font-size:11px;color:var(--warn-tx)}
 table{width:100%;border-collapse:collapse;font-size:11.5px;word-break:keep-all;table-layout:fixed}
-th{text-align:left;padding:6px 4px;border-bottom:1px solid var(--border);color:var(--blue-deep);font-weight:600;font-size:10px;white-space:normal;word-break:keep-all;overflow-wrap:break-word}
+th{text-align:left;padding:6px 4px;border-bottom:1px solid var(--border);color:var(--blue-deep);font-weight:700;font-size:10px;white-space:normal;word-break:keep-all;overflow-wrap:break-word}
 td{padding:7px 4px;border-bottom:.5px solid var(--border);color:var(--text2);vertical-align:top;word-break:keep-all;overflow-wrap:break-word;white-space:normal}
 .num{text-align:right}
-.tp{color:var(--orange);font-size:10px;display:block}
-.total{background:var(--blue-bg);border-radius:10px;padding:12px 14px;margin:0 12px 10px;font-size:13px;color:var(--blue-deep);line-height:1.8}
+.tp{color:var(--orange-deep);font-size:10px;display:block}
+.total{background:var(--surface);backdrop-filter:blur(8px);border:1px solid var(--border-glass);border-radius:14px;padding:12px 14px;margin:0 12px 10px;font-size:12.5px;color:var(--text2);line-height:1.8}
 .total div{padding:2px 0}
-.total .tot-h{font-size:13.5px;font-weight:700;color:var(--blue-deep)}
-.tablewrap{width:100%;margin:0 12px 12px;border:.5px solid var(--border);border-radius:10px;overflow-x:hidden;box-sizing:border-box}
+.total .tot-h{font-size:13px;font-weight:700;color:var(--blue-deep)}
+.tablewrap{width:100%;margin:0 12px 0;border:1px solid var(--border-glass);border-radius:14px;overflow:hidden;box-sizing:border-box;background:var(--surface);backdrop-filter:blur(8px)}
 .tablewrap table{margin:0;width:100%;min-width:0;table-layout:fixed}
 .tablewrap td,.tablewrap th{white-space:normal;word-break:keep-all;overflow-wrap:break-word}
 .daytable td,.daytable th{word-break:keep-all}
 .daytable col.c-day{width:13%}
 .daytable col.c-meal{width:43.5%}
-.grouphead{background:var(--code);color:var(--text);font-weight:700;font-size:11.5px;padding:6px 8px!important;white-space:normal!important;word-break:keep-all}
-.sumrow td{color:var(--orange-mid);font-weight:600;font-size:12px}
-.sumrow.grand td{color:var(--warn-tx);font-weight:700;font-size:13px;border-top:1px solid var(--border)}
+.grouphead{background:var(--surface-solid);color:var(--text);font-weight:700;font-size:11.5px;padding:6px 8px!important;white-space:nowrap!important;word-break:keep-all;overflow:hidden;text-overflow:ellipsis}
+.stickysum{position:sticky;bottom:0;z-index:5;background:rgba(255,255,255,.82);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  border:1px solid var(--border-glass);border-top:1.5px solid var(--orange);border-radius:0 0 14px 14px;
+  margin:0 12px 12px;box-shadow:0 -2px 10px rgba(47,62,70,.08);padding:2px 0}
+.stickysum .srow{display:flex;justify-content:space-between;align-items:baseline;gap:8px;padding:6px 10px;font-size:11.5px}
+.stickysum .srow:not(:last-child){border-bottom:.5px solid var(--border)}
+.stickysum .slabel{color:var(--orange-deep);font-weight:600;white-space:nowrap}
+.stickysum .sval{color:var(--orange-deep);font-weight:700;text-align:right}
+.stickysum .srow.grand .slabel,.stickysum .srow.grand .sval{color:var(--orange-deep);font-weight:800;font-size:12.5px}
+.tablebottom-spacer{height:8px}
 .plat-cell{font-size:11px}
-.plat-cell a{white-space:nowrap;word-break:keep-all}
-.pay2{line-height:1.35}
+.plat-cell a{white-space:nowrap;word-break:keep-all;color:var(--blue-deep);font-weight:700}
+.pay2{line-height:1.3}
 .pricewrap{display:inline-flex;align-items:center;gap:2px;white-space:nowrap;flex-wrap:wrap}
-.critical{background:var(--orange-mid);color:#fff;border-radius:10px;padding:12px 14px;margin:0 12px 10px;font-size:12.5px;line-height:1.7}
+.critical{background:var(--orange);color:#fff;border-radius:14px;padding:12px 14px;margin:0 12px 10px;font-size:12px;line-height:1.7}
 .critical strong{display:block;font-size:13px;margin-bottom:4px}
-.ckwrap{background:var(--surface);border:.5px solid var(--border);border-radius:10px;padding:10px 12px;margin:0 12px 8px;display:flex;gap:10px;align-items:flex-start}
+.ckwrap{background:var(--surface);backdrop-filter:blur(8px);border:1px solid var(--border-glass);border-radius:14px;padding:10px 12px;margin:0 12px 8px;display:flex;gap:10px;align-items:flex-start}
 .ckwrap input[type=checkbox]{width:20px;height:20px;flex-shrink:0;margin-top:1px;accent-color:var(--blue)}
-.cklabel{flex:1;font-size:12.5px;color:var(--text2)}
-.cklabel b{color:var(--text);font-weight:500;display:block;font-size:13px;margin-bottom:2px}
-.cktip{font-size:11px;color:var(--mute);margin-top:2px;display:block}
-.ckwrap.crit{background:var(--orange-mid);border-color:var(--orange-mid)}
+.cklabel{flex:1;font-size:12px;color:var(--text2)}
+.cklabel b{color:var(--text);font-weight:600;display:block;font-size:12.5px;margin-bottom:2px}
+.cktip{font-size:10.5px;color:var(--mute);margin-top:2px;display:block}
+.ckwrap.crit{background:var(--orange);border-color:var(--orange)}
 .ckwrap.crit .cklabel,.ckwrap.crit .cklabel b,.ckwrap.crit .cktip{color:#fff}
 .ckwrap.crit input[type=checkbox]{accent-color:#fff}
-.fxbar{background:var(--code);border-radius:10px;padding:10px 12px;margin:0 12px 10px;font-size:12px;color:var(--text2)}
+.fxbar{padding:2px 12px 10px;font-size:12px;color:var(--text2)}
 .fxbar b{color:var(--blue-deep)}
-.fxbar .fxrow{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:6px}
-.fxbar input.rateinput{width:90px;padding:5px 6px;border:.5px solid var(--border);border-radius:6px;background:var(--bg);color:var(--text);font-size:16px}
+.fxbar input.rateinput{width:80px;padding:4px 6px;border:1px solid var(--border-glass);border-radius:8px;background:var(--surface);color:var(--text);font-size:14px;font-weight:700}
 .sectrow{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:20px 12px 8px;flex-wrap:wrap}
 .sectrow .sect{margin:0;padding:0;border:none;flex:1;color:var(--blue-deep);font-weight:700}
-.subsect{font-size:13px;font-weight:700;margin:12px 12px 6px;color:var(--blue-deep)}
-.sect{color:var(--blue-deep);font-weight:700}
-.btn{background:var(--blue);color:#fff;border:none;border-radius:8px;padding:6px 12px;font-size:11.5px;cursor:pointer;font-family:inherit;white-space:nowrap}
-.btn.ghost{background:var(--surface);color:var(--orange);border:1px solid var(--orange);font-weight:600}
-.pricein{width:62px;padding:5px 4px;border:.5px solid var(--border);border-radius:6px;background:var(--bg);color:var(--text);font-size:16px;font-weight:700;text-align:right;-webkit-appearance:none;-moz-appearance:textfield}
+.btn{background:var(--blue);color:#fff;border:none;border-radius:10px;padding:6px 12px;font-size:11px;cursor:pointer;font-family:inherit;white-space:nowrap;font-weight:600}
+.btn.ghost{background:var(--surface);color:var(--orange-deep);border:1px solid var(--orange);font-weight:700}
+.pricein{width:60px;padding:4px 3px;border:1px solid var(--border-glass);border-radius:7px;background:var(--surface);color:var(--text);font-size:14px;font-weight:700;text-align:right;-webkit-appearance:none;-moz-appearance:textfield}
 .pricein::-webkit-outer-spin-button,.pricein::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
-.pricein.actual{width:62px}
-.curpre{font-size:11.5px;color:var(--text2);white-space:nowrap}
+.pricein.actual{width:60px}
+.curpre{font-size:11px;color:var(--text2);white-space:nowrap}
 .twdconv{font-size:10px;color:var(--mute);display:block;margin-top:2px;white-space:nowrap}
 .bestrow td{font-weight:700}
-.bestbadge{font-size:9px;background:var(--blue-bg);color:var(--blue-deep);padding:1px 5px;border-radius:4px;margin-left:4px;font-weight:600;white-space:nowrap}
-.fillstat{font-size:11px;color:var(--mute);margin-top:4px}
-.dim{opacity:.6}
-.cmp-cheap{color:#1D8A4C;font-weight:700}
+.bestbadge{font-size:9px;background:var(--secondary-bg);color:var(--blue-deep);padding:1px 5px;border-radius:6px;margin-left:4px;font-weight:700;white-space:nowrap}
+.fillstat{font-size:10.5px;color:var(--mute);margin-top:4px;display:block}
+.dim{opacity:.65}
+.cmp-cheap{color:#3D7A55;font-weight:700}
 .cmp-mid{color:var(--blue-deep);font-weight:700}
 .cmp-expensive{color:var(--warn-tx);font-weight:700}
-footer{padding:24px 12px;text-align:center;font-size:11px;color:var(--mute)}
+footer{padding:24px 12px 90px;text-align:center;font-size:11px;color:var(--mute)}
 section{display:none}
 section.on{display:block}
+.totop{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:99;
+  width:42px;height:42px;border-radius:50%;background:var(--blue);color:#fff;border:none;
+  box-shadow:0 4px 14px rgba(47,62,70,.28);font-size:18px;display:none;align-items:center;justify-content:center;cursor:pointer}
+.totop.show{display:flex}
 </style>
 </head>
 <body>
@@ -174,6 +206,11 @@ section.on{display:block}
 <button data-t="notes-check">行前查詢</button>
 <button data-t="notes-other">其他</button>
 </div>
+</div>
+
+<div class="ttb">
+<span class="ttb-label">旅遊總額（2人）</span>
+<span class="ttb-vals"><span class="ttb-est" id="ttbEst">預估 NT$—</span><span class="ttb-act" id="ttbAct">實際 NT$—</span></span>
 </div>
 
 <section id="d1" class="on">
@@ -716,12 +753,13 @@ section.on{display:block}
 <div id="syncStatus" class="fillstat" style="margin-bottom:4px"></div>
 <div><b>匯率</b>：1 KRW = NT$ <input type="text" inputmode="decimal" class="rateinput" id="fxManualInput" value="0.0227"></div>
 </div>
-<div class="warn">⚠️ 線上票價為目前參考值，2027年價格及販售平台請於出發前重查</div>
+<div class="warn">⚠️ 線上票價為參考值，出發前重查</div>
 <div class="sectrow">
 <p class="subsect" style="margin:0">景點・展館金額（每人）</p>
 <button class="btn ghost" id="resetAttractions" type="button">↺ 恢復原始價格</button>
 </div>
 <div id="attractionTableWrap"></div>
+<div class="tablebottom-spacer"></div>
 </section>
 
 <section id="cost-meals">
@@ -747,8 +785,11 @@ section.on{display:block}
 <button class="btn ghost" id="clearMealActuals" type="button">清除實際金額</button>
 </div>
 <div id="mealTableWrap"></div>
+<div class="tablebottom-spacer"></div>
 
+<p class="sect">總合計（2人）</p>
 <div class="total" id="grandSummary"></div>
+<div class="warn">未計：租車、住宿、油資、D1 晚餐</div>
 </section>
 
 <section id="notes-reserve">
@@ -857,6 +898,8 @@ section.on{display:block}
 
 <footer>2027/10/23–10/28 · 濟州 6 天 5 夜</footer>
 
+<button class="totop" id="totopBtn" type="button" aria-label="回到頂端">↑</button>
+
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
 <script>
@@ -886,6 +929,15 @@ document.querySelectorAll('.nav1 button').forEach(function(b){
 });
 document.querySelectorAll('.nav2-row button').forEach(function(b){
   b.addEventListener('click', function(){ activateL2(b); });
+});
+
+var totopBtn = document.getElementById('totopBtn');
+window.addEventListener('scroll', function(){
+  if(window.scrollY > 300){ totopBtn.classList.add('show'); }
+  else { totopBtn.classList.remove('show'); }
+}, {passive:true});
+totopBtn.addEventListener('click', function(){
+  window.scrollTo({top:0, behavior:'smooth'});
 });
 
 /* ===================== 費用計算系統（Firestore 雲端同步版） ===================== */
@@ -1071,8 +1123,8 @@ function twdOf(cur, price){
 function buildAttractionTable(){
   var wrap = document.getElementById('attractionTableWrap');
   var html = '<div class="tablewrap"><table>';
-  html += '<colgroup><col style="width:19%"><col style="width:27%"><col style="width:20%"><col style="width:34%"></colgroup>';
-  html += '<tr><th>付款方式</th><th>平台</th><th>方案</th><th>金額（每人）</th></tr>';
+  html += '<colgroup><col style="width:14%"><col style="width:21%"><col style="width:17%"><col style="width:48%"></colgroup>';
+  html += '<tr><th>付款</th><th>平台</th><th>方案</th><th>金額（每人）</th></tr>';
   attractions.forEach(function(item){
     html += '<tr><td colspan="4" class="grouphead">'+item.day+'｜'+item.short+'</td></tr>';
     item.opts.forEach(function(o){
@@ -1091,10 +1143,12 @@ function buildAttractionTable(){
       html += '</tr>';
     });
   });
-  html += '<tr class="sumrow"><td colspan="3">線上付款（2人）</td><td class="num" id="attrOnlineVal"></td></tr>';
-  html += '<tr class="sumrow"><td colspan="3">現場付款（2人）</td><td class="num" id="attrOnsiteVal"></td></tr>';
-  html += '<tr class="sumrow grand"><td colspan="3">景點活動合計</td><td class="num" id="attrGrandVal"></td></tr>';
   html += '</table></div>';
+  html += '<div class="stickysum">';
+  html += '<div class="srow"><span class="slabel">線上付款（2人）</span><span class="sval" id="attrOnlineVal"></span></div>';
+  html += '<div class="srow"><span class="slabel">現場付款（2人）</span><span class="sval" id="attrOnsiteVal"></span></div>';
+  html += '<div class="srow grand"><span class="slabel">景點活動合計</span><span class="sval" id="attrGrandVal"></span></div>';
+  html += '</div>';
   wrap.innerHTML = html;
 
   wrap.querySelectorAll('input.pricein').forEach(function(inp){
@@ -1176,8 +1230,8 @@ function mealPayText(m){
 function buildMealTable(){
   var wrap = document.getElementById('mealTableWrap');
   var html = '<div class="tablewrap"><table>';
-  html += '<colgroup><col style="width:10%"><col style="width:24%"><col style="width:20%"><col style="width:23%"><col style="width:23%"></colgroup>';
-  html += '<tr><th>日</th><th>項目</th><th>付款方式</th><th>預估<br>（2人）</th><th>實際<br>（2人）</th></tr>';
+  html += '<colgroup><col style="width:9%"><col style="width:22%"><col style="width:18%"><col style="width:25%"><col style="width:26%"></colgroup>';
+  html += '<tr><th>日</th><th>項目</th><th>付款</th><th>預估<br>（2人）</th><th>實際<br>（2人）</th></tr>';
   meals.forEach(function(m){
     var estText = m.undetermined ? '未定' : fmtKRW(m.estMin);
     var actualVal = mealActuals.hasOwnProperty(m.id) ? mealActuals[m.id] : '';
@@ -1187,9 +1241,11 @@ function buildMealTable(){
     html += '<span class="twdconv mealconv" data-mconv="'+m.id+'">'+(actualVal!==''?'≈ '+fmtTWD(krw2twd(actualVal)):'未填')+'</span>';
     html += '</td></tr>';
   });
-  html += '<tr class="sumrow"><td colspan="4">預估餐費（2人）</td><td class="num" id="mealEstVal"></td></tr>';
-  html += '<tr class="sumrow grand"><td colspan="4">實際餐費（2人）</td><td class="num" id="mealActVal"></td></tr>';
   html += '</table></div>';
+  html += '<div class="stickysum">';
+  html += '<div class="srow"><span class="slabel">預估餐費（2人）</span><span class="sval" id="mealEstVal"></span></div>';
+  html += '<div class="srow grand"><span class="slabel">實際餐費（2人）</span><span class="sval" id="mealActVal"></span></div>';
+  html += '</div>';
   wrap.innerHTML = html;
 
   wrap.querySelectorAll('input.pricein.actual').forEach(function(inp){
@@ -1256,8 +1312,24 @@ function renderGrandSummary(){
   var html = '<div class="tot-h">總合計（2人）</div>';
   html += '<div>旅遊預估總費用　≈ '+fmtTWD(estTotal)+'</div>';
   html += '<div class="'+(complete?'':'dim')+'">旅遊實際總費用　≈ '+fmtTWD(actualTotal)+'</div>';
-  html += '<div class="fillstat">目前已填寫 '+filledPieces+'／'+totalPieces+' 筆</div>';
+  html += '<div class="fillstat">已填寫 '+filledPieces+'／'+totalPieces+' 筆</div>';
   document.getElementById('grandSummary').innerHTML = html;
+  renderTravelTotal();
+}
+
+function renderTravelTotal(){
+  var a = computeAttractionTotals();
+  var m = computeMealTotals();
+  var b = computeBigTotals();
+  var attractionTotal2 = a.totalPer*2;
+  var estTotal = b.estSum + attractionTotal2 + krw2twd(m.estSum);
+  var actualTotal = b.actualSum + attractionTotal2 + krw2twd(m.actualSum);
+  var totalPieces = b.total + m.total;
+  var filledPieces = b.actualFilled + m.filled;
+  var estEl = document.getElementById('ttbEst');
+  var actEl = document.getElementById('ttbAct');
+  if(estEl) estEl.textContent = '預估 '+fmtTWD(estTotal);
+  if(actEl) actEl.textContent = filledPieces>=totalPieces ? ('實際 '+fmtTWD(actualTotal)) : ('實際 '+fmtTWD(actualTotal)+'（'+filledPieces+'／'+totalPieces+'筆）');
 }
 
 /* ---- 建立機票・飯店・租車表格 ---- */
