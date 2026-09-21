@@ -5,24 +5,43 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>濟州 6 天 5 夜 · 2027/10/23–10/28</title>
 <style>
-:root{
-  --sage:#5E8B7E; --mist:#A7C7E7; --ink:#2F3E46; --off:#F1F5F4; --pink:#EBAEB7;
-  --sage-soft:rgba(94,139,126,.28); --blue-soft:rgba(167,199,231,.22); --pink-soft:rgba(235,174,183,.22);
+:root, :root[data-theme="dark"]{
+  --accent:#EBAEB7; --accent-soft:rgba(235,174,183,.28); --accent-border:rgba(235,174,183,.5);
+  --mist:#A7C7E7; --blue-soft:rgba(167,199,231,.22);
+  --pink:#EBAEB7; --pink-soft:rgba(235,174,183,.22);
+  --ink:#2F3E46; --off:#F1F5F4;
+  --bg-solid:#2F3E46;
   --glass:rgba(241,245,244,.12); --glass-strong:rgba(241,245,244,.18); --glass-border:rgba(241,245,244,.30);
   --caution:#F2E6AE; --caution-soft:rgba(242,230,174,.20); --caution-border:rgba(242,230,174,.42);
   --text:#F1F5F4; --text2:rgba(241,245,244,.76); --mute:rgba(241,245,244,.56);
+  --tag-text:#20303A;
+  --body-bg:linear-gradient(160deg, var(--accent-soft), var(--bg-solid) 60%);
+}
+:root[data-theme="light"]{
+  --accent:#E8879C; --accent-soft:rgba(232,135,156,.16); --accent-border:rgba(232,135,156,.4);
+  --mist:#6E9BC4; --blue-soft:rgba(110,155,196,.14);
+  --pink:#E8879C; --pink-soft:rgba(232,135,156,.14);
+  --ink:#3A2E30; --off:#3A2E30;
+  --bg-solid:#FFF8F8;
+  --glass:#FFFFFF; --glass-strong:#FFFFFF; --glass-border:#F4DCE1;
+  --caution:#E8B34A; --caution-soft:#FDF0DC; --caution-border:#F0C888;
+  --text:#3A2E30; --text2:#6B5457; --mute:#A08A8D;
+  --tag-text:#20303A;
+  --body-bg:linear-gradient(160deg, var(--accent-soft), var(--bg-solid) 55%);
 }
 *{box-sizing:border-box}
 body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Noto Sans TC","Segoe UI",Inter,system-ui,sans-serif;
   line-height:1.6;color:var(--text);
-  background:linear-gradient(135deg, rgba(94,139,126,.35), #2F3E46 72%);
+  background:var(--body-bg);
   background-attachment:fixed;
   max-width:640px;margin:0 auto;-webkit-text-size-adjust:100%}
-header{padding:18px 16px 6px}
+header{padding:18px 16px 6px;display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
 h1{font-size:19px;font-weight:700;margin:0 0 3px;color:var(--text)}
 .sub{font-size:11.5px;color:var(--mute);margin:0}
+.themebtn{flex-shrink:0;background:var(--glass);border:1px solid var(--glass-border);color:var(--text);
+  border-radius:20px;padding:6px 12px;font-size:12px;font-weight:600;cursor:pointer;font-family:inherit}
 html,body{overflow-x:hidden;width:100%}
-html{background:#2F3E46}
+html{background:var(--bg-solid)}
 
 .nav1{position:sticky;top:0;z-index:93;width:100%;
   background:rgba(47,62,70,.55);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
@@ -30,7 +49,7 @@ html{background:#2F3E46}
   border-bottom:1px solid var(--glass-border)}
 .nav1 button{padding:9px 4px;border:none;border-radius:999px;background:rgba(241,245,244,.08);
   color:var(--text2);font-size:13.5px;font-weight:600;cursor:pointer;font-family:inherit;white-space:nowrap}
-.nav1 button.on{background:var(--sage-soft);color:var(--off)}
+.nav1 button.on{background:var(--accent-soft);color:var(--off)}
 .nav2{position:sticky;top:43px;z-index:92;width:100%;
   background:rgba(47,62,70,.55);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
   padding:6px 10px;border-bottom:1px solid var(--glass-border)}
@@ -41,27 +60,26 @@ html{background:#2F3E46}
 .nav2-row[data-forl1="notes"]{grid-template-columns:repeat(4,1fr)}
 .nav2-row button{padding:7px 2px;border:none;border-radius:11px;background:rgba(241,245,244,.08);
   color:var(--text2);font-size:11.5px;font-weight:500;cursor:pointer;font-family:inherit;white-space:nowrap}
-.nav2-row button.on{background:var(--sage);color:var(--off);font-weight:700}
+.nav2-row button.on{background:var(--accent);color:var(--off);font-weight:700}
 
 .ttb{display:none;position:sticky;top:85px;z-index:91;width:calc(100% - 24px);margin:8px 12px 0;
   background:rgba(241,245,244,.12);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
-  border:1px solid var(--glass-border);border-left:3px solid var(--sage);border-radius:16px;
+  border:1px solid var(--glass-border);border-left:3px solid var(--accent);border-radius:16px;
   box-shadow:0 8px 24px rgba(0,0,0,.16);
   padding:8px 14px;font-size:12px;color:var(--off)}
 body.cost-active .ttb{display:block}
 .ttb-label{font-weight:700;color:var(--off);font-size:11px;letter-spacing:.5px;opacity:.8}
 .ttb-row{display:flex;justify-content:space-between;align-items:baseline;margin-top:2px}
 .ttb-est{color:var(--off)}
-.ttb-act{color:var(--sage);font-weight:700}
+.ttb-act{color:var(--accent);font-weight:700}
 .ttb-fill{font-size:10px;color:var(--mute);margin-left:6px;font-weight:400}
 
 .day{padding:18px 12px 4px}
 .dlabel{font-size:10px;color:var(--mist);letter-spacing:2px;margin:0 0 2px;font-weight:600}
 .dtitle{font-size:18px;font-weight:700;margin:0 0 2px;color:var(--off)}
 .dregion{font-size:11.5px;color:var(--mute);margin:0 0 10px}
-.depart{background:var(--caution-soft);border:1px solid var(--caution-border);padding:12px 14px;
-  margin:0 12px 14px;border-radius:16px}
-.dtime{font-size:15px;font-weight:700;margin:0 0 4px;color:var(--off)}
+.depart{padding:10px 14px 12px;margin:0 12px 14px;border-bottom:1px solid var(--glass-border);text-align:center}
+.dtime{font-size:15px;font-weight:700;margin:0 0 4px;color:var(--off);text-align:center}
 .dnote{font-size:11.5px;color:var(--off);margin:0 0 6px;opacity:.85}
 .dwear{font-size:11px;color:var(--text2);margin:0;padding-top:6px;border-top:.5px dashed var(--caution-border)}
 .card{background:var(--glass);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
@@ -69,9 +87,9 @@ body.cost-active .ttb{display:block}
   border-radius:16px;overflow:hidden;padding:14px;margin:0 12px 8px}
 .ctime{font-size:11px;color:var(--mist);font-weight:700;margin:0 0 3px}
 .cname{font-size:14.5px;font-weight:600;margin:0 0 6px;color:var(--off)}
-.tag{display:inline-block;font-size:10px;padding:2px 7px;border-radius:8px;background:var(--blue-soft);
-  color:var(--off);margin:0 4px 6px 0;font-weight:600}
-.tag.o{background:var(--pink-soft);color:var(--off)}
+.tag{display:inline-block;font-size:10px;padding:2px 7px;border-radius:8px;background:var(--mist);
+  color:var(--tag-text);margin:0 4px 6px 0;font-weight:700}
+.tag.o{background:var(--accent);color:var(--tag-text)}
 .geo{display:inline-block;font-size:10px;padding:2px 7px;border-radius:8px;background:var(--blue-soft);
   color:var(--off);margin:0 4px 6px 0}
 .geo a{color:var(--mist);font-weight:700}
@@ -81,12 +99,11 @@ body.cost-active .ttb{display:block}
 .info{font-size:11.5px;color:var(--text2);margin:6px 0 0;padding:8px 10px;background:rgba(241,245,244,.06);border-radius:10px}
 .info div{padding:1px 0}
 .info a,.list a,.ckwrap a{color:var(--mist);word-break:break-all;font-weight:600}
-.drive{display:inline-block;font-size:11px;color:var(--off);padding:4px 10px;margin:4px 12px;
-  font-family:ui-monospace,Menlo,monospace;font-weight:700;
-  background:var(--caution-soft);border:1px solid var(--caution-border);border-radius:8px}
+.drive{display:block;text-align:center;font-size:11px;color:var(--text2);padding:6px 12px;margin:2px 12px;
+  font-family:ui-monospace,Menlo,monospace;font-weight:600}
 .alt{background:var(--pink-soft);border:1px solid rgba(235,174,183,.42);border-radius:16px;padding:12px 14px;margin:0 12px 8px}
 .altlab{font-size:10px;color:var(--off);letter-spacing:1px;font-weight:700;margin:0 0 4px;opacity:.85}
-.unsure{background:var(--blue-soft);border:1px solid rgba(167,199,231,.42);padding:8px 10px;margin:6px 0 0;border-radius:12px;font-size:11px;color:var(--off)}
+.unsure,.notice.info,.notice.alert{background:var(--glass-strong);border:1px solid var(--glass-border);padding:8px 10px;margin:6px 0 0;border-radius:12px;font-size:11px;color:var(--text2)}
 .sect{font-size:13.5px;font-weight:700;margin:20px 12px 8px;padding-top:10px;border-top:1px solid var(--glass-border);color:var(--off)}
 .subsect{font-size:12.5px;font-weight:700;margin:12px 12px 6px;color:var(--off)}
 .list{list-style:none;padding:0;margin:0 12px 6px}
@@ -94,11 +111,7 @@ body.cost-active .ttb{display:block}
 .list li:last-child{border-bottom:none}
 .list strong{color:var(--off);font-weight:600}
 .list a{color:var(--mist)}
-.warn,.notice.caution{background:var(--caution-soft);border:1px solid var(--caution-border);padding:8px 12px;margin:6px 12px;
-  border-radius:14px;font-size:11px;color:var(--off)}
-.notice.alert{background:var(--pink-soft);border:1px solid rgba(235,174,183,.42);padding:8px 12px;margin:6px 12px;
-  border-radius:14px;font-size:11px;color:var(--off)}
-.notice.info{background:var(--blue-soft);border:1px solid rgba(167,199,231,.42);padding:8px 12px;margin:6px 12px;
+.warn,.notice.caution{background:var(--caution-soft);border:1px solid var(--caution-border);padding:8px 12px;margin:6px 0 0;
   border-radius:14px;font-size:11px;color:var(--off)}
 table{width:100%;border-collapse:collapse;font-size:11.5px;word-break:keep-all;table-layout:fixed}
 th{text-align:left;padding:6px 4px;border-bottom:1px solid var(--glass-border);color:var(--mist);font-weight:700;font-size:10px;white-space:normal;word-break:keep-all;overflow-wrap:break-word}
@@ -108,7 +121,7 @@ td{padding:7px 4px;border-bottom:.5px solid var(--glass-border);color:var(--text
 .total{background:var(--glass);backdrop-filter:blur(16px);border:1px solid var(--glass-border);border-radius:16px;padding:12px 14px;margin:0 12px 10px;font-size:12.5px;color:var(--text2);line-height:1.8}
 .total div{padding:2px 0}
 .total .tot-h{font-size:13px;font-weight:700;color:var(--off)}
-.tablewrap{width:calc(100% - 24px);margin:0 12px 0;border:1px solid var(--glass-border);border-radius:16px;overflow:hidden;box-sizing:border-box;background:var(--glass);backdrop-filter:blur(16px)}
+.tablewrap{width:100%;margin:8px 0 0;box-sizing:border-box}
 .tablewrap table{margin:0;width:100%;min-width:0;table-layout:fixed}
 .tablewrap td,.tablewrap th{white-space:normal;word-break:keep-all;overflow-wrap:break-word;min-width:0}
 .daytable td,.daytable th{word-break:keep-all}
@@ -126,7 +139,7 @@ td{padding:7px 4px;border-bottom:.5px solid var(--glass-border);color:var(--text
 .stickysum .srow:not(:last-child){border-bottom:.5px solid var(--glass-border)}
 .stickysum .slabel{color:var(--off)}
 .stickysum .sval{color:var(--off);font-weight:700;text-align:right}
-.stickysum .srow.grand{background:var(--sage-soft)}
+.stickysum .srow.grand{background:var(--accent-soft)}
 .stickysum .srow.grand .slabel,.stickysum .srow.grand .sval{color:var(--off);font-weight:800;font-size:12.5px}
 .tablebottom-spacer{height:8px}
 .plat-cell{font-size:11px}
@@ -135,7 +148,7 @@ td{padding:7px 4px;border-bottom:.5px solid var(--glass-border);color:var(--text
 .critical{background:var(--pink-soft);border:1px solid rgba(235,174,183,.5);color:var(--off);border-radius:16px;padding:12px 14px;margin:0 12px 10px;font-size:12px;line-height:1.7}
 .critical strong{display:block;font-size:13px;margin-bottom:4px;color:var(--off)}
 .ckwrap{background:var(--glass);backdrop-filter:blur(16px);border:1px solid var(--glass-border);border-radius:16px;padding:10px 12px;margin:0 12px 8px;display:flex;gap:10px;align-items:flex-start}
-.ckwrap input[type=checkbox]{width:20px;height:20px;flex-shrink:0;margin-top:1px;accent-color:var(--sage)}
+.ckwrap input[type=checkbox]{width:20px;height:20px;flex-shrink:0;margin-top:1px;accent-color:var(--accent)}
 .cklabel{flex:1;font-size:12px;color:var(--text2)}
 .cklabel b{color:var(--off);font-weight:600;display:block;font-size:12.5px;margin-bottom:2px}
 .cktip{font-size:10.5px;color:var(--mute);margin-top:2px;display:block}
@@ -147,18 +160,18 @@ td{padding:7px 4px;border-bottom:.5px solid var(--glass-border);color:var(--text
 .fxbar input.rateinput{width:80px;padding:4px 6px;border:1px solid var(--glass-border);border-radius:8px;background:var(--glass);color:var(--off);font-size:14px;font-weight:700}
 .sectrow{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:20px 12px 8px;flex-wrap:wrap}
 .sectrow .sect{margin:0;padding:0;border:none;flex:1;color:var(--off);font-weight:700}
-.btn{background:var(--sage);color:var(--off);border:none;border-radius:10px;padding:6px 12px;font-size:11px;cursor:pointer;font-family:inherit;white-space:nowrap;font-weight:600}
-.btn.ghost{background:var(--glass);color:var(--off);border:1px solid var(--sage);font-weight:700}
-.amount-layout{display:grid;grid-template-columns:30px 66px minmax(0,1fr);align-items:center;gap:4px}
-.currency-slot{width:30px;text-align:left;color:var(--off);font-size:11.5px}
-.pricein{width:62px;padding:4px 3px;border:1px solid var(--glass-border);border-radius:8px;background:var(--glass);color:var(--off);font-size:13px;font-weight:700;text-align:right;-webkit-appearance:none;-moz-appearance:textfield}
+.btn{background:var(--accent);color:var(--off);border:none;border-radius:10px;padding:6px 12px;font-size:11px;cursor:pointer;font-family:inherit;white-space:nowrap;font-weight:600}
+.btn.ghost{background:var(--glass);color:var(--off);border:1px solid var(--accent);font-weight:700}
+.amount-layout{display:flex;align-items:center;flex-wrap:wrap;gap:2px;min-width:0;max-width:100%}
+.currency-slot{flex:0 0 auto;color:var(--off);font-size:11px}
+.pricein{width:52px;min-width:0;flex:0 0 52px;padding:4px 3px;border:1px solid var(--glass-border);border-radius:8px;background:var(--glass);color:var(--off);font-size:13px;font-weight:700;text-align:right;-webkit-appearance:none;-moz-appearance:textfield}
 .pricein::-webkit-outer-spin-button,.pricein::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
-.twdconv{font-size:10px;color:var(--mute);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.twdconv{flex:1 1 100%;font-size:9.5px;color:var(--mute);white-space:normal;overflow:visible;text-overflow:clip}
 .bestrow td{font-weight:700}
-.bestbadge{font-size:9px;background:var(--sage-soft);color:var(--off);padding:1px 5px;border-radius:6px;font-weight:700;white-space:nowrap}
+.bestbadge{font-size:9px;background:var(--accent-soft);color:var(--off);padding:1px 5px;border-radius:6px;font-weight:700;white-space:nowrap}
 .fillstat{font-size:10.5px;color:var(--mute);margin-top:4px;display:block}
 .dim{opacity:.65}
-.cmp-cheap{color:var(--sage);font-weight:700}
+.cmp-cheap{color:var(--accent);font-weight:700}
 .cmp-mid{color:var(--mist);font-weight:700}
 .cmp-expensive{color:var(--pink);font-weight:700}
 .time-highlight{display:inline-block;background:var(--caution-soft);border:1px solid var(--caution-border);
@@ -167,7 +180,7 @@ footer{padding:24px 12px 90px;text-align:center;font-size:11px;color:var(--mute)
 section{display:none}
 section.on{display:block}
 .totop{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:99;
-  width:42px;height:42px;border-radius:50%;background:var(--sage);color:var(--off);border:none;
+  width:42px;height:42px;border-radius:50%;background:var(--accent);color:var(--off);border:none;
   box-shadow:0 4px 14px rgba(0,0,0,.3);font-size:18px;display:none;align-items:center;justify-content:center;cursor:pointer}
 .totop.show{display:flex}
 </style>
@@ -175,8 +188,11 @@ section.on{display:block}
 <body>
 
 <header>
+<div>
 <h1>濟州 6 天 5 夜</h1>
 <p class="sub">2027/10/23 六 · 10/28 四 · 2 人自駕 · 樂天 KONA 4WD</p>
+</div>
+<button class="themebtn" id="themeToggle" type="button">☀️ 淺色</button>
 </header>
 
 <nav class="nav1">
@@ -226,9 +242,7 @@ section.on{display:block}
 <div class="card">
 <p class="ctime">06:40 起飛</p>
 <h3 class="cname">虎航 IT654 · 桃園 → 濟州</h3>
-<p class="cdesc">09:35 降落 · 入境+領行李+走接駁+等車+接駁車程共約 55 分</p>
-<div class="warn">⚠️ 2027 班表需重新確認週六是否有飛，日期時間以此為暫定基準</div>
-</div>
+<p class="cdesc">09:35 降落 · 入境+領行李+走接駁+等車+接駁車程共約 55 分</p></div>
 
 <div class="drive">🚗 10:30 出發（辦理租車）</div>
 
@@ -558,7 +572,7 @@ section.on{display:block}
 <div>營業：每天 10:00–19:00（入場截止18:30）</div>
 <div>停留：45 分（15:05–15:50）</div>
 </div>
-<div class="notice alert">⚠️ 現場候位人多，Klook買家評價曾提到已預約仍等候1.5小時，建議預留寬裕時間</div>
+<div class="notice alert">⚠️ 現場候位人多，建議預留緩衝時間</div>
 </div>
 
 <div class="drive">🚗 收拾整理緩衝 15:50–16:30（40分）· 16:30 出發 · 開車 10 分</div>
@@ -705,7 +719,6 @@ section.on{display:block}
 <p class="dwear">👕 最舒服的機上服 · 手邊放護照/駕照/機票</p>
 </div>
 
-<div class="notice info">回程航班為 10:50 起飛（依2026同期參考，2027確切時刻出發前需重查）。以此推算：07:30出發已足夠，樂天06:00–23:00營業，還車無時間衝突。</div>
 
 <div class="drive">🚗 07:30 出發 · 開車約 55 分</div>
 
@@ -730,7 +743,6 @@ section.on{display:block}
 <p class="ctime">10:50 起飛</p>
 <h3 class="cname">虎航 · 濟州 → 桃園</h3>
 <p class="cdesc">約2小時20分航程，預計12:10抵達桃園</p>
-<div class="warn">⚠️ 2027 班表需重新確認，此處採用2026同期回程時刻（10:50起飛）評估</div>
 </div>
 </section>
 
@@ -739,7 +751,6 @@ section.on{display:block}
 <p class="dlabel">旅遊費用</p>
 <h2 class="dtitle">機票 · 飯店 · 租車</h2>
 </div>
-<div class="notice alert">⚠️ 機票、士嘉堡飯店價格尚未確定，出發前請重新查詢並填入實際金額</div>
 <div id="bigTicketTableWrap"></div>
 </section>
 
@@ -752,7 +763,6 @@ section.on{display:block}
 <div id="syncStatus" class="fillstat" style="margin-bottom:4px"></div>
 <div><b>匯率</b>：1 KRW = NT$ <input type="text" inputmode="decimal" class="rateinput" id="fxManualInput" value="0.0227"></div>
 </div>
-<div class="warn">⚠️ 線上票價為參考值，出發前重查</div>
 <div class="sectrow">
 <p class="subsect" style="margin:0">景點・展館金額（每人）</p>
 <button class="btn ghost" id="resetAttractions" type="button">↺ 恢復原始價格</button>
@@ -785,7 +795,6 @@ section.on{display:block}
 </div>
 <div id="mealTableWrap"></div>
 <div class="tablebottom-spacer"></div>
-<div class="notice info">未計：租車、住宿、油資、D1 晚餐</div>
 </section>
 
 <section id="notes-reserve">
@@ -899,6 +908,24 @@ section.on{display:block}
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
 <script>
+(function(){
+  var THEME_KEY = 'jeju2027_theme';
+  var saved = localStorage.getItem(THEME_KEY);
+  var initial = saved || (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+  document.documentElement.setAttribute('data-theme', initial);
+  document.addEventListener('DOMContentLoaded', function(){
+    var btn = document.getElementById('themeToggle');
+    function updateBtn(t){ btn.textContent = t==='light' ? '🌙 深色' : '☀️ 淺色'; }
+    updateBtn(initial);
+    btn.addEventListener('click', function(){
+      var cur = document.documentElement.getAttribute('data-theme');
+      var next = cur==='light' ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem(THEME_KEY, next);
+      updateBtn(next);
+    });
+  });
+})();
 function showSection(id){
   document.querySelectorAll('section').forEach(function(s){s.classList.remove('on');});
   var target = document.getElementById(id);
@@ -1089,7 +1116,7 @@ function setStatus(state){
   if(!el) return;
   if(state==='online') el.textContent = '';
   else if(state==='connecting') el.textContent = '🔄 連線中…';
-  else if(state==='offline') el.textContent = '⚠️ 尚未設定雲端同步，資料只存在此裝置';
+  else if(state==='offline') el.textContent = '';
   else if(state==='error') el.textContent = '⚠️ 雲端連線失敗，資料暫存本機，稍後重新整理再試';
 }
 var writeTimers = {};
