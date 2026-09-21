@@ -6,171 +6,169 @@
 <title>濟州 6 天 5 夜 · 2027/10/23–10/28</title>
 <style>
 :root{
-  --bg:#DCE8E8; --surface:rgba(255,255,255,.68); --surface-solid:#F1F5F4;
-  --border:rgba(94,139,126,.22); --border-glass:rgba(255,255,255,.75);
-  --text:#2F3E46; --text2:#3E4F56; --mute:#687B7F;
-  --blue:#5E8B7E; --blue-bg:rgba(94,139,126,.14); --blue-deep:#3F6358;
-  --secondary:#A7C7E7; --secondary-bg:rgba(167,199,231,.18);
-  --orange:#F47A35; --orange-bg:rgba(244,122,53,.16); --orange-deep:#B85A22; --orange-mid:#D96A2B;
-  --code:rgba(255,255,255,.55); --warn-bg:rgba(244,122,53,.12); --warn-bd:#F47A35; --warn-tx:#8A4A22;
-  --alt-bg:rgba(235,174,183,.22); --alt-bd:#EBAEB7; --alt-tx:#9C5560;
-  --wear:#8A4A22; --dash:rgba(244,122,53,.4);
-  --unsure-bg:rgba(104,123,127,.10); --unsure-bd:#A7C7E7; --unsure-tx:#687B7F;
-  --pink:#EBAEB7;
-}
-@media (prefers-color-scheme: dark){
-  :root{
-    --bg:#1B2422; --surface:rgba(38,50,48,.72); --surface-solid:#26322F;
-    --border:rgba(167,199,231,.16); --border-glass:rgba(255,255,255,.10);
-    --text:#E7EEEC; --text2:#C7D4D1; --mute:#93A5A2;
-    --blue:#8FB8A9; --blue-bg:rgba(143,184,169,.16); --blue-deep:#BFDBCD;
-    --secondary:#7FA6CC; --secondary-bg:rgba(127,166,204,.16);
-    --orange:#FF9A5C; --orange-bg:rgba(255,154,92,.16); --orange-deep:#FFC9A3; --orange-mid:#FFB07E;
-    --code:rgba(255,255,255,.06); --warn-bg:rgba(255,154,92,.14); --warn-bd:#FF9A5C; --warn-tx:#FFC9A3;
-    --alt-bg:rgba(235,174,183,.14); --alt-bd:#D998A3; --alt-tx:#F0C3CA;
-    --unsure-bg:rgba(255,255,255,.05); --unsure-bd:#7FA6CC; --unsure-tx:#93A5A2;
-    --wear:#FFC9A3; --dash:rgba(255,154,92,.4);
-  }
+  --sage:#5E8B7E; --mist:#A7C7E7; --ink:#2F3E46; --off:#F1F5F4; --pink:#EBAEB7;
+  --sage-soft:rgba(94,139,126,.28); --blue-soft:rgba(167,199,231,.22); --pink-soft:rgba(235,174,183,.22);
+  --glass:rgba(241,245,244,.12); --glass-strong:rgba(241,245,244,.18); --glass-border:rgba(241,245,244,.30);
+  --caution:#F2E6AE; --caution-soft:rgba(242,230,174,.20); --caution-border:rgba(242,230,174,.42);
+  --text:#F1F5F4; --text2:rgba(241,245,244,.76); --mute:rgba(241,245,244,.56);
 }
 *{box-sizing:border-box}
 body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Noto Sans TC","Segoe UI",Inter,system-ui,sans-serif;
-  line-height:1.6;color:var(--text);background:var(--bg);max-width:640px;margin:0 auto;-webkit-text-size-adjust:100%}
+  line-height:1.6;color:var(--text);
+  background:linear-gradient(135deg, rgba(94,139,126,.35), #2F3E46 72%);
+  background-attachment:fixed;
+  max-width:640px;margin:0 auto;-webkit-text-size-adjust:100%}
 header{padding:18px 16px 6px}
-h1{font-size:19px;font-weight:600;margin:0 0 3px;color:var(--text)}
+h1{font-size:19px;font-weight:700;margin:0 0 3px;color:var(--text)}
 .sub{font-size:11.5px;color:var(--mute);margin:0}
 html,body{overflow-x:hidden;width:100%}
+html{background:#2F3E46}
 
 .nav1{position:sticky;top:0;z-index:93;width:100%;
-  background:rgba(220,232,232,.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  background:rgba(47,62,70,.55);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
   display:grid;grid-template-columns:repeat(3,1fr);gap:6px;padding:8px 10px;
-  border-bottom:.5px solid var(--border-glass)}
-.nav1 button{padding:9px 4px;border:none;border-radius:999px;background:transparent;
+  border-bottom:1px solid var(--glass-border)}
+.nav1 button{padding:9px 4px;border:none;border-radius:999px;background:rgba(241,245,244,.08);
   color:var(--text2);font-size:13.5px;font-weight:600;cursor:pointer;font-family:inherit;white-space:nowrap}
-.nav1 button.on{background:var(--orange-bg);color:var(--orange)}
+.nav1 button.on{background:var(--sage-soft);color:var(--off)}
 .nav2{position:sticky;top:43px;z-index:92;width:100%;
-  background:rgba(220,232,232,.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
-  padding:6px 10px;border-bottom:.5px solid var(--border-glass)}
+  background:rgba(47,62,70,.55);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  padding:6px 10px;border-bottom:1px solid var(--glass-border)}
 .nav2-row{display:none;width:100%;gap:5px}
 .nav2-row.on{display:grid}
 .nav2-row[data-forl1="daily"]{grid-template-columns:repeat(6,1fr)}
 .nav2-row[data-forl1="cost"]{grid-template-columns:repeat(3,1fr)}
 .nav2-row[data-forl1="notes"]{grid-template-columns:repeat(4,1fr)}
-.nav2-row button{padding:7px 2px;border:none;border-radius:11px;background:rgba(255,255,255,.45);
+.nav2-row button{padding:7px 2px;border:none;border-radius:11px;background:rgba(241,245,244,.08);
   color:var(--text2);font-size:11.5px;font-weight:500;cursor:pointer;font-family:inherit;white-space:nowrap}
-.nav2-row button.on{background:var(--orange);color:#fff;font-weight:700}
+.nav2-row button.on{background:var(--sage);color:var(--off);font-weight:700}
 
-.ttb{position:sticky;top:85px;z-index:91;width:100%;
-  background:rgba(255,255,255,.55);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
-  padding:6px 14px;border-bottom:.5px solid var(--border-glass);
-  display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;
-  font-size:11px}
-.ttb-label{color:var(--mute);font-weight:600;white-space:nowrap}
-.ttb-vals{display:flex;gap:10px;flex-wrap:wrap}
-.ttb-est{color:var(--blue-deep);font-weight:700}
-.ttb-act{color:var(--orange-deep);font-weight:700}
+.ttb{display:none;position:sticky;top:85px;z-index:91;width:calc(100% - 24px);margin:8px 12px 0;
+  background:rgba(241,245,244,.12);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border:1px solid var(--glass-border);border-left:3px solid var(--sage);border-radius:16px;
+  box-shadow:0 8px 24px rgba(0,0,0,.16);
+  padding:8px 14px;font-size:12px;color:var(--off)}
+body.cost-active .ttb{display:block}
+.ttb-label{font-weight:700;color:var(--off);font-size:11px;letter-spacing:.5px;opacity:.8}
+.ttb-row{display:flex;justify-content:space-between;align-items:baseline;margin-top:2px}
+.ttb-est{color:var(--off)}
+.ttb-act{color:var(--sage);font-weight:700}
+.ttb-fill{font-size:10px;color:var(--mute);margin-left:6px;font-weight:400}
 
 .day{padding:18px 12px 4px}
-.dlabel{font-size:10px;color:var(--orange);letter-spacing:2px;margin:0 0 2px;font-weight:600}
-.dtitle{font-size:18px;font-weight:700;margin:0 0 2px;color:var(--text)}
+.dlabel{font-size:10px;color:var(--mist);letter-spacing:2px;margin:0 0 2px;font-weight:600}
+.dtitle{font-size:18px;font-weight:700;margin:0 0 2px;color:var(--off)}
 .dregion{font-size:11.5px;color:var(--mute);margin:0 0 10px}
-.depart{background:var(--orange-bg);border-left:3px solid var(--orange);padding:12px 14px;
-  margin:0 12px 14px;border-radius:0 12px 12px 0}
-.dtime{font-size:15px;font-weight:700;margin:0 0 4px;color:var(--text)}
-.dnote{font-size:11.5px;color:var(--warn-tx);margin:0 0 6px}
-.dwear{font-size:11px;color:var(--wear);margin:0;padding-top:6px;border-top:.5px dashed var(--dash)}
-.card{background:var(--surface);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
-  border:1px solid var(--border-glass);box-shadow:0 2px 10px rgba(47,62,70,.06);
-  border-radius:14px;padding:14px;margin:0 12px 8px}
-.ctime{font-size:11px;color:var(--blue);font-weight:700;margin:0 0 3px}
-.cname{font-size:14.5px;font-weight:600;margin:0 0 6px;color:var(--text)}
-.tag{display:inline-block;font-size:10px;padding:2px 7px;border-radius:6px;background:var(--blue-bg);
-  color:var(--blue-deep);margin:0 4px 6px 0;font-weight:600}
-.tag.o{background:var(--orange-bg);color:var(--orange-deep)}
-.geo{display:inline-block;font-size:10px;padding:2px 7px;border-radius:6px;background:var(--secondary-bg);
-  color:var(--blue-deep);margin:0 4px 6px 0}
-.geo a{color:var(--blue-deep);font-weight:600}
+.depart{background:var(--caution-soft);border:1px solid var(--caution-border);padding:12px 14px;
+  margin:0 12px 14px;border-radius:16px}
+.dtime{font-size:15px;font-weight:700;margin:0 0 4px;color:var(--off)}
+.dnote{font-size:11.5px;color:var(--off);margin:0 0 6px;opacity:.85}
+.dwear{font-size:11px;color:var(--text2);margin:0;padding-top:6px;border-top:.5px dashed var(--caution-border)}
+.card{background:var(--glass);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border:1px solid var(--glass-border);box-shadow:0 8px 24px rgba(0,0,0,.16);
+  border-radius:16px;overflow:hidden;padding:14px;margin:0 12px 8px}
+.ctime{font-size:11px;color:var(--mist);font-weight:700;margin:0 0 3px}
+.cname{font-size:14.5px;font-weight:600;margin:0 0 6px;color:var(--off)}
+.tag{display:inline-block;font-size:10px;padding:2px 7px;border-radius:8px;background:var(--blue-soft);
+  color:var(--off);margin:0 4px 6px 0;font-weight:600}
+.tag.o{background:var(--pink-soft);color:var(--off)}
+.geo{display:inline-block;font-size:10px;padding:2px 7px;border-radius:8px;background:var(--blue-soft);
+  color:var(--off);margin:0 4px 6px 0}
+.geo a{color:var(--mist);font-weight:700}
 .cdesc{font-size:12.5px;color:var(--text2);margin:6px 0}
-.dish{font-size:12px;color:var(--orange-deep);margin:6px 0}
-.dlab{font-size:9px;letter-spacing:1px;color:var(--orange-mid);font-weight:700;display:block;margin-bottom:2px}
-.info{font-size:11.5px;color:var(--text2);margin:6px 0 0;padding:8px 10px;background:var(--code);border-radius:8px}
+.dish{font-size:12px;color:var(--pink);margin:6px 0}
+.dlab{font-size:9px;letter-spacing:1px;color:var(--mist);font-weight:700;display:block;margin-bottom:2px}
+.info{font-size:11.5px;color:var(--text2);margin:6px 0 0;padding:8px 10px;background:rgba(241,245,244,.06);border-radius:10px}
 .info div{padding:1px 0}
-.info a,.list a,.ckwrap a{color:var(--blue-deep);word-break:break-all;font-weight:600}
-.drive{font-size:11px;color:var(--blue-deep);padding:4px 12px;font-family:ui-monospace,Menlo,monospace;font-weight:600}
-.alt{background:var(--alt-bg);border:1px dashed var(--alt-bd);border-radius:14px;padding:12px 14px;margin:0 12px 8px}
-.altlab{font-size:10px;color:var(--alt-tx);letter-spacing:1px;font-weight:700;margin:0 0 4px}
-.unsure{background:var(--unsure-bg);border-left:3px solid var(--unsure-bd);padding:8px 10px;margin:6px 0 0;border-radius:0 8px 8px 0;font-size:11px;color:var(--unsure-tx)}
-.sect{font-size:13.5px;font-weight:700;margin:20px 12px 8px;padding-top:10px;border-top:.5px solid var(--border);color:var(--blue-deep)}
-.subsect{font-size:12.5px;font-weight:700;margin:12px 12px 6px;color:var(--blue-deep)}
+.info a,.list a,.ckwrap a{color:var(--mist);word-break:break-all;font-weight:600}
+.drive{display:inline-block;font-size:11px;color:var(--off);padding:4px 10px;margin:4px 12px;
+  font-family:ui-monospace,Menlo,monospace;font-weight:700;
+  background:var(--caution-soft);border:1px solid var(--caution-border);border-radius:8px}
+.alt{background:var(--pink-soft);border:1px solid rgba(235,174,183,.42);border-radius:16px;padding:12px 14px;margin:0 12px 8px}
+.altlab{font-size:10px;color:var(--off);letter-spacing:1px;font-weight:700;margin:0 0 4px;opacity:.85}
+.unsure{background:var(--blue-soft);border:1px solid rgba(167,199,231,.42);padding:8px 10px;margin:6px 0 0;border-radius:12px;font-size:11px;color:var(--off)}
+.sect{font-size:13.5px;font-weight:700;margin:20px 12px 8px;padding-top:10px;border-top:1px solid var(--glass-border);color:var(--off)}
+.subsect{font-size:12.5px;font-weight:700;margin:12px 12px 6px;color:var(--off)}
 .list{list-style:none;padding:0;margin:0 12px 6px}
-.list li{padding:7px 0;border-bottom:.5px solid var(--border);font-size:12px;color:var(--text2)}
+.list li{padding:7px 0;border-bottom:.5px solid var(--glass-border);font-size:12px;color:var(--text2)}
 .list li:last-child{border-bottom:none}
-.list strong{color:var(--text);font-weight:600}
-.list a{color:var(--blue-deep)}
-.warn{background:var(--warn-bg);border-left:3px solid var(--warn-bd);padding:8px 12px;margin:6px 12px;
-  border-radius:0 8px 8px 0;font-size:11px;color:var(--warn-tx)}
+.list strong{color:var(--off);font-weight:600}
+.list a{color:var(--mist)}
+.warn,.notice.caution{background:var(--caution-soft);border:1px solid var(--caution-border);padding:8px 12px;margin:6px 12px;
+  border-radius:14px;font-size:11px;color:var(--off)}
+.notice.alert{background:var(--pink-soft);border:1px solid rgba(235,174,183,.42);padding:8px 12px;margin:6px 12px;
+  border-radius:14px;font-size:11px;color:var(--off)}
+.notice.info{background:var(--blue-soft);border:1px solid rgba(167,199,231,.42);padding:8px 12px;margin:6px 12px;
+  border-radius:14px;font-size:11px;color:var(--off)}
 table{width:100%;border-collapse:collapse;font-size:11.5px;word-break:keep-all;table-layout:fixed}
-th{text-align:left;padding:6px 4px;border-bottom:1px solid var(--border);color:var(--blue-deep);font-weight:700;font-size:10px;white-space:normal;word-break:keep-all;overflow-wrap:break-word}
-td{padding:7px 4px;border-bottom:.5px solid var(--border);color:var(--text2);vertical-align:top;word-break:keep-all;overflow-wrap:break-word;white-space:normal}
+th{text-align:left;padding:6px 4px;border-bottom:1px solid var(--glass-border);color:var(--mist);font-weight:700;font-size:10px;white-space:normal;word-break:keep-all;overflow-wrap:break-word}
+td{padding:7px 4px;border-bottom:.5px solid var(--glass-border);color:var(--text2);vertical-align:top;word-break:keep-all;overflow-wrap:break-word;white-space:normal;min-width:0}
 .num{text-align:right}
-.tp{color:var(--orange-deep);font-size:10px;display:block}
-.total{background:var(--surface);backdrop-filter:blur(8px);border:1px solid var(--border-glass);border-radius:14px;padding:12px 14px;margin:0 12px 10px;font-size:12.5px;color:var(--text2);line-height:1.8}
+.tp{color:var(--pink);font-size:10px;display:block}
+.total{background:var(--glass);backdrop-filter:blur(16px);border:1px solid var(--glass-border);border-radius:16px;padding:12px 14px;margin:0 12px 10px;font-size:12.5px;color:var(--text2);line-height:1.8}
 .total div{padding:2px 0}
-.total .tot-h{font-size:13px;font-weight:700;color:var(--blue-deep)}
-.tablewrap{width:100%;margin:0 12px 0;border:1px solid var(--border-glass);border-radius:14px;overflow:hidden;box-sizing:border-box;background:var(--surface);backdrop-filter:blur(8px)}
+.total .tot-h{font-size:13px;font-weight:700;color:var(--off)}
+.tablewrap{width:calc(100% - 24px);margin:0 12px 0;border:1px solid var(--glass-border);border-radius:16px;overflow:hidden;box-sizing:border-box;background:var(--glass);backdrop-filter:blur(16px)}
 .tablewrap table{margin:0;width:100%;min-width:0;table-layout:fixed}
-.tablewrap td,.tablewrap th{white-space:normal;word-break:keep-all;overflow-wrap:break-word}
+.tablewrap td,.tablewrap th{white-space:normal;word-break:keep-all;overflow-wrap:break-word;min-width:0}
 .daytable td,.daytable th{word-break:keep-all}
 .daytable col.c-day{width:13%}
 .daytable col.c-meal{width:43.5%}
-.grouphead{background:var(--surface-solid);color:var(--text);font-weight:700;font-size:11.5px;padding:6px 8px!important;white-space:nowrap!important;word-break:keep-all;overflow:hidden;text-overflow:ellipsis}
-.stickysum{position:sticky;bottom:0;z-index:5;background:rgba(255,255,255,.82);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
-  border:1px solid var(--border-glass);border-top:1.5px solid var(--orange);border-radius:0 0 14px 14px;
-  margin:0 12px 12px;box-shadow:0 -2px 10px rgba(47,62,70,.08);padding:2px 0}
-.stickysum .srow{display:flex;justify-content:space-between;align-items:baseline;gap:8px;padding:6px 10px;font-size:11.5px}
-.stickysum .srow:not(:last-child){border-bottom:.5px solid var(--border)}
-.stickysum .slabel{color:var(--orange-deep);font-weight:600;white-space:nowrap}
-.stickysum .sval{color:var(--orange-deep);font-weight:700;text-align:right}
-.stickysum .srow.grand .slabel,.stickysum .srow.grand .sval{color:var(--orange-deep);font-weight:800;font-size:12.5px}
+.grouphead{background:var(--blue-soft);color:var(--off);font-weight:700;font-size:15px;padding:8px 10px!important;white-space:nowrap!important;word-break:keep-all;overflow:hidden;text-overflow:ellipsis}
+.grouphead-row{display:flex;align-items:center;justify-content:space-between;gap:6px}
+.grouphead-name{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.grouphead-geo{flex-shrink:0;font-size:10px;font-weight:600;color:var(--off);white-space:nowrap}
+.grouphead-geo a{color:var(--off)}
+.stickysum{position:sticky;bottom:0;z-index:5;background:rgba(47,62,70,.85);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border:1px solid var(--glass-border);border-radius:16px;
+  margin:0 12px 12px;box-shadow:0 8px 24px rgba(0,0,0,.24);padding:2px 0;overflow:hidden}
+.stickysum .srow{display:flex;justify-content:space-between;align-items:baseline;gap:8px;padding:7px 12px;font-size:11.5px}
+.stickysum .srow:not(:last-child){border-bottom:.5px solid var(--glass-border)}
+.stickysum .slabel{color:var(--off)}
+.stickysum .sval{color:var(--off);font-weight:700;text-align:right}
+.stickysum .srow.grand{background:var(--sage-soft)}
+.stickysum .srow.grand .slabel,.stickysum .srow.grand .sval{color:var(--off);font-weight:800;font-size:12.5px}
 .tablebottom-spacer{height:8px}
 .plat-cell{font-size:11px}
-.plat-cell a{white-space:nowrap;word-break:keep-all;color:var(--blue-deep);font-weight:700}
+.plat-cell a{white-space:nowrap;word-break:keep-all;color:var(--mist);font-weight:700}
 .pay2{line-height:1.3}
-.pricewrap{display:inline-flex;align-items:center;gap:2px;white-space:nowrap;flex-wrap:wrap}
-.critical{background:var(--orange);color:#fff;border-radius:14px;padding:12px 14px;margin:0 12px 10px;font-size:12px;line-height:1.7}
-.critical strong{display:block;font-size:13px;margin-bottom:4px}
-.ckwrap{background:var(--surface);backdrop-filter:blur(8px);border:1px solid var(--border-glass);border-radius:14px;padding:10px 12px;margin:0 12px 8px;display:flex;gap:10px;align-items:flex-start}
-.ckwrap input[type=checkbox]{width:20px;height:20px;flex-shrink:0;margin-top:1px;accent-color:var(--blue)}
+.critical{background:var(--pink-soft);border:1px solid rgba(235,174,183,.5);color:var(--off);border-radius:16px;padding:12px 14px;margin:0 12px 10px;font-size:12px;line-height:1.7}
+.critical strong{display:block;font-size:13px;margin-bottom:4px;color:var(--off)}
+.ckwrap{background:var(--glass);backdrop-filter:blur(16px);border:1px solid var(--glass-border);border-radius:16px;padding:10px 12px;margin:0 12px 8px;display:flex;gap:10px;align-items:flex-start}
+.ckwrap input[type=checkbox]{width:20px;height:20px;flex-shrink:0;margin-top:1px;accent-color:var(--sage)}
 .cklabel{flex:1;font-size:12px;color:var(--text2)}
-.cklabel b{color:var(--text);font-weight:600;display:block;font-size:12.5px;margin-bottom:2px}
+.cklabel b{color:var(--off);font-weight:600;display:block;font-size:12.5px;margin-bottom:2px}
 .cktip{font-size:10.5px;color:var(--mute);margin-top:2px;display:block}
-.ckwrap.crit{background:var(--orange);border-color:var(--orange)}
-.ckwrap.crit .cklabel,.ckwrap.crit .cklabel b,.ckwrap.crit .cktip{color:#fff}
-.ckwrap.crit input[type=checkbox]{accent-color:#fff}
+.ckwrap.crit{background:var(--pink-soft);border:1px solid rgba(235,174,183,.5)}
+.ckwrap.crit .cklabel,.ckwrap.crit .cklabel b,.ckwrap.crit .cktip{color:var(--off)}
+.ckwrap.crit input[type=checkbox]{accent-color:var(--pink)}
 .fxbar{padding:2px 12px 10px;font-size:12px;color:var(--text2)}
-.fxbar b{color:var(--blue-deep)}
-.fxbar input.rateinput{width:80px;padding:4px 6px;border:1px solid var(--border-glass);border-radius:8px;background:var(--surface);color:var(--text);font-size:14px;font-weight:700}
+.fxbar b{color:var(--off)}
+.fxbar input.rateinput{width:80px;padding:4px 6px;border:1px solid var(--glass-border);border-radius:8px;background:var(--glass);color:var(--off);font-size:14px;font-weight:700}
 .sectrow{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:20px 12px 8px;flex-wrap:wrap}
-.sectrow .sect{margin:0;padding:0;border:none;flex:1;color:var(--blue-deep);font-weight:700}
-.btn{background:var(--blue);color:#fff;border:none;border-radius:10px;padding:6px 12px;font-size:11px;cursor:pointer;font-family:inherit;white-space:nowrap;font-weight:600}
-.btn.ghost{background:var(--surface);color:var(--orange-deep);border:1px solid var(--orange);font-weight:700}
-.pricein{width:60px;padding:4px 3px;border:1px solid var(--border-glass);border-radius:7px;background:var(--surface);color:var(--text);font-size:14px;font-weight:700;text-align:right;-webkit-appearance:none;-moz-appearance:textfield}
+.sectrow .sect{margin:0;padding:0;border:none;flex:1;color:var(--off);font-weight:700}
+.btn{background:var(--sage);color:var(--off);border:none;border-radius:10px;padding:6px 12px;font-size:11px;cursor:pointer;font-family:inherit;white-space:nowrap;font-weight:600}
+.btn.ghost{background:var(--glass);color:var(--off);border:1px solid var(--sage);font-weight:700}
+.amount-layout{display:grid;grid-template-columns:30px 66px minmax(0,1fr);align-items:center;gap:4px}
+.currency-slot{width:30px;text-align:left;color:var(--off);font-size:11.5px}
+.pricein{width:62px;padding:4px 3px;border:1px solid var(--glass-border);border-radius:8px;background:var(--glass);color:var(--off);font-size:13px;font-weight:700;text-align:right;-webkit-appearance:none;-moz-appearance:textfield}
 .pricein::-webkit-outer-spin-button,.pricein::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
-.pricein.actual{width:60px}
-.curpre{font-size:11px;color:var(--text2);white-space:nowrap}
-.twdconv{font-size:10px;color:var(--mute);display:block;margin-top:2px;white-space:nowrap}
+.twdconv{font-size:10px;color:var(--mute);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .bestrow td{font-weight:700}
-.bestbadge{font-size:9px;background:var(--secondary-bg);color:var(--blue-deep);padding:1px 5px;border-radius:6px;margin-left:4px;font-weight:700;white-space:nowrap}
+.bestbadge{font-size:9px;background:var(--sage-soft);color:var(--off);padding:1px 5px;border-radius:6px;font-weight:700;white-space:nowrap}
 .fillstat{font-size:10.5px;color:var(--mute);margin-top:4px;display:block}
 .dim{opacity:.65}
-.cmp-cheap{color:#3D7A55;font-weight:700}
-.cmp-mid{color:var(--blue-deep);font-weight:700}
-.cmp-expensive{color:var(--warn-tx);font-weight:700}
+.cmp-cheap{color:var(--sage);font-weight:700}
+.cmp-mid{color:var(--mist);font-weight:700}
+.cmp-expensive{color:var(--pink);font-weight:700}
+.time-highlight{display:inline-block;background:var(--caution-soft);border:1px solid var(--caution-border);
+  color:var(--off);border-radius:8px;padding:2px 7px;font-weight:700}
 footer{padding:24px 12px 90px;text-align:center;font-size:11px;color:var(--mute)}
 section{display:none}
 section.on{display:block}
 .totop{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:99;
-  width:42px;height:42px;border-radius:50%;background:var(--blue);color:#fff;border:none;
-  box-shadow:0 4px 14px rgba(47,62,70,.28);font-size:18px;display:none;align-items:center;justify-content:center;cursor:pointer}
+  width:42px;height:42px;border-radius:50%;background:var(--sage);color:var(--off);border:none;
+  box-shadow:0 4px 14px rgba(0,0,0,.3);font-size:18px;display:none;align-items:center;justify-content:center;cursor:pointer}
 .totop.show{display:flex}
 </style>
 </head>
@@ -209,8 +207,9 @@ section.on{display:block}
 </div>
 
 <div class="ttb">
-<span class="ttb-label">旅遊總額（2人）</span>
-<span class="ttb-vals"><span class="ttb-est" id="ttbEst">預估 NT$—</span><span class="ttb-act" id="ttbAct">實際 NT$—</span></span>
+<div class="ttb-label">旅遊總額（2人）</div>
+<div class="ttb-row"><span>預估總費用</span><span class="ttb-est" id="ttbEst">≈ NT$—</span></div>
+<div class="ttb-row"><span>實際總費用</span><span class="ttb-act" id="ttbAct">≈ NT$—</span></div>
 </div>
 
 <section id="d1" class="on">
@@ -252,7 +251,7 @@ section.on{display:block}
 <h3 class="cname">Haejigae Cafe 해지개카페</h3>
 <span class="tag">🥐 早午餐</span><span class="tag o">4.8⭐ 2,302則</span><span class="geo">📍 <a href="https://map.naver.com/p/search/%ED%95%B4%EC%A7%80%EA%B0%9C%EC%B9%B4%ED%8E%98" target="_blank" rel="noopener">Naver Map</a></span>
 <div class="dish"><span class="dlab">推薦</span>鹽麵包 소금빵 · 黑芝麻拿鐵 · 巧克力草莓鹽可頌</div>
-<div class="warn">⚠️ 週六尖峰，麵包常提早賣完</div>
+<div class="notice alert">⚠️ 週六尖峰，麵包常提早賣完</div>
 <div class="info">
 <div>付款：現場刷卡／現金</div>
 <div>餐費：2 人約 ₩25,000</div>
@@ -559,7 +558,7 @@ section.on{display:block}
 <div>營業：每天 10:00–19:00（入場截止18:30）</div>
 <div>停留：45 分（15:05–15:50）</div>
 </div>
-<div class="warn">⚠️ 現場候位人多，Klook買家評價曾提到已預約仍等候1.5小時，建議預留寬裕時間</div>
+<div class="notice alert">⚠️ 現場候位人多，Klook買家評價曾提到已預約仍等候1.5小時，建議預留寬裕時間</div>
 </div>
 
 <div class="drive">🚗 收拾整理緩衝 15:50–16:30（40分）· 16:30 出發 · 開車 10 分</div>
@@ -706,7 +705,7 @@ section.on{display:block}
 <p class="dwear">👕 最舒服的機上服 · 手邊放護照/駕照/機票</p>
 </div>
 
-<div class="warn">回程航班為 10:50 起飛（依2026同期參考，2027確切時刻出發前需重查）。以此推算：07:30出發已足夠，樂天06:00–23:00營業，還車無時間衝突。</div>
+<div class="notice info">回程航班為 10:50 起飛（依2026同期參考，2027確切時刻出發前需重查）。以此推算：07:30出發已足夠，樂天06:00–23:00營業，還車無時間衝突。</div>
 
 <div class="drive">🚗 07:30 出發 · 開車約 55 分</div>
 
@@ -740,7 +739,7 @@ section.on{display:block}
 <p class="dlabel">旅遊費用</p>
 <h2 class="dtitle">機票 · 飯店 · 租車</h2>
 </div>
-<div class="warn">⚠️ 機票、士嘉堡飯店價格尚未確定，出發前請重新查詢並填入實際金額</div>
+<div class="notice alert">⚠️ 機票、士嘉堡飯店價格尚未確定，出發前請重新查詢並填入實際金額</div>
 <div id="bigTicketTableWrap"></div>
 </section>
 
@@ -786,10 +785,7 @@ section.on{display:block}
 </div>
 <div id="mealTableWrap"></div>
 <div class="tablebottom-spacer"></div>
-
-<p class="sect">總合計（2人）</p>
-<div class="total" id="grandSummary"></div>
-<div class="warn">未計：租車、住宿、油資、D1 晚餐</div>
+<div class="notice info">未計：租車、住宿、油資、D1 晚餐</div>
 </section>
 
 <section id="notes-reserve">
@@ -921,6 +917,7 @@ function activateL1(l1Btn){
   document.querySelectorAll('.nav2-row').forEach(function(r){r.classList.remove('on');});
   var row = document.querySelector('.nav2-row[data-forl1="'+l1Btn.dataset.l1+'"]');
   row.classList.add('on');
+  document.body.classList.toggle('cost-active', l1Btn.dataset.l1==='cost');
   var firstBtn = row.querySelector('button.on') || row.querySelector('button');
   activateL2(firstBtn);
 }
@@ -987,46 +984,46 @@ var LS_BIG = 'jeju2027_big_actuals';
 
 /* ---- 景點資料 ---- */
 var attractions = [
-  {id:'jeju43', day:'D2', name:'濟州4·3和平紀念館', short:'和平紀念館', opts:[
+  {id:'jeju43', day:'D2', name:'濟州4·3和平紀念館', short:'和平紀念館', geo:'https://map.naver.com/p/search/%EC%A0%9C%EC%A3%BC4%C2%B73%ED%8F%89%ED%99%94%EA%B8%B0%EB%85%90%EA%B4%80', opts:[
     {k:'a', platform:'現場', link:null, pay:'—', plan:'常設展', cur:'FREE', price:0}
   ]},
-  {id:'haenyeo', day:'D2', name:'海女博物館', short:'海女博物館', opts:[
+  {id:'haenyeo', day:'D2', name:'海女博物館', short:'海女博物館', geo:'https://map.naver.com/p/search/%ED%95%B4%EB%85%80%EB%B0%95%EB%AC%BC%EA%B4%80', opts:[
     {k:'a', platform:'現場', link:null, pay:'刷卡／現金', plan:'成人票', cur:'KRW', price:1100}
   ]},
-  {id:'seongsan', day:'D3', name:'城山日出峰', short:'城山日出峰', opts:[
+  {id:'seongsan', day:'D3', name:'城山日出峰', short:'城山日出峰', geo:'https://map.naver.com/p/search/%EC%84%B1%EC%82%B0%EC%9D%BC%EC%B6%9C%EB%B4%89', opts:[
     {k:'a', platform:'現場', link:null, pay:'刷卡／現金', plan:'成人票', cur:'KRW', price:5000}
   ]},
-  {id:'aqua', day:'D3', name:'Aquaplanet 濟州', short:'水族館', opts:[
+  {id:'aqua', day:'D3', name:'Aquaplanet 濟州', short:'水族館', geo:'https://map.naver.com/p/search/%EC%95%84%EC%BF%A0%EC%95%84%ED%94%8C%EB%9D%BC%EB%84%B7%20%EC%A0%9C%EC%A3%BC', opts:[
     {k:'a', platform:'Trip.com', link:'https://tw.trip.com/travel-guide/attraction/seogwipo/aqua-planet-jeju-10570794?curr=TWD&locale=zh-TW', pay:'線上', plan:'綜合票', cur:'TWD', price:659},
     {k:'b', platform:'Klook', link:'https://www.klook.com/zh-TW/activity/1959-aqua-planet-jeju/', pay:'線上', plan:'綜合票', cur:'TWD', price:790},
     {k:'c', platform:'KKday', link:'https://www.kkday.com/zh-tw/product/3592-aqua-planet-jeju-aquarium-ticket-non-korean', pay:'線上', plan:'綜合票', cur:'TWD', price:794}
   ]},
-  {id:'camellia', day:'D4', name:'山茶花之丘', short:'山茶花之丘', opts:[
+  {id:'camellia', day:'D4', name:'山茶花之丘', short:'山茶花之丘', geo:'https://map.naver.com/p/search/%EC%B9%B4%EB%A9%9C%EB%A6%AC%EC%95%84%ED%9E%90', opts:[
     {k:'a', platform:'Trip.com', link:'https://tw.trip.com/travel-guide/attraction/seogwipo/camellia-hill-botanical-garden-90374?curr=TWD&locale=zh-TW', pay:'線上', plan:'成人票', cur:'TWD', price:197},
     {k:'b', platform:'Klook', link:'https://www.klook.com/zh-TW/activity/142804-camellia-hill-admission-ticket-in-jeju/', pay:'線上', plan:'成人票', cur:'TWD', price:230},
     {k:'c', platform:'KKday', link:'https://www.kkday.com/zh-tw/product/13862-jeju-camelia-hill-ticket-south-korea', pay:'線上', plan:'成人票', cur:'TWD', price:232},
     {k:'d', platform:'現場', link:null, pay:'刷卡／現金', plan:'成人票', cur:'KRW', price:10000}
   ]},
-  {id:'jejujet', day:'D4', name:'JEJU JET 滑翔傘', short:'滑翔傘', opts:[
+  {id:'jejujet', day:'D4', name:'JEJU JET 滑翔傘', short:'滑翔傘', geo:'https://map.naver.com/p/search/%EC%A0%9C%EC%A3%BC%EC%A0%9C%ED%8A%B8%20%ED%8C%8C%EB%9D%BC%EC%84%B8%EC%9D%BC%EB%A7%81', opts:[
     {k:'a', platform:'Trip.com', link:'https://tw.trip.com/things-to-do/detail/112298573?language=TW&locale=zh-TW&curr=TWD', pay:'線上', plan:'滑翔傘', cur:'TWD', price:1210},
     {k:'b', platform:'KKday', link:'https://www.kkday.com/zh-tw/product/765128', pay:'線上', plan:'滑翔傘', cur:'TWD', price:1273}
   ]},
-  {id:'shooting', day:'D4', name:'濟州實彈射擊', short:'實彈射擊', opts:[
+  {id:'shooting', day:'D4', name:'濟州實彈射擊', short:'實彈射擊', geo:'https://map.naver.com/p/search/%EC%A0%9C%EC%A3%BC%EC%8B%A4%ED%83%84%EC%82%AC%EA%B2%A9%EC%9E%A5', opts:[
     {k:'a', platform:'Trip.com', link:'https://tw.trip.com/travel-guide/attraction/seogwipo/jeju-shooting-range-24240608/?curr=TWD&locale=zh-TW', pay:'線上', plan:'12發', cur:'TWD', price:512},
     {k:'b', platform:'Klook', link:'https://www.klook.com/zh-TW/activity/201335-jeju-real-gun-shooting-range-experience/', pay:'線上', plan:'12發', cur:'TWD', price:806},
     {k:'c', platform:'KKday', link:'https://www.kkday.com/zh-tw/product/765416', pay:'線上', plan:'12發', cur:'TWD', price:861},
     {k:'d', platform:'現場', link:null, pay:'刷卡／現金', plan:'12發', cur:'KRW', price:35000}
   ]},
-  {id:'yongdu', day:'D5', name:'龍頭海岸', short:'龍頭海岸', opts:[
+  {id:'yongdu', day:'D5', name:'龍頭海岸', short:'龍頭海岸', geo:'https://map.naver.com/p/search/%EC%9A%A9%EB%A8%B8%EB%A6%AC%ED%95%B4%EC%95%88', opts:[
     {k:'a', platform:'現場', link:null, pay:'刷卡／現金', plan:'成人票', cur:'KRW', price:2000}
   ]},
-  {id:'sanbang', day:'D5', name:'山房山', short:'山房山', opts:[
+  {id:'sanbang', day:'D5', name:'山房山', short:'山房山', geo:'https://map.naver.com/p/search/%EC%82%B0%EB%B0%A9%EC%82%B0', opts:[
     {k:'a', platform:'現場', link:null, pay:'刷卡／現金', plan:'成人票', cur:'KRW', price:1000}
   ]},
-  {id:'osulloc', day:'D5', name:'OSULLOC 雪綠茶博物館', short:'雪綠茶博物館', opts:[
+  {id:'osulloc', day:'D5', name:'OSULLOC 雪綠茶博物館', short:'雪綠茶博物館', geo:'https://map.naver.com/p/search/%EC%98%A4%EC%84%A4%EB%A1%9D%20%ED%8B%B0%ED%95%98%EC%9A%B0%EC%8A%A4%20%EC%A0%9C%EC%A3%BC', opts:[
     {k:'a', platform:'現場', link:null, pay:'—', plan:'入館', cur:'FREE', price:0}
   ]},
-  {id:'horse', day:'D5', name:'濟州騎馬公園', short:'騎馬公園', opts:[
+  {id:'horse', day:'D5', name:'濟州騎馬公園', short:'騎馬公園', geo:'https://map.naver.com/p/search/%EC%A0%9C%EC%A3%BC%EC%8A%B9%EB%A7%88%EA%B3%B5%EC%9B%90', opts:[
     {k:'a', platform:'現場', link:null, pay:'刷卡／現金', plan:'30分騎乘', cur:'KRW', price:66000}
   ]}
 ];
@@ -1051,6 +1048,7 @@ var bigTickets = [
   {id:'flight_go', name:'去程機票<br>IT654', cur:'TWD', est:null},
   {id:'flight_back', name:'回程機票', cur:'TWD', est:null},
   {id:'rental', name:'樂天租車<br>6天全險', cur:'KRW', est:585000},
+  {id:'fuel', name:'油資', cur:'KRW', est:null},
   {id:'playcecamp', name:'Playce Camp<br>2晚', cur:'TWD', est:2216},
   {id:'scarboro', name:'士嘉堡酒店<br>3晚', cur:'TWD', est:null}
 ];
@@ -1126,7 +1124,8 @@ function buildAttractionTable(){
   html += '<colgroup><col style="width:14%"><col style="width:21%"><col style="width:17%"><col style="width:48%"></colgroup>';
   html += '<tr><th>付款</th><th>平台</th><th>方案</th><th>金額（每人）</th></tr>';
   attractions.forEach(function(item){
-    html += '<tr><td colspan="4" class="grouphead">'+item.day+'｜'+item.short+'</td></tr>';
+    var geoTag = item.geo ? '<span class="grouphead-geo">📍 <a href="'+item.geo+'" target="_blank" rel="noopener">Naver Map</a></span>' : '';
+    html += '<tr><td colspan="4" class="grouphead"><div class="grouphead-row"><span class="grouphead-name">'+item.day+'｜'+item.short+'</span>'+geoTag+'</div></td></tr>';
     item.opts.forEach(function(o){
       var curVal = getAttrPrice(item.id, o.k, o.price);
       html += '<tr data-row="'+item.id+'_'+o.k+'" data-item="'+item.id+'">';
@@ -1136,9 +1135,9 @@ function buildAttractionTable(){
       if(o.cur==='FREE'){
         html += '<td>免費</td>';
       } else if(o.cur==='TWD'){
-        html += '<td><span class="pricewrap"><span class="curpre">NT$</span><input type="text" inputmode="numeric" pattern="[0-9]*" class="pricein" data-item="'+item.id+'" data-opt="'+o.k+'" data-cur="TWD" value="'+curVal+'"></span><span class="bestbadge" data-badge="'+item.id+'_'+o.k+'" style="display:none">最低</span></td>';
+        html += '<td><div class="amount-layout"><span class="currency-slot">NT$</span><input type="text" inputmode="numeric" pattern="[0-9]*" class="pricein" data-item="'+item.id+'" data-opt="'+o.k+'" data-cur="TWD" value="'+curVal+'"><span class="bestbadge" data-badge="'+item.id+'_'+o.k+'" style="display:none">最低</span></div></td>';
       } else {
-        html += '<td><span class="pricewrap"><span class="curpre">₩</span><input type="text" inputmode="numeric" pattern="[0-9]*" class="pricein" data-item="'+item.id+'" data-opt="'+o.k+'" data-cur="KRW" value="'+curVal+'"></span><span class="bestbadge" data-badge="'+item.id+'_'+o.k+'" style="display:none">最低</span><span class="twdconv" data-conv="'+item.id+'_'+o.k+'">≈ '+fmtTWD(krw2twd(curVal))+'</span></td>';
+        html += '<td><div class="amount-layout"><span class="currency-slot">₩</span><input type="text" inputmode="numeric" pattern="[0-9]*" class="pricein" data-item="'+item.id+'" data-opt="'+o.k+'" data-cur="KRW" value="'+curVal+'"><span><span class="bestbadge" data-badge="'+item.id+'_'+o.k+'" style="display:none">最低</span><span class="twdconv" data-conv="'+item.id+'_'+o.k+'">≈ '+fmtTWD(krw2twd(curVal))+'</span></span></div></td>';
       }
       html += '</tr>';
     });
@@ -1233,13 +1232,11 @@ function buildMealTable(){
   html += '<colgroup><col style="width:9%"><col style="width:22%"><col style="width:18%"><col style="width:25%"><col style="width:26%"></colgroup>';
   html += '<tr><th>日</th><th>項目</th><th>付款</th><th>預估<br>（2人）</th><th>實際<br>（2人）</th></tr>';
   meals.forEach(function(m){
-    var estText = m.undetermined ? '未定' : fmtKRW(m.estMin);
+    var estText = m.undetermined ? '－' : fmtKRW(m.estMin);
     var actualVal = mealActuals.hasOwnProperty(m.id) ? mealActuals[m.id] : '';
     html += '<tr><td>'+m.day+'</td><td>'+m.name+'</td><td class="pay2">'+mealPayText(m)+'</td>';
     html += '<td>'+estText+'</td>';
-    html += '<td><span class="pricewrap"><span class="curpre">₩</span><input type="text" inputmode="numeric" pattern="[0-9]*" class="pricein actual" data-meal="'+m.id+'" placeholder="未填" value="'+actualVal+'"></span>';
-    html += '<span class="twdconv mealconv" data-mconv="'+m.id+'">'+(actualVal!==''?'≈ '+fmtTWD(krw2twd(actualVal)):'未填')+'</span>';
-    html += '</td></tr>';
+    html += '<td><div class="amount-layout"><span class="currency-slot">₩</span><input type="text" inputmode="numeric" pattern="[0-9]*" class="pricein actual" data-meal="'+m.id+'" placeholder="未填" value="'+actualVal+'"><span class="twdconv mealconv" data-mconv="'+m.id+'">'+(actualVal!==''?'≈ '+fmtTWD(krw2twd(actualVal)):'未填')+'</span></div></td></tr>';
   });
   html += '</table></div>';
   html += '<div class="stickysum">';
@@ -1298,22 +1295,6 @@ function computeBigTotals(){
   return {estSum:estSum, estKnown:estKnown, actualSum:actualSum, actualFilled:actualFilled, total:total};
 }
 function renderGrandSummary(){
-  var a = computeAttractionTotals();
-  var m = computeMealTotals();
-  var b = computeBigTotals();
-  var attractionTotal2 = a.totalPer*2;
-
-  var estTotal = b.estSum + attractionTotal2 + krw2twd(m.estSum);
-  var actualTotal = b.actualSum + attractionTotal2 + krw2twd(m.actualSum);
-  var totalPieces = b.total + m.total;
-  var filledPieces = b.actualFilled + m.filled;
-  var complete = filledPieces >= totalPieces;
-
-  var html = '<div class="tot-h">總合計（2人）</div>';
-  html += '<div>旅遊預估總費用　≈ '+fmtTWD(estTotal)+'</div>';
-  html += '<div class="'+(complete?'':'dim')+'">旅遊實際總費用　≈ '+fmtTWD(actualTotal)+'</div>';
-  html += '<div class="fillstat">已填寫 '+filledPieces+'／'+totalPieces+' 筆</div>';
-  document.getElementById('grandSummary').innerHTML = html;
   renderTravelTotal();
 }
 
@@ -1328,13 +1309,19 @@ function renderTravelTotal(){
   var filledPieces = b.actualFilled + m.filled;
   var estEl = document.getElementById('ttbEst');
   var actEl = document.getElementById('ttbAct');
-  if(estEl) estEl.textContent = '預估 '+fmtTWD(estTotal);
-  if(actEl) actEl.textContent = filledPieces>=totalPieces ? ('實際 '+fmtTWD(actualTotal)) : ('實際 '+fmtTWD(actualTotal)+'（'+filledPieces+'／'+totalPieces+'筆）');
+  if(estEl) estEl.textContent = '≈ '+fmtTWD(estTotal);
+  if(actEl){
+    if(filledPieces>=totalPieces){
+      actEl.textContent = '≈ '+fmtTWD(actualTotal);
+    } else {
+      actEl.innerHTML = '≈ '+fmtTWD(actualTotal)+'<span class="ttb-fill">已填寫 '+filledPieces+'／'+totalPieces+' 筆</span>';
+    }
+  }
 }
 
 /* ---- 建立機票・飯店・租車表格 ---- */
 function bigEstText(b){
-  return b.est===null ? '未定' : (b.cur==='KRW' ? fmtKRW(b.est)+' ≈ '+fmtTWD(krw2twd(b.est)) : fmtTWD(b.est));
+  return b.est===null ? '－' : (b.cur==='KRW' ? fmtKRW(b.est)+' ≈ '+fmtTWD(krw2twd(b.est)) : fmtTWD(b.est));
 }
 function buildBigTicketTable(){
   var wrap = document.getElementById('bigTicketTableWrap');
@@ -1344,8 +1331,7 @@ function buildBigTicketTable(){
   bigTickets.forEach(function(b){
     var actualVal = bigActuals.hasOwnProperty(b.id) ? bigActuals[b.id] : '';
     html += '<tr><td>'+b.name+'</td><td>'+bigEstText(b)+'</td>';
-    html += '<td><span class="pricewrap"><span class="curpre">'+(b.cur==='KRW'?'₩':'NT$')+'</span><input type="text" inputmode="numeric" pattern="[0-9]*" class="pricein actual" data-big="'+b.id+'" data-cur="'+b.cur+'" placeholder="未填" value="'+actualVal+'"></span>';
-    html += '<span class="twdconv" data-bconv="'+b.id+'">'+(actualVal!==''&&b.cur==='KRW' ? '≈ '+fmtTWD(krw2twd(actualVal)) : '')+'</span></td></tr>';
+    html += '<td><div class="amount-layout"><span class="currency-slot">'+(b.cur==='KRW'?'₩':'NT$')+'</span><input type="text" inputmode="numeric" pattern="[0-9]*" class="pricein actual" data-big="'+b.id+'" data-cur="'+b.cur+'" placeholder="未填" value="'+actualVal+'"><span class="twdconv" data-bconv="'+b.id+'">'+(actualVal!==''&&b.cur==='KRW' ? '≈ '+fmtTWD(krw2twd(actualVal)) : '')+'</span></div></td></tr>';
   });
   html += '</table></div>';
   wrap.innerHTML = html;
