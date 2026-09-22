@@ -49,8 +49,8 @@ html,body{overflow-x:hidden;width:100%}
 html{background:var(--bg-solid)}
 
 .topnav-shell{position:sticky;top:0;z-index:93;width:100%;
-  padding:7px 8px 8px;background:var(--glass-strong);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
-  border-bottom:1px solid var(--glass-border);border-radius:0 0 18px 18px}
+  padding:7px 8px 8px;background:transparent;backdrop-filter:none;-webkit-backdrop-filter:none;
+  border-bottom:1px solid var(--glass-border)}
 .nav1{position:static;width:100%;background:transparent;border:none;padding:0;backdrop-filter:none;-webkit-backdrop-filter:none;
   display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
 .nav1 button{padding:9px 4px;border:none;border-radius:999px;background:transparent;
@@ -137,8 +137,8 @@ td{padding:7px 4px;border-bottom:.5px solid var(--glass-border);color:var(--text
 .tablewrap table{margin:0;width:100%;min-width:0;table-layout:fixed}
 .tablewrap td,.tablewrap th{white-space:normal;word-break:keep-all;overflow-wrap:break-word;min-width:0}
 section[id^="cost-"] .tablewrap{
-  width:calc(100% - 24px);margin:8px 12px;padding:0 6px;box-sizing:border-box;
-  border-radius:16px;overflow:hidden;background:var(--glass);border:1px solid var(--glass-border)}
+  width:calc(100% - 20px);margin:8px 10px;padding:0 4px;box-sizing:border-box;
+  background:transparent;border:none;overflow-x:hidden}
 section[id^="cost-"] th,section[id^="cost-"] td{font-size:9.5px;white-space:nowrap;letter-spacing:-.3px;overflow:hidden;text-overflow:ellipsis}
 section[id^="cost-"] td{font-size:11px;white-space:normal}
 section[id^="cost-"] th:first-child,section[id^="cost-"] td:first-child{padding-left:8px}
@@ -179,13 +179,15 @@ section[id^="cost-"] th:last-child,section[id^="cost-"] td:last-child{padding-ri
 .sectrow .sect{margin:0;padding:0;border:none;flex:1;color:var(--off);font-weight:700}
 .btn{background:var(--accent);color:var(--off);border:none;border-radius:10px;padding:6px 12px;font-size:11px;cursor:pointer;font-family:inherit;white-space:nowrap;font-weight:600}
 .btn.ghost{background:var(--glass);color:var(--off);border:1px solid var(--accent);font-weight:700}
-.amount-layout{display:grid;grid-template-columns:minmax(0,1fr);align-items:center;justify-items:start;gap:3px;min-width:0;max-width:100%}
-.pricein{width:100%;max-width:70px;min-width:0;padding:4px 5px;border:1px solid var(--glass-border);border-radius:8px;background:var(--glass);color:var(--off);font-size:13px;font-weight:700;text-align:right;-webkit-appearance:none;-moz-appearance:textfield}
+.amount-layout{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-width:0;max-width:100%}
+.pricein{width:58px;max-width:58px;height:26px;min-width:0;padding:2px 4px;border:1px solid var(--glass-border);border-radius:7px;background:var(--glass);color:var(--off);font-size:11.5px;font-weight:700;text-align:center;-webkit-appearance:none;-moz-appearance:textfield}
 .pricein::-webkit-outer-spin-button,.pricein::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
-.twdconv{font-size:9.5px;color:var(--mute);white-space:normal;overflow:visible;text-overflow:clip;text-align:left}
-.readonly-amt{font-size:12px;color:var(--text2);font-weight:600}
+.twdconv{font-size:9.5px;color:var(--mute);white-space:normal;overflow:visible;text-overflow:clip;text-align:center}
+.readonly-amt{font-size:11.5px;color:var(--text2);font-weight:600;display:block;text-align:center}
+.amt-cell{text-align:center;vertical-align:middle}
 .bestrow td{font-weight:700}
-.bestbadge{font-size:9px;background:var(--accent-soft);color:var(--off);padding:1px 5px;border-radius:6px;font-weight:700;white-space:nowrap}
+.best-icon{display:inline-flex;align-items:center;gap:1px;font-weight:800;font-size:11px;color:var(--accent);margin-left:3px;vertical-align:middle}
+.best-icon svg{display:block}
 .fillstat{font-size:10.5px;color:var(--mute);margin-top:4px;display:block}
 .dim{opacity:.65}
 .cmp-cheap{color:var(--accent);font-weight:700}
@@ -256,7 +258,6 @@ section.on{display:block}
 <p class="dlabel">每日行程</p>
 <h2 class="dtitle">食宿總覽</h2>
 </div>
-<p class="sect">🍽️ 每日食宿總覽</p>
 <div class="tablewrap">
 <table class="daytable">
 <colgroup><col style="width:10%"><col style="width:29%"><col style="width:29%"><col style="width:32%"></colgroup>
@@ -798,10 +799,9 @@ section.on{display:block}
 <section id="cost-attractions">
 <div class="day">
 <p class="dlabel">旅遊費用</p>
-<h2 class="dtitle">景點 · 活動</h2>
 </div>
-<div class="sectrow">
-<span></span>
+<div class="sectrow" style="margin-top:6px">
+<p class="sect" style="margin:0;padding:0;border:none">景點 · 活動</p>
 <button class="btn ghost" id="resetAttractions" type="button">↺ 恢復原始價格</button>
 </div>
 <div id="attractionTableWrap"></div>
@@ -811,10 +811,9 @@ section.on{display:block}
 <section id="cost-meals">
 <div class="day">
 <p class="dlabel">旅遊費用</p>
-<h2 class="dtitle">餐食</h2>
 </div>
-<div class="sectrow">
-<p class="subsect" style="margin:0">餐食金額（2人）</p>
+<div class="sectrow" style="margin-top:6px">
+<p class="sect" style="margin:0;padding:0;border:none">餐食（2人）</p>
 <button class="btn ghost" id="clearMealActuals" type="button">清除實際金額</button>
 </div>
 <div id="mealTableWrap"></div>
@@ -1175,23 +1174,23 @@ function buildAttractionTable(){
   html += '<colgroup><col style="width:13%"><col style="width:18%"><col style="width:15%"><col style="width:27%"><col style="width:27%"></colgroup>';
   html += '<tr><th>付款</th><th>平台</th><th>方案</th><th>韓幣(₩)</th><th>台幣(NT)</th></tr>';
   attractions.forEach(function(item){
-    var geoTag = item.geo ? '<span class="grouphead-geo">📍 <a href="'+item.geo+'" target="_blank" rel="noopener">Naver Map</a></span>' : '';
-    html += '<tr><td colspan="5" class="grouphead"><div class="grouphead-row"><span class="grouphead-name">'+item.day+'｜'+item.short+'</span>'+geoTag+'</div></td></tr>';
+    html += '<tr><td colspan="5" class="grouphead"><div class="grouphead-row"><span class="grouphead-name">'+item.day+'｜'+item.short+'</span></div></td></tr>';
     item.opts.forEach(function(o){
       var curVal = getAttrPrice(item.id, o.k, o.price);
       html += '<tr data-row="'+item.id+'_'+o.k+'" data-item="'+item.id+'">';
       html += '<td class="pay2">'+payHTML(o.pay)+'</td>';
       html += '<td class="plat-cell">'+(o.link ? '<a href="'+o.link+'" target="_blank" rel="noopener">'+o.platform+'</a>' : o.platform)+'</td>';
       html += '<td>'+o.plan+'</td>';
-      var badge = '<span class="bestbadge" data-badge="'+item.id+'_'+o.k+'" style="display:none">最低</span>';
       if(o.cur==='FREE'){
-        html += '<td colspan="2">免費</td>';
+        html += '<td colspan="2" class="amt-cell">免費</td>';
       } else if(o.cur==='TWD'){
+        var badgeT = '<span class="best-icon" data-badge="'+item.id+'_'+o.k+'" style="display:none" title="最低價" aria-label="最低價"><svg viewBox="0 0 12 12" width="9" height="9" aria-hidden="true"><path d="M6 10 L1 3 L11 3 Z" fill="currentColor"/></svg>$</span>';
         html += '<td></td>';
-        html += '<td><div class="amount-layout"><input type="text" inputmode="numeric" pattern="[0-9]*" class="pricein" data-item="'+item.id+'" data-opt="'+o.k+'" data-cur="TWD" value="'+curVal+'">'+badge+'</div></td>';
+        html += '<td class="amt-cell"><div class="amount-layout"><input type="text" inputmode="numeric" pattern="[0-9]*" class="pricein" data-item="'+item.id+'" data-opt="'+o.k+'" data-cur="TWD" value="'+curVal+'">'+badgeT+'</div></td>';
       } else {
-        html += '<td><div class="amount-layout"><input type="text" inputmode="numeric" pattern="[0-9]*" class="pricein" data-item="'+item.id+'" data-opt="'+o.k+'" data-cur="KRW" value="'+curVal+'">'+badge+'</div></td>';
-        html += '<td><span class="readonly-amt" data-conv="'+item.id+'_'+o.k+'">'+fmtTWD(krw2twd(curVal))+'</span></td>';
+        var badgeK = '<span class="best-icon" data-badge="'+item.id+'_'+o.k+'" style="display:none" title="最低價" aria-label="最低價"><svg viewBox="0 0 12 12" width="9" height="9" aria-hidden="true"><path d="M6 10 L1 3 L11 3 Z" fill="currentColor"/></svg>₩</span>';
+        html += '<td class="amt-cell"><div class="amount-layout"><input type="text" inputmode="numeric" pattern="[0-9]*" class="pricein" data-item="'+item.id+'" data-opt="'+o.k+'" data-cur="KRW" value="'+curVal+'">'+badgeK+'</div></td>';
+        html += '<td class="amt-cell"><span class="readonly-amt" data-conv="'+item.id+'_'+o.k+'">'+fmtTWD(krw2twd(curVal))+'</span></td>';
       }
       html += '</tr>';
     });
@@ -1289,8 +1288,8 @@ function buildMealTable(){
     var estText = m.undetermined ? '－' : fmtKRW(m.estMin);
     var actualVal = mealActuals.hasOwnProperty(m.id) ? mealActuals[m.id] : '';
     html += '<tr><td>'+m.day+'</td><td>'+m.name+'</td><td class="pay2">'+mealPayText(m)+'</td>';
-    html += '<td>'+estText+'</td>';
-    html += '<td><div class="amount-layout"><input type="text" inputmode="numeric" pattern="[0-9]*" class="pricein actual" data-meal="'+m.id+'" placeholder="未填" value="'+actualVal+'"><span class="twdconv mealconv" data-mconv="'+m.id+'">'+(actualVal!==''?'≈ NT$'+Math.round(krw2twd(actualVal)).toLocaleString('en-US'):'')+'</span></div></td></tr>';
+    html += '<td class="amt-cell">'+estText+'</td>';
+    html += '<td class="amt-cell"><div class="amount-layout"><input type="text" inputmode="numeric" pattern="[0-9]*" class="pricein actual" data-meal="'+m.id+'" placeholder="未填" value="'+actualVal+'"><span class="twdconv mealconv" data-mconv="'+m.id+'">'+(actualVal!==''?'≈ NT$'+Math.round(krw2twd(actualVal)).toLocaleString('en-US'):'')+'</span></div></td></tr>';
   });
   html += '</table></div>';
   html += '<div class="stickysum">';
@@ -1374,13 +1373,13 @@ function buildBigTicketTable(){
   html += '<tr><th>項目</th><th>預估金額</th><th>實際(₩)</th><th>實際(NT)</th></tr>';
   bigTickets.forEach(function(b){
     var actualVal = bigActuals.hasOwnProperty(b.id) ? bigActuals[b.id] : '';
-    html += '<tr><td>'+b.name+'</td><td>'+bigEstText(b)+'</td>';
+    html += '<tr><td>'+b.name+'</td><td class="amt-cell">'+bigEstText(b)+'</td>';
     if(b.cur==='KRW'){
-      html += '<td><div class="amount-layout"><input type="text" inputmode="numeric" pattern="[0-9]*" class="pricein actual" data-big="'+b.id+'" data-cur="'+b.cur+'" placeholder="未填" value="'+actualVal+'"></div></td>';
-      html += '<td><span class="readonly-amt" data-bconv="'+b.id+'">'+(actualVal!==''?fmtTWD(krw2twd(actualVal)):'')+'</span></td>';
+      html += '<td class="amt-cell"><div class="amount-layout"><input type="text" inputmode="numeric" pattern="[0-9]*" class="pricein actual" data-big="'+b.id+'" data-cur="'+b.cur+'" placeholder="未填" value="'+actualVal+'"></div></td>';
+      html += '<td class="amt-cell"><span class="readonly-amt" data-bconv="'+b.id+'">'+(actualVal!==''?fmtTWD(krw2twd(actualVal)):'')+'</span></td>';
     } else {
       html += '<td></td>';
-      html += '<td><div class="amount-layout"><input type="text" inputmode="numeric" pattern="[0-9]*" class="pricein actual" data-big="'+b.id+'" data-cur="'+b.cur+'" placeholder="未填" value="'+actualVal+'"></div></td>';
+      html += '<td class="amt-cell"><div class="amount-layout"><input type="text" inputmode="numeric" pattern="[0-9]*" class="pricein actual" data-big="'+b.id+'" data-cur="'+b.cur+'" placeholder="未填" value="'+actualVal+'"></div></td>';
     }
     html += '</tr>';
   });
