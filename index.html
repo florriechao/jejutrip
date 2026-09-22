@@ -48,23 +48,23 @@ h1{font-size:19px;font-weight:700;margin:0 0 3px;color:var(--text)}
 html,body{overflow-x:hidden;width:100%}
 html{background:var(--bg-solid)}
 
-.nav1{position:sticky;top:0;z-index:93;width:100%;
-  background:var(--glass-strong);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
-  display:grid;grid-template-columns:repeat(3,1fr);gap:6px;padding:8px 10px;
-  border-bottom:1px solid var(--glass-border)}
+.topnav-shell{position:sticky;top:0;z-index:93;width:100%;
+  padding:7px 8px 8px;background:var(--glass-strong);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--glass-border);border-radius:0 0 18px 18px}
+.nav1{position:static;width:100%;background:transparent;border:none;padding:0;backdrop-filter:none;-webkit-backdrop-filter:none;
+  display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
 .nav1 button{padding:9px 4px;border:none;border-radius:999px;background:transparent;
   color:var(--text2);font-size:13.5px;font-weight:600;cursor:pointer;font-family:inherit;white-space:nowrap}
 .nav1 button.on{background:var(--accent-soft);color:var(--ink)}
-.nav2{position:sticky;top:43px;z-index:92;width:100%;
-  background:var(--glass-strong);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
-  padding:6px 10px;border-bottom:1px solid var(--glass-border)}
-.nav2-row{display:none;width:100%;gap:5px}
+.nav2{position:static;width:100%;background:transparent;border:none;padding:0;backdrop-filter:none;-webkit-backdrop-filter:none;margin-top:5px}
+.nav2-row{display:none;width:100%;gap:4px}
 .nav2-row.on{display:grid}
-.nav2-row[data-forl1="daily"]{grid-template-columns:repeat(6,1fr)}
+.nav2-row[data-forl1="daily"]{grid-template-columns:repeat(7, minmax(0, 1fr))}
 .nav2-row[data-forl1="cost"]{grid-template-columns:repeat(3,1fr)}
 .nav2-row[data-forl1="notes"]{grid-template-columns:repeat(4,1fr)}
-.nav2-row button{padding:7px 2px;border:none;border-radius:11px;background:rgba(120,120,120,.10);
-  color:var(--text2);font-size:11.5px;font-weight:500;cursor:pointer;font-family:inherit;white-space:nowrap}
+.nav2-row button{padding:7px 1px;border:none;border-radius:999px;background:rgba(120,120,120,.10);
+  color:var(--text2);font-size:10px;font-weight:500;cursor:pointer;font-family:inherit;white-space:nowrap;min-width:0;overflow:hidden;text-overflow:ellipsis}
+.nav2-row[data-forl1="daily"] button{font-size:9.8px;padding:7px 1px}
 .nav2-row button.on{background:var(--accent);color:#fff;font-weight:700}
 
 .fxglobal{display:none;position:sticky;top:85px;z-index:91;width:calc(100% - 24px);margin:8px 12px 0;
@@ -110,8 +110,9 @@ body.cost-active .ttb{display:block}
 .info div{padding:1px 0}
 a{color:var(--link)}
 .info a,.list a,.ckwrap a{color:var(--link);word-break:break-all;font-weight:600}
-.drive{display:block;text-align:center;font-size:11px;color:var(--text2);padding:6px 12px;margin:2px 12px;
-  font-family:ui-monospace,Menlo,monospace;font-weight:600}
+.drive{display:block;text-align:center;font-size:11px;color:var(--text2);padding:6px 4px;margin:2px 12px;
+  font-family:ui-monospace,Menlo,monospace;font-weight:600;white-space:nowrap;overflow-x:auto}
+@media (max-width:360px){.drive{font-size:10.5px}}
 .alt{background:var(--pink-soft);border:1px solid rgba(235,174,183,.42);border-radius:16px;padding:12px 14px;margin:0 12px 8px;box-shadow:0 8px 24px rgba(0,0,0,.16)}
 .altlab{font-size:10px;color:var(--off);letter-spacing:1px;font-weight:700;margin:0 0 4px;opacity:.85}
 .unsure,.notice.info,.notice.alert{background:var(--glass-strong);border:1px solid var(--glass-border);padding:8px 10px;margin:6px 0 0;border-radius:12px;font-size:11px;color:var(--text2)}
@@ -135,6 +136,14 @@ td{padding:7px 4px;border-bottom:.5px solid var(--glass-border);color:var(--text
 .tablewrap{width:100%;margin:8px 0 0;box-sizing:border-box}
 .tablewrap table{margin:0;width:100%;min-width:0;table-layout:fixed}
 .tablewrap td,.tablewrap th{white-space:normal;word-break:keep-all;overflow-wrap:break-word;min-width:0}
+section[id^="cost-"] .tablewrap{
+  width:calc(100% - 24px);margin:8px 12px;padding:0 6px;box-sizing:border-box;
+  border-radius:16px;overflow:hidden;background:var(--glass);border:1px solid var(--glass-border)}
+section[id^="cost-"] th,section[id^="cost-"] td{font-size:9.5px;white-space:nowrap;letter-spacing:-.3px;overflow:hidden;text-overflow:ellipsis}
+section[id^="cost-"] td{font-size:11px;white-space:normal}
+section[id^="cost-"] th:first-child,section[id^="cost-"] td:first-child{padding-left:8px}
+section[id^="cost-"] th:last-child,section[id^="cost-"] td:last-child{padding-right:8px}
+.card .tablewrap{width:100%;margin:8px 0 0;padding:0}
 .daytable td,.daytable th{word-break:keep-all}
 .daytable col.c-day{width:13%}
 .daytable col.c-meal{width:43.5%}
@@ -143,10 +152,11 @@ td{padding:7px 4px;border-bottom:.5px solid var(--glass-border);color:var(--text
 .grouphead-name{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .grouphead-geo{flex-shrink:0;font-size:10px;font-weight:600;color:var(--link);white-space:nowrap}
 .grouphead-geo a{color:var(--link)}
-.stickysum{position:sticky;bottom:0;z-index:5;margin:0 12px 12px;box-shadow:0 8px 20px rgba(0,0,0,.18);overflow:hidden;border-radius:0 0 16px 16px}
+.stickysum{position:sticky;bottom:0;z-index:5;width:calc(100% - 24px);margin:0 12px 12px;box-shadow:0 8px 20px rgba(0,0,0,.18);overflow:hidden;border-radius:16px}
 .stickysum .srow{display:flex;justify-content:space-between;align-items:baseline;gap:8px;padding:8px 12px;font-size:11.5px;
   background:var(--glass);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
   border:1px solid var(--glass-border);border-top:none}
+.stickysum .srow:first-child{border-top:1px solid var(--glass-border)}
 .stickysum .slabel{color:var(--text)}
 .stickysum .sval{color:var(--text);font-weight:700;text-align:right}
 .stickysum .srow.grand{background:var(--pink-soft);border-color:rgba(235,174,183,.5)}
@@ -169,11 +179,11 @@ td{padding:7px 4px;border-bottom:.5px solid var(--glass-border);color:var(--text
 .sectrow .sect{margin:0;padding:0;border:none;flex:1;color:var(--off);font-weight:700}
 .btn{background:var(--accent);color:var(--off);border:none;border-radius:10px;padding:6px 12px;font-size:11px;cursor:pointer;font-family:inherit;white-space:nowrap;font-weight:600}
 .btn.ghost{background:var(--glass);color:var(--off);border:1px solid var(--accent);font-weight:700}
-.amount-layout{display:flex;align-items:center;justify-content:flex-end;flex-wrap:wrap;gap:6px;min-width:0;max-width:100%}
-.currency-slot{flex:0 0 auto;color:var(--off);font-size:11px}
-.pricein{width:52px;min-width:0;flex:0 0 52px;padding:4px 3px;border:1px solid var(--glass-border);border-radius:8px;background:var(--glass);color:var(--off);font-size:13px;font-weight:700;text-align:right;-webkit-appearance:none;-moz-appearance:textfield}
+.amount-layout{display:grid;grid-template-columns:minmax(0,1fr);align-items:center;justify-items:start;gap:3px;min-width:0;max-width:100%}
+.pricein{width:100%;max-width:70px;min-width:0;padding:4px 5px;border:1px solid var(--glass-border);border-radius:8px;background:var(--glass);color:var(--off);font-size:13px;font-weight:700;text-align:right;-webkit-appearance:none;-moz-appearance:textfield}
 .pricein::-webkit-outer-spin-button,.pricein::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
-.twdconv{flex:1 1 100%;font-size:9.5px;color:var(--mute);white-space:normal;overflow:visible;text-overflow:clip;text-align:right}
+.twdconv{font-size:9.5px;color:var(--mute);white-space:normal;overflow:visible;text-overflow:clip;text-align:left}
+.readonly-amt{font-size:12px;color:var(--text2);font-weight:600}
 .bestrow td{font-weight:700}
 .bestbadge{font-size:9px;background:var(--accent-soft);color:var(--off);padding:1px 5px;border-radius:6px;font-weight:700;white-space:nowrap}
 .fillstat{font-size:10.5px;color:var(--mute);margin-top:4px;display:block}
@@ -197,11 +207,12 @@ section.on{display:block}
 <header>
 <div>
 <h1>濟州 6 天 5 夜</h1>
-<p class="sub">2027/10/23 六 · 10/28 四 · 2 人自駕 · 樂天 KONA 4WD</p>
+<p class="sub">2027/10/23 六 - 10/28 四 · 2 人自駕</p>
 </div>
 <button class="themebtn" id="themeToggle" type="button">☀️ 淺色</button>
 </header>
 
+<div class="topnav-shell">
 <nav class="nav1">
 <button class="on" data-l1="daily">每日行程</button>
 <button data-l1="cost">旅遊費用</button>
@@ -209,6 +220,7 @@ section.on{display:block}
 </nav>
 <div class="nav2">
 <div class="nav2-row on" data-forl1="daily">
+<button data-t="lodging-overview">食宿總覽</button>
 <button class="on" data-t="d1">D1</button>
 <button data-t="d2">D2</button>
 <button data-t="d3">D3</button>
@@ -228,6 +240,7 @@ section.on{display:block}
 <button data-t="notes-other">其他</button>
 </div>
 </div>
+</div>
 
 <div class="fxglobal" id="fxGlobal">
 <b>匯率</b>：1 KRW = NT$ <input type="text" inputmode="decimal" class="rateinput" id="fxManualInput" value="0.0227">
@@ -237,6 +250,26 @@ section.on{display:block}
 <div class="ttb">
 <div class="ttb-row"><span class="ttb-label">旅遊總費用（2人）</span><span class="ttb-act" id="ttbAct">NT$—</span></div>
 </div>
+
+<section id="lodging-overview">
+<div class="day">
+<p class="dlabel">每日行程</p>
+<h2 class="dtitle">食宿總覽</h2>
+</div>
+<p class="sect">🍽️ 每日食宿總覽</p>
+<div class="tablewrap">
+<table class="daytable">
+<colgroup><col style="width:10%"><col style="width:29%"><col style="width:29%"><col style="width:32%"></colgroup>
+<tr><th>日</th><th>午餐</th><th>晚餐</th><th>住宿</th></tr>
+<tr><td>D1</td><td>Haejigae<span class="tp">咖啡輕食</span></td><td>飯店周邊<span class="tp">簡單吃</span></td><td>Playce Camp</td></tr>
+<tr><td>D2</td><td>函德鯖魚<span class="tp">韓式</span></td><td>帶魚王<span class="tp">烤白帶魚</span></td><td>Playce Camp</td></tr>
+<tr><td>D3</td><td>Aurum Noodle<span class="tp">豬肉刀切麵</span></td><td>Dullegil<span class="tp">西日融合</span></td><td>士嘉堡酒店</td></tr>
+<tr><td>D4</td><td>Bake Make<br>Roast<span class="tp">貝果</span></td><td>熟成到<span class="tp">烤黑豬</span></td><td>士嘉堡酒店</td></tr>
+<tr><td>D5</td><td>TEA TERRACE<span class="tp">抹茶麵</span></td><td>Zen Hideaway<span class="tp">泰義式</span></td><td>士嘉堡酒店</td></tr>
+<tr><td>D6</td><td>－</td><td>－</td><td>－</td></tr>
+</table>
+</div>
+</section>
 
 <section id="d1" class="on">
 <div class="day">
@@ -559,9 +592,7 @@ section.on{display:block}
 </div>
 </div>
 
-<div class="drive">🕐 14:30–14:50 換裝</div>
-
-<div class="drive">🚗 14:50 出發 · 開車 15 分</div>
+<div class="drive">🕐 14:30 換衣 · 🚗 14:50 出發 · 開車 15 分</div>
 
 <div class="card">
 <p class="ctime">15:05</p>
@@ -585,7 +616,7 @@ section.on{display:block}
 <div class="notice alert">⚠️ 現場候位人多，建議預留緩衝時間</div>
 </div>
 
-<div class="drive">🚗 收拾整理緩衝 15:50–16:30（40分）· 16:30 出發 · 開車 10 分</div>
+<div class="drive">🚗 緩衝 15:50 · 16:30 出發 · 開車 10 分</div>
 
 <div class="card">
 <p class="ctime">16:40 抵達 · 17:30 預約</p>
@@ -688,7 +719,7 @@ section.on{display:block}
 </div>
 </div>
 
-<div class="drive">🚗 15:40 出發 · 開車 50 分（不回士嘉堡休息，直接前往晚餐）</div>
+<div class="drive">🚗 15:40 出發 · 開車 50 分</div>
 
 <div class="card">
 <p class="ctime">16:30 抵達 · 17:00 預約</p>
@@ -782,19 +813,6 @@ section.on{display:block}
 <p class="dlabel">旅遊費用</p>
 <h2 class="dtitle">餐食</h2>
 </div>
-<p class="sect">🍽️ 每日餐食總覽</p>
-<div class="tablewrap">
-<table class="daytable">
-<colgroup><col class="c-day"><col class="c-meal"><col class="c-meal"></colgroup>
-<tr><th>日</th><th>午餐</th><th>晚餐</th></tr>
-<tr><td>D1</td><td>Haejigae<span class="tp">咖啡輕食</span></td><td>飯店周邊<span class="tp">簡單吃</span></td></tr>
-<tr><td>D2</td><td>函德鯖魚<span class="tp">韓式</span></td><td>帶魚王<span class="tp">烤白帶魚</span></td></tr>
-<tr><td>D3</td><td>Aurum Noodle<span class="tp">豬肉刀切麵</span></td><td>Dullegil<span class="tp">西日融合</span></td></tr>
-<tr><td>D4</td><td>Bake Make<br>Roast<span class="tp">貝果</span></td><td>熟成到<span class="tp">烤黑豬</span></td></tr>
-<tr><td>D5</td><td>TEA TERRACE<span class="tp">抹茶麵</span></td><td>Zen Hideaway<span class="tp">泰義式</span></td></tr>
-</table>
-</div>
-
 <div class="sectrow">
 <p class="subsect" style="margin:0">餐食金額（2人）</p>
 <button class="btn ghost" id="clearMealActuals" type="button">清除實際金額</button>
@@ -1065,7 +1083,7 @@ var attractions = [
 var meals = [
   {id:'haejigae', day:'D1', name:'Haejigae', pay:'刷卡／現金', platform:'現場', plan:'—', estMin:25000, estMax:25000},
   {id:'d1dinner', day:'D1', name:'園區內晚餐', pay:'刷卡／現金', platform:'現場', plan:'—', undetermined:true},
-  {id:'hamdeok', day:'D2', name:'函德鯖魚<br>生菜包飯', pay:'刷卡／現金', platform:'現場', plan:'—', estMin:40000, estMax:40000},
+  {id:'hamdeok', day:'D2', name:'函德鯖魚', pay:'刷卡／現金', platform:'現場', plan:'—', estMin:40000, estMax:40000},
   {id:'galchi', day:'D2', name:'帶魚王', pay:'刷卡／現金', platform:'現場', plan:'—', estMin:70000, estMax:70000},
   {id:'aurum', day:'D3', name:'Aurum<br>Noodle', pay:'刷卡／現金', platform:'現場', plan:'—', estMin:24000, estMax:24000},
   {id:'dullegil', day:'D3', name:'Dullegil', pay:'刷卡／現金', platform:'現場', plan:'—', estMin:40000, estMax:40000},
@@ -1154,23 +1172,26 @@ function twdOf(cur, price){
 function buildAttractionTable(){
   var wrap = document.getElementById('attractionTableWrap');
   var html = '<div class="tablewrap"><table>';
-  html += '<colgroup><col style="width:14%"><col style="width:21%"><col style="width:17%"><col style="width:48%"></colgroup>';
-  html += '<tr><th>付款</th><th>平台</th><th>方案</th><th>金額（每人）</th></tr>';
+  html += '<colgroup><col style="width:13%"><col style="width:18%"><col style="width:15%"><col style="width:27%"><col style="width:27%"></colgroup>';
+  html += '<tr><th>付款</th><th>平台</th><th>方案</th><th>韓幣(₩)</th><th>台幣(NT)</th></tr>';
   attractions.forEach(function(item){
     var geoTag = item.geo ? '<span class="grouphead-geo">📍 <a href="'+item.geo+'" target="_blank" rel="noopener">Naver Map</a></span>' : '';
-    html += '<tr><td colspan="4" class="grouphead"><div class="grouphead-row"><span class="grouphead-name">'+item.day+'｜'+item.short+'</span>'+geoTag+'</div></td></tr>';
+    html += '<tr><td colspan="5" class="grouphead"><div class="grouphead-row"><span class="grouphead-name">'+item.day+'｜'+item.short+'</span>'+geoTag+'</div></td></tr>';
     item.opts.forEach(function(o){
       var curVal = getAttrPrice(item.id, o.k, o.price);
       html += '<tr data-row="'+item.id+'_'+o.k+'" data-item="'+item.id+'">';
       html += '<td class="pay2">'+payHTML(o.pay)+'</td>';
       html += '<td class="plat-cell">'+(o.link ? '<a href="'+o.link+'" target="_blank" rel="noopener">'+o.platform+'</a>' : o.platform)+'</td>';
       html += '<td>'+o.plan+'</td>';
+      var badge = '<span class="bestbadge" data-badge="'+item.id+'_'+o.k+'" style="display:none">最低</span>';
       if(o.cur==='FREE'){
-        html += '<td>免費</td>';
+        html += '<td colspan="2">免費</td>';
       } else if(o.cur==='TWD'){
-        html += '<td><div class="amount-layout"><span class="currency-slot">NT$</span><input type="text" inputmode="numeric" pattern="[0-9]*" class="pricein" data-item="'+item.id+'" data-opt="'+o.k+'" data-cur="TWD" value="'+curVal+'"><span class="bestbadge" data-badge="'+item.id+'_'+o.k+'" style="display:none">最低</span></div></td>';
+        html += '<td></td>';
+        html += '<td><div class="amount-layout"><input type="text" inputmode="numeric" pattern="[0-9]*" class="pricein" data-item="'+item.id+'" data-opt="'+o.k+'" data-cur="TWD" value="'+curVal+'">'+badge+'</div></td>';
       } else {
-        html += '<td><div class="amount-layout"><span class="currency-slot">₩</span><input type="text" inputmode="numeric" pattern="[0-9]*" class="pricein" data-item="'+item.id+'" data-opt="'+o.k+'" data-cur="KRW" value="'+curVal+'"><span><span class="bestbadge" data-badge="'+item.id+'_'+o.k+'" style="display:none">最低</span><span class="twdconv" data-conv="'+item.id+'_'+o.k+'">≈ '+fmtTWD(krw2twd(curVal))+'</span></span></div></td>';
+        html += '<td><div class="amount-layout"><input type="text" inputmode="numeric" pattern="[0-9]*" class="pricein" data-item="'+item.id+'" data-opt="'+o.k+'" data-cur="KRW" value="'+curVal+'">'+badge+'</div></td>';
+        html += '<td><span class="readonly-amt" data-conv="'+item.id+'_'+o.k+'">'+fmtTWD(krw2twd(curVal))+'</span></td>';
       }
       html += '</tr>';
     });
@@ -1197,7 +1218,7 @@ function buildAttractionTable(){
       debounceWrite('attrPrices', attrPrices);
       if(inp.dataset.cur==='KRW'){
         var conv = wrap.querySelector('[data-conv="'+key+'"]');
-        if(conv) conv.textContent = '≈ '+fmtTWD(krw2twd(v===''?0:parseInt(v,10)));
+        if(conv) conv.textContent = fmtTWD(krw2twd(v===''?0:parseInt(v,10)));
       }
       updateGroupBest(inp.dataset.item);
       renderAttractionSummary();
@@ -1263,13 +1284,13 @@ function buildMealTable(){
   var wrap = document.getElementById('mealTableWrap');
   var html = '<div class="tablewrap"><table>';
   html += '<colgroup><col style="width:9%"><col style="width:22%"><col style="width:18%"><col style="width:25%"><col style="width:26%"></colgroup>';
-  html += '<tr><th>日</th><th>項目</th><th>付款</th><th>預估<br>（2人）</th><th>實際<br>（2人）</th></tr>';
+  html += '<tr><th>日</th><th>項目</th><th>付款</th><th>預估(2人)</th><th>實際(₩)</th></tr>';
   meals.forEach(function(m){
     var estText = m.undetermined ? '－' : fmtKRW(m.estMin);
     var actualVal = mealActuals.hasOwnProperty(m.id) ? mealActuals[m.id] : '';
     html += '<tr><td>'+m.day+'</td><td>'+m.name+'</td><td class="pay2">'+mealPayText(m)+'</td>';
     html += '<td>'+estText+'</td>';
-    html += '<td><div class="amount-layout"><span class="currency-slot">₩</span><input type="text" inputmode="numeric" pattern="[0-9]*" class="pricein actual" data-meal="'+m.id+'" placeholder="未填" value="'+actualVal+'"><span class="twdconv mealconv" data-mconv="'+m.id+'">'+(actualVal!==''?'≈ '+fmtTWD(krw2twd(actualVal)):'未填')+'</span></div></td></tr>';
+    html += '<td><div class="amount-layout"><input type="text" inputmode="numeric" pattern="[0-9]*" class="pricein actual" data-meal="'+m.id+'" placeholder="未填" value="'+actualVal+'"><span class="twdconv mealconv" data-mconv="'+m.id+'">'+(actualVal!==''?'≈ NT$'+Math.round(krw2twd(actualVal)).toLocaleString('en-US'):'')+'</span></div></td></tr>';
   });
   html += '</table></div>';
   html += '<div class="stickysum">';
@@ -1286,11 +1307,11 @@ function buildMealTable(){
       var conv = wrap.querySelector('[data-mconv="'+id+'"]');
       if(v===''){
         delete mealActuals[id];
-        if(conv) conv.textContent = '未填';
+        if(conv) conv.textContent = '';
       } else {
         var num = parseInt(v,10);
         mealActuals[id] = num;
-        if(conv) conv.textContent = '≈ '+fmtTWD(krw2twd(num));
+        if(conv) conv.textContent = '≈ NT$'+Math.round(krw2twd(num)).toLocaleString('en-US');
       }
       lsSaveMeal();
       debounceWrite('mealActuals', mealActuals);
@@ -1349,12 +1370,19 @@ function bigEstText(b){
 function buildBigTicketTable(){
   var wrap = document.getElementById('bigTicketTableWrap');
   var html = '<div class="tablewrap"><table>';
-  html += '<colgroup><col style="width:34%"><col style="width:33%"><col style="width:33%"></colgroup>';
-  html += '<tr><th>項目</th><th>預估金額</th><th>實際金額</th></tr>';
+  html += '<colgroup><col style="width:30%"><col style="width:28%"><col style="width:21%"><col style="width:21%"></colgroup>';
+  html += '<tr><th>項目</th><th>預估金額</th><th>實際(₩)</th><th>實際(NT)</th></tr>';
   bigTickets.forEach(function(b){
     var actualVal = bigActuals.hasOwnProperty(b.id) ? bigActuals[b.id] : '';
     html += '<tr><td>'+b.name+'</td><td>'+bigEstText(b)+'</td>';
-    html += '<td><div class="amount-layout"><span class="currency-slot">'+(b.cur==='KRW'?'₩':'NT$')+'</span><input type="text" inputmode="numeric" pattern="[0-9]*" class="pricein actual" data-big="'+b.id+'" data-cur="'+b.cur+'" placeholder="未填" value="'+actualVal+'"><span class="twdconv" data-bconv="'+b.id+'">'+(actualVal!==''&&b.cur==='KRW' ? '≈ '+fmtTWD(krw2twd(actualVal)) : '')+'</span></div></td></tr>';
+    if(b.cur==='KRW'){
+      html += '<td><div class="amount-layout"><input type="text" inputmode="numeric" pattern="[0-9]*" class="pricein actual" data-big="'+b.id+'" data-cur="'+b.cur+'" placeholder="未填" value="'+actualVal+'"></div></td>';
+      html += '<td><span class="readonly-amt" data-bconv="'+b.id+'">'+(actualVal!==''?fmtTWD(krw2twd(actualVal)):'')+'</span></td>';
+    } else {
+      html += '<td></td>';
+      html += '<td><div class="amount-layout"><input type="text" inputmode="numeric" pattern="[0-9]*" class="pricein actual" data-big="'+b.id+'" data-cur="'+b.cur+'" placeholder="未填" value="'+actualVal+'"></div></td>';
+    }
+    html += '</tr>';
   });
   html += '</table></div>';
   wrap.innerHTML = html;
@@ -1364,14 +1392,19 @@ function buildBigTicketTable(){
       var v = inp.value.replace(/[^0-9]/g,'');
       if(v !== inp.value) inp.value = v;
       var id = inp.dataset.big;
-      var conv = wrap.querySelector('[data-bconv="'+id+'"]');
       if(v===''){
         delete bigActuals[id];
-        if(conv) conv.textContent = '';
+        if(inp.dataset.cur==='KRW'){
+          var conv = wrap.querySelector('[data-bconv="'+id+'"]');
+          if(conv) conv.textContent = '';
+        }
       } else {
         var num = parseInt(v,10);
         bigActuals[id] = num;
-        if(conv) conv.textContent = inp.dataset.cur==='KRW' ? '≈ '+fmtTWD(krw2twd(num)) : '';
+        if(inp.dataset.cur==='KRW'){
+          var conv2 = wrap.querySelector('[data-bconv="'+id+'"]');
+          if(conv2) conv2.textContent = fmtTWD(krw2twd(num));
+        }
       }
       lsSaveBig();
       debounceWrite('bigActuals', bigActuals);
