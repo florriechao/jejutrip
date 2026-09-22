@@ -15,7 +15,9 @@
   --caution:#F2E6AE; --caution-soft:rgba(242,230,174,.20); --caution-border:rgba(242,230,174,.42);
   --text:#F1F5F4; --text2:rgba(241,245,244,.76); --mute:rgba(241,245,244,.56);
   --tag-text:#20303A;
-  --body-bg:linear-gradient(160deg, var(--accent-soft), var(--bg-solid) 60%);
+  --group-bg:rgba(167,199,231,.18); --group-border:rgba(167,199,231,.32);
+  --body-bg:var(--bg-solid);
+  --link:#A7C7E7;
 }
 :root[data-theme="light"]{
   --accent:#E8879C; --accent-soft:rgba(232,135,156,.16); --accent-border:rgba(232,135,156,.4);
@@ -27,8 +29,11 @@
   --caution:#E8B34A; --caution-soft:#FDF0DC; --caution-border:#F0C888;
   --text:#3A2E30; --text2:#6B5457; --mute:#A08A8D;
   --tag-text:#20303A;
+  --group-bg:rgba(255,255,255,.62); --group-border:#F4DCE1;
   --body-bg:linear-gradient(160deg, var(--accent-soft), var(--bg-solid) 55%);
+  --link:#6E9BC4;
 }
+:root{ --tagfix-blue:#A7C7E7; --tagfix-pink:#EBAEB7; }
 *{box-sizing:border-box}
 body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Noto Sans TC","Segoe UI",Inter,system-ui,sans-serif;
   line-height:1.6;color:var(--text);
@@ -44,42 +49,47 @@ html,body{overflow-x:hidden;width:100%}
 html{background:var(--bg-solid)}
 
 .nav1{position:sticky;top:0;z-index:93;width:100%;
-  background:rgba(47,62,70,.55);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  background:var(--glass-strong);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
   display:grid;grid-template-columns:repeat(3,1fr);gap:6px;padding:8px 10px;
   border-bottom:1px solid var(--glass-border)}
-.nav1 button{padding:9px 4px;border:none;border-radius:999px;background:rgba(241,245,244,.08);
+.nav1 button{padding:9px 4px;border:none;border-radius:999px;background:transparent;
   color:var(--text2);font-size:13.5px;font-weight:600;cursor:pointer;font-family:inherit;white-space:nowrap}
-.nav1 button.on{background:var(--accent-soft);color:var(--off)}
+.nav1 button.on{background:var(--accent-soft);color:var(--ink)}
 .nav2{position:sticky;top:43px;z-index:92;width:100%;
-  background:rgba(47,62,70,.55);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  background:var(--glass-strong);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
   padding:6px 10px;border-bottom:1px solid var(--glass-border)}
 .nav2-row{display:none;width:100%;gap:5px}
 .nav2-row.on{display:grid}
 .nav2-row[data-forl1="daily"]{grid-template-columns:repeat(6,1fr)}
 .nav2-row[data-forl1="cost"]{grid-template-columns:repeat(3,1fr)}
 .nav2-row[data-forl1="notes"]{grid-template-columns:repeat(4,1fr)}
-.nav2-row button{padding:7px 2px;border:none;border-radius:11px;background:rgba(241,245,244,.08);
+.nav2-row button{padding:7px 2px;border:none;border-radius:11px;background:rgba(120,120,120,.10);
   color:var(--text2);font-size:11.5px;font-weight:500;cursor:pointer;font-family:inherit;white-space:nowrap}
-.nav2-row button.on{background:var(--accent);color:var(--off);font-weight:700}
+.nav2-row button.on{background:var(--accent);color:#fff;font-weight:700}
+
+.fxglobal{display:none;position:sticky;top:85px;z-index:91;width:calc(100% - 24px);margin:8px 12px 0;
+  font-size:12px;color:var(--text2);padding:0 2px}
+body.cost-active .fxglobal{display:block}
+.fxglobal b{color:var(--text)}
+.fxglobal input.rateinput{width:80px;padding:4px 6px;border:1px solid var(--glass-border);border-radius:8px;background:var(--glass-strong);color:var(--text);font-size:14px;font-weight:700}
 
 .ttb{display:none;position:sticky;top:85px;z-index:91;width:calc(100% - 24px);margin:8px 12px 0;
-  background:rgba(241,245,244,.12);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  background:var(--glass-strong);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
   border:1px solid var(--glass-border);border-left:3px solid var(--accent);border-radius:16px;
   box-shadow:0 8px 24px rgba(0,0,0,.16);
-  padding:8px 14px;font-size:12px;color:var(--off)}
+  padding:10px 14px;font-size:13px;color:var(--text)}
 body.cost-active .ttb{display:block}
-.ttb-label{font-weight:700;color:var(--off);font-size:11px;letter-spacing:.5px;opacity:.8}
-.ttb-row{display:flex;justify-content:space-between;align-items:baseline;margin-top:2px}
-.ttb-est{color:var(--off)}
-.ttb-act{color:var(--accent);font-weight:700}
-.ttb-fill{font-size:10px;color:var(--mute);margin-left:6px;font-weight:400}
+.ttb-row{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.ttb-label{font-weight:700;color:var(--text);font-size:13.5px}
+.ttb-act{color:var(--accent);font-weight:800;font-size:17px}
+.ttb-act.dim{opacity:.65}
 
 .day{padding:18px 12px 4px}
 .dlabel{font-size:10px;color:var(--mist);letter-spacing:2px;margin:0 0 2px;font-weight:600}
 .dtitle{font-size:18px;font-weight:700;margin:0 0 2px;color:var(--off)}
 .dregion{font-size:11.5px;color:var(--mute);margin:0 0 10px}
-.depart{padding:10px 14px 12px;margin:0 12px 14px;border-bottom:1px solid var(--glass-border);text-align:center}
-.dtime{font-size:15px;font-weight:700;margin:0 0 4px;color:var(--off);text-align:center}
+.depart{padding:10px 14px 12px;margin:0 12px 14px;border-bottom:1px solid var(--glass-border)}
+.dtime{font-size:15px;font-weight:700;margin:0 0 4px;color:var(--off)}
 .dnote{font-size:11.5px;color:var(--off);margin:0 0 6px;opacity:.85}
 .dwear{font-size:11px;color:var(--text2);margin:0;padding-top:6px;border-top:.5px dashed var(--caution-border)}
 .card{background:var(--glass);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
@@ -87,21 +97,22 @@ body.cost-active .ttb{display:block}
   border-radius:16px;overflow:hidden;padding:14px;margin:0 12px 8px}
 .ctime{font-size:11px;color:var(--mist);font-weight:700;margin:0 0 3px}
 .cname{font-size:14.5px;font-weight:600;margin:0 0 6px;color:var(--off)}
-.tag{display:inline-block;font-size:10px;padding:2px 7px;border-radius:8px;background:var(--mist);
+.tag{display:inline-block;font-size:10px;padding:2px 7px;border-radius:8px;background:var(--tagfix-blue);
   color:var(--tag-text);margin:0 4px 6px 0;font-weight:700}
-.tag.o{background:var(--accent);color:var(--tag-text)}
+.tag.o{background:var(--tagfix-pink);color:var(--tag-text)}
 .geo{display:inline-block;font-size:10px;padding:2px 7px;border-radius:8px;background:var(--blue-soft);
   color:var(--off);margin:0 4px 6px 0}
-.geo a{color:var(--mist);font-weight:700}
+.geo a{color:var(--link);font-weight:700}
 .cdesc{font-size:12.5px;color:var(--text2);margin:6px 0}
 .dish{font-size:12px;color:var(--pink);margin:6px 0}
 .dlab{font-size:9px;letter-spacing:1px;color:var(--mist);font-weight:700;display:block;margin-bottom:2px}
 .info{font-size:11.5px;color:var(--text2);margin:6px 0 0;padding:8px 10px;background:rgba(241,245,244,.06);border-radius:10px}
 .info div{padding:1px 0}
-.info a,.list a,.ckwrap a{color:var(--mist);word-break:break-all;font-weight:600}
+a{color:var(--link)}
+.info a,.list a,.ckwrap a{color:var(--link);word-break:break-all;font-weight:600}
 .drive{display:block;text-align:center;font-size:11px;color:var(--text2);padding:6px 12px;margin:2px 12px;
   font-family:ui-monospace,Menlo,monospace;font-weight:600}
-.alt{background:var(--pink-soft);border:1px solid rgba(235,174,183,.42);border-radius:16px;padding:12px 14px;margin:0 12px 8px}
+.alt{background:var(--pink-soft);border:1px solid rgba(235,174,183,.42);border-radius:16px;padding:12px 14px;margin:0 12px 8px;box-shadow:0 8px 24px rgba(0,0,0,.16)}
 .altlab{font-size:10px;color:var(--off);letter-spacing:1px;font-weight:700;margin:0 0 4px;opacity:.85}
 .unsure,.notice.info,.notice.alert{background:var(--glass-strong);border:1px solid var(--glass-border);padding:8px 10px;margin:6px 0 0;border-radius:12px;font-size:11px;color:var(--text2)}
 .sect{font-size:13.5px;font-weight:700;margin:20px 12px 8px;padding-top:10px;border-top:1px solid var(--glass-border);color:var(--off)}
@@ -110,7 +121,7 @@ body.cost-active .ttb{display:block}
 .list li{padding:7px 0;border-bottom:.5px solid var(--glass-border);font-size:12px;color:var(--text2)}
 .list li:last-child{border-bottom:none}
 .list strong{color:var(--off);font-weight:600}
-.list a{color:var(--mist)}
+.list a{color:var(--link)}
 .warn,.notice.caution{background:var(--caution-soft);border:1px solid var(--caution-border);padding:8px 12px;margin:6px 0 0;
   border-radius:14px;font-size:11px;color:var(--off)}
 table{width:100%;border-collapse:collapse;font-size:11.5px;word-break:keep-all;table-layout:fixed}
@@ -127,23 +138,22 @@ td{padding:7px 4px;border-bottom:.5px solid var(--glass-border);color:var(--text
 .daytable td,.daytable th{word-break:keep-all}
 .daytable col.c-day{width:13%}
 .daytable col.c-meal{width:43.5%}
-.grouphead{background:var(--blue-soft);color:var(--off);font-weight:700;font-size:15px;padding:8px 10px!important;white-space:nowrap!important;word-break:keep-all;overflow:hidden;text-overflow:ellipsis}
+.grouphead{background:var(--group-bg);color:var(--off);font-weight:700;font-size:12px;padding:8px 10px!important;white-space:nowrap!important;word-break:keep-all;overflow:hidden;text-overflow:ellipsis;border-top:1px solid var(--group-border);border-bottom:1px solid var(--group-border)}
 .grouphead-row{display:flex;align-items:center;justify-content:space-between;gap:6px}
 .grouphead-name{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.grouphead-geo{flex-shrink:0;font-size:10px;font-weight:600;color:var(--off);white-space:nowrap}
-.grouphead-geo a{color:var(--off)}
-.stickysum{position:sticky;bottom:0;z-index:5;background:rgba(47,62,70,.85);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
-  border:1px solid var(--glass-border);border-radius:16px;
-  margin:0 12px 12px;box-shadow:0 8px 24px rgba(0,0,0,.24);padding:2px 0;overflow:hidden}
-.stickysum .srow{display:flex;justify-content:space-between;align-items:baseline;gap:8px;padding:7px 12px;font-size:11.5px}
-.stickysum .srow:not(:last-child){border-bottom:.5px solid var(--glass-border)}
-.stickysum .slabel{color:var(--off)}
-.stickysum .sval{color:var(--off);font-weight:700;text-align:right}
-.stickysum .srow.grand{background:var(--accent-soft)}
+.grouphead-geo{flex-shrink:0;font-size:10px;font-weight:600;color:var(--link);white-space:nowrap}
+.grouphead-geo a{color:var(--link)}
+.stickysum{position:sticky;bottom:0;z-index:5;margin:0 12px 12px;box-shadow:0 8px 20px rgba(0,0,0,.18);overflow:hidden;border-radius:0 0 16px 16px}
+.stickysum .srow{display:flex;justify-content:space-between;align-items:baseline;gap:8px;padding:8px 12px;font-size:11.5px;
+  background:var(--glass);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border:1px solid var(--glass-border);border-top:none}
+.stickysum .slabel{color:var(--text)}
+.stickysum .sval{color:var(--text);font-weight:700;text-align:right}
+.stickysum .srow.grand{background:var(--pink-soft);border-color:rgba(235,174,183,.5)}
 .stickysum .srow.grand .slabel,.stickysum .srow.grand .sval{color:var(--off);font-weight:800;font-size:12.5px}
 .tablebottom-spacer{height:8px}
 .plat-cell{font-size:11px}
-.plat-cell a{white-space:nowrap;word-break:keep-all;color:var(--mist);font-weight:700}
+.plat-cell a{white-space:nowrap;word-break:keep-all;color:var(--link);font-weight:700}
 .pay2{line-height:1.3}
 .critical{background:var(--pink-soft);border:1px solid rgba(235,174,183,.5);color:var(--off);border-radius:16px;padding:12px 14px;margin:0 12px 10px;font-size:12px;line-height:1.7}
 .critical strong{display:block;font-size:13px;margin-bottom:4px;color:var(--off)}
@@ -155,18 +165,15 @@ td{padding:7px 4px;border-bottom:.5px solid var(--glass-border);color:var(--text
 .ckwrap.crit{background:var(--pink-soft);border:1px solid rgba(235,174,183,.5)}
 .ckwrap.crit .cklabel,.ckwrap.crit .cklabel b,.ckwrap.crit .cktip{color:var(--off)}
 .ckwrap.crit input[type=checkbox]{accent-color:var(--pink)}
-.fxbar{padding:2px 12px 10px;font-size:12px;color:var(--text2)}
-.fxbar b{color:var(--off)}
-.fxbar input.rateinput{width:80px;padding:4px 6px;border:1px solid var(--glass-border);border-radius:8px;background:var(--glass);color:var(--off);font-size:14px;font-weight:700}
 .sectrow{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:20px 12px 8px;flex-wrap:wrap}
 .sectrow .sect{margin:0;padding:0;border:none;flex:1;color:var(--off);font-weight:700}
 .btn{background:var(--accent);color:var(--off);border:none;border-radius:10px;padding:6px 12px;font-size:11px;cursor:pointer;font-family:inherit;white-space:nowrap;font-weight:600}
 .btn.ghost{background:var(--glass);color:var(--off);border:1px solid var(--accent);font-weight:700}
-.amount-layout{display:flex;align-items:center;flex-wrap:wrap;gap:2px;min-width:0;max-width:100%}
+.amount-layout{display:flex;align-items:center;justify-content:flex-end;flex-wrap:wrap;gap:6px;min-width:0;max-width:100%}
 .currency-slot{flex:0 0 auto;color:var(--off);font-size:11px}
 .pricein{width:52px;min-width:0;flex:0 0 52px;padding:4px 3px;border:1px solid var(--glass-border);border-radius:8px;background:var(--glass);color:var(--off);font-size:13px;font-weight:700;text-align:right;-webkit-appearance:none;-moz-appearance:textfield}
 .pricein::-webkit-outer-spin-button,.pricein::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
-.twdconv{flex:1 1 100%;font-size:9.5px;color:var(--mute);white-space:normal;overflow:visible;text-overflow:clip}
+.twdconv{flex:1 1 100%;font-size:9.5px;color:var(--mute);white-space:normal;overflow:visible;text-overflow:clip;text-align:right}
 .bestrow td{font-weight:700}
 .bestbadge{font-size:9px;background:var(--accent-soft);color:var(--off);padding:1px 5px;border-radius:6px;font-weight:700;white-space:nowrap}
 .fillstat{font-size:10.5px;color:var(--mute);margin-top:4px;display:block}
@@ -222,10 +229,13 @@ section.on{display:block}
 </div>
 </div>
 
+<div class="fxglobal" id="fxGlobal">
+<b>匯率</b>：1 KRW = NT$ <input type="text" inputmode="decimal" class="rateinput" id="fxManualInput" value="0.0227">
+<span id="syncStatus" class="fillstat" style="margin-top:2px"></span>
+</div>
+
 <div class="ttb">
-<div class="ttb-label">旅遊總額（2人）</div>
-<div class="ttb-row"><span>預估總費用</span><span class="ttb-est" id="ttbEst">≈ NT$—</span></div>
-<div class="ttb-row"><span>實際總費用</span><span class="ttb-act" id="ttbAct">≈ NT$—</span></div>
+<div class="ttb-row"><span class="ttb-label">旅遊總費用（2人）</span><span class="ttb-act" id="ttbAct">NT$—</span></div>
 </div>
 
 <section id="d1" class="on">
@@ -759,12 +769,8 @@ section.on{display:block}
 <p class="dlabel">旅遊費用</p>
 <h2 class="dtitle">景點 · 活動</h2>
 </div>
-<div class="fxbar" id="fxbar">
-<div id="syncStatus" class="fillstat" style="margin-bottom:4px"></div>
-<div><b>匯率</b>：1 KRW = NT$ <input type="text" inputmode="decimal" class="rateinput" id="fxManualInput" value="0.0227"></div>
-</div>
 <div class="sectrow">
-<p class="subsect" style="margin:0">景點・展館金額（每人）</p>
+<span></span>
 <button class="btn ghost" id="resetAttractions" type="button">↺ 恢復原始價格</button>
 </div>
 <div id="attractionTableWrap"></div>
@@ -1195,7 +1201,7 @@ function buildAttractionTable(){
       }
       updateGroupBest(inp.dataset.item);
       renderAttractionSummary();
-      renderGrandSummary();
+      renderTravelTotal();
     });
   });
 }
@@ -1289,7 +1295,7 @@ function buildMealTable(){
       lsSaveMeal();
       debounceWrite('mealActuals', mealActuals);
       renderMealSummary();
-      renderGrandSummary();
+      renderTravelTotal();
     });
   });
 }
@@ -1309,7 +1315,7 @@ function renderMealSummary(){
   var actEl = document.getElementById('mealActVal');
   if(estEl) estEl.textContent = fmtKRW(t.estSum)+' ≈ '+fmtTWD(krw2twd(t.estSum));
   if(actEl){
-    actEl.innerHTML = fmtKRW(t.actualSum)+' ≈ '+fmtTWD(krw2twd(t.actualSum))+'<span class="fillstat">已填 '+t.filled+'／'+t.total+' 筆</span>';
+    actEl.textContent = fmtKRW(t.actualSum)+' ≈ '+fmtTWD(krw2twd(t.actualSum));
   }
 }
 
@@ -1321,28 +1327,18 @@ function computeBigTotals(){
   });
   return {estSum:estSum, estKnown:estKnown, actualSum:actualSum, actualFilled:actualFilled, total:total};
 }
-function renderGrandSummary(){
-  renderTravelTotal();
-}
-
 function renderTravelTotal(){
   var a = computeAttractionTotals();
   var m = computeMealTotals();
   var b = computeBigTotals();
   var attractionTotal2 = a.totalPer*2;
-  var estTotal = b.estSum + attractionTotal2 + krw2twd(m.estSum);
   var actualTotal = b.actualSum + attractionTotal2 + krw2twd(m.actualSum);
   var totalPieces = b.total + m.total;
   var filledPieces = b.actualFilled + m.filled;
-  var estEl = document.getElementById('ttbEst');
   var actEl = document.getElementById('ttbAct');
-  if(estEl) estEl.textContent = '≈ '+fmtTWD(estTotal);
   if(actEl){
-    if(filledPieces>=totalPieces){
-      actEl.textContent = '≈ '+fmtTWD(actualTotal);
-    } else {
-      actEl.innerHTML = '≈ '+fmtTWD(actualTotal)+'<span class="ttb-fill">已填寫 '+filledPieces+'／'+totalPieces+' 筆</span>';
-    }
+    actEl.textContent = fmtTWD(actualTotal);
+    actEl.classList.toggle('dim', filledPieces < totalPieces);
   }
 }
 
@@ -1379,7 +1375,7 @@ function buildBigTicketTable(){
       }
       lsSaveBig();
       debounceWrite('bigActuals', bigActuals);
-      renderGrandSummary();
+      renderTravelTotal();
     });
   });
 }
@@ -1439,7 +1435,7 @@ function syncUIFromState(){
   renderMealSummary();
   applyBigInputValues();
   applyFxValue();
-  renderGrandSummary();
+  renderTravelTotal();
   applyChecklistValues();
 }
 
@@ -1464,7 +1460,7 @@ function afterInitialLoad(){
   renderMealSummary();
   buildBigTicketTable();
   document.getElementById('fxManualInput').value = fx.rate;
-  renderGrandSummary();
+  renderTravelTotal();
   bindChecklist();
 }
 
@@ -1475,7 +1471,7 @@ document.getElementById('resetAttractions').addEventListener('click', function()
   buildAttractionTable();
   updateAllGroupBest();
   renderAttractionSummary();
-  renderGrandSummary();
+  renderTravelTotal();
 });
 document.getElementById('clearMealActuals').addEventListener('click', function(){
   mealActuals = {};
@@ -1483,7 +1479,7 @@ document.getElementById('clearMealActuals').addEventListener('click', function()
   debounceWrite('mealActuals', mealActuals);
   buildMealTable();
   renderMealSummary();
-  renderGrandSummary();
+  renderTravelTotal();
 });
 document.getElementById('fxManualInput').addEventListener('input', function(){
   var raw = this.value.replace(/[^0-9.]/g,'');
@@ -1506,7 +1502,7 @@ document.getElementById('fxManualInput').addEventListener('input', function(){
     updateAllGroupBest();
     renderAttractionSummary();
     renderMealSummary();
-    renderGrandSummary();
+    renderTravelTotal();
   }
 });
 
