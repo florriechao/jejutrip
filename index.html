@@ -19,12 +19,14 @@
   --text:#EDEFF2; --text2:#AEBACA; --mute:#8A98A8;
   --tagfix-blue:rgba(92,141,188,.24); --tagfix-pink:rgba(126,169,214,.18);
   --tag-text:#F1F4F7; --tag-border:transparent;
-  --tag-lodging:#5E8B7E; --tag-food:#5C8DBC; --tag-rating:#D9A441;
+  --tag-lodging:#4D7267; --tag-food:#5C8DBC; --tag-rating:#D9A441;
   --tag-transport:#496B8E; --tag-activity:#7EA9D6; --tag-museum:#4C8C8B;
   --total-accent:#A7C7E7;
   --group-bg:rgba(159,187,217,.12); --group-border:rgba(159,187,217,.24);
   --body-bg:var(--bg-solid);
   --link:#9FBBD9;
+  --tab-l1-bg:#33475C; --tab-l1-text:#DCE6F0;
+  --tab-l2-bg:#2E5A85; --tab-l2-text:#FFFFFF;
 }
 :root[data-theme="light"]{
   --accent:#E8879C; --accent-soft:rgba(232,135,156,.16); --accent-border:rgba(232,135,156,.4);
@@ -44,6 +46,8 @@
   --group-bg:rgba(255,255,255,.62); --group-border:#F4DCE1;
   --body-bg:linear-gradient(160deg, var(--accent-soft), var(--bg-solid) 55%);
   --link:#6E9BC4;
+  --tab-l1-bg:#FBE0E6; --tab-l1-text:#A8446C;
+  --tab-l2-bg:#C24C74; --tab-l2-text:#FFFFFF;
 }
 :root{--app-shell-height:96px;--cost-title-height:54px;--cost-table-head-top:150px}
 section[id^="cost-"] .day{position:sticky;top:var(--app-shell-height);z-index:20;background:var(--sticky-bg);padding-bottom:8px;margin-bottom:0}
@@ -73,7 +77,7 @@ html{overflow-x:hidden;width:100%;background:var(--bg-solid)}
   display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
 .nav1 button{padding:9px 4px;border:none;border-radius:999px;background:transparent;
   color:var(--text2);font-size:13.5px;font-weight:600;cursor:pointer;font-family:inherit;white-space:nowrap}
-.nav1 button.on{background:var(--accent);color:#FFFFFF}
+.nav1 button.on{background:var(--tab-l1-bg);color:var(--tab-l1-text)}
 .nav2{position:static;width:100%;background:transparent;border:none;padding:0;backdrop-filter:none;-webkit-backdrop-filter:none;margin-top:5px}
 .nav2-row{display:none;width:100%;gap:4px}
 .nav2-row.on{display:grid}
@@ -83,7 +87,7 @@ html{overflow-x:hidden;width:100%;background:var(--bg-solid)}
 .nav2-row button{padding:7px 1px;border:none;border-radius:999px;background:rgba(120,120,120,.10);
   color:var(--text2);font-size:10px;font-weight:500;cursor:pointer;font-family:inherit;white-space:nowrap;min-width:0;overflow:hidden;text-overflow:ellipsis}
 .nav2-row[data-forl1="daily"] button{font-size:9.8px;padding:7px 1px}
-.nav2-row button.on{background:var(--accent2);color:#fff;font-weight:700}
+.nav2-row button.on{background:var(--tab-l2-bg);color:var(--tab-l2-text);font-weight:700}
 
 .fxglobal{display:none;position:sticky;top:85px;z-index:91;width:calc(100% - 24px);margin:8px 12px 0;
   font-size:12px;color:var(--text2);padding:0 2px}
@@ -128,19 +132,18 @@ body.cost-active{padding-bottom:56px}
 /* 語意標籤：淺色主題統一使用飽和藍／飽和粉 */
 .tag.lodging,.tag.food,.tag.transport,.tag.activity,.tag.museum{background:#6E9BC4;color:#FFFFFF}
 .tag.rating{background:#E8879C;color:#FFFFFF}
-/* 深色主題：分類標籤統一藍色系（不再依類型分色） */
+/* 深色主題：分類標籤統一綠色系；星級標籤獨立維持黃色，不受此規則覆蓋 */
 :root[data-theme="dark"] .tag.lodging,
 :root[data-theme="dark"] .tag.food,
-:root[data-theme="dark"] .tag.rating,
 :root[data-theme="dark"] .tag.transport,
 :root[data-theme="dark"] .tag.activity,
-:root[data-theme="dark"] .tag.museum{background:var(--accent);color:#FFFFFF}
+:root[data-theme="dark"] .tag.museum{background:var(--tag-lodging);color:#FFFFFF}
+:root[data-theme="dark"] .tag.rating{background:var(--tag-rating);color:#0F1620}
 .geo{display:inline-block;font-size:10px;padding:2px 7px;border-radius:8px;background:var(--blue-soft);
   color:var(--off);margin:0 4px 6px 0}
 .geo a{color:var(--link);font-weight:700}
 .cdesc{font-size:12.5px;color:var(--text2);margin:6px 0}
 .dish{font-size:12px;color:var(--pink);margin:6px 0}
-:root[data-theme="dark"] .dish{color:var(--tag-lodging)}
 :root[data-theme="dark"] .tag.o.season{background:var(--tag-lodging);color:#FFFFFF}
 .dlab{font-size:9px;letter-spacing:1px;color:var(--mist);font-weight:700;display:block;margin-bottom:2px}
 .info{font-size:11.5px;color:var(--text2);margin:6px 0 0;padding:8px 10px;background:rgba(241,245,244,.06);border-radius:10px}
@@ -238,7 +241,6 @@ tr.sumrow.grand .amt-cell{color:var(--off);font-weight:800;font-size:11.5px}
   -webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
 .plat-inline{display:inline-flex;align-items:center;gap:4px;flex-wrap:nowrap;max-width:100%;min-width:0}
 .plat-inline a{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
-:root[data-theme="light"] .plat-inline a{color:#DC7F63}
 .fillstat{font-size:10.5px;color:var(--mute);margin-top:4px;display:block}
 .dim{opacity:.65}
 .cmp-cheap{color:var(--accent);font-weight:700}
@@ -553,7 +555,7 @@ body.cost-active .totop{bottom:calc(64px + env(safe-area-inset-bottom,0px));z-in
 <div>停留：2.5 小時（12:50–15:20）</div>
 </div>
 <div class="unsure">中文導覽：查不到官方是否提供中文語音導覽或中文解說，建議現場詢問（諮詢電話 1833-7001）</div>
-<div class="warn">⚠️ 以下為目前官方場次，2027 年可能調整，出發前請重新確認：<a href="https://m.aquaplanet.co.kr/jeju/program/timetable_jeju.do" target="_blank" rel="noopener">Aquaplanet 濟州官方節目時刻表</a><br>海洋劇場（約40分）：11:10／13:10／15:00／17:00<br>海女表演（約10分）：10:30／12:20／14:20／16:20</div>
+<div class="warn">⚠️ 以下為目前官網場次，2027 年可能調整，出發前請至官網重新確認：<a href="https://www.aquaplanet.co.kr/jeju/program/scheduleList.do" target="_blank" rel="noopener">Aquaplanet 濟州官方節目時刻表</a></div>
 </div>
 
 <div class="drive">🚗 15:30 出發 · 開車約 80 分</div>
@@ -639,7 +641,7 @@ body.cost-active .totop{bottom:calc(64px + env(safe-area-inset-bottom,0px));z-in
 <div class="tablewrap">
 <table>
 <tr><th>付款</th><th>平台</th><th>方案</th><th>金額</th></tr>
-<tr><td>線上</td><td><a href="https://tw.trip.com/things-to-do/detail/112298573?language=TW&locale=zh-TW&curr=TWD" target="_blank" rel="noopener">Trip.com</a></td><td>滑翔傘</td><td>NT$1,210／人</td></tr>
+<tr><td>線上</td><td><a href="https://tw.trip.com/things-to-do/detail/112298573/" target="_blank" rel="noopener">Trip.com</a></td><td>滑翔傘</td><td>NT$1,210／人</td></tr>
 <tr><td>線上</td><td><a href="https://www.kkday.com/zh-tw/product/765128" target="_blank" rel="noopener">KKday</a></td><td>滑翔傘</td><td>NT$1,273／人</td></tr>
 <tr><td>—</td><td>Klook</td><td>—</td><td>無販售</td></tr>
 </table>
@@ -767,7 +769,7 @@ body.cost-active .totop{bottom:calc(64px + env(safe-area-inset-bottom,0px));z-in
 <div class="card">
 <p class="ctime">14:40</p>
 <h3 class="cname">濟州騎馬公園 제주승마공원</h3>
-<span class="tag activity">🐴 動態</span><span class="geo">📍 <a href="https://map.naver.com/p/search/%EC%A0%9C%EC%A3%BC%EC%8A%B9%EB%A7%88%EA%B3%B5%EC%9B%90" target="_blank" rel="noopener">Naver Map</a></span>
+<span class="tag activity">🐴 動態</span><span class="geo">📍 <a href="https://map.naver.com/p/search/%EC%A0%9C%EC%A3%BC%EC%8A%B9%EB%A7%88%EA%B3%B5%EC%9B%90%20%EC%A0%9C%EC%A3%BC%EC%8B%9C%20%EC%95%A0%EC%9B%94%EC%9D%8D%20%EB%85%B9%EA%B3%A0%EB%A9%94%EA%B8%B8%20152-1" target="_blank" rel="noopener">Naver Map</a></span>
 <div class="info">
 <div>方案：숲길B 30分林道騎乘</div>
 <div>金額：₩66,000/人（2人₩132,000）</div>
@@ -919,7 +921,7 @@ body.cost-active .totop{bottom:calc(64px + env(safe-area-inset-bottom,0px));z-in
 </div>
 <div class="ckwrap">
 <input type="checkbox" id="ck6">
-<label class="cklabel" for="ck6"><b>JEJU JET 預約場次</b><a href="https://tw.trip.com/things-to-do/detail/112298573?language=TW&locale=zh-TW&curr=TWD" target="_blank" rel="noopener">Trip.com</a> · <a href="https://www.kkday.com/zh-tw/product/765128" target="_blank" rel="noopener">KKday</a><span class="cktip">13:40場次，提前30分報到</span></label>
+<label class="cklabel" for="ck6"><b>JEJU JET 預約場次</b><a href="https://tw.trip.com/things-to-do/detail/112298573/" target="_blank" rel="noopener">Trip.com</a> · <a href="https://www.kkday.com/zh-tw/product/765128" target="_blank" rel="noopener">KKday</a><span class="cktip">13:40場次，提前30分報到</span></label>
 </div>
 <div class="ckwrap">
 <input type="checkbox" id="ck7">
@@ -972,7 +974,7 @@ body.cost-active .totop{bottom:calc(64px + env(safe-area-inset-bottom,0px));z-in
 <li>查詢 K-ETA 是否免申請 · <a href="https://www.k-eta.go.kr/portal/newapply/index.do" target="_blank" rel="noopener">k-eta.go.kr</a></li>
 <li>若無有效K-ETA，入境3天前需填 e-Arrival Card · <a href="https://www.e-arrivalcard.go.kr/portal/main/index.do" target="_blank" rel="noopener">e-arrivalcard.go.kr</a></li>
 <li>濟州機場重新申請 SeS</li>
-<li>Aqua Planet 2027場次 · <a href="https://m.aquaplanet.co.kr/jeju/program/timetable_jeju.do" target="_blank" rel="noopener">官方時刻表</a></li>
+<li>Aqua Planet 節目時刻表（出發前至官網確認場次）· <a href="https://www.aquaplanet.co.kr/jeju/program/scheduleList.do" target="_blank" rel="noopener">官方時刻表</a></li>
 <li>龍頭海岸潮汐：當天查看 <a href="https://www.instagram.com/6sot_official/" target="_blank" rel="noopener">IG @6sot_official</a></li>
 <li>確認2027班機日期及時間：週六出發、週四早班回程</li>
 </ul>
@@ -1171,7 +1173,7 @@ var attractions = [
     {k:'d', platform:'現場', link:null, pay:'刷卡／現金', plan:'成人票', cur:'KRW', price:10000}
   ]},
   {id:'jejujet', day:'D4', name:'JEJU JET 滑翔傘', short:'滑翔傘', geo:'https://map.naver.com/p/search/%EC%A0%9C%EC%A3%BC%EC%A0%9C%ED%8A%B8%20%ED%8C%8C%EB%9D%BC%EC%84%B8%EC%9D%BC%EB%A7%81', opts:[
-    {k:'a', platform:'Trip.com', link:'https://tw.trip.com/things-to-do/detail/112298573?language=TW&locale=zh-TW&curr=TWD', pay:'線上', plan:'滑翔傘', cur:'TWD', price:1210},
+    {k:'a', platform:'Trip.com', link:'https://tw.trip.com/things-to-do/detail/112298573/', pay:'線上', plan:'滑翔傘', cur:'TWD', price:1210},
     {k:'b', platform:'KKday', link:'https://www.kkday.com/zh-tw/product/765128', pay:'線上', plan:'滑翔傘', cur:'TWD', price:1273}
   ]},
   {id:'shooting', day:'D4', name:'濟州實彈射擊', short:'實彈射擊', geo:'https://map.naver.com/p/search/%EC%A0%9C%EC%A3%BC%EC%8B%A4%ED%83%84%EC%82%AC%EA%B2%A9%EC%9E%A5', opts:[
@@ -1189,7 +1191,7 @@ var attractions = [
   {id:'osulloc', day:'D5', name:'OSULLOC 雪綠茶博物館', short:'雪綠茶博物館', geo:'https://map.naver.com/p/search/%EC%98%A4%EC%84%A4%EB%A1%9D%20%ED%8B%B0%ED%95%98%EC%9A%B0%EC%8A%A4%20%EC%A0%9C%EC%A3%BC', opts:[
     {k:'a', platform:'現場', link:null, pay:'—', plan:'入館', cur:'FREE', price:0}
   ]},
-  {id:'horse', day:'D5', name:'濟州騎馬公園', short:'騎馬公園', geo:'https://map.naver.com/p/search/%EC%A0%9C%EC%A3%BC%EC%8A%B9%EB%A7%88%EA%B3%B5%EC%9B%90', opts:[
+  {id:'horse', day:'D5', name:'濟州騎馬公園', short:'騎馬公園', geo:'https://map.naver.com/p/search/%EC%A0%9C%EC%A3%BC%EC%8A%B9%EB%A7%88%EA%B3%B5%EC%9B%90%20%EC%A0%9C%EC%A3%BC%EC%8B%9C%20%EC%95%A0%EC%9B%94%EC%9D%8D%20%EB%85%B9%EA%B3%A0%EB%A9%94%EA%B8%B8%20152-1', opts:[
     {k:'a', platform:'現場', link:null, pay:'刷卡／現金', plan:'30分騎乘', cur:'KRW', price:66000}
   ]}
 ];
