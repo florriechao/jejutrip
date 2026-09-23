@@ -33,7 +33,10 @@
   --body-bg:linear-gradient(160deg, var(--accent-soft), var(--bg-solid) 55%);
   --link:#6E9BC4;
 }
-:root{ --tagfix-blue:#A7C7E7; --tagfix-pink:#EBAEB7; }
+:root{--navh:96px;--costtop:150px}
+section[id^="cost-"] .day{position:sticky;top:var(--navh);z-index:20;background:var(--bg-solid);padding-bottom:8px;margin-bottom:0}
+section[id^="cost-"] .tablewrap table thead,
+section[id^="cost-"] .tablewrap th{position:sticky;top:var(--costtop);z-index:19;background:var(--bg-solid)}
 *{box-sizing:border-box}
 body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Noto Sans TC","Segoe UI",Inter,system-ui,sans-serif;
   line-height:1.6;color:var(--text);
@@ -55,7 +58,7 @@ html{background:var(--bg-solid)}
   display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
 .nav1 button{padding:9px 4px;border:none;border-radius:999px;background:transparent;
   color:var(--text2);font-size:13.5px;font-weight:600;cursor:pointer;font-family:inherit;white-space:nowrap}
-.nav1 button.on{background:var(--accent-soft);color:var(--ink)}
+.nav1 button.on{background:var(--accent);color:#FFFFFF}
 .nav2{position:static;width:100%;background:transparent;border:none;padding:0;backdrop-filter:none;-webkit-backdrop-filter:none;margin-top:5px}
 .nav2-row{display:none;width:100%;gap:4px}
 .nav2-row.on{display:grid}
@@ -75,16 +78,15 @@ body.cost-active .fxglobal{display:none}
 
 .ttb{display:none;position:fixed;left:50%;bottom:0;transform:translateX(-50%);
   width:100%;max-width:640px;margin:0;box-sizing:border-box;
-  background:var(--pink-soft);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
-  border-top:1px solid var(--glass-border);border-radius:16px 16px 0 0;
+  background:var(--bg-solid);
+  border-top:1px solid var(--glass-border);
   z-index:100;
-  padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));font-size:13px;color:var(--text)}
+  padding:8px 16px calc(8px + env(safe-area-inset-bottom,0px));font-size:12.5px;color:var(--text)}
 body.cost-active .ttb{display:block}
 .ttb-row{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
-.ttb-label{font-weight:700;color:var(--text);font-size:13.5px}
-.ttb-act{color:var(--pink);font-weight:800;font-size:17px}
-.ttb-act.dim{opacity:.65}
-body.cost-active{padding-bottom:70px}
+.ttb-label{font-weight:700;color:var(--text);font-size:13px}
+.ttb-act{color:#DB8C9D;font-weight:800;font-size:19px}
+body.cost-active{padding-bottom:56px}
 .day{padding:18px 12px 4px}
 .dlabel{font-size:10px;color:var(--mist);letter-spacing:2px;margin:0 0 2px;font-weight:600}
 .dtitle{font-size:18px;font-weight:700;margin:0 0 2px;color:var(--off)}
@@ -100,7 +102,7 @@ body.cost-active{padding-bottom:70px}
 .dnote{font-size:11.5px;color:var(--off);margin:0 0 6px;opacity:.85}
 .dwear{font-size:11px;color:var(--text2);margin:0;padding-top:6px;border-top:.5px dashed var(--caution-border)}
 .card{background:var(--glass);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
-  border:1px solid var(--glass-border);box-shadow:0 8px 24px rgba(0,0,0,.16);
+  border:1px solid var(--glass-border);box-shadow:0 2px 8px rgba(0,0,0,.10);position:relative;z-index:1;
   border-radius:16px;overflow:hidden;padding:14px;margin:0 12px 8px}
 .ctime{font-size:11px;color:var(--mist);font-weight:700;margin:0 0 3px}
 .cname{font-size:14.5px;font-weight:600;margin:0 0 6px;color:var(--off)}
@@ -120,7 +122,7 @@ a{color:var(--link)}
 .drive{display:block;text-align:center;font-size:11px;color:var(--text2);padding:6px 4px;margin:2px 12px;
   font-family:ui-monospace,Menlo,monospace;font-weight:600;white-space:nowrap;overflow-x:auto}
 @media (max-width:360px){.drive{font-size:10.5px}}
-.alt{background:var(--pink-soft);border:1px solid rgba(235,174,183,.42);border-radius:16px;padding:12px 14px;margin:0 12px 8px;box-shadow:0 8px 24px rgba(0,0,0,.16)}
+.alt{background:var(--pink-soft);border:1px solid rgba(235,174,183,.42);border-radius:16px;padding:12px 14px;margin:0 12px 8px;box-shadow:0 2px 8px rgba(0,0,0,.10);position:relative;z-index:2}
 .altlab{font-size:10px;color:var(--off);letter-spacing:1px;font-weight:700;margin:0 0 4px;opacity:.85}
 .unsure,.notice.info,.notice.alert{background:var(--glass-strong);border:1px solid var(--glass-border);padding:8px 10px;margin:6px 0 0;border-radius:12px;font-size:11px;color:var(--text2)}
 .sect{font-size:13.5px;font-weight:700;margin:20px 12px 8px;padding-top:10px;border-top:1px solid var(--glass-border);color:var(--off)}
@@ -132,9 +134,9 @@ a{color:var(--link)}
 .list a{color:var(--link)}
 .warn,.notice.caution{background:var(--caution-soft);border:1px solid var(--caution-border);padding:8px 12px;margin:6px 0 0;
   border-radius:14px;font-size:11px;color:var(--off)}
-table{width:100%;border-collapse:collapse;font-size:11.5px;word-break:keep-all;table-layout:fixed}
-th{text-align:left;padding:6px 4px;border-bottom:1px solid var(--glass-border);color:var(--mist);font-weight:700;font-size:10px;white-space:normal;word-break:keep-all;overflow-wrap:break-word}
-td{padding:7px 4px;border-bottom:.5px solid var(--glass-border);color:var(--text2);vertical-align:top;word-break:keep-all;overflow-wrap:break-word;white-space:normal;min-width:0}
+table{width:100%;border-collapse:collapse;font-size:11px;word-break:keep-all;table-layout:fixed}
+th{text-align:left;padding:4px 4px;border-bottom:1px solid var(--glass-border);color:var(--mist);font-weight:700;font-size:9.5px;white-space:normal;word-break:keep-all;overflow-wrap:break-word}
+td{padding:5px 4px;border-bottom:.5px solid var(--glass-border);color:var(--text2);vertical-align:middle;word-break:keep-all;overflow-wrap:break-word;white-space:normal;min-width:0}
 .num{text-align:right}
 .tp{color:var(--pink);font-size:10px;display:block}
 .total{background:var(--glass);backdrop-filter:blur(16px);border:1px solid var(--glass-border);border-radius:16px;padding:12px 14px;margin:0 12px 10px;font-size:12.5px;color:var(--text2);line-height:1.8}
@@ -159,7 +161,12 @@ section[id^="cost-"] th:last-child,section[id^="cost-"] td:last-child{padding-ri
 .grouphead-name{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .grouphead-geo{flex-shrink:0;font-size:10px;font-weight:600;color:var(--link);white-space:nowrap}
 .grouphead-geo a{color:var(--link)}
-.stickysum{position:sticky;bottom:64px;z-index:5;width:calc(100% - 24px);margin:0 12px 12px;box-shadow:0 8px 20px rgba(0,0,0,.18);overflow:hidden;border-radius:16px}
+.stickysum{position:sticky;bottom:64px;z-index:5;width:calc(100% - 24px);margin:0 12px 12px;box-shadow:0 2px 8px rgba(0,0,0,.10);overflow:hidden;border-radius:16px}
+tr.sumrow td{font-weight:700;color:var(--text);background:rgba(120,120,120,.06)}
+tr.sumrow .sumlabel{color:var(--text2);font-weight:600;text-align:left}
+tr.sumrow.grand td{background:var(--pink-soft)}
+tr.sumrow.grand .sumlabel{color:var(--off);font-weight:800}
+tr.sumrow.grand .amt-cell{color:var(--off);font-weight:800;font-size:11.5px}
 .stickysum .srow{display:flex;justify-content:space-between;align-items:baseline;gap:8px;padding:8px 12px;font-size:11.5px;
   background:var(--glass);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
   border:1px solid var(--glass-border);border-top:none}
@@ -169,7 +176,7 @@ section[id^="cost-"] th:last-child,section[id^="cost-"] td:last-child{padding-ri
 .stickysum .srow.grand{background:var(--pink-soft);border-color:rgba(235,174,183,.5)}
 .stickysum .srow.grand .slabel,.stickysum .srow.grand .sval{color:var(--off);font-weight:800;font-size:12.5px}
 .tablebottom-spacer{height:8px}
-.plat-cell{font-size:11px}
+.plat-cell{font-size:11px;overflow:hidden}
 .plat-cell a{white-space:nowrap;word-break:keep-all;color:var(--link);font-weight:700}
 .pay2{line-height:1.3}
 .critical{background:var(--pink-soft);border:1px solid rgba(235,174,183,.5);color:var(--off);border-radius:16px;padding:12px 14px;margin:0 12px 10px;font-size:12px;line-height:1.7}
@@ -186,15 +193,19 @@ section[id^="cost-"] th:last-child,section[id^="cost-"] td:last-child{padding-ri
 .sectrow .sect{margin:0;padding:0;border:none;flex:1;color:var(--off);font-weight:700}
 .btn{background:var(--accent);color:var(--off);border:none;border-radius:10px;padding:6px 12px;font-size:11px;cursor:pointer;font-family:inherit;white-space:nowrap;font-weight:600}
 .btn.ghost{background:var(--glass);color:var(--off);border:1px solid var(--accent);font-weight:700}
-.amount-layout{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:2px;min-width:0;max-width:100%}
-.pricein{width:58px;max-width:58px;height:26px;min-width:0;padding:2px 4px;border:1px solid var(--glass-border);border-radius:7px;background:var(--glass);color:var(--off);font-size:11.5px;font-weight:700;text-align:left;-webkit-appearance:none;-moz-appearance:textfield}
+.amount-layout{display:flex;flex-direction:row;flex-wrap:wrap;align-items:center;justify-content:flex-start;gap:2px;min-width:0;max-width:100%}
+.pricein{width:50px;max-width:50px;height:24px;min-width:0;padding:2px 4px;border:1px solid var(--glass-border);border-radius:6px;background:var(--glass);color:var(--off);font-size:11px;font-weight:600;text-align:left;-webkit-appearance:none;-moz-appearance:textfield}
 .pricein::-webkit-outer-spin-button,.pricein::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
 .twdconv{font-size:9.5px;color:var(--mute);white-space:normal;overflow:visible;text-overflow:clip;text-align:left}
-.readonly-amt{font-size:11.5px;color:var(--text2);font-weight:600;display:block;text-align:left}
+.readonly-amt{font-size:11px;color:var(--text2);font-weight:600;display:block;text-align:left}
 .amt-cell{text-align:left;vertical-align:middle}
 .bestrow td{font-weight:700}
-.best-icon{display:inline-flex;align-items:center;gap:1px;font-weight:800;font-size:12px;color:var(--accent);margin-left:4px;vertical-align:middle;white-space:nowrap}
-.best-icon svg{display:block;width:17px;height:17px;flex-shrink:0}
+.best-icon{display:inline-flex;align-items:center;font-weight:800;font-size:11px;color:var(--accent);margin-left:4px;vertical-align:middle;white-space:nowrap;flex-shrink:0}
+.best-icon .lp-icon{display:block;width:14px;height:14px;flex-shrink:0;background-color:var(--accent);
+  -webkit-mask-image:url(data:image/png;base64,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);mask-image:url(data:image/png;base64,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);
+  -webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
+.plat-inline{display:inline-flex;align-items:center;gap:4px;flex-wrap:nowrap;max-width:100%;min-width:0}
+.plat-inline a{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
 .fillstat{font-size:10.5px;color:var(--mute);margin-top:4px;display:block}
 .dim{opacity:.65}
 .cmp-cheap{color:var(--accent);font-weight:700}
@@ -209,6 +220,7 @@ section.on{display:block}
   width:42px;height:42px;border-radius:50%;background:var(--accent);color:var(--off);border:none;
   box-shadow:0 4px 14px rgba(0,0,0,.3);font-size:18px;display:none;align-items:center;justify-content:center;cursor:pointer}
 .totop.show{display:flex}
+body.cost-active .totop{bottom:calc(64px + env(safe-area-inset-bottom,0px));z-index:101}
 </style>
 </head>
 <body>
@@ -820,6 +832,7 @@ section.on{display:block}
 </div>
 </div>
 <div id="attractionTableWrap"></div>
+<div id="attractionSumWrap"></div>
 <div class="tablebottom-spacer"></div>
 </section>
 
@@ -835,6 +848,7 @@ section.on{display:block}
 </div>
 </div>
 <div id="mealTableWrap"></div>
+<div id="mealSumWrap"></div>
 <div class="tablebottom-spacer"></div>
 </section>
 
@@ -967,6 +981,19 @@ section.on{display:block}
     });
   });
 })();
+function updateStickyOffsets(){
+  var shell = document.querySelector('.topnav-shell');
+  var navh = shell ? shell.getBoundingClientRect().height : 96;
+  document.documentElement.style.setProperty('--navh', navh+'px');
+  var activeCost = document.querySelector('section[id^="cost-"].on .day');
+  if(activeCost){
+    var dayh = activeCost.getBoundingClientRect().height;
+    document.documentElement.style.setProperty('--costtop', (navh+dayh)+'px');
+  }
+}
+window.addEventListener('resize', updateStickyOffsets);
+window.addEventListener('load', updateStickyOffsets);
+
 function showSection(id){
   document.querySelectorAll('section').forEach(function(s){s.classList.remove('on');});
   var target = document.getElementById(id);
@@ -988,12 +1015,13 @@ function activateL1(l1Btn){
   document.body.classList.toggle('cost-active', l1Btn.dataset.l1==='cost');
   var firstBtn = row.querySelector('button.on') || row.querySelector('button');
   activateL2(firstBtn);
+  setTimeout(updateStickyOffsets, 50);
 }
 document.querySelectorAll('.nav1 button').forEach(function(b){
   b.addEventListener('click', function(){ activateL1(b); });
 });
 document.querySelectorAll('.nav2-row button').forEach(function(b){
-  b.addEventListener('click', function(){ activateL2(b); });
+  b.addEventListener('click', function(){ activateL2(b); setTimeout(updateStickyOffsets, 50); });
 });
 
 var totopBtn = document.getElementById('totopBtn');
@@ -1195,15 +1223,14 @@ function buildAttractionTable(){
     html += '<tr><td colspan="4" class="grouphead"><div class="grouphead-row"><span class="grouphead-name">'+item.day+'｜'+item.short+'</span></div></td></tr>';
     item.opts.forEach(function(o){
       var curVal = getAttrPrice(item.id, o.k, o.price);
-      var sym = o.cur==='TWD' ? '$' : '₩';
-      var badge = '<span class="best-icon" data-badge="'+item.id+'_'+o.k+'" style="display:none" title="最低價" aria-label="最低價"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M6 11 L1 4 L11 4 Z" fill="currentColor"/></svg>'+sym+'</span>';
+      var badge = '<span class="best-icon" data-badge="'+item.id+'_'+o.k+'" style="display:none" title="最低價" aria-label="最低價"><span class="lp-icon" aria-hidden="true"></span></span>';
       var payCell;
       if(o.pay==='線上'){
-        payCell = '<a href="'+o.link+'" target="_blank" rel="noopener">'+o.platform+'</a>'+badge;
+        payCell = '<span class="plat-inline"><a href="'+o.link+'" target="_blank" rel="noopener">'+o.platform+'</a>'+badge+'</span>';
       } else if(o.pay==='刷卡／現金'){
-        payCell = '刷卡 / 現金'+badge;
+        payCell = '<span class="plat-inline">刷卡 / 現金'+badge+'</span>';
       } else {
-        payCell = '現場'+badge;
+        payCell = '<span class="plat-inline">現場'+badge+'</span>';
       }
       html += '<tr data-row="'+item.id+'_'+o.k+'" data-item="'+item.id+'">';
       html += '<td class="plat-cell">'+payCell+'</td>';
@@ -1221,12 +1248,14 @@ function buildAttractionTable(){
     });
   });
   html += '</table></div>';
-  html += '<div class="stickysum">';
-  html += '<div class="srow"><span class="slabel">線上付款（2人）</span><span class="sval" id="attrOnlineVal"></span></div>';
-  html += '<div class="srow"><span class="slabel">現場付款（2人）</span><span class="sval" id="attrOnsiteVal"></span></div>';
-  html += '<div class="srow grand"><span class="slabel">景點活動合計</span><span class="sval" id="attrGrandVal"></span></div>';
-  html += '</div>';
   wrap.innerHTML = html;
+
+  var sumHtml = '<div class="tablewrap"><table><colgroup><col style="width:34%"><col style="width:18%"><col style="width:24%"><col style="width:24%"></colgroup>';
+  sumHtml += '<tr class="sumrow"><td colspan="2" class="sumlabel">線上付款（2人）</td><td class="amt-cell">—</td><td class="amt-cell" id="attrOnlineVal"></td></tr>';
+  sumHtml += '<tr class="sumrow"><td colspan="2" class="sumlabel">現場付款（2人）</td><td class="amt-cell" id="attrOnsiteKrw"></td><td class="amt-cell" id="attrOnsiteVal"></td></tr>';
+  sumHtml += '<tr class="sumrow grand"><td colspan="2" class="sumlabel">景點活動合計</td><td class="amt-cell" id="attrGrandKrw"></td><td class="amt-cell" id="attrGrandVal"></td></tr>';
+  sumHtml += '</table></div>';
+  document.getElementById('attractionSumWrap').innerHTML = sumHtml;
 
   wrap.querySelectorAll('input.pricein').forEach(function(inp){
     inp.addEventListener('input', function(){
@@ -1293,11 +1322,15 @@ function computeAttractionTotals(){
 function renderAttractionSummary(){
   var t = computeAttractionTotals();
   var onlineEl = document.getElementById('attrOnlineVal');
+  var onsiteKrwEl = document.getElementById('attrOnsiteKrw');
   var onsiteEl = document.getElementById('attrOnsiteVal');
+  var grandKrwEl = document.getElementById('attrGrandKrw');
   var grandEl = document.getElementById('attrGrandVal');
   if(onlineEl) onlineEl.textContent = fmtTWD(t.onlinePer*2);
-  if(onsiteEl) onsiteEl.textContent = fmtKRW(t.onsitePerKRW*2)+' ≈ '+fmtTWD(t.onsitePerTWD*2);
-  if(grandEl) grandEl.textContent = '≈ '+fmtTWD(t.totalPer*2);
+  if(onsiteKrwEl) onsiteKrwEl.textContent = fmtKRW(t.onsitePerKRW*2);
+  if(onsiteEl) onsiteEl.textContent = fmtTWD(t.onsitePerTWD*2);
+  if(grandKrwEl) grandKrwEl.textContent = fmtKRW(t.onsitePerKRW*2);
+  if(grandEl) grandEl.textContent = fmtTWD(t.totalPer*2);
 }
 
 /* ---- 建立餐食表格（只建一次 DOM） ---- */
@@ -1317,11 +1350,13 @@ function buildMealTable(){
     html += '<td class="amt-cell"><div class="amount-layout"><input type="text" inputmode="numeric" pattern="[0-9]*" class="pricein actual" data-meal="'+m.id+'" placeholder="未填" value="'+actualVal+'"><span class="twdconv mealconv" data-mconv="'+m.id+'">'+(actualVal!==''?'≈ NT$'+Math.round(krw2twd(actualVal)).toLocaleString('en-US'):'')+'</span></div></td></tr>';
   });
   html += '</table></div>';
-  html += '<div class="stickysum">';
-  html += '<div class="srow"><span class="slabel">預估餐費（2人）</span><span class="sval" id="mealEstVal"></span></div>';
-  html += '<div class="srow grand"><span class="slabel">實際餐費（2人）</span><span class="sval" id="mealActVal"></span></div>';
-  html += '</div>';
   wrap.innerHTML = html;
+
+  var sumHtml = '<div class="tablewrap"><table><colgroup><col style="width:9%"><col style="width:22%"><col style="width:18%"><col style="width:25%"><col style="width:26%"></colgroup>';
+  sumHtml += '<tr class="sumrow"><td colspan="3" class="sumlabel">預估餐費（2人）</td><td class="amt-cell" id="mealEstVal"></td><td></td></tr>';
+  sumHtml += '<tr class="sumrow grand"><td colspan="3" class="sumlabel">實際餐費（2人）</td><td></td><td class="amt-cell" id="mealActVal"></td></tr>';
+  sumHtml += '</table></div>';
+  document.getElementById('mealSumWrap').innerHTML = sumHtml;
 
   wrap.querySelectorAll('input.pricein.actual').forEach(function(inp){
     inp.addEventListener('input', function(){
@@ -1358,9 +1393,9 @@ function renderMealSummary(){
   var t = computeMealTotals();
   var estEl = document.getElementById('mealEstVal');
   var actEl = document.getElementById('mealActVal');
-  if(estEl) estEl.textContent = fmtKRW(t.estSum)+' ≈ '+fmtTWD(krw2twd(t.estSum));
+  if(estEl) estEl.innerHTML = '<div>'+fmtKRW(t.estSum)+'</div><div class="twdconv">≈ '+fmtTWD(krw2twd(t.estSum))+'</div>';
   if(actEl){
-    actEl.textContent = fmtKRW(t.actualSum)+' ≈ '+fmtTWD(krw2twd(t.actualSum));
+    actEl.innerHTML = '<div>'+fmtKRW(t.actualSum)+'</div><div class="twdconv">≈ '+fmtTWD(krw2twd(t.actualSum))+'</div>';
   }
 }
 
@@ -1383,7 +1418,6 @@ function renderTravelTotal(){
   var actEl = document.getElementById('ttbAct');
   if(actEl){
     actEl.textContent = fmtTWD(actualTotal);
-    actEl.classList.toggle('dim', filledPieces < totalPieces);
   }
 }
 
@@ -1522,6 +1556,7 @@ function afterInitialLoad(){
   applyFxValue();
   renderTravelTotal();
   bindChecklist();
+  setTimeout(updateStickyOffsets, 50);
 }
 
 document.getElementById('resetAttractions').addEventListener('click', function(){
