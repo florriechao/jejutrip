@@ -13,11 +13,14 @@
   --pink-border:rgba(159,187,217,.42); --pink-border-strong:rgba(159,187,217,.5);
   --ink:#0F1620; --off:#F1F4F7;
   --bg-solid:#0F1620;
+  --page-bg:#0F1620; --sticky-bg:#0F1620; --table-bg:transparent;
   --glass:#1B2634; --glass-strong:#212D3C; --glass-border:#2A3644;
   --caution:#D9A441; --caution-soft:rgba(217,164,65,.18); --caution-border:rgba(217,164,65,.42);
   --text:#EDEFF2; --text2:#AEBACA; --mute:#8A98A8;
   --tagfix-blue:rgba(92,141,188,.24); --tagfix-pink:rgba(126,169,214,.18);
-  --tag-text:#EDEFF2; --tag-border:rgba(159,187,217,.38);
+  --tag-text:#F1F4F7; --tag-border:transparent;
+  --tag-lodging:#5E8B7E; --tag-food:#5C8DBC; --tag-rating:#D9A441;
+  --tag-transport:#496B8E; --tag-activity:#7EA9D6; --tag-museum:#4C8C8B;
   --total-accent:#A7C7E7;
   --group-bg:rgba(159,187,217,.12); --group-border:rgba(159,187,217,.24);
   --body-bg:var(--bg-solid);
@@ -31,40 +34,40 @@
   --pink-border:rgba(235,174,183,.42); --pink-border-strong:rgba(235,174,183,.5);
   --ink:#3A2E30; --off:#3A2E30;
   --bg-solid:#FFF8F8;
+  --page-bg:#FFF1F4; --sticky-bg:#FFF1F4; --table-bg:transparent;
   --glass:#FFFFFF; --glass-strong:#FFFFFF; --glass-border:#F4DCE1;
   --caution:#E8B34A; --caution-soft:#FDF0DC; --caution-border:#F0C888;
   --text:#3A2E30; --text2:#6B5457; --mute:#A08A8D;
-  --tagfix-blue:rgba(110,155,196,.14); --tagfix-pink:rgba(232,135,156,.16);
-  --tag-text:#20303A; --tag-border:rgba(244,220,225,.7);
+  --tagfix-blue:#6E9BC4; --tagfix-pink:#E8879C;
+  --tag-text:#FFFFFF; --tag-border:transparent;
   --total-accent:#DB8C9D;
   --group-bg:rgba(255,255,255,.62); --group-border:#F4DCE1;
   --body-bg:linear-gradient(160deg, var(--accent-soft), var(--bg-solid) 55%);
   --link:#6E9BC4;
 }
-:root{--app-header-height:76px;--nav-height:96px;--cost-title-height:54px;--cost-table-head-top:150px}
-section[id^="cost-"] .day{position:sticky;top:var(--nav-height);z-index:20;background:var(--bg-solid);padding-bottom:8px;margin-bottom:0}
-section[id^="cost-"] .tablewrap table thead,
-section[id^="cost-"] .tablewrap th{position:sticky;top:var(--cost-table-head-top);z-index:19;background:var(--bg-solid)}
+:root{--app-shell-height:96px;--cost-title-height:54px;--cost-table-head-top:150px}
+section[id^="cost-"] .day{position:sticky;top:var(--app-shell-height);z-index:20;background:var(--sticky-bg);padding-bottom:8px;margin-bottom:0}
+section[id^="cost-"] thead th{position:sticky;top:var(--cost-table-head-top);z-index:30;background:var(--sticky-bg);vertical-align:middle;text-align:left}
+section[id^="cost-"] .tablewrap tbody,
+section[id^="cost-"] .tablewrap tbody tr{background:var(--table-bg)}
 *{box-sizing:border-box}
 body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Noto Sans TC","Segoe UI",Inter,system-ui,sans-serif;
   line-height:1.6;color:var(--text);
   background:var(--body-bg);
   background-attachment:fixed;
-  max-width:640px;margin:0 auto;-webkit-text-size-adjust:100%}
-.app-sticky-shell{position:sticky;top:0;z-index:95;width:100%;background:var(--bg-solid);overflow-anchor:none}
-header{padding:18px 16px 6px;display:flex;align-items:flex-start;justify-content:space-between;gap:10px;
-  overflow:hidden;max-height:var(--app-header-height,120px);
-  transition:max-height .32s cubic-bezier(.4,0,.2,1),padding-top .32s cubic-bezier(.4,0,.2,1),padding-bottom .32s cubic-bezier(.4,0,.2,1),opacity .24s ease}
-.app-sticky-shell.is-collapsed header{max-height:0;padding-top:0;padding-bottom:0;opacity:0;pointer-events:none}
+  max-width:640px;margin:0 auto;-webkit-text-size-adjust:100%;
+  padding-top:var(--app-shell-height)}
+.app-sticky-shell{position:fixed;top:0;left:50%;transform:translateX(-50%);
+  width:100%;max-width:640px;box-sizing:border-box;z-index:95;background:var(--sticky-bg)}
+header{padding:18px 16px 6px;display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
 h1{font-size:19px;font-weight:700;margin:0 0 3px;color:var(--text)}
 .sub{font-size:11.5px;color:var(--mute);margin:0}
 .themebtn{flex-shrink:0;background:var(--glass);border:1px solid var(--glass-border);color:var(--text);
   border-radius:20px;padding:6px 12px;font-size:12px;font-weight:600;cursor:pointer;font-family:inherit}
-html,body{overflow-x:hidden;width:100%}
-html{background:var(--bg-solid)}
+html{overflow-x:hidden;width:100%;background:var(--bg-solid)}
 
 .topnav-shell{position:relative;width:100%;
-  padding:7px 8px 8px;background:var(--bg-solid);backdrop-filter:none;-webkit-backdrop-filter:none;
+  padding:7px 8px 8px;background:var(--sticky-bg);backdrop-filter:none;-webkit-backdrop-filter:none;
   border-bottom:1px solid var(--glass-border)}
 .nav1{position:static;width:100%;background:transparent;border:none;padding:0;backdrop-filter:none;-webkit-backdrop-filter:none;
   display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
@@ -122,6 +125,16 @@ body.cost-active{padding-bottom:56px}
   border:1px solid var(--tag-border);
   color:var(--tag-text);margin:0 4px 6px 0;font-weight:700}
 .tag.o{background:var(--tagfix-pink);color:var(--tag-text);border:1px solid var(--tag-border)}
+/* 語意標籤：淺色主題統一使用飽和藍／飽和粉 */
+.tag.lodging,.tag.food,.tag.transport,.tag.activity,.tag.museum{background:#6E9BC4;color:#FFFFFF}
+.tag.rating{background:#E8879C;color:#FFFFFF}
+/* 深色主題：依類型分色 */
+:root[data-theme="dark"] .tag.lodging{background:var(--tag-lodging);color:#FFFFFF}
+:root[data-theme="dark"] .tag.food{background:var(--tag-food);color:#FFFFFF}
+:root[data-theme="dark"] .tag.rating{background:var(--tag-rating);color:#0F1620}
+:root[data-theme="dark"] .tag.transport{background:var(--tag-transport);color:#FFFFFF}
+:root[data-theme="dark"] .tag.activity{background:var(--tag-activity);color:#0F1620}
+:root[data-theme="dark"] .tag.museum{background:var(--tag-museum);color:#FFFFFF}
 .geo{display:inline-block;font-size:10px;padding:2px 7px;border-radius:8px;background:var(--blue-soft);
   color:var(--off);margin:0 4px 6px 0}
 .geo a{color:var(--link);font-weight:700}
@@ -147,7 +160,7 @@ a{color:var(--link)}
 .list a{color:var(--link)}
 .warn,.notice.caution{background:var(--caution-soft);border:1px solid var(--caution-border);padding:8px 12px;margin:6px 0 0;
   border-radius:14px;font-size:11px;color:var(--off)}
-table{width:100%;border-collapse:collapse;font-size:11px;word-break:keep-all;table-layout:fixed}
+table{width:100%;border-collapse:separate;border-spacing:0;font-size:11px;word-break:keep-all;table-layout:fixed}
 th{text-align:left;padding:4px 4px;border-bottom:1px solid var(--glass-border);color:var(--mist);font-weight:700;font-size:9.5px;white-space:normal;word-break:keep-all;overflow-wrap:break-word}
 td{padding:5px 4px;border-bottom:.5px solid var(--glass-border);color:var(--text2);vertical-align:middle;word-break:keep-all;overflow-wrap:break-word;white-space:normal;min-width:0}
 .num{text-align:right}
@@ -160,12 +173,13 @@ td{padding:5px 4px;border-bottom:.5px solid var(--glass-border);color:var(--text
 .tablewrap td,.tablewrap th{white-space:normal;word-break:keep-all;overflow-wrap:break-word;min-width:0}
 section[id^="cost-"] .tablewrap{
   width:calc(100% - 20px);margin:8px 10px;padding:0 4px;box-sizing:border-box;
-  background:transparent;border:none;overflow-x:hidden}
+  background:transparent;border:none}
 section[id^="cost-"] th,section[id^="cost-"] td{font-size:9.5px;white-space:nowrap;letter-spacing:-.3px;vertical-align:middle;text-align:left}
 section[id^="cost-"] td{font-size:11px;white-space:normal}
 section[id^="cost-"] th:first-child,section[id^="cost-"] td:first-child{padding-left:8px}
 section[id^="cost-"] th:last-child,section[id^="cost-"] td:last-child{padding-right:8px}
 .card .tablewrap{width:100%;margin:8px 0 0;padding:0}
+#lodging-overview>.tablewrap{width:calc(100% - 24px);margin:8px 12px 0;padding:0}
 .daytable td,.daytable th{word-break:keep-all}
 .daytable col.c-day{width:13%}
 .daytable col.c-meal{width:43.5%}
@@ -295,13 +309,17 @@ body.cost-active .totop{bottom:calc(64px + env(safe-area-inset-bottom,0px));z-in
 <div class="tablewrap">
 <table class="daytable">
 <colgroup><col style="width:10%"><col style="width:29%"><col style="width:29%"><col style="width:32%"></colgroup>
+<thead>
 <tr><th>日</th><th>午餐</th><th>晚餐</th><th>住宿</th></tr>
+</thead>
+<tbody>
 <tr><td>D1</td><td>Haejigae<span class="tp">咖啡輕食</span></td><td>飯店周邊<span class="tp">簡單吃</span></td><td>Playce Camp</td></tr>
 <tr><td>D2</td><td>函德鯖魚<span class="tp">韓式</span></td><td>帶魚王<span class="tp">烤白帶魚</span></td><td>Playce Camp</td></tr>
 <tr><td>D3</td><td>Aurum Noodle<span class="tp">豬肉刀切麵</span></td><td>Dullegil<span class="tp">西日融合</span></td><td>士嘉堡酒店</td></tr>
 <tr><td>D4</td><td>Bake Make<br>Roast<span class="tp">貝果</span></td><td>熟成到<span class="tp">烤黑豬</span></td><td>士嘉堡酒店</td></tr>
 <tr><td>D5</td><td>TEA TERRACE<span class="tp">抹茶麵</span></td><td>Zen Hideaway<span class="tp">泰義式</span></td><td>士嘉堡酒店</td></tr>
 <tr><td>D6</td><td>－</td><td>－</td><td>－</td></tr>
+</tbody>
 </table>
 </div>
 </section>
@@ -327,7 +345,7 @@ body.cost-active .totop{bottom:calc(64px + env(safe-area-inset-bottom,0px));z-in
 <div class="card">
 <p class="ctime">10:30–11:00</p>
 <h3 class="cname">樂天租車 롯데렌터카</h3>
-<span class="tag">🚗 移動</span><span class="geo">📍 <a href="https://map.naver.com/p/search/%EB%A1%AF%EB%8D%B0%EB%A0%8C%ED%84%B0%EC%B9%B4%20%EC%A0%9C%EC%A3%BC%EC%98%A4%ED%86%A0%ED%95%98%EC%9A%B0%EC%8A%A4" target="_blank" rel="noopener">Naver Map</a></span>
+<span class="tag transport">🚗 移動</span><span class="geo">📍 <a href="https://map.naver.com/p/search/%EB%A1%AF%EB%8D%B0%EB%A0%8C%ED%84%B0%EC%B9%B4%20%EC%A0%9C%EC%A3%BC%EC%98%A4%ED%86%A0%ED%95%98%EC%9A%B0%EC%8A%A4" target="_blank" rel="noopener">Naver Map</a></span>
 <p class="cdesc">Hyundai KONA 4WD · 辦理30分（含驗車拍照）</p>
 <div class="info">
 <div>價格：約₩585,000（6天全險0自付，依4天報價₩390,200等比例估算，需重新報價確認）· <a href="https://www.lotterentacar.net/hp/chn/reservation/index.do?LANG=chn" target="_blank" rel="noopener">lotterentacar.net</a></div>
@@ -341,7 +359,7 @@ body.cost-active .totop{bottom:calc(64px + env(safe-area-inset-bottom,0px));z-in
 <div class="card">
 <p class="ctime">11:35</p>
 <h3 class="cname">Haejigae Cafe 해지개카페</h3>
-<span class="tag">🥐 早午餐</span><span class="tag o">4.8⭐ 2,302則</span><span class="geo">📍 <a href="https://map.naver.com/p/search/%ED%95%B4%EC%A7%80%EA%B0%9C%EC%B9%B4%ED%8E%98" target="_blank" rel="noopener">Naver Map</a></span>
+<span class="tag food">🥐 早午餐</span><span class="tag rating">4.8⭐ 2,302則</span><span class="geo">📍 <a href="https://map.naver.com/p/search/%ED%95%B4%EC%A7%80%EA%B0%9C%EC%B9%B4%ED%8E%98" target="_blank" rel="noopener">Naver Map</a></span>
 <div class="dish"><span class="dlab">推薦</span>鹽麵包 소금빵 · 黑芝麻拿鐵 · 巧克力草莓鹽可頌</div>
 <div class="notice alert">⚠️ 週六尖峰，麵包常提早賣完</div>
 <div class="info">
@@ -366,7 +384,7 @@ body.cost-active .totop{bottom:calc(64px + env(safe-area-inset-bottom,0px));z-in
 <div class="card">
 <p class="ctime">14:35 抵達</p>
 <h3 class="cname">Playce Camp Jeju 플레이스캠프 제주</h3>
-<span class="tag">🛌 入住</span><span class="geo">📍 <a href="https://map.naver.com/p/search/%ED%94%8C%EB%A0%88%EC%9D%B4%EC%8A%A4%EC%BA%A0%ED%94%84%20%EC%A0%9C%EC%A3%BC" target="_blank" rel="noopener">Naver Map</a></span>
+<span class="tag lodging">🛌 入住</span><span class="geo">📍 <a href="https://map.naver.com/p/search/%ED%94%8C%EB%A0%88%EC%9D%B4%EC%8A%A4%EC%BA%A0%ED%94%84%20%EC%A0%9C%EC%A3%BC" target="_blank" rel="noopener">Naver Map</a></span>
 <p class="cdesc">工業風設計複合園區</p>
 <div class="info">
 <div>附設：위로餐廳、도렐咖啡廳、스피닝울프酒吧（皆可用餐）· 24小時GS25便利商店</div>
@@ -379,14 +397,14 @@ body.cost-active .totop{bottom:calc(64px + env(safe-area-inset-bottom,0px));z-in
 <div class="card">
 <p class="ctime">15:00</p>
 <h3 class="cname">休息</h3>
-<span class="tag">🛌 耍廢</span>
+<span class="tag lodging">🛌 耍廢</span>
 <p class="cdesc">補眠、整理行李</p>
 </div>
 
 <div class="card">
 <p class="ctime">18:00</p>
 <h3 class="cname">園區內晚餐</h3>
-<span class="tag">🍽️ 晚餐</span>
+<span class="tag food">🍽️ 晚餐</span>
 <p class="cdesc">위로餐廳或스피닝울프酒吧皆可直接解決，簡單吃也可去GS25 · 金額未定</p>
 </div>
 </section>
@@ -407,7 +425,7 @@ body.cost-active .totop{bottom:calc(64px + env(safe-area-inset-bottom,0px));z-in
 <div class="card">
 <p class="ctime">09:00</p>
 <h3 class="cname">濟州4.3和平紀念館 제주4·3평화기념관</h3>
-<span class="tag">🏛️ 智慧</span><span class="geo">📍 <a href="https://map.naver.com/p/search/%EC%A0%9C%EC%A3%BC4%C2%B73%ED%8F%89%ED%99%94%EA%B8%B0%EB%85%90%EA%B4%80" target="_blank" rel="noopener">Naver Map</a></span>
+<span class="tag museum">🏛️ 智慧</span><span class="geo">📍 <a href="https://map.naver.com/p/search/%EC%A0%9C%EC%A3%BC4%C2%B73%ED%8F%89%ED%99%94%EA%B8%B0%EB%85%90%EA%B4%80" target="_blank" rel="noopener">Naver Map</a></span>
 <div class="info">
 <div>門票：免費</div>
 <div>停車：免費，停車付款方式查不到是否有其他收費區</div>
@@ -422,7 +440,7 @@ body.cost-active .totop{bottom:calc(64px + env(safe-area-inset-bottom,0px));z-in
 <div class="card">
 <p class="ctime">12:00</p>
 <h3 class="cname">函德鯖魚生菜包飯 함덕고등어쌈밥</h3>
-<span class="tag">🐟 韓式</span><span class="tag o">4.8⭐ 363則</span><span class="geo">📍 <a href="https://map.naver.com/p/search/%ED%95%A8%EB%8D%95%EA%B3%A0%EB%93%B1%EC%96%B4%EC%8C%88%EB%B0%A5" target="_blank" rel="noopener">Naver Map</a></span>
+<span class="tag food">🐟 韓式</span><span class="tag rating">4.8⭐ 363則</span><span class="geo">📍 <a href="https://map.naver.com/p/search/%ED%95%A8%EB%8D%95%EA%B3%A0%EB%93%B1%EC%96%B4%EC%8C%88%EB%B0%A5" target="_blank" rel="noopener">Naver Map</a></span>
 <div class="dish"><span class="dlab">推薦</span>烤鯖魚生菜包飯（招牌）</div>
 <div class="info">
 <div>付款：現場刷卡／現金</div>
@@ -437,7 +455,7 @@ body.cost-active .totop{bottom:calc(64px + env(safe-area-inset-bottom,0px));z-in
 <div class="card">
 <p class="ctime">14:00</p>
 <h3 class="cname">海女博物館 해녀박물관 + 海女呼吸路 숨비소리길</h3>
-<span class="tag">🏛️ 智慧</span><span class="geo">📍 <a href="https://map.naver.com/p/search/%ED%95%B4%EB%85%80%EB%B0%95%EB%AC%BC%EA%B4%80" target="_blank" rel="noopener">Naver Map</a></span>
+<span class="tag museum">🏛️ 智慧</span><span class="geo">📍 <a href="https://map.naver.com/p/search/%ED%95%B4%EB%85%80%EB%B0%95%EB%AC%BC%EA%B4%80" target="_blank" rel="noopener">Naver Map</a></span>
 <p class="cdesc">路線：해녀박물관(起點)→면수동 밭담路(田埂路)→별방진(登城牆眺望하도리海景，折返點)→原路走回해녀박물관，精華來回段約2.2公里，含拍照約1–1.5小時</p>
 <div class="info">
 <div>門票：約₩1,100/人，僅現場售票</div>
@@ -453,7 +471,7 @@ body.cost-active .totop{bottom:calc(64px + env(safe-area-inset-bottom,0px));z-in
 <div class="card">
 <p class="ctime">17:00</p>
 <h3 class="cname">帶魚王 城山店 갈치왕 성산점</h3>
-<span class="tag o">4.94⭐ 3K則</span><span class="geo">📍 <a href="https://map.naver.com/p/search/%EA%B0%88%EC%B9%98%EC%99%95%20%EC%84%B1%EC%82%B0%EC%A0%90" target="_blank" rel="noopener">Naver Map</a></span>
+<span class="tag rating">4.94⭐ 3K則</span><span class="geo">📍 <a href="https://map.naver.com/p/search/%EA%B0%88%EC%B9%98%EC%99%95%20%EC%84%B1%EC%82%B0%EC%A0%90" target="_blank" rel="noopener">Naver Map</a></span>
 <div class="dish"><span class="dlab">推薦</span>整尾烤白帶魚定食 · 白帶魚燉湯</div>
 <div class="info">
 <div>付款：現場刷卡／現金 · 現場候位或Naver預約</div>
@@ -483,7 +501,7 @@ body.cost-active .totop{bottom:calc(64px + env(safe-area-inset-bottom,0px));z-in
 <div class="card">
 <p class="ctime">10:00</p>
 <h3 class="cname">城山日出峰 성산일출봉</h3>
-<span class="tag">🥾 體力活</span><span class="geo">📍 <a href="https://map.naver.com/p/search/%EC%84%B1%EC%82%B0%EC%9D%BC%EC%B6%9C%EB%B4%89" target="_blank" rel="noopener">Naver Map</a></span>
+<span class="tag activity">🥾 體力活</span><span class="geo">📍 <a href="https://map.naver.com/p/search/%EC%84%B1%EC%82%B0%EC%9D%BC%EC%B6%9C%EB%B4%89" target="_blank" rel="noopener">Naver Map</a></span>
 <div class="info">
 <div>門票：₩5,000/人，僅現場售票</div>
 <div>付款：現場刷卡／現金</div>
@@ -498,7 +516,7 @@ body.cost-active .totop{bottom:calc(64px + env(safe-area-inset-bottom,0px));z-in
 <div class="card">
 <p class="ctime">11:30</p>
 <h3 class="cname">Aurum Noodle 어우름제주고기국수 성산본점</h3>
-<span class="tag">🍜 韓式麵</span><span class="tag o">4.7⭐ 452則</span><span class="geo">📍 <a href="https://map.naver.com/p/search/%EC%96%B4%EC%9A%B0%EB%A6%84%EC%A0%9C%EC%A3%BC%EA%B3%A0%EA%B8%B0%EA%B5%AD%EC%88%98%20%EC%84%B1%EC%82%B0%EB%B3%B8%EC%A0%90" target="_blank" rel="noopener">Naver Map</a></span>
+<span class="tag food">🍜 韓式麵</span><span class="tag rating">4.7⭐ 452則</span><span class="geo">📍 <a href="https://map.naver.com/p/search/%EC%96%B4%EC%9A%B0%EB%A6%84%EC%A0%9C%EC%A3%BC%EA%B3%A0%EA%B8%B0%EA%B5%AD%EC%88%98%20%EC%84%B1%EC%82%B0%EB%B3%B8%EC%A0%90" target="_blank" rel="noopener">Naver Map</a></span>
 <div class="dish"><span class="dlab">推薦</span>濟州傳統豬肉刀切麵（고기국수）</div>
 <div class="info">
 <div>付款：現場刷卡／現金 · 現場候位</div>
@@ -513,7 +531,7 @@ body.cost-active .totop{bottom:calc(64px + env(safe-area-inset-bottom,0px));z-in
 <div class="card">
 <p class="ctime">12:50 入場</p>
 <h3 class="cname">Aquaplanet 濟州 아쿠아플라넷 제주</h3>
-<span class="tag">🐟 智慧</span><span class="geo">📍 <a href="https://map.naver.com/p/search/%EC%95%84%EC%BF%A0%EC%95%84%ED%94%8C%EB%9D%BC%EB%84%B7%20%EC%A0%9C%EC%A3%BC" target="_blank" rel="noopener">Naver Map</a></span>
+<span class="tag museum">🐟 智慧</span><span class="geo">📍 <a href="https://map.naver.com/p/search/%EC%95%84%EC%BF%A0%EC%95%84%ED%94%8C%EB%9D%BC%EB%84%B7%20%EC%A0%9C%EC%A3%BC" target="_blank" rel="noopener">Naver Map</a></span>
 <p class="cdesc">12:50–15:20 參觀水族館，海洋劇場 13:10 或海女表演 14:20 擇一觀賞，其餘時間逛水族館</p>
 <div class="tablewrap">
 <table>
@@ -537,7 +555,7 @@ body.cost-active .totop{bottom:calc(64px + env(safe-area-inset-bottom,0px));z-in
 <div class="card">
 <p class="ctime">16:50</p>
 <h3 class="cname">Dullegil 둘레길（環林道 西歸浦 Jungmun總店）</h3>
-<span class="tag">🍝 西日融合</span><span class="tag o">4.87⭐ 12K則</span><span class="geo">📍 <a href="https://map.naver.com/p/search/%EB%91%98%EB%A0%88%EA%B8%B8%20%EC%84%9C%EA%B7%80%ED%8F%AC%20%EC%A4%91%EB%AC%B8%EB%B3%B8%EC%A0%90" target="_blank" rel="noopener">Naver Map</a></span>
+<span class="tag food">🍝 西日融合</span><span class="tag rating">4.87⭐ 12K則</span><span class="geo">📍 <a href="https://map.naver.com/p/search/%EB%91%98%EB%A0%88%EA%B8%B8%20%EC%84%9C%EA%B7%80%ED%8F%AC%20%EC%A4%91%EB%AC%B8%EB%B3%B8%EC%A0%90" target="_blank" rel="noopener">Naver Map</a></span>
 <div class="dish"><span class="dlab">推薦</span>炸豬排+烤魚義大利麵 · 蛋包飯</div>
 <div class="info">
 <div>付款：現場刷卡／現金 · 現場候位</div>
@@ -553,7 +571,7 @@ body.cost-active .totop{bottom:calc(64px + env(safe-area-inset-bottom,0px));z-in
 <div class="card">
 <p class="ctime">18:35</p>
 <h3 class="cname">士嘉堡酒店 Hotel Scarboro</h3>
-<span class="tag">🛌 入住</span><span class="geo">📍 <a href="https://map.naver.com/p/search/%ED%98%B8%ED%85%94%20%EC%8A%A4%EC%B9%B4%EB%B8%8C%EB%A1%9C" target="_blank" rel="noopener">Naver Map</a></span>
+<span class="tag lodging">🛌 入住</span><span class="geo">📍 <a href="https://map.naver.com/p/search/%ED%98%B8%ED%85%94%20%EC%8A%A4%EC%B9%B4%EB%B8%8C%EB%A1%9C" target="_blank" rel="noopener">Naver Map</a></span>
 </div>
 </section>
 
@@ -573,7 +591,7 @@ body.cost-active .totop{bottom:calc(64px + env(safe-area-inset-bottom,0px));z-in
 <div class="card">
 <p class="ctime">09:00</p>
 <h3 class="cname">山茶花之丘 카멜리아힐</h3>
-<span class="tag">📸 靜態</span><span class="tag o">粉紅芒草最盛期</span><span class="geo">📍 <a href="https://map.naver.com/p/search/%EC%B9%B4%EB%A9%9C%EB%A6%AC%EC%95%84%ED%9E%90" target="_blank" rel="noopener">Naver Map</a></span>
+<span class="tag activity">📸 靜態</span><span class="tag o">粉紅芒草最盛期</span><span class="geo">📍 <a href="https://map.naver.com/p/search/%EC%B9%B4%EB%A9%9C%EB%A6%AC%EC%95%84%ED%9E%90" target="_blank" rel="noopener">Naver Map</a></span>
 <div class="tablewrap">
 <table>
 <tr><th>付款</th><th>平台</th><th>方案</th><th>金額</th></tr>
@@ -595,7 +613,7 @@ body.cost-active .totop{bottom:calc(64px + env(safe-area-inset-bottom,0px));z-in
 <div class="card">
 <p class="ctime">11:30</p>
 <h3 class="cname">Bake Make Roast</h3>
-<span class="tag">🥯 貝果</span><span class="geo">📍 <a href="https://map.naver.com/p/search/Bake%20Make%20Roast%20%EC%A0%9C%EC%A3%BC" target="_blank" rel="noopener">Naver Map</a></span>
+<span class="tag food">🥯 貝果</span><span class="geo">📍 <a href="https://map.naver.com/p/search/Bake%20Make%20Roast%20%EC%A0%9C%EC%A3%BC" target="_blank" rel="noopener">Naver Map</a></span>
 <div class="dish"><span class="dlab">推薦</span>羅勒培根貝果三明治 · 燕麥奶拿鐵</div>
 <div class="info">
 <div>付款：現場刷卡 · 現場候位</div>
@@ -610,7 +628,7 @@ body.cost-active .totop{bottom:calc(64px + env(safe-area-inset-bottom,0px));z-in
 <div class="card">
 <p class="ctime">13:10 報到</p>
 <h3 class="cname">JEJU JET 滑翔傘 제주제트 파라세일링</h3>
-<span class="tag">💦 動態</span><span class="geo">📍 <a href="https://map.naver.com/p/search/%EC%A0%9C%EC%A3%BC%EC%A0%9C%ED%8A%B8%20%ED%8C%8C%EB%9D%BC%EC%84%B8%EC%9D%BC%EB%A7%81" target="_blank" rel="noopener">Naver Map</a></span>
+<span class="tag activity">💦 動態</span><span class="geo">📍 <a href="https://map.naver.com/p/search/%EC%A0%9C%EC%A3%BC%EC%A0%9C%ED%8A%B8%20%ED%8C%8C%EB%9D%BC%EC%84%B8%EC%9D%BC%EB%A7%81" target="_blank" rel="noopener">Naver Map</a></span>
 <p class="cdesc">13:40場次 · 需提前30分報到（官方規定），不接觸海水</p>
 <div class="tablewrap">
 <table>
@@ -632,7 +650,7 @@ body.cost-active .totop{bottom:calc(64px + env(safe-area-inset-bottom,0px));z-in
 <div class="card">
 <p class="ctime">15:05</p>
 <h3 class="cname">濟州實彈射擊場 제주실탄사격장</h3>
-<span class="tag">🎯 動態</span><span class="geo">📍 <a href="https://map.naver.com/p/search/%EC%A0%9C%EC%A3%BC%EC%8B%A4%ED%83%84%EC%82%AC%EA%B2%A9%EC%9E%A5" target="_blank" rel="noopener">Naver Map</a></span>
+<span class="tag activity">🎯 動態</span><span class="geo">📍 <a href="https://map.naver.com/p/search/%EC%A0%9C%EC%A3%BC%EC%8B%A4%ED%83%84%EC%82%AC%EA%B2%A9%EC%9E%A5" target="_blank" rel="noopener">Naver Map</a></span>
 <p class="cdesc">中文觀光區附近 · 실탄（實彈）12發，14歲以上需帶身分證明</p>
 <div class="tablewrap">
 <table>
@@ -656,7 +674,7 @@ body.cost-active .totop{bottom:calc(64px + env(safe-area-inset-bottom,0px));z-in
 <div class="card">
 <p class="ctime">16:40 抵達 · 17:30 預約</p>
 <h3 class="cname">熟成到 中文店 숙성도 중문점</h3>
-<span class="tag">🥩 烤黑豬</span><span class="geo">📍 <a href="https://map.naver.com/p/search/%EC%88%99%EC%84%B1%EB%8F%84%20%EC%A4%91%EB%AC%B8%EC%A0%90" target="_blank" rel="noopener">Naver Map</a></span>
+<span class="tag food">🥩 烤黑豬</span><span class="geo">📍 <a href="https://map.naver.com/p/search/%EC%88%99%EC%84%B1%EB%8F%84%20%EC%A4%91%EB%AC%B8%EC%A0%90" target="_blank" rel="noopener">Naver Map</a></span>
 <p class="cdesc">16:40提早抵達，附近逛逛，預留CatchTable緩衝避免遲到取消</p>
 <div class="dish"><span class="dlab">推薦</span>帶骨里脊 뼈등심 · 帶骨頸肉 뼈목살（限量80份）</div>
 <div class="info">
@@ -687,7 +705,7 @@ body.cost-active .totop{bottom:calc(64px + env(safe-area-inset-bottom,0px));z-in
 <div class="card">
 <p class="ctime">09:00</p>
 <h3 class="cname">龍頭海岸 용머리해안</h3>
-<span class="tag">🚶 靜態</span><span class="geo">📍 <a href="https://map.naver.com/p/search/%EC%9A%A9%EB%A8%B8%EB%A6%AC%ED%95%B4%EC%95%88" target="_blank" rel="noopener">Naver Map</a></span>
+<span class="tag activity">🚶 靜態</span><span class="geo">📍 <a href="https://map.naver.com/p/search/%EC%9A%A9%EB%A8%B8%EB%A6%AC%ED%95%B4%EC%95%88" target="_blank" rel="noopener">Naver Map</a></span>
 <div class="info">
 <div>門票：₩2,000/人，僅現場售票</div>
 <div>付款：現場刷卡／現金</div>
@@ -710,7 +728,7 @@ body.cost-active .totop{bottom:calc(64px + env(safe-area-inset-bottom,0px));z-in
 <div class="card">
 <p class="ctime">10:05</p>
 <h3 class="cname">山房山 산방산</h3>
-<span class="tag">🥾 體力活</span><span class="geo">📍 <a href="https://map.naver.com/p/search/%EC%82%B0%EB%B0%A9%EC%82%B0" target="_blank" rel="noopener">Naver Map</a></span>
+<span class="tag activity">🥾 體力活</span><span class="geo">📍 <a href="https://map.naver.com/p/search/%EC%82%B0%EB%B0%A9%EC%82%B0" target="_blank" rel="noopener">Naver Map</a></span>
 <div class="info">
 <div>門票：₩1,000/人，僅現場售票</div>
 <div>付款：現場刷卡／現金</div>
@@ -725,7 +743,7 @@ body.cost-active .totop{bottom:calc(64px + env(safe-area-inset-bottom,0px));z-in
 <div class="card">
 <p class="ctime">11:25</p>
 <h3 class="cname">雪綠茶博物館 TEA TERRACE by O'sulloc</h3>
-<span class="tag">🍵 靜態</span><span class="geo">📍 <a href="https://map.naver.com/p/search/%EC%98%A4%EC%84%A4%EB%A1%9D%20%ED%8B%B0%ED%95%98%EC%9A%B0%EC%8A%A4%20%EC%A0%9C%EC%A3%BC" target="_blank" rel="noopener">Naver Map</a></span>
+<span class="tag activity">🍵 靜態</span><span class="geo">📍 <a href="https://map.naver.com/p/search/%EC%98%A4%EC%84%A4%EB%A1%9D%20%ED%8B%B0%ED%95%98%EC%9A%B0%EC%8A%A4%20%EC%A0%9C%EC%A3%BC" target="_blank" rel="noopener">Naver Map</a></span>
 <div class="dish"><span class="dlab">推薦</span>熱抹茶麵 · 冷抹茶麵 · 抹茶拌麵</div>
 <div class="info">
 <div>門票：免門票</div>
@@ -743,7 +761,7 @@ body.cost-active .totop{bottom:calc(64px + env(safe-area-inset-bottom,0px));z-in
 <div class="card">
 <p class="ctime">14:40</p>
 <h3 class="cname">濟州騎馬公園 제주승마공원</h3>
-<span class="tag">🐴 動態</span><span class="geo">📍 <a href="https://map.naver.com/p/search/%EC%A0%9C%EC%A3%BC%EC%8A%B9%EB%A7%88%EA%B3%B5%EC%9B%90" target="_blank" rel="noopener">Naver Map</a></span>
+<span class="tag activity">🐴 動態</span><span class="geo">📍 <a href="https://map.naver.com/p/search/%EC%A0%9C%EC%A3%BC%EC%8A%B9%EB%A7%88%EA%B3%B5%EC%9B%90" target="_blank" rel="noopener">Naver Map</a></span>
 <div class="info">
 <div>方案：숲길B 30分林道騎乘</div>
 <div>金額：₩66,000/人（2人₩132,000）</div>
@@ -759,7 +777,7 @@ body.cost-active .totop{bottom:calc(64px + env(safe-area-inset-bottom,0px));z-in
 <div class="card">
 <p class="ctime">16:30 抵達 · 17:00 預約</p>
 <h3 class="cname">Zen Hideaway 젠하이드어웨이 제주점</h3>
-<span class="tag">🍕 泰義式</span><span class="tag o">🌅 海景</span><span class="geo">📍 <a href="https://map.naver.com/p/search/%EC%A0%A0%ED%95%98%EC%9D%B4%EB%93%9C%EC%96%B4%EC%9B%A8%EC%9D%B4%20%EC%A0%9C%EC%A3%BC%EC%A0%90" target="_blank" rel="noopener">Naver Map</a></span>
+<span class="tag food">🍕 泰義式</span><span class="tag o">🌅 海景</span><span class="geo">📍 <a href="https://map.naver.com/p/search/%EC%A0%A0%ED%95%98%EC%9D%B4%EB%93%9C%EC%96%B4%EC%9B%A8%EC%9D%B4%20%EC%A0%9C%EC%A3%BC%EC%A0%90" target="_blank" rel="noopener">Naver Map</a></span>
 <p class="cdesc">16:30提早抵達，先看海景等候，17:00正式入座用餐</p>
 <div class="dish"><span class="dlab">推薦</span>濟州柑橘披薩（不辣）· 鮑魚脆飯義大利麵（微辣）</div>
 <div class="info">
@@ -776,7 +794,7 @@ body.cost-active .totop{bottom:calc(64px + env(safe-area-inset-bottom,0px));z-in
 <div class="card">
 <p class="ctime">19:15</p>
 <h3 class="cname">加油站 주유소</h3>
-<span class="tag">⛽ 補給</span>
+<span class="tag transport">⛽ 補給</span>
 <p class="cdesc">晚餐後加油，為明天Day6一早直接還車做準備</p>
 <div class="info"><div>自助加油 · 選Gasoline/가솔린 · 加滿 · 約 ₩70,000 · 付款方式查不到（一般自助加油站多可刷卡，建議備現金以防萬一）</div></div>
 </div>
@@ -801,7 +819,7 @@ body.cost-active .totop{bottom:calc(64px + env(safe-area-inset-bottom,0px));z-in
 <div class="card">
 <p class="ctime">08:25</p>
 <h3 class="cname">樂天租車 롯데렌터카 還車</h3>
-<span class="tag">🚗 移動</span><span class="geo">📍 <a href="https://map.naver.com/p/search/%EB%A1%AF%EB%8D%B0%EB%A0%8C%ED%84%B0%EC%B9%B4%20%EC%A0%9C%EC%A3%BC%EC%98%A4%ED%86%A0%ED%95%98%EC%9A%B0%EC%8A%A4" target="_blank" rel="noopener">Naver Map</a></span>
+<span class="tag transport">🚗 移動</span><span class="geo">📍 <a href="https://map.naver.com/p/search/%EB%A1%AF%EB%8D%B0%EB%A0%8C%ED%84%B0%EC%B9%B4%20%EC%A0%9C%EC%A3%BC%EC%98%A4%ED%86%A0%ED%95%98%EC%9A%B0%EC%8A%A4" target="_blank" rel="noopener">Naver Map</a></span>
 <p class="cdesc">驗車、確認油量、結清費用</p>
 <div class="info"><div>停留：20 分（08:25–08:45）</div></div>
 </div>
@@ -811,7 +829,7 @@ body.cost-active .totop{bottom:calc(64px + env(safe-area-inset-bottom,0px));z-in
 <div class="card">
 <p class="ctime">08:55</p>
 <h3 class="cname">濟州機場 報到</h3>
-<span class="tag">✈️ 移動</span><span class="geo">📍 <a href="https://map.naver.com/p/search/%EC%A0%9C%EC%A3%BC%EA%B5%AD%EC%A0%9C%EA%B3%B5%ED%95%AD" target="_blank" rel="noopener">Naver Map</a></span>
+<span class="tag transport">✈️ 移動</span><span class="geo">📍 <a href="https://map.naver.com/p/search/%EC%A0%9C%EC%A3%BC%EA%B5%AD%EC%A0%9C%EA%B3%B5%ED%95%AD" target="_blank" rel="noopener">Naver Map</a></span>
 <p class="cdesc">距10:50起飛約1小時55分，國際線報到緩衝足夠但不算寬裕，建議一到機場直接辦理報到、不逗留</p>
 </div>
 
@@ -998,42 +1016,42 @@ body.cost-active .totop{bottom:calc(64px + env(safe-area-inset-bottom,0px));z-in
   });
 })();
 
-/* ===================== Sticky 高度：動態計算（無寫死數值） ===================== */
+/* ===================== Sticky／Fixed 高度：動態計算（無寫死數值） ===================== */
 var appShell = document.getElementById('appStickyShell');
-var appHeader = document.getElementById('appHeader');
 var topnavShell = document.getElementById('topnavShell');
 
 function updateStickyOffsets(){
-  var headerH = appHeader ? appHeader.scrollHeight : 0;
-  var shellH = appShell ? appShell.getBoundingClientRect().height
-    : (headerH + (topnavShell ? topnavShell.getBoundingClientRect().height : 0));
-  document.documentElement.style.setProperty('--app-header-height', headerH+'px');
-  document.documentElement.style.setProperty('--nav-height', shellH+'px');
-  var activeCost = document.querySelector('section[id^="cost-"].on .day');
-  var costTitleH = activeCost ? activeCost.getBoundingClientRect().height : 0;
-  document.documentElement.style.setProperty('--cost-title-height', costTitleH+'px');
-  document.documentElement.style.setProperty('--cost-table-head-top', (shellH+costTitleH)+'px');
+  var shellHeight = appShell ? appShell.getBoundingClientRect().height
+    : (topnavShell ? topnavShell.getBoundingClientRect().height : 0);
+  document.documentElement.style.setProperty('--app-shell-height', shellHeight+'px');
+  var activeCostDay = document.querySelector('section[id^="cost-"].on .day');
+  var titleHeight = activeCostDay ? activeCostDay.getBoundingClientRect().height : 0;
+  document.documentElement.style.setProperty('--cost-title-height', titleHeight+'px');
+  document.documentElement.style.setProperty('--cost-table-head-top', (shellHeight+titleHeight)+'px');
 }
 window.addEventListener('resize', updateStickyOffsets);
 window.addEventListener('orientationchange', function(){ setTimeout(updateStickyOffsets, 150); });
 window.addEventListener('load', updateStickyOffsets);
-if(appHeader){
-  appHeader.addEventListener('transitionend', function(e){
-    if(e.propertyName==='max-height') updateStickyOffsets();
-  });
-}
 
-var roActiveCostDay = null, roShell = null;
+/* 觀察：.app-sticky-shell 高度、目前費用頁 .day 高度、目前費用表 thead 高度 —— 任何一個變動都重新計算 */
+var roActiveCostDay = null, roActiveThead = null, roShell = null;
 function observeActiveCostDay(){
-  if(!roActiveCostDay) return;
-  roActiveCostDay.disconnect();
-  var d = document.querySelector('section[id^="cost-"].on .day');
-  if(d) roActiveCostDay.observe(d);
+  if(roActiveCostDay){
+    roActiveCostDay.disconnect();
+    var d = document.querySelector('section[id^="cost-"].on .day');
+    if(d) roActiveCostDay.observe(d);
+  }
+  if(roActiveThead){
+    roActiveThead.disconnect();
+    var th = document.querySelector('section[id^="cost-"].on thead');
+    if(th) roActiveThead.observe(th);
+  }
 }
 if('ResizeObserver' in window){
   roShell = new ResizeObserver(function(){ updateStickyOffsets(); });
   if(appShell) roShell.observe(appShell);
   roActiveCostDay = new ResizeObserver(function(){ updateStickyOffsets(); });
+  roActiveThead = new ResizeObserver(function(){ updateStickyOffsets(); });
   observeActiveCostDay();
 }
 
@@ -1068,41 +1086,7 @@ document.querySelectorAll('.nav2-row button').forEach(function(b){
   b.addEventListener('click', function(){ activateL2(b); setTimeout(updateStickyOffsets, 50); });
 });
 
-/* ===================== 頁首可收合：依滑動方向展開／收合 ===================== */
-(function(){
-  if(!appShell) return;
-  var lastY = window.scrollY || window.pageYOffset || 0;  /* 上一個判定基準點，只在跨過門檻時更新，避免慣性回彈造成的小幅抖動誤判方向 */
-  var ticking = false;
-  var DELTA = 10;      /* 需離基準點超過這個距離才判斷方向 */
-  var TOP_SNAP = 4;     /* 接近頁面頂端時，永遠展開頁首 */
-  function apply(y){
-    if(y <= TOP_SNAP){
-      appShell.classList.remove('is-collapsed');
-      lastY = y;
-      ticking = false;
-      return;
-    }
-    var dy = y - lastY;
-    if(dy > DELTA){
-      /* 手指往上滑、內容往上移 → 收合頁首 */
-      appShell.classList.add('is-collapsed');
-      lastY = y;
-    } else if(dy < -DELTA){
-      /* 手指往下滑、內容往下移 → 展開頁首 */
-      appShell.classList.remove('is-collapsed');
-      lastY = y;
-    }
-    /* 移動量在門檻內視為抖動／慣性回彈，不更新基準點、不切換狀態 */
-    ticking = false;
-  }
-  window.addEventListener('scroll', function(){
-    var y = window.scrollY || window.pageYOffset || 0;
-    if(!ticking){
-      ticking = true;
-      window.requestAnimationFrame(function(){ apply(y); });
-    }
-  }, {passive:true});
-})();
+/* 頁首／導覽固定於頂端，不再依滑動方向收合 */
 
 var totopBtn = document.getElementById('totopBtn');
 window.addEventListener('scroll', function(){
@@ -1110,7 +1094,6 @@ window.addEventListener('scroll', function(){
   else { totopBtn.classList.remove('show'); }
 }, {passive:true});
 totopBtn.addEventListener('click', function(){
-  if(appShell) appShell.classList.remove('is-collapsed');
   window.scrollTo({top:0, behavior:'smooth'});
 });
 
@@ -1299,7 +1282,8 @@ function buildAttractionTable(){
   var wrap = document.getElementById('attractionTableWrap');
   var html = '<div class="tablewrap"><table>';
   html += '<colgroup><col style="width:34%"><col style="width:18%"><col style="width:24%"><col style="width:24%"></colgroup>';
-  html += '<tr><th>付款方式</th><th>方案</th><th>韓幣(₩)</th><th>台幣(NT)</th></tr>';
+  html += '<thead><tr><th>付款方式</th><th>方案</th><th>韓幣(₩)</th><th>台幣(NT)</th></tr></thead>';
+  html += '<tbody>';
   attractions.forEach(function(item){
     html += '<tr><td colspan="4" class="grouphead"><div class="grouphead-row"><span class="grouphead-name">'+item.day+'｜'+item.short+'</span></div></td></tr>';
     item.opts.forEach(function(o){
@@ -1328,7 +1312,7 @@ function buildAttractionTable(){
       html += '</tr>';
     });
   });
-  html += '</table></div>';
+  html += '</tbody></table></div>';
   wrap.innerHTML = html;
 
   var sumHtml = '<div class="tablewrap"><table><colgroup><col style="width:34%"><col style="width:18%"><col style="width:24%"><col style="width:24%"></colgroup>';
@@ -1422,7 +1406,8 @@ function buildMealTable(){
   var wrap = document.getElementById('mealTableWrap');
   var html = '<div class="tablewrap"><table>';
   html += '<colgroup><col style="width:9%"><col style="width:22%"><col style="width:18%"><col style="width:25%"><col style="width:26%"></colgroup>';
-  html += '<tr><th>日</th><th>項目</th><th>付款</th><th>預估(2人)</th><th>實際(₩)</th></tr>';
+  html += '<thead><tr><th>日</th><th>項目</th><th>付款</th><th>預估(2人)</th><th>實際(₩)</th></tr></thead>';
+  html += '<tbody>';
   meals.forEach(function(m){
     var estText = m.undetermined ? '－' : fmtKRW(m.estMin);
     var actualVal = mealActuals.hasOwnProperty(m.id) ? mealActuals[m.id] : '';
@@ -1430,7 +1415,7 @@ function buildMealTable(){
     html += '<td class="amt-cell">'+estText+'</td>';
     html += '<td class="amt-cell"><div class="amount-layout"><input type="text" inputmode="numeric" pattern="[0-9]*" class="pricein actual" data-meal="'+m.id+'" placeholder="未填" value="'+actualVal+'"><span class="twdconv mealconv" data-mconv="'+m.id+'">'+(actualVal!==''?'≈ NT$'+Math.round(krw2twd(actualVal)).toLocaleString('en-US'):'')+'</span></div></td></tr>';
   });
-  html += '</table></div>';
+  html += '</tbody></table></div>';
   wrap.innerHTML = html;
 
   var sumHtml = '<div class="tablewrap"><table><colgroup><col style="width:9%"><col style="width:22%"><col style="width:18%"><col style="width:25%"><col style="width:26%"></colgroup>';
@@ -1512,7 +1497,8 @@ function buildBigTicketTable(){
   var wrap = document.getElementById('bigTicketTableWrap');
   var html = '<div class="tablewrap"><table>';
   html += '<colgroup><col style="width:30%"><col style="width:28%"><col style="width:21%"><col style="width:21%"></colgroup>';
-  html += '<tr><th>項目</th><th>預估金額</th><th>實際(₩)</th><th>實際(NT)</th></tr>';
+  html += '<thead><tr><th>項目</th><th>預估金額</th><th>實際(₩)</th><th>實際(NT)</th></tr></thead>';
+  html += '<tbody>';
   bigTickets.forEach(function(b){
     var actualVal = bigActuals.hasOwnProperty(b.id) ? bigActuals[b.id] : '';
     html += '<tr><td>'+b.name+'</td><td class="amt-cell">'+bigEstText(b)+'</td>';
@@ -1525,7 +1511,7 @@ function buildBigTicketTable(){
     }
     html += '</tr>';
   });
-  html += '</table></div>';
+  html += '</tbody></table></div>';
   wrap.innerHTML = html;
 
   wrap.querySelectorAll('input.pricein.actual[data-big]').forEach(function(inp){
@@ -1637,6 +1623,7 @@ function afterInitialLoad(){
   applyFxValue();
   renderTravelTotal();
   bindChecklist();
+  observeActiveCostDay();
   setTimeout(updateStickyOffsets, 50);
 }
 
@@ -1648,6 +1635,8 @@ document.getElementById('resetAttractions').addEventListener('click', function()
   updateAllGroupBest();
   renderAttractionSummary();
   renderTravelTotal();
+  observeActiveCostDay();
+  setTimeout(updateStickyOffsets, 50);
 });
 document.getElementById('clearMealActuals').addEventListener('click', function(){
   mealActuals = {};
@@ -1656,6 +1645,8 @@ document.getElementById('clearMealActuals').addEventListener('click', function()
   buildMealTable();
   renderMealSummary();
   renderTravelTotal();
+  observeActiveCostDay();
+  setTimeout(updateStickyOffsets, 50);
 });
 function onFxInput(){
   var raw = this.value.replace(/[^0-9.]/g,'');
