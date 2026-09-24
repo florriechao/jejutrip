@@ -11,17 +11,24 @@
   --text:#F5F2EE; --text2:#C5C1BC; --mute:#96928E; --border:#484848;
   --sticky-bg:#1E1E1E; --input-bg:#272727; --table-bg:transparent;
   /* ===== 濟州橘 4 階系統 ===== */
-  --orange:#F29A38; --orange-hover:#F6B968; --orange-soft:#F6B968; --orange-on-solid:#1E1E1E;
+  --orange:#C49057; --orange-hover:#F6B968; --orange-soft:#F6B968; --orange-on-solid:#1E1E1E;
   --glass-orange-bg:rgba(242,154,56,.14); --glass-orange-bg-strong:rgba(242,154,56,.20);
   --glass-orange-text:#F6B968; --glass-orange-border:rgba(242,154,56,.30);
   --pale-orange:rgba(242,154,56,.14);
   /* ===== 海洋藍（餐食推薦／外部連結） ===== */
-  --ocean:#29A9E0; --link:#65C5EE; --link-hover:#91D9F5;
+  --ocean:#29A9E0; --link:#6EB0CC; --link-hover:#91D9F5;
   --food-bg:#203944; --food-text:#78CBEF; --food-border:#315767;
   /* ===== 自然綠（行程屬性標籤） ===== */
-  --green-bg:#263A2D; --green-text:#8FD0A2; --green-border:#395743;
+  --green-bg:#263A2D; --green-text:#8EB79A; --green-border:#395743;
+  /* ===== 行程屬性標籤（各類別獨立 token，避免共用選擇器牽動彼此） ===== */
+  --tag-lodging-bg:var(--green-bg); --tag-lodging-text:var(--green-text); --tag-lodging-border:var(--green-border);
+  --tag-food-bg:var(--green-bg); --tag-food-text:var(--green-text); --tag-food-border:var(--green-border);
+  --tag-transport-bg:var(--green-bg); --tag-transport-text:var(--green-text); --tag-transport-border:var(--green-border);
+  --tag-activity-bg:var(--green-bg); --tag-activity-text:var(--green-text); --tag-activity-border:var(--green-border);
+  --tag-museum-bg:var(--green-bg); --tag-museum-text:var(--green-text); --tag-museum-border:var(--green-border);
+  --season-bg:var(--green-bg); --season-text:var(--green-text); --season-border:var(--green-border);
   /* ===== 油菜花黃（提醒／警示，僅限真正需提醒事項） ===== */
-  --warn-bg:#403821; --warn-text:#F3D76A; --warn-border:#62552D; --warn-accent:#F2C94C;
+  --warn-bg:#403821; --warn-text:#C5B36F; --warn-border:#62552D; --warn-accent:#F2C94C;
   /* ===== 金額 ===== */
   --price:#F5F2EE; --price-secondary:#C5C1BC; --price-highlight:#FFAD5C;
   /* ===== 表格 ===== */
@@ -29,14 +36,14 @@
   /* ===== 輸入框 ===== */
   --input-border:#505050; --input-placeholder:#8F8B87; --input-focus-border:#F6B968; --input-focus-ring:rgba(242,154,56,.18);
   /* ===== 按鈕 ===== */
-  --btn-primary-bg:#F29A38; --btn-primary-text:#1E1E1E; --btn-primary-hover:#F6B968;
+  --btn-primary-bg:#C49057; --btn-primary-text:#1E1E1E; --btn-primary-hover:#F6B968;
   --btn-secondary-bg:rgba(242,154,56,.14); --btn-secondary-text:var(--glass-orange-text); --btn-secondary-border:rgba(242,154,56,.30);
   /* ===== 導覽標籤（L1 大標籤／L2 小標籤 D1-D6） ===== */
   --tab-l1-on-bg:rgba(242,154,56,.20); --tab-l1-on-text:var(--glass-orange-text);
   --tab-l2-bg:rgba(242,154,56,.14); --tab-l2-text:var(--glass-orange-text); --tab-l2-hover:rgba(242,154,56,.20);
-  --tab-l2-on-bg:#F29A38; --tab-l2-on-text:#1E1E1E;
-  /* ===== 徽章（星級／次要提示標籤） ===== */
-  --badge-bg:rgba(242,154,56,.14); --badge-text:var(--glass-orange-text); --badge-border:rgba(242,154,56,.30);
+  --tab-l2-on-bg:#C49057; --tab-l2-on-text:#1E1E1E;
+  /* ===== 徽章（星級／次要提示標籤，獨立於行程時間橘字） ===== */
+  --badge-bg:rgba(242,154,56,.14); --badge-text:#D0A975; --badge-border:rgba(242,154,56,.30);
   /* ===== 群組列／小計 ===== */
   --group-bg:rgba(242,154,56,.10); --group-border:rgba(242,154,56,.20);
   --total-accent:#FFAD5C;
@@ -53,10 +60,17 @@
   --glass-orange-text:#8F4E10; --glass-orange-border:rgba(242,154,56,.25);
   --pale-orange:#FFF1E2;
   /* ===== 海洋藍（餐食推薦／外部連結） ===== */
-  --ocean:#29A9E0; --link:#106A93; --link-hover:#1686B8;
+  --ocean:#29A9E0; --link:#2B6782; --link-hover:#1686B8;
   --food-bg:#E5F5FB; --food-text:#177AA5; --food-border:#B9E2F2;
   /* ===== 自然綠（行程屬性標籤） ===== */
-  --green-bg:#E4F3E8; --green-text:#34724A; --green-border:#C5E2CD;
+  --green-bg:#E4F3E8; --green-text:#3E7350; --green-border:#C5E2CD;
+  /* ===== 行程屬性標籤（各類別獨立 token，避免共用選擇器牽動彼此） ===== */
+  --tag-lodging-bg:var(--green-bg); --tag-lodging-text:var(--green-text); --tag-lodging-border:var(--green-border);
+  --tag-food-bg:var(--green-bg); --tag-food-text:var(--green-text); --tag-food-border:var(--green-border);
+  --tag-transport-bg:var(--green-bg); --tag-transport-text:var(--green-text); --tag-transport-border:var(--green-border);
+  --tag-activity-bg:var(--green-bg); --tag-activity-text:var(--green-text); --tag-activity-border:var(--green-border);
+  --tag-museum-bg:var(--green-bg); --tag-museum-text:var(--green-text); --tag-museum-border:var(--green-border);
+  --season-bg:#FBE7EC; --season-text:#A8446C; --season-border:#F4D3DE;
   /* ===== 油菜花黃（提醒／警示，僅限真正需提醒事項） ===== */
   --warn-bg:#FFF5CC; --warn-text:#775B00; --warn-border:#F2D66D; --warn-accent:#F2C94C;
   /* ===== 金額 ===== */
@@ -71,9 +85,9 @@
   /* ===== 導覽標籤（L1 大標籤／L2 小標籤 D1-D6） ===== */
   --tab-l1-on-bg:rgba(242,154,56,.16); --tab-l1-on-text:var(--glass-orange-text);
   --tab-l2-bg:#FFF1E2; --tab-l2-text:var(--glass-orange-text); --tab-l2-hover:rgba(242,154,56,.16);
-  --tab-l2-on-bg:#F29A38; --tab-l2-on-text:#FFFFFF;
-  /* ===== 徽章（星級／次要提示標籤） ===== */
-  --badge-bg:rgba(242,154,56,.12); --badge-text:var(--glass-orange-text); --badge-border:rgba(242,154,56,.25);
+  --tab-l2-on-bg:#F2C68C; --tab-l2-on-text:#733E0D;
+  /* ===== 徽章（星級／次要提示標籤，獨立於行程時間橘字） ===== */
+  --badge-bg:rgba(242,154,56,.12); --badge-text:#7F542A; --badge-border:rgba(242,154,56,.25);
   /* ===== 群組列／小計 ===== */
   --group-bg:rgba(242,154,56,.08); --group-border:rgba(242,154,56,.20);
   --total-accent:#D86F13;
@@ -161,8 +175,12 @@ body.cost-active{padding-bottom:56px}
   border:1px solid var(--badge-border);
   color:var(--badge-text);margin:0 4px 6px 0;font-weight:700}
 .tag.o{background:var(--badge-bg);color:var(--badge-text);border:1px solid var(--badge-border)}
-/* 行程屬性標籤（靜態/體力活/戶外/室內/展館/自然/散步/購物等）統一使用自然綠系；餐食類別標籤同屬此群組 */
-.tag.lodging,.tag.food,.tag.transport,.tag.activity,.tag.museum{background:var(--green-bg);color:var(--green-text);border:1px solid var(--green-border)}
+/* 行程屬性標籤（靜態/體力活/戶外/室內/展館/自然/散步/購物等）維持自然綠色相；各類別各自獨立設定樣式，避免共用選擇器牽動其他標籤 */
+.tag.lodging{background:var(--tag-lodging-bg);color:var(--tag-lodging-text);border:1px solid var(--tag-lodging-border)}
+.tag.food{background:var(--tag-food-bg);color:var(--tag-food-text);border:1px solid var(--tag-food-border)}
+.tag.transport{background:var(--tag-transport-bg);color:var(--tag-transport-text);border:1px solid var(--tag-transport-border)}
+.tag.activity{background:var(--tag-activity-bg);color:var(--tag-activity-text);border:1px solid var(--tag-activity-border)}
+.tag.museum{background:var(--tag-museum-bg);color:var(--tag-museum-text);border:1px solid var(--tag-museum-border)}
 /* 星級標籤：使用橘色徽章色系，獨立於行程屬性綠色與提醒黃色 */
 .tag.rating{background:var(--badge-bg);color:var(--badge-text);border:1px solid var(--badge-border)}
 .geo{display:inline-block;font-size:10px;padding:2px 7px;border-radius:8px;background:var(--food-bg);border:1px solid var(--food-border);
@@ -170,7 +188,7 @@ body.cost-active{padding-bottom:56px}
 .geo a{color:var(--link);font-weight:700}
 .cdesc{font-size:12.5px;color:var(--text2);margin:6px 0}
 .dish{font-size:12px;color:var(--food-text);margin:6px 0}
-.tag.o.season{background:var(--green-bg);color:var(--green-text);border:1px solid var(--green-border)}
+.tag.o.season{background:var(--season-bg);color:var(--season-text);border:1px solid var(--season-border)}
 .dlab{font-size:9px;letter-spacing:1px;color:var(--glass-orange-text);font-weight:700;display:block;margin-bottom:2px}
 .info{font-size:11.5px;color:var(--text2);margin:6px 0 0;padding:8px 10px;background:rgba(241,245,244,.06);border-radius:10px}
 .info div{padding:1px 0}
