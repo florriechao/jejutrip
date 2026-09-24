@@ -10,42 +10,45 @@
   --page-bg:#1E1E1E; --section-bg:#272727; --card-bg:#303030; --card-elevated:#383838;
   --text:#F5F2EE; --text2:#C5C1BC; --mute:#96928E; --border:#484848;
   --sticky-bg:#1E1E1E; --input-bg:#272727; --table-bg:transparent;
-  /* ===== 濟州橘 4 階系統 ===== */
+  /* ===== 濟州橘（深色主題降為輔助色：行程時間／重要提示／少量icon） ===== */
   --orange:#C49057; --orange-hover:#F6B968; --orange-soft:#F6B968; --orange-on-solid:#1E1E1E;
   --glass-orange-bg:rgba(242,154,56,.14); --glass-orange-bg-strong:rgba(242,154,56,.20);
   --glass-orange-text:#F6B968; --glass-orange-border:rgba(242,154,56,.30);
   --pale-orange:rgba(242,154,56,.14);
-  /* ===== 海洋藍（餐食推薦／外部連結） ===== */
-  --ocean:#29A9E0; --link:#6EB0CC; --link-hover:#91D9F5;
-  --food-bg:#203944; --food-text:#78CBEF; --food-border:#315767;
-  /* ===== 自然綠（行程屬性標籤） ===== */
-  --green-bg:#263A2D; --green-text:#8EB79A; --green-border:#395743;
+  /* ===== 沉穩藍（深色主題主識別色：大／小標籤、連結、藍色文字與提示） ===== */
+  --ocean:#29A9E0; --link:#9FBBD9; --link-hover:#91D9F5;
+  --food-bg:#203944; --food-text:#88BAD0; --food-border:#315767;
+  /* ===== 次要強調底色（原橘色玻璃感表面，深色主題改為藍色，避免大面積橘色） ===== */
+  --emphasis-bg:rgba(92,141,188,.14); --emphasis-bg-strong:rgba(92,141,188,.20); --emphasis-border:rgba(92,141,188,.30);
+  /* ===== 低彩度綠（行程屬性迷你標籤，沿用先前深色主題的綠底＋淺色文字） ===== */
+  --green-bg:#4D7267; --green-text:#F1F4F7; --green-border:#4D7267;
   /* ===== 行程屬性標籤（各類別獨立 token，避免共用選擇器牽動彼此） ===== */
   --tag-lodging-bg:var(--green-bg); --tag-lodging-text:var(--green-text); --tag-lodging-border:var(--green-border);
   --tag-food-bg:var(--green-bg); --tag-food-text:var(--green-text); --tag-food-border:var(--green-border);
   --tag-transport-bg:var(--green-bg); --tag-transport-text:var(--green-text); --tag-transport-border:var(--green-border);
   --tag-activity-bg:var(--green-bg); --tag-activity-text:var(--green-text); --tag-activity-border:var(--green-border);
   --tag-museum-bg:var(--green-bg); --tag-museum-text:var(--green-text); --tag-museum-border:var(--green-border);
-  --season-bg:var(--green-bg); --season-text:var(--green-text); --season-border:var(--green-border);
-  /* ===== 油菜花黃（提醒／警示，僅限真正需提醒事項） ===== */
-  --warn-bg:#403821; --warn-text:#C5B36F; --warn-border:#62552D; --warn-accent:#F2C94C;
+  /* 粉紅芒草最盛期：深色主題改用低彩度紫灰色，作為獨立季節提示色 */
+  --season-bg:#393746; --season-text:#C7C2D8; --season-border:#4A4759;
+  /* ===== 油菜花黃（提醒／警示，僅限真正需提醒事項，小面積使用） ===== */
+  --warn-bg:#403821; --warn-text:#B9AA71; --warn-border:#62552D; --warn-accent:#F2C94C;
   /* ===== 金額 ===== */
   --price:#F5F2EE; --price-secondary:#C5C1BC; --price-highlight:#FFAD5C;
-  /* ===== 表格 ===== */
-  --table-header-bg:rgba(242,154,56,.14); --table-header-text:#F6B968; --table-border:#484848; --table-hover:rgba(242,154,56,.08);
+  /* ===== 表格（表頭改為藍色系，避免大面積橘色） ===== */
+  --table-header-bg:rgba(92,141,188,.16); --table-header-text:#9FBBD9; --table-border:#484848; --table-hover:rgba(92,141,188,.08);
   /* ===== 輸入框 ===== */
   --input-border:#505050; --input-placeholder:#8F8B87; --input-focus-border:#F6B968; --input-focus-ring:rgba(242,154,56,.18);
-  /* ===== 按鈕 ===== */
-  --btn-primary-bg:#C49057; --btn-primary-text:#1E1E1E; --btn-primary-hover:#F6B968;
-  --btn-secondary-bg:rgba(242,154,56,.14); --btn-secondary-text:var(--glass-orange-text); --btn-secondary-border:rgba(242,154,56,.30);
-  /* ===== 導覽標籤（L1 大標籤／L2 小標籤 D1-D6） ===== */
-  --tab-l1-on-bg:rgba(242,154,56,.20); --tab-l1-on-text:var(--glass-orange-text);
-  --tab-l2-bg:rgba(242,154,56,.14); --tab-l2-text:var(--glass-orange-text); --tab-l2-hover:rgba(242,154,56,.20);
-  --tab-l2-on-bg:#C49057; --tab-l2-on-text:#1E1E1E;
-  /* ===== 徽章（星級／次要提示標籤，獨立於行程時間橘字） ===== */
+  /* ===== 按鈕（改為藍色為主） ===== */
+  --btn-primary-bg:#5C8DBC; --btn-primary-text:#1E1E1E; --btn-primary-hover:#9FBBD9;
+  --btn-secondary-bg:rgba(92,141,188,.14); --btn-secondary-text:#9FBBD9; --btn-secondary-border:rgba(92,141,188,.30);
+  /* ===== 導覽標籤（L1 大標籤／L2 小標籤 D1-D6，恢復先前較沉穩的深色藍） ===== */
+  --tab-l1-on-bg:#33475C; --tab-l1-on-text:#DCE6F0;
+  --tab-l2-bg:rgba(92,141,188,.14); --tab-l2-text:#9FBBD9; --tab-l2-hover:rgba(92,141,188,.20);
+  --tab-l2-on-bg:#2E5A85; --tab-l2-on-text:#FFFFFF;
+  /* ===== 徽章（星級／次要提示標籤，維持小面積橘色徽章，獨立於行程時間橘字） ===== */
   --badge-bg:rgba(242,154,56,.14); --badge-text:#D0A975; --badge-border:rgba(242,154,56,.30);
-  /* ===== 群組列／小計 ===== */
-  --group-bg:rgba(242,154,56,.10); --group-border:rgba(242,154,56,.20);
+  /* ===== 群組列／小計（改為藍色系） ===== */
+  --group-bg:rgba(92,141,188,.10); --group-border:rgba(92,141,188,.20);
   --total-accent:#FFAD5C;
   --body-bg:var(--page-bg);
 }
@@ -59,6 +62,7 @@
   --glass-orange-bg:rgba(242,154,56,.12); --glass-orange-bg-strong:rgba(242,154,56,.16);
   --glass-orange-text:#8F4E10; --glass-orange-border:rgba(242,154,56,.25);
   --pale-orange:#FFF1E2;
+  --emphasis-bg:rgba(242,154,56,.12); --emphasis-bg-strong:rgba(242,154,56,.16); --emphasis-border:rgba(242,154,56,.25);
   /* ===== 海洋藍（餐食推薦／外部連結） ===== */
   --ocean:#29A9E0; --link:#2B6782; --link-hover:#1686B8;
   --food-bg:#E5F5FB; --food-text:#177AA5; --food-border:#B9E2F2;
@@ -197,7 +201,7 @@ a{color:var(--link)}
 .drive{display:block;text-align:center;font-size:11px;color:var(--text2);padding:6px 4px;margin:2px 12px;
   font-family:ui-monospace,Menlo,monospace;font-weight:600;white-space:nowrap;overflow-x:auto}
 @media (max-width:360px){.drive{font-size:10.5px}}
-.alt{background:var(--glass-orange-bg);border:1px solid var(--glass-orange-border);border-radius:16px;padding:12px 14px;margin:0 12px 8px;box-shadow:0 2px 8px rgba(0,0,0,.10);position:relative;z-index:2}
+.alt{background:var(--emphasis-bg);border:1px solid var(--emphasis-border);border-radius:16px;padding:12px 14px;margin:0 12px 8px;box-shadow:0 2px 8px rgba(0,0,0,.10);position:relative;z-index:2}
 .altlab{font-size:10px;color:var(--text);letter-spacing:1px;font-weight:700;margin:0 0 4px;opacity:.85}
 .unsure,.notice.info,.notice.alert{background:var(--card-elevated);border:1px solid var(--border);padding:8px 10px;margin:6px 0 0;border-radius:12px;font-size:11px;color:var(--text2)}
 .sect{font-size:13.5px;font-weight:700;margin:20px 12px 8px;padding-top:10px;border-top:1px solid var(--border);color:var(--text)}
@@ -240,7 +244,7 @@ section[id^="cost-"] th:last-child,section[id^="cost-"] td:last-child{padding-ri
 .stickysum{position:sticky;bottom:64px;z-index:5;width:calc(100% - 24px);margin:0 12px 12px;box-shadow:0 2px 8px rgba(0,0,0,.10);overflow:hidden;border-radius:16px}
 tr.sumrow td{font-weight:700;color:var(--text);background:rgba(120,120,120,.06)}
 tr.sumrow .sumlabel{color:var(--text2);font-weight:600;text-align:left}
-tr.sumrow.grand td{background:var(--glass-orange-bg-strong)}
+tr.sumrow.grand td{background:var(--emphasis-bg-strong)}
 tr.sumrow.grand .sumlabel{color:var(--text);font-weight:800}
 tr.sumrow.grand .amt-cell{color:var(--text);font-weight:800;font-size:11.5px}
 .stickysum .srow{display:flex;justify-content:space-between;align-items:baseline;gap:8px;padding:8px 12px;font-size:11.5px;
@@ -249,7 +253,7 @@ tr.sumrow.grand .amt-cell{color:var(--text);font-weight:800;font-size:11.5px}
 .stickysum .srow:first-child{border-top:1px solid var(--border)}
 .stickysum .slabel{color:var(--text)}
 .stickysum .sval{color:var(--text);font-weight:700;text-align:right}
-.stickysum .srow.grand{background:var(--glass-orange-bg-strong);border-color:var(--glass-orange-border)}
+.stickysum .srow.grand{background:var(--emphasis-bg-strong);border-color:var(--emphasis-border)}
 .stickysum .srow.grand .slabel,.stickysum .srow.grand .sval{color:var(--text);font-weight:800;font-size:12.5px}
 .tablebottom-spacer{height:8px}
 .plat-cell{font-size:11px;overflow:hidden}
@@ -258,13 +262,15 @@ tr.sumrow.grand .amt-cell{color:var(--text);font-weight:800;font-size:11.5px}
 .critical{background:var(--warn-bg);border:1px solid var(--warn-border);color:var(--warn-text);border-radius:16px;padding:12px 14px;margin:0 12px 10px;font-size:12px;line-height:1.7}
 .critical strong{display:block;font-size:13px;margin-bottom:4px;color:var(--warn-text)}
 .ckwrap{background:var(--card-bg);backdrop-filter:blur(16px);border:1px solid var(--border);border-radius:16px;padding:10px 12px;margin:0 12px 8px;display:flex;gap:10px;align-items:flex-start}
-.ckwrap input[type=checkbox]{width:20px;height:20px;flex-shrink:0;margin-top:1px;accent-color:var(--orange)}
+.ckwrap input[type=checkbox]{width:20px;height:20px;flex-shrink:0;margin-top:1px;accent-color:var(--btn-primary-bg)}
 .cklabel{flex:1;font-size:12px;color:var(--text2)}
 .cklabel b{color:var(--text);font-weight:600;display:block;font-size:12.5px;margin-bottom:2px}
 .cktip{font-size:10.5px;color:var(--mute);margin-top:2px;display:block}
-.ckwrap.crit{background:var(--warn-bg);border:1px solid var(--warn-border)}
-.ckwrap.crit .cklabel,.ckwrap.crit .cklabel b,.ckwrap.crit .cktip{color:var(--warn-text)}
-.ckwrap.crit input[type=checkbox]{accent-color:var(--orange)}
+.ckwrap.crit{background:var(--card-elevated);border:1px solid var(--border);border-left:3px solid var(--warn-accent)}
+.ckwrap.crit .cklabel{color:var(--text2)}
+.ckwrap.crit .cklabel b{color:var(--warn-text)}
+.ckwrap.crit .cktip{color:var(--mute)}
+.ckwrap.crit input[type=checkbox]{accent-color:var(--btn-primary-bg)}
 .sectrow{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:20px 12px 8px;flex-wrap:wrap}
 .sectrow .sect{margin:0;padding:0;border:none;flex:1;color:var(--text);font-weight:700}
 .btn{background:var(--btn-primary-bg);color:var(--btn-primary-text);border:none;border-radius:10px;padding:6px 12px;font-size:11px;cursor:pointer;font-family:inherit;white-space:nowrap;font-weight:600}
@@ -897,6 +903,7 @@ body.cost-active .totop{bottom:calc(64px + env(safe-area-inset-bottom,0px));z-in
 <h2 class="dtitle">機票 · 飯店 · 租車</h2>
 <div class="dtitle-tools">
 <span class="fxinline">1 KRW = NT$ <input type="text" inputmode="decimal" class="rateinput" data-rate-input value="0.0227"></span>
+<button class="btn ghost btn-compact" id="clearBigActuals" type="button">清除實際金額</button>
 </div>
 </div>
 </div>
@@ -1694,6 +1701,15 @@ document.getElementById('clearMealActuals').addEventListener('click', function()
   debounceWrite('mealActuals', mealActuals);
   buildMealTable();
   renderMealSummary();
+  renderTravelTotal();
+  observeActiveCostDay();
+  setTimeout(updateStickyOffsets, 50);
+});
+document.getElementById('clearBigActuals').addEventListener('click', function(){
+  bigActuals = {};
+  lsSaveBig();
+  debounceWrite('bigActuals', bigActuals);
+  buildBigTicketTable();
   renderTravelTotal();
   observeActiveCostDay();
   setTimeout(updateStickyOffsets, 50);
