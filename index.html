@@ -28,10 +28,16 @@
   --tag-transport-bg:var(--green-bg); --tag-transport-text:var(--green-text); --tag-transport-border:var(--green-border);
   --tag-activity-bg:var(--green-bg); --tag-activity-text:var(--green-text); --tag-activity-border:var(--green-border);
   --tag-museum-bg:var(--green-bg); --tag-museum-text:var(--green-text); --tag-museum-border:var(--green-border);
-  /* 粉紅芒草最盛期：深色主題改用低彩度紫灰色，作為獨立季節提示色 */
-  --season-bg:#393746; --season-text:#C7C2D8; --season-border:#4A4759;
+  /* 粉紅芒草最盛期：深色主題改用實色粉紅（與行程屬性綠色標籤相同彩度／亮度設計，僅色相不同），不透明無玻璃感 */
+  --season-bg:#7C4356; --season-text:var(--green-text); --season-border:#7C4356;
   /* ===== 油菜花黃（提醒／警示，僅限真正需提醒事項，小面積使用） ===== */
   --warn-bg:#403821; --warn-text:#B9AA71; --warn-border:#62552D; --warn-accent:#F2C94C;
+  /* 務必攜帶（.ckwrap.crit）獨立重點色：深色主題改為橘色，與上方通用黃色警示 token 脫鉤，避免牽動星級與其他黃色 */
+  --crit-accent:#D9A257; --crit-text:#D9A257;
+  /* 星級標籤：與行程屬性綠色標籤相同彩度／亮度設計（僅色相改為橘色，非黃色），不透明無玻璃感 */
+  --rating-bg:#7E5D41; --rating-text:var(--green-text); --rating-border:#7E5D41;
+  /* 食宿總覽餐食類型文字：深色主題沿用原本橘色時間字，維持不變 */
+  --mealtype-text:var(--glass-orange-text);
   /* ===== 金額 ===== */
   --price:#F5F2EE; --price-secondary:#C5C1BC; --price-highlight:#FFAD5C;
   /* ===== 表格（表頭改為藍色系，避免大面積橘色） ===== */
@@ -77,6 +83,12 @@
   --season-bg:#FBE7EC; --season-text:#A8446C; --season-border:#F4D3DE;
   /* ===== 油菜花黃（提醒／警示，僅限真正需提醒事項） ===== */
   --warn-bg:#FFF5CC; --warn-text:#775B00; --warn-border:#F2D66D; --warn-accent:#F2C94C;
+  /* 務必攜帶（.ckwrap.crit）獨立重點色：淺色主題維持現狀（沿用原本黃色） */
+  --crit-accent:var(--warn-accent); --crit-text:var(--warn-text);
+  /* 星級標籤：淺色主題維持現狀 */
+  --rating-bg:var(--badge-bg); --rating-text:var(--badge-text); --rating-border:var(--badge-border);
+  /* 食宿總覽餐食類型文字：淺色主題改用飽和清楚的橘色（非棕色），脫鉤於行程時間橘字 */
+  --mealtype-text:#B25900;
   /* ===== 金額 ===== */
   --price:#343434; --price-secondary:#686868; --price-highlight:#D86F13;
   /* ===== 表格 ===== */
@@ -186,7 +198,7 @@ body.cost-active{padding-bottom:56px}
 .tag.activity{background:var(--tag-activity-bg);color:var(--tag-activity-text);border:1px solid var(--tag-activity-border)}
 .tag.museum{background:var(--tag-museum-bg);color:var(--tag-museum-text);border:1px solid var(--tag-museum-border)}
 /* 星級標籤：使用橘色徽章色系，獨立於行程屬性綠色與提醒黃色 */
-.tag.rating{background:var(--badge-bg);color:var(--badge-text);border:1px solid var(--badge-border)}
+.tag.rating{background:var(--rating-bg);color:var(--rating-text);border:1px solid var(--rating-border)}
 .geo{display:inline-block;font-size:10px;padding:2px 7px;border-radius:8px;background:var(--food-bg);border:1px solid var(--food-border);
   color:var(--text);margin:0 4px 6px 0}
 .geo a{color:var(--link);font-weight:700}
@@ -217,7 +229,7 @@ table{width:100%;border-collapse:separate;border-spacing:0;font-size:11px;word-b
 th{text-align:left;padding:4px 4px;border-bottom:1px solid var(--table-border);background:var(--table-header-bg);color:var(--table-header-text);font-weight:700;font-size:9.5px;white-space:normal;word-break:keep-all;overflow-wrap:break-word}
 td{padding:5px 4px;border-bottom:.5px solid var(--table-border);color:var(--text2);vertical-align:middle;word-break:keep-all;overflow-wrap:break-word;white-space:normal;min-width:0}
 .num{text-align:right}
-.tp{color:var(--glass-orange-text);font-size:10px;display:block}
+.tp{color:var(--mealtype-text);font-size:10px;display:block}
 .total{background:var(--card-bg);backdrop-filter:blur(16px);border:1px solid var(--border);border-radius:16px;padding:12px 14px;margin:0 12px 10px;font-size:12.5px;color:var(--text2);line-height:1.8}
 .total div{padding:2px 0}
 .total .tot-h{font-size:13px;font-weight:700;color:var(--text)}
@@ -266,9 +278,9 @@ tr.sumrow.grand .amt-cell{color:var(--text);font-weight:800;font-size:11.5px}
 .cklabel{flex:1;font-size:12px;color:var(--text2)}
 .cklabel b{color:var(--text);font-weight:600;display:block;font-size:12.5px;margin-bottom:2px}
 .cktip{font-size:10.5px;color:var(--mute);margin-top:2px;display:block}
-.ckwrap.crit{background:var(--card-elevated);border:1px solid var(--border);border-left:3px solid var(--warn-accent)}
+.ckwrap.crit{background:var(--card-elevated);border:1px solid var(--border);border-left:3px solid var(--crit-accent)}
 .ckwrap.crit .cklabel{color:var(--text2)}
-.ckwrap.crit .cklabel b{color:var(--warn-text)}
+.ckwrap.crit .cklabel b{color:var(--crit-text)}
 .ckwrap.crit .cktip{color:var(--mute)}
 .ckwrap.crit input[type=checkbox]{accent-color:var(--btn-primary-bg)}
 .sectrow{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:20px 12px 8px;flex-wrap:wrap}
